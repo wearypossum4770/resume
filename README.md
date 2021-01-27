@@ -11,7 +11,8 @@ documentation https://docs.gitlab.com/ce/user/project/pages/.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [GitLab CI](#gitlab-ci)
 - [GitLab User or Group Pages](#gitlab-user-or-group-pages)

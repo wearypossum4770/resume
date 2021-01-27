@@ -1,0 +1,15 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "repository": "git@gitlab.com:wearypossum4770/resume.git",
+  "author": "wearypossum4770 <wearypossum4770@yahoo.com>",
+  "license": "MIT",
+  "scripts": {
+    "pretty": "yarn prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
+}
