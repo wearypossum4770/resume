@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
+   "private": true,
+  "description":"This is something like a resume about computer stuff.",
   "repository": "git@gitlab.com:wearypossum4770/resume.git",
   "author": "wearypossum4770 <wearypossum4770@yahoo.com>",
   "license": "MIT",
