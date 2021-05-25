@@ -16,7 +16,7 @@ documentation https://docs.gitlab.com/ce/user/project/pages/.
 
 - [ ] wrap icons <!-- <i class="devicon-javascript-plain"></i></code></pre> -->
 - [ ] add devicon css link <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.9.0/devicon.min.css">
-          -->
+                  -->
 - [ ] checkout [react svg](https://dev.to/ianholden/using-svg-icons-in-your-react-developer-portfolio-project-1f1c)
 
  <!-- free harvard courses https://online-learning.harvard.edu/catalog/free  -->
