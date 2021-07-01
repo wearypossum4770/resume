@@ -1,3 +1,10 @@
+@media print {
+    body {
+        width: 8.25in;
+        height: 11.75in;
+        margin: 0 0 0 0;
+    }
+}
 .day {
   background: #eee;
   color: black;
