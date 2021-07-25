@@ -1,0 +1,37 @@
+[
+  {
+    "chart_of_accounts": 101,
+    "account_type": "asset",
+    "sub_account_type": "cash"
+  },
+  {
+    "chart_of_accounts": 111,
+    "account_type": "asset",
+    "sub_account_type": "accounts_receivable"
+  },
+  {
+    "chart_of_accounts": 121,
+    "account_type": "asset",
+    "sub_account_type": "notes_receivable"
+  },
+  {
+    "chart_of_accounts": 141,
+    "account_type": "asset",
+    "sub_account_type": "office_supplies"
+  },
+  {
+    "chart_of_accounts": 151,
+    "account_type": "asset",
+    "sub_account_type": "land"
+  },
+  {
+    "chart_of_accounts": 171,
+    "account_type": "asset",
+    "sub_account_type": "building"
+  },
+  {
+    "chart_of_accounts": 191,
+    "account_type": "asset",
+    "sub_account_type": "furniture"
+  }
+]
