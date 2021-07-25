@@ -1,0 +1,13 @@
+[
+  {
+    "marital_status": "MAR",
+    "registration_number": "00000473",
+    "passport_number": "555123ABC12",
+    "given_name": "happyperson",
+    "surname": "traveler",
+    "date_of_birth": "Feburary 5, 1965",
+    "gender": "F",
+    "issue_date": "June 24, 2004",
+    "expiration_date": "December 23, 2004"
+  }
+]

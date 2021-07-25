@@ -1,0 +1,27 @@
+[
+  {
+    "chart_of_accounts": 201,
+    "account_type": "liability",
+    "sub_account_type": "accounts_payable"
+  },
+  {
+    "chart_of_accounts": 211,
+    "account_type": "liability",
+    "sub_account_type": "salaries_payable"
+  },
+  {
+    "chart_of_accounts": 221,
+    "account_type": "liability",
+    "sub_account_type": "interest_payable"
+  },
+  {
+    "chart_of_accounts": 231,
+    "account_type": "liability",
+    "sub_account_type": "unearned_revenue"
+  },
+  {
+    "chart_of_accounts": 241,
+    "account_type": "liability",
+    "sub_account_type": "notes_payable"
+  }
+]

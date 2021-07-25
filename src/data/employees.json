@@ -1,0 +1,66 @@
+[
+  {
+    "sync_token": "ckrfpcduu000pohm9aa0h7uwz",
+    "clock_id": 403,
+    "first_name": "Carl",
+    "middle_name": "A",
+    "last_name": "Springs",
+    "pay_type": "hourly",
+    "username": "carl.a.springs",
+    "email": "carl.a.springs@example.com",
+    "regular_rate": 10.75
+  },
+  {
+    "sync_token": "ckrfpcdv2000qohm9a0l155lc",
+    "clock_id": 409,
+    "first_name": "Sue",
+    "middle_name": "T",
+    "last_name": "Wiegand",
+    "pay_type": "hourly",
+    "username": "sue.t.wiegand",
+    "email": "sue.t.wiegand@example.com",
+    "regular_rate": 10.5
+  },
+  {
+    "sync_token": "ckrfpcdv2000rohm96bm54i9m",
+    "clock_id": 412,
+    "first_name": "John",
+    "middle_name": "B",
+    "last_name": "O'Neil",
+    "pay_type": "hourly",
+    "username": "john.b.o'neil",
+    "email": "john.b.o'neil@example.com",
+    "regular_rate": 11.1
+  },
+  {
+    "sync_token": "ckrfpcdv3000sohm99q859v53",
+    "clock_id": 413,
+    "first_name": "Marie",
+    "middle_name": "S",
+    "last_name": "Bass",
+    "pay_type": "hourly",
+    "username": "marie.s.bass",
+    "email": "marie.s.bass@example.com",
+    "regular_rate": 10.8
+  },
+  {
+    "sync_token": "ckrfiw3nk0005cpm99hx77eky",
+    "clock_id": 418,
+    "first_name": "Cheryl",
+    "middle_name": null,
+    "last_name": "Crowson",
+    "pay_type": "salary",
+    "username": "cheryl.crowson",
+    "email": "cheryl.crowson@example.com",
+    "regular_rate": 990.38
+  },
+  {
+    "sync_token": "ckrfpcdv2000qohm9a0l155lc",
+    "clock_id": 404,
+    "first_name": "John",
+    "middle_name": null,
+    "last_name": "Hazelton",
+    "username": "john.hazelton",
+    "email": "john.hazelton@example.com"
+  }
+]

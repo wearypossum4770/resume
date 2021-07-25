@@ -7,6 +7,18 @@
     <!-- Meta -->
     <meta name="description" content="A few lines about yourself" />
     <meta name="keywords" content="web,developer,designer,resume" />
+
+
+    <meta content="Cyber Security Engineer" isco_09="" isco_88="" name="international_standards_classification_of_occupations"/>
+    <meta content="Cyber Security Analyst" isco_09="" isco_88="" name="international_standards_classification_of_occupations"/>
+    <meta content="Cyber Security Consultant" isco_09="" isco_88="" name="international_standards_classification_of_occupations"/>
+    <meta content="Cyber Security Manager / Administrator" isco_09="" isco_88="" name="international_standards_classification_of_occupations"/>
+    <meta content="Systems Engineer" isco_09="" isco_88="" name="international_standards_classification_of_occupations"/>
+    <meta content="Software Developer / Engineer" isco_09="" isco_88="" name="international_standards_classification_of_occupations"/>
+    <meta content="IT Auditor" isco_09="" isco_88="" name="international_standards_classification_of_occupations"/>
+    <meta content="Network Engineer / Architect" isco_09="" isco_88="" name="international_standards_classification_of_occupations"/>
+    <meta content="Vulnerability Analyst / Penetration Tester" isco_09="" isco_88="" name="international_standards_classification_of_occupations"/>
+    <meta content="Cyber Security Specialist / Technician" isco_09="" isco_88="" name="international_standards_classification_of_occupations"/>
     <meta
       name="international_standards_classification_of_occupations"
       isco_08="2529"
@@ -85,7 +97,7 @@
     </div> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.9.0/devicon.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
-    <script crossorigin="anonymous" type="module" src="./resume.js"></script>
+    
     <!-- Begin Wrapper -->
     <div id="wrapper">
       <!-- Begin Content Area -->
@@ -586,49 +598,80 @@
               itemscope="https://schema.org/EducationalOrganization"
               id="education"
             >
+            <p class="bus1">
+              <span
+                ><img
+                  async
+                  loading="lazy"
+                  width="50"
+                  height="50"
+                  content="Golden Gate University"
+                  src="images/education/ggu-wordmark.svg"
+                />Golden Gate University</span
+              >
+            </p>
+            San Francisco, CA, U.S.A.
+            <p class="summary">Master of Science in Accounting Data and Analytics<br/>Concentration: Advanced Analytics for Accountants</p>
+            <p class="time">
+              <span itemprop="startdate" content="July 29, 2019"
+                >July 29, 2019</span
+              >
+              &#45;
+              <span itemprop="enddate" content="In-Progress"
+                >In-Progress</span
+              >
+            </p>
+            <p class="edu-info">
+              <a
+                href="www.ggu.edu"
+                target="_blank"
+                title="Golden Gate University"
+                >www.ggu.edu</a
+              >
+            </p>
+            <p class="bus1">
+              <span
+                ><img
+                  async
+                  loading="lazy"
+                  width="50"
+                  height="50"
+                  src="images/education/code-platoon-logo-black.png"
+                />Code Platoon</span
+              >
+            </p>
+            Chicago, IL, U.S.A.
+            <p class="summary">Certificate of Completion Web Design<br/>Concentration: Full Stack Development</p>
+            <p class="time">
+              <span itemprop="startdate" content="January 5, 2020"
+                >January 5, 2020</span
+              >
+              &#45;
+              <span itemprop="enddate" content="April 20, 2020"
+                >April 20, 2020</span
+              >
+            </p>
+            <p class="edu-info">
+              <a
+                href="https://www.codeplatoon.org/"
+                target="_blank"
+                title="Code Platoon"
+                >https://www.codeplatoon.org/</a
+              >
+            </p>
               <p class="bus1">
                 <span
                   ><img
                     async
                     loading="lazy"
-                    width="24"
-                    height="24"
-                    src="images/education/code-platoon-logo-black.png"
-                  />Code Platoon</span
-                >
-              </p>
-              Chicago, IL, U.S.A.
-              <p class="summary">Certificate of Completion Web Design</p>
-              <p class="time">
-                <span itemprop="startdate" content="January 5, 2020"
-                  >January 5, 2020</span
-                >
-                &#45;
-                <span itemprop="enddate" content="April 20, 2020"
-                  >April 20, 2020</span
-                >
-              </p>
-              <p class="edu-info">
-                <a
-                  href="https://www.codeplatoon.org/"
-                  target="_blank"
-                  title="Code Platoon"
-                  >https://www.codeplatoon.org/</a
-                >
-              </p>
-              <p class="bus1">
-                <span
-                  ><img
-                    async
-                    loading="lazy"
-                    width="24"
-                    height="24"
+                    width="50"
+                    height="50"
                     src="images/education/enmu-logo.png"
                   />Eastern New Mexico Unviersity</span
                 >
               </p>
               Portles, NM, U.S.A.
-              <p class="summary">B.A.A.S Emergency Management</p>
+              <p class="summary">Bachelor of Applied Arts and Sciences<br/>Major: Emergency Management</p>
               <p class="time">
                 <span itemprop="startdate" content="May, 2012">May, 2012</span>
                 &#45;
@@ -649,14 +692,14 @@
                   ><img
                     async
                     loading="lazy"
-                    width="24"
-                    height="24"
+                    width="50"
+                    height="50"
                     src="images/education/mgccc-logo.svg"
                   />Mississippi Gulf Coast Community College</span
                 >
               </p>
               Gautier, MS, U.S.A.
-              <p class="summary">A.A General Studies (Pre-Nursing)</p>
+              <p class="summary">Associate of Arts<br/>Major: General Studies (Pre-Nursing)</p>
               <p class="time">
                 <span itemprop="startdate" content="January, 2007"
                   >January, 2007</span
@@ -745,12 +788,11 @@
                 >
               </li>
             </ul>
-            <ul class="">
+            <ul type="none" class="">
               <li type="none">
                 <button
                   id="resumeToPDF"
                   class="button-link"
-                  onclick="generatePDF(event)"
                   title="Download Resume PDF"
                 >
                   <img
@@ -846,5 +888,32 @@
       <!-- End Content -->
     </div>
     <!-- End Wrapper -->
+    <script src="html2pdf.bundle.min.js"></script>
+    <script crossorigin="anonymous" type="module">
+      console.log("I'm the javascript file");
+      let options = {
+  margin:       1,
+  filename:     'myfile.pdf',
+  image:        { type: 'jpeg', quality: 0.98 },
+  html2canvas:  { scale: 2 },
+  jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+};
+async function getSVGImages(){
+  let elements = Array.from(document.getElementsByTagName('img'))
+let images = elements.map(({attributes:{src}})=>console.log(src))
+
+}
+async function svgToImage(){
+  var canvas = document.getElementsByName('img')
+  console.log(canvas)
+
+}
+async function generatePDF(event){
+  getSVGImages()
+
+}
+let button = document.getElementById('resumeToPDF').addEventListener('click', generatePDF)
+    </script>
   </body>
+  
 </html>

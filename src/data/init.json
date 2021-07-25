@@ -1,0 +1,282 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$mTRPQ7boebDf6Xvz1VLVUP$FO60vxX6ZRSnVbKzWopyFy6agsb9C+OE6WPbDmdBsjY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "orihime_kurosaki",
+      "email": "orihime_kurosaki@human.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-07-06T02:01:52.641Z",
+      "first_name": "Orihime",
+      "middle_name": null,
+      "last_name": "Kurosaki",
+      "madien_name": "Inoue",
+      "suffix": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$WCC2kxRM38kGT7r3xNBoYG$6aSC3UUfjKyZPDCcmbSQAYMvJ2dg4Igc4kowDqCfPJE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "ichigo_kurosaki",
+      "email": "ichigo_kurosaki@soul.society.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-02T20:00:50.420Z",
+      "first_name": "Ichigo",
+      "middle_name": null,
+      "last_name": "Kurosaki",
+      "madien_name": null,
+      "suffix": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$5e2ROUD41RBqi8sYHtDbEz$fYg6aO0kHQZw1FFPurRsty8TanO4GRNSDjAtG0OEAlo=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "isshin_kurosaki",
+      "email": "isshin_kurosaki@shinigami.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-07-06T02:01:13.560Z",
+      "first_name": "Isshin",
+      "middle_name": null,
+      "last_name": "Kurosaki",
+      "madien_name": null,
+      "suffix": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$pQVhpbYhAkCEPi9zx4rCW5$IbWRN0/iZnXwTF8erQgaZSbPYCMX08QjJThxxeBBCaA=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "masaki_kurosaki",
+      "email": "masaki_kurosaki@quincy.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-07-06T02:01:45.582Z",
+      "first_name": "Masaki",
+      "middle_name": null,
+      "last_name": "Kurosaki",
+      "madien_name": null,
+      "suffix": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$ZCEJCojkaJoFCxgXYjbdbC$aiAMridt9V8rbCGiyLXSPF3gDBiHJkDMFjUmxMWPKXo=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "karin_kurosaki",
+      "email": "karin_kurosaki@human.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-07-06T02:01:54.275Z",
+      "first_name": "Karin",
+      "middle_name": null,
+      "last_name": "Kurosaki",
+      "madien_name": null,
+      "suffix": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$Jzxo92u2eRpPiLJyoAYlGY$LqB+CpLucH/Pu+2uoPU49BXdiYAptCOOe62uGVakNLY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "yuzu_kurosaki",
+      "email": "yuzu_kurosaki@human.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-07-06T02:01:54.540Z",
+      "first_name": "Yuzu",
+      "middle_name": null,
+      "last_name": "Kurosaki",
+      "madien_name": null,
+      "suffix": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$7myGON8mpABVl3vGMEF8m6$H7tCNFj7uQc2skXnPvqWRUI4DwSHYQWdMx5QL5QnVnE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "kazui_kurosaki",
+      "email": "kazui_kurosaki@human.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-07-06T02:01:54.540Z",
+      "first_name": "Kazui",
+      "middle_name": null,
+      "last_name": "Kurosaki",
+      "madien_name": null,
+      "suffix": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "date_created": "2021-07-07T20:39:36.752Z",
+      "date_modified": "2021-07-07T20:39:36.752Z",
+      "is_active": true,
+      "date_of_birth": "1991-09-03",
+      "retention_only": false,
+      "do_not_contact": false,
+      "social_security_number": null,
+      "date_of_death": null,
+      "internal_notes": "",
+      "addresses": [],
+      "qualifying_children": [],
+      "dependents": []
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "date_created": "2021-07-07T20:39:36.758Z",
+      "date_modified": "2021-07-07T20:39:36.758Z",
+      "is_active": true,
+      "date_of_birth": "1991-07-15",
+      "retention_only": false,
+      "do_not_contact": false,
+      "social_security_number": null,
+      "date_of_death": null,
+      "internal_notes": "",
+      "addresses": [],
+      "qualifying_children": [],
+      "dependents": []
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 3,
+    "fields": {
+      "user": 3,
+      "date_created": "2021-07-07T20:39:36.764Z",
+      "date_modified": "2021-07-07T20:39:36.764Z",
+      "is_active": true,
+      "date_of_birth": "1971-12-10",
+      "retention_only": false,
+      "do_not_contact": false,
+      "social_security_number": null,
+      "date_of_death": null,
+      "internal_notes": "",
+      "addresses": [],
+      "qualifying_children": [],
+      "dependents": []
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 4,
+    "fields": {
+      "user": 4,
+      "date_created": "2021-07-07T20:39:36.770Z",
+      "date_modified": "2021-07-07T20:39:36.770Z",
+      "is_active": true,
+      "date_of_birth": "1971-06-09",
+      "retention_only": false,
+      "do_not_contact": false,
+      "social_security_number": null,
+      "date_of_death": "2021-06-08",
+      "internal_notes": "",
+      "addresses": [],
+      "qualifying_children": [],
+      "dependents": []
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 5,
+    "fields": {
+      "user": 5,
+      "date_created": "2021-07-07T20:39:36.776Z",
+      "date_modified": "2021-07-07T20:39:36.776Z",
+      "is_active": true,
+      "date_of_birth": null,
+      "retention_only": false,
+      "do_not_contact": false,
+      "social_security_number": null,
+      "date_of_death": null,
+      "internal_notes": "",
+      "addresses": [],
+      "qualifying_children": [],
+      "dependents": []
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 6,
+    "fields": {
+      "user": 6,
+      "date_created": "2021-07-07T20:39:36.781Z",
+      "date_modified": "2021-07-07T20:39:36.781Z",
+      "is_active": true,
+      "date_of_birth": "1996-05-06",
+      "retention_only": false,
+      "do_not_contact": false,
+      "social_security_number": null,
+      "date_of_death": null,
+      "internal_notes": "",
+      "addresses": [],
+      "qualifying_children": [],
+      "dependents": []
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 7,
+    "fields": {
+      "user": 7,
+      "date_created": "2021-07-07T20:39:36.786Z",
+      "date_modified": "2021-07-07T20:39:36.786Z",
+      "is_active": true,
+      "date_of_birth": "1996-05-06",
+      "retention_only": false,
+      "do_not_contact": false,
+      "social_security_number": null,
+      "date_of_death": null,
+      "internal_notes": "",
+      "addresses": [],
+      "qualifying_children": [],
+      "dependents": []
+    }
+  }
+]
