@@ -70,9 +70,10 @@ export default class WagesAndSalaries {
     if (this.pay_type === "tipped") {
       this.tippedEmployee(arr);
     }
- else if (this.pay_type === "salary") {
+else  if (this.pay_type === "salary") {
       return this.salariedEmployees()
     } else {
+      
       this.hourlyEmployees(arr)
       this.regular_rate = this.regular_rate<this.#prevailingWage?this.#prevailingWage :this.regular_rate;
       this.total_time += this.regular_minutes;
