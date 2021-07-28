@@ -3,57 +3,56 @@
  * Copyright (c) 2021 Erik Koopmans
  * Released under the MIT License.
  */
-'use strict';
+"use strict";
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+function _interopDefault(ex) {
+  return ex && typeof ex === "object" && "default" in ex ? ex["default"] : ex;
+}
 
-var jsPDF = _interopDefault(require('jspdf'));
-var html2canvas = _interopDefault(require('html2canvas'));
+var jsPDF = _interopDefault(require("jspdf"));
+var html2canvas = _interopDefault(require("html2canvas"));
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-  return typeof obj;
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-};
+var _typeof =
+  typeof Symbol === "function" && typeof Symbol.iterator === "symbol"
+    ? function (obj) {
+        return typeof obj;
+      }
+    : function (obj) {
+        return obj &&
+          typeof Symbol === "function" &&
+          obj.constructor === Symbol &&
+          obj !== Symbol.prototype
+          ? "symbol"
+          : typeof obj;
+      };
 
+var _extends =
+  Object.assign ||
+  function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-
-    for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
       }
     }
-  }
 
-  return target;
-};
+    return target;
+  };
 
 // Determine the type of a variable/object.
 var objType = function objType(obj) {
-  var type = typeof obj === 'undefined' ? 'undefined' : _typeof(obj);
-  if (type === 'undefined') return 'undefined';else if (type === 'string' || obj instanceof String) return 'string';else if (type === 'number' || obj instanceof Number) return 'number';else if (type === 'function' || obj instanceof Function) return 'function';else if (!!obj && obj.constructor === Array) return 'array';else if (obj && obj.nodeType === 1) return 'element';else if (type === 'object') return 'object';else return 'unknown';
+  var type = typeof obj === "undefined" ? "undefined" : _typeof(obj);
+  if (type === "undefined") return "undefined";
+  else if (type === "string" || obj instanceof String) return "string";
+  else if (type === "number" || obj instanceof Number) return "number";
+  else if (type === "function" || obj instanceof Function) return "function";
+  else if (!!obj && obj.constructor === Array) return "array";
+  else if (obj && obj.nodeType === 1) return "element";
+  else if (type === "object") return "object";
+  else return "unknown";
 };
 
 // Create an HTML element with optional className, innerHTML, and style.
@@ -62,7 +61,7 @@ var createElement = function createElement(tagName, opt) {
   if (opt.className) el.className = opt.className;
   if (opt.innerHTML) {
     el.innerHTML = opt.innerHTML;
-    var scripts = el.getElementsByTagName('script');
+    var scripts = el.getElementsByTagName("script");
     for (var i = scripts.length; i-- > 0; null) {
       scripts[i].parentNode.removeChild(scripts[i]);
     }
@@ -76,28 +75,39 @@ var createElement = function createElement(tagName, opt) {
 // Deep-clone a node and preserve contents/properties.
 var cloneNode = function cloneNode(node, javascriptEnabled) {
   // Recursively clone the node.
-  var clone = node.nodeType === 3 ? document.createTextNode(node.nodeValue) : node.cloneNode(false);
+  var clone =
+    node.nodeType === 3
+      ? document.createTextNode(node.nodeValue)
+      : node.cloneNode(false);
   for (var child = node.firstChild; child; child = child.nextSibling) {
-    if (javascriptEnabled === true || child.nodeType !== 1 || child.nodeName !== 'SCRIPT') {
+    if (
+      javascriptEnabled === true ||
+      child.nodeType !== 1 ||
+      child.nodeName !== "SCRIPT"
+    ) {
       clone.appendChild(cloneNode(child, javascriptEnabled));
     }
   }
 
   if (node.nodeType === 1) {
     // Preserve contents/properties of special nodes.
-    if (node.nodeName === 'CANVAS') {
+    if (node.nodeName === "CANVAS") {
       clone.width = node.width;
       clone.height = node.height;
-      clone.getContext('2d').drawImage(node, 0, 0);
-    } else if (node.nodeName === 'TEXTAREA' || node.nodeName === 'SELECT') {
+      clone.getContext("2d").drawImage(node, 0, 0);
+    } else if (node.nodeName === "TEXTAREA" || node.nodeName === "SELECT") {
       clone.value = node.value;
     }
 
     // Preserve the node's scroll position when it loads.
-    clone.addEventListener('load', function () {
-      clone.scrollTop = node.scrollTop;
-      clone.scrollLeft = node.scrollLeft;
-    }, true);
+    clone.addEventListener(
+      "load",
+      function () {
+        clone.scrollTop = node.scrollTop;
+        clone.scrollLeft = node.scrollLeft;
+      },
+      true
+    );
   }
 
   // Return the cloned node.
@@ -106,12 +116,12 @@ var cloneNode = function cloneNode(node, javascriptEnabled) {
 
 // Convert units from px using the conversion value 'k' from jsPDF.
 var unitConvert = function unitConvert(obj, k) {
-  if (objType(obj) === 'number') {
-    return obj * 72 / 96 / k;
+  if (objType(obj) === "number") {
+    return (obj * 72) / 96 / k;
   } else {
     var newObj = {};
     for (var key in obj) {
-      newObj[key] = obj[key] * 72 / 96 / k;
+      newObj[key] = (obj[key] * 72) / 96 / k;
     }
     return newObj;
   }
@@ -119,203 +129,218 @@ var unitConvert = function unitConvert(obj, k) {
 
 // Convert units to px using the conversion value 'k' from jsPDF.
 var toPx = function toPx(val, k) {
-  return Math.floor(val * k / 72 * 96);
+  return Math.floor(((val * k) / 72) * 96);
 };
 
-var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+var commonjsGlobal =
+  typeof window !== "undefined"
+    ? window
+    : typeof global !== "undefined"
+    ? global
+    : typeof self !== "undefined"
+    ? self
+    : {};
 
-function commonjsRequire () {
-	throw new Error('Dynamic requires are not currently supported by rollup-plugin-commonjs');
+function commonjsRequire() {
+  throw new Error(
+    "Dynamic requires are not currently supported by rollup-plugin-commonjs"
+  );
 }
 
-
-
 function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
+  return (module = { exports: {} }), fn(module, module.exports), module.exports;
 }
 
 var es6Promise = createCommonjsModule(function (module, exports) {
-/*!
- * @overview es6-promise - a tiny implementation of Promises/A+.
- * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
- * @license   Licensed under MIT license
- *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
- * @version   v4.2.5+7f2b526d
- */
+  /*!
+   * @overview es6-promise - a tiny implementation of Promises/A+.
+   * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
+   * @license   Licensed under MIT license
+   *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
+   * @version   v4.2.5+7f2b526d
+   */
 
-(function (global, factory) {
-	module.exports = factory();
-}(commonjsGlobal, (function () { function objectOrFunction(x) {
-  var type = typeof x;
-  return x !== null && (type === 'object' || type === 'function');
-}
-
-function isFunction(x) {
-  return typeof x === 'function';
-}
-
-
-
-var _isArray = void 0;
-if (Array.isArray) {
-  _isArray = Array.isArray;
-} else {
-  _isArray = function (x) {
-    return Object.prototype.toString.call(x) === '[object Array]';
-  };
-}
-
-var isArray = _isArray;
-
-var len = 0;
-var vertxNext = void 0;
-var customSchedulerFn = void 0;
-
-var asap = function asap(callback, arg) {
-  queue[len] = callback;
-  queue[len + 1] = arg;
-  len += 2;
-  if (len === 2) {
-    // If len is 2, that means that we need to schedule an async flush.
-    // If additional callbacks are queued before the queue is flushed, they
-    // will be processed by this flush that we are scheduling.
-    if (customSchedulerFn) {
-      customSchedulerFn(flush);
-    } else {
-      scheduleFlush();
+  (function (global, factory) {
+    module.exports = factory();
+  })(commonjsGlobal, function () {
+    function objectOrFunction(x) {
+      var type = typeof x;
+      return x !== null && (type === "object" || type === "function");
     }
-  }
-};
 
-function setScheduler(scheduleFn) {
-  customSchedulerFn = scheduleFn;
-}
+    function isFunction(x) {
+      return typeof x === "function";
+    }
 
-function setAsap(asapFn) {
-  asap = asapFn;
-}
+    var _isArray = void 0;
+    if (Array.isArray) {
+      _isArray = Array.isArray;
+    } else {
+      _isArray = function (x) {
+        return Object.prototype.toString.call(x) === "[object Array]";
+      };
+    }
 
-var browserWindow = typeof window !== 'undefined' ? window : undefined;
-var browserGlobal = browserWindow || {};
-var BrowserMutationObserver = browserGlobal.MutationObserver || browserGlobal.WebKitMutationObserver;
-var isNode = typeof self === 'undefined' && typeof process !== 'undefined' && {}.toString.call(process) === '[object process]';
+    var isArray = _isArray;
 
-// test for web worker but not in IE10
-var isWorker = typeof Uint8ClampedArray !== 'undefined' && typeof importScripts !== 'undefined' && typeof MessageChannel !== 'undefined';
+    var len = 0;
+    var vertxNext = void 0;
+    var customSchedulerFn = void 0;
 
-// node
-function useNextTick() {
-  // node version 0.10.x displays a deprecation warning when nextTick is used recursively
-  // see https://github.com/cujojs/when/issues/410 for details
-  return function () {
-    return process.nextTick(flush);
-  };
-}
-
-// vertx
-function useVertxTimer() {
-  if (typeof vertxNext !== 'undefined') {
-    return function () {
-      vertxNext(flush);
+    var asap = function asap(callback, arg) {
+      queue[len] = callback;
+      queue[len + 1] = arg;
+      len += 2;
+      if (len === 2) {
+        // If len is 2, that means that we need to schedule an async flush.
+        // If additional callbacks are queued before the queue is flushed, they
+        // will be processed by this flush that we are scheduling.
+        if (customSchedulerFn) {
+          customSchedulerFn(flush);
+        } else {
+          scheduleFlush();
+        }
+      }
     };
-  }
 
-  return useSetTimeout();
-}
+    function setScheduler(scheduleFn) {
+      customSchedulerFn = scheduleFn;
+    }
 
-function useMutationObserver() {
-  var iterations = 0;
-  var observer = new BrowserMutationObserver(flush);
-  var node = document.createTextNode('');
-  observer.observe(node, { characterData: true });
+    function setAsap(asapFn) {
+      asap = asapFn;
+    }
 
-  return function () {
-    node.data = iterations = ++iterations % 2;
-  };
-}
+    var browserWindow = typeof window !== "undefined" ? window : undefined;
+    var browserGlobal = browserWindow || {};
+    var BrowserMutationObserver =
+      browserGlobal.MutationObserver || browserGlobal.WebKitMutationObserver;
+    var isNode =
+      typeof self === "undefined" &&
+      typeof process !== "undefined" &&
+      {}.toString.call(process) === "[object process]";
 
-// web worker
-function useMessageChannel() {
-  var channel = new MessageChannel();
-  channel.port1.onmessage = flush;
-  return function () {
-    return channel.port2.postMessage(0);
-  };
-}
+    // test for web worker but not in IE10
+    var isWorker =
+      typeof Uint8ClampedArray !== "undefined" &&
+      typeof importScripts !== "undefined" &&
+      typeof MessageChannel !== "undefined";
 
-function useSetTimeout() {
-  // Store setTimeout reference so es6-promise will be unaffected by
-  // other code modifying setTimeout (like sinon.useFakeTimers())
-  var globalSetTimeout = setTimeout;
-  return function () {
-    return globalSetTimeout(flush, 1);
-  };
-}
+    // node
+    function useNextTick() {
+      // node version 0.10.x displays a deprecation warning when nextTick is used recursively
+      // see https://github.com/cujojs/when/issues/410 for details
+      return function () {
+        return process.nextTick(flush);
+      };
+    }
 
-var queue = new Array(1000);
-function flush() {
-  for (var i = 0; i < len; i += 2) {
-    var callback = queue[i];
-    var arg = queue[i + 1];
+    // vertx
+    function useVertxTimer() {
+      if (typeof vertxNext !== "undefined") {
+        return function () {
+          vertxNext(flush);
+        };
+      }
 
-    callback(arg);
+      return useSetTimeout();
+    }
 
-    queue[i] = undefined;
-    queue[i + 1] = undefined;
-  }
+    function useMutationObserver() {
+      var iterations = 0;
+      var observer = new BrowserMutationObserver(flush);
+      var node = document.createTextNode("");
+      observer.observe(node, { characterData: true });
 
-  len = 0;
-}
+      return function () {
+        node.data = iterations = ++iterations % 2;
+      };
+    }
 
-function attemptVertx() {
-  try {
-    var vertx = Function('return this')().require('vertx');
-    vertxNext = vertx.runOnLoop || vertx.runOnContext;
-    return useVertxTimer();
-  } catch (e) {
-    return useSetTimeout();
-  }
-}
+    // web worker
+    function useMessageChannel() {
+      var channel = new MessageChannel();
+      channel.port1.onmessage = flush;
+      return function () {
+        return channel.port2.postMessage(0);
+      };
+    }
 
-var scheduleFlush = void 0;
-// Decide what async method to use to triggering processing of queued callbacks:
-if (isNode) {
-  scheduleFlush = useNextTick();
-} else if (BrowserMutationObserver) {
-  scheduleFlush = useMutationObserver();
-} else if (isWorker) {
-  scheduleFlush = useMessageChannel();
-} else if (browserWindow === undefined && typeof commonjsRequire === 'function') {
-  scheduleFlush = attemptVertx();
-} else {
-  scheduleFlush = useSetTimeout();
-}
+    function useSetTimeout() {
+      // Store setTimeout reference so es6-promise will be unaffected by
+      // other code modifying setTimeout (like sinon.useFakeTimers())
+      var globalSetTimeout = setTimeout;
+      return function () {
+        return globalSetTimeout(flush, 1);
+      };
+    }
 
-function then(onFulfillment, onRejection) {
-  var parent = this;
+    var queue = new Array(1000);
+    function flush() {
+      for (var i = 0; i < len; i += 2) {
+        var callback = queue[i];
+        var arg = queue[i + 1];
 
-  var child = new this.constructor(noop);
+        callback(arg);
 
-  if (child[PROMISE_ID] === undefined) {
-    makePromise(child);
-  }
+        queue[i] = undefined;
+        queue[i + 1] = undefined;
+      }
 
-  var _state = parent._state;
+      len = 0;
+    }
 
+    function attemptVertx() {
+      try {
+        var vertx = Function("return this")().require("vertx");
+        vertxNext = vertx.runOnLoop || vertx.runOnContext;
+        return useVertxTimer();
+      } catch (e) {
+        return useSetTimeout();
+      }
+    }
 
-  if (_state) {
-    var callback = arguments[_state - 1];
-    asap(function () {
-      return invokeCallback(_state, child, callback, parent._result);
-    });
-  } else {
-    subscribe(parent, child, onFulfillment, onRejection);
-  }
+    var scheduleFlush = void 0;
+    // Decide what async method to use to triggering processing of queued callbacks:
+    if (isNode) {
+      scheduleFlush = useNextTick();
+    } else if (BrowserMutationObserver) {
+      scheduleFlush = useMutationObserver();
+    } else if (isWorker) {
+      scheduleFlush = useMessageChannel();
+    } else if (
+      browserWindow === undefined &&
+      typeof commonjsRequire === "function"
+    ) {
+      scheduleFlush = attemptVertx();
+    } else {
+      scheduleFlush = useSetTimeout();
+    }
 
-  return child;
-}
+    function then(onFulfillment, onRejection) {
+      var parent = this;
 
-/**
+      var child = new this.constructor(noop);
+
+      if (child[PROMISE_ID] === undefined) {
+        makePromise(child);
+      }
+
+      var _state = parent._state;
+
+      if (_state) {
+        var callback = arguments[_state - 1];
+        asap(function () {
+          return invokeCallback(_state, child, callback, parent._result);
+        });
+      } else {
+        subscribe(parent, child, onFulfillment, onRejection);
+      }
+
+      return child;
+    }
+
+    /**
   `Promise.resolve` returns a promise that will become resolved with the
   passed `value`. It is shorthand for the following:
 
@@ -346,369 +371,398 @@ function then(onFulfillment, onRejection) {
   @return {Promise} a promise that will become fulfilled with the given
   `value`
 */
-function resolve$1(object) {
-  /*jshint validthis:true */
-  var Constructor = this;
+    function resolve$1(object) {
+      /*jshint validthis:true */
+      var Constructor = this;
 
-  if (object && typeof object === 'object' && object.constructor === Constructor) {
-    return object;
-  }
-
-  var promise = new Constructor(noop);
-  resolve(promise, object);
-  return promise;
-}
-
-var PROMISE_ID = Math.random().toString(36).substring(2);
-
-function noop() {}
-
-var PENDING = void 0;
-var FULFILLED = 1;
-var REJECTED = 2;
-
-var TRY_CATCH_ERROR = { error: null };
-
-function selfFulfillment() {
-  return new TypeError("You cannot resolve a promise with itself");
-}
-
-function cannotReturnOwn() {
-  return new TypeError('A promises callback cannot return that same promise.');
-}
-
-function getThen(promise) {
-  try {
-    return promise.then;
-  } catch (error) {
-    TRY_CATCH_ERROR.error = error;
-    return TRY_CATCH_ERROR;
-  }
-}
-
-function tryThen(then$$1, value, fulfillmentHandler, rejectionHandler) {
-  try {
-    then$$1.call(value, fulfillmentHandler, rejectionHandler);
-  } catch (e) {
-    return e;
-  }
-}
-
-function handleForeignThenable(promise, thenable, then$$1) {
-  asap(function (promise) {
-    var sealed = false;
-    var error = tryThen(then$$1, thenable, function (value) {
-      if (sealed) {
-        return;
+      if (
+        object &&
+        typeof object === "object" &&
+        object.constructor === Constructor
+      ) {
+        return object;
       }
-      sealed = true;
-      if (thenable !== value) {
-        resolve(promise, value);
+
+      var promise = new Constructor(noop);
+      resolve(promise, object);
+      return promise;
+    }
+
+    var PROMISE_ID = Math.random().toString(36).substring(2);
+
+    function noop() {}
+
+    var PENDING = void 0;
+    var FULFILLED = 1;
+    var REJECTED = 2;
+
+    var TRY_CATCH_ERROR = { error: null };
+
+    function selfFulfillment() {
+      return new TypeError("You cannot resolve a promise with itself");
+    }
+
+    function cannotReturnOwn() {
+      return new TypeError(
+        "A promises callback cannot return that same promise."
+      );
+    }
+
+    function getThen(promise) {
+      try {
+        return promise.then;
+      } catch (error) {
+        TRY_CATCH_ERROR.error = error;
+        return TRY_CATCH_ERROR;
+      }
+    }
+
+    function tryThen(then$$1, value, fulfillmentHandler, rejectionHandler) {
+      try {
+        then$$1.call(value, fulfillmentHandler, rejectionHandler);
+      } catch (e) {
+        return e;
+      }
+    }
+
+    function handleForeignThenable(promise, thenable, then$$1) {
+      asap(function (promise) {
+        var sealed = false;
+        var error = tryThen(
+          then$$1,
+          thenable,
+          function (value) {
+            if (sealed) {
+              return;
+            }
+            sealed = true;
+            if (thenable !== value) {
+              resolve(promise, value);
+            } else {
+              fulfill(promise, value);
+            }
+          },
+          function (reason) {
+            if (sealed) {
+              return;
+            }
+            sealed = true;
+
+            reject(promise, reason);
+          },
+          "Settle: " + (promise._label || " unknown promise")
+        );
+
+        if (!sealed && error) {
+          sealed = true;
+          reject(promise, error);
+        }
+      }, promise);
+    }
+
+    function handleOwnThenable(promise, thenable) {
+      if (thenable._state === FULFILLED) {
+        fulfill(promise, thenable._result);
+      } else if (thenable._state === REJECTED) {
+        reject(promise, thenable._result);
+      } else {
+        subscribe(
+          thenable,
+          undefined,
+          function (value) {
+            return resolve(promise, value);
+          },
+          function (reason) {
+            return reject(promise, reason);
+          }
+        );
+      }
+    }
+
+    function handleMaybeThenable(promise, maybeThenable, then$$1) {
+      if (
+        maybeThenable.constructor === promise.constructor &&
+        then$$1 === then &&
+        maybeThenable.constructor.resolve === resolve$1
+      ) {
+        handleOwnThenable(promise, maybeThenable);
+      } else {
+        if (then$$1 === TRY_CATCH_ERROR) {
+          reject(promise, TRY_CATCH_ERROR.error);
+          TRY_CATCH_ERROR.error = null;
+        } else if (then$$1 === undefined) {
+          fulfill(promise, maybeThenable);
+        } else if (isFunction(then$$1)) {
+          handleForeignThenable(promise, maybeThenable, then$$1);
+        } else {
+          fulfill(promise, maybeThenable);
+        }
+      }
+    }
+
+    function resolve(promise, value) {
+      if (promise === value) {
+        reject(promise, selfFulfillment());
+      } else if (objectOrFunction(value)) {
+        handleMaybeThenable(promise, value, getThen(value));
       } else {
         fulfill(promise, value);
       }
-    }, function (reason) {
-      if (sealed) {
+    }
+
+    function publishRejection(promise) {
+      if (promise._onerror) {
+        promise._onerror(promise._result);
+      }
+
+      publish(promise);
+    }
+
+    function fulfill(promise, value) {
+      if (promise._state !== PENDING) {
         return;
       }
-      sealed = true;
 
-      reject(promise, reason);
-    }, 'Settle: ' + (promise._label || ' unknown promise'));
+      promise._result = value;
+      promise._state = FULFILLED;
 
-    if (!sealed && error) {
-      sealed = true;
-      reject(promise, error);
-    }
-  }, promise);
-}
-
-function handleOwnThenable(promise, thenable) {
-  if (thenable._state === FULFILLED) {
-    fulfill(promise, thenable._result);
-  } else if (thenable._state === REJECTED) {
-    reject(promise, thenable._result);
-  } else {
-    subscribe(thenable, undefined, function (value) {
-      return resolve(promise, value);
-    }, function (reason) {
-      return reject(promise, reason);
-    });
-  }
-}
-
-function handleMaybeThenable(promise, maybeThenable, then$$1) {
-  if (maybeThenable.constructor === promise.constructor && then$$1 === then && maybeThenable.constructor.resolve === resolve$1) {
-    handleOwnThenable(promise, maybeThenable);
-  } else {
-    if (then$$1 === TRY_CATCH_ERROR) {
-      reject(promise, TRY_CATCH_ERROR.error);
-      TRY_CATCH_ERROR.error = null;
-    } else if (then$$1 === undefined) {
-      fulfill(promise, maybeThenable);
-    } else if (isFunction(then$$1)) {
-      handleForeignThenable(promise, maybeThenable, then$$1);
-    } else {
-      fulfill(promise, maybeThenable);
-    }
-  }
-}
-
-function resolve(promise, value) {
-  if (promise === value) {
-    reject(promise, selfFulfillment());
-  } else if (objectOrFunction(value)) {
-    handleMaybeThenable(promise, value, getThen(value));
-  } else {
-    fulfill(promise, value);
-  }
-}
-
-function publishRejection(promise) {
-  if (promise._onerror) {
-    promise._onerror(promise._result);
-  }
-
-  publish(promise);
-}
-
-function fulfill(promise, value) {
-  if (promise._state !== PENDING) {
-    return;
-  }
-
-  promise._result = value;
-  promise._state = FULFILLED;
-
-  if (promise._subscribers.length !== 0) {
-    asap(publish, promise);
-  }
-}
-
-function reject(promise, reason) {
-  if (promise._state !== PENDING) {
-    return;
-  }
-  promise._state = REJECTED;
-  promise._result = reason;
-
-  asap(publishRejection, promise);
-}
-
-function subscribe(parent, child, onFulfillment, onRejection) {
-  var _subscribers = parent._subscribers;
-  var length = _subscribers.length;
-
-
-  parent._onerror = null;
-
-  _subscribers[length] = child;
-  _subscribers[length + FULFILLED] = onFulfillment;
-  _subscribers[length + REJECTED] = onRejection;
-
-  if (length === 0 && parent._state) {
-    asap(publish, parent);
-  }
-}
-
-function publish(promise) {
-  var subscribers = promise._subscribers;
-  var settled = promise._state;
-
-  if (subscribers.length === 0) {
-    return;
-  }
-
-  var child = void 0,
-      callback = void 0,
-      detail = promise._result;
-
-  for (var i = 0; i < subscribers.length; i += 3) {
-    child = subscribers[i];
-    callback = subscribers[i + settled];
-
-    if (child) {
-      invokeCallback(settled, child, callback, detail);
-    } else {
-      callback(detail);
-    }
-  }
-
-  promise._subscribers.length = 0;
-}
-
-function tryCatch(callback, detail) {
-  try {
-    return callback(detail);
-  } catch (e) {
-    TRY_CATCH_ERROR.error = e;
-    return TRY_CATCH_ERROR;
-  }
-}
-
-function invokeCallback(settled, promise, callback, detail) {
-  var hasCallback = isFunction(callback),
-      value = void 0,
-      error = void 0,
-      succeeded = void 0,
-      failed = void 0;
-
-  if (hasCallback) {
-    value = tryCatch(callback, detail);
-
-    if (value === TRY_CATCH_ERROR) {
-      failed = true;
-      error = value.error;
-      value.error = null;
-    } else {
-      succeeded = true;
+      if (promise._subscribers.length !== 0) {
+        asap(publish, promise);
+      }
     }
 
-    if (promise === value) {
-      reject(promise, cannotReturnOwn());
-      return;
-    }
-  } else {
-    value = detail;
-    succeeded = true;
-  }
+    function reject(promise, reason) {
+      if (promise._state !== PENDING) {
+        return;
+      }
+      promise._state = REJECTED;
+      promise._result = reason;
 
-  if (promise._state !== PENDING) {
-    // noop
-  } else if (hasCallback && succeeded) {
-    resolve(promise, value);
-  } else if (failed) {
-    reject(promise, error);
-  } else if (settled === FULFILLED) {
-    fulfill(promise, value);
-  } else if (settled === REJECTED) {
-    reject(promise, value);
-  }
-}
-
-function initializePromise(promise, resolver) {
-  try {
-    resolver(function resolvePromise(value) {
-      resolve(promise, value);
-    }, function rejectPromise(reason) {
-      reject(promise, reason);
-    });
-  } catch (e) {
-    reject(promise, e);
-  }
-}
-
-var id = 0;
-function nextId() {
-  return id++;
-}
-
-function makePromise(promise) {
-  promise[PROMISE_ID] = id++;
-  promise._state = undefined;
-  promise._result = undefined;
-  promise._subscribers = [];
-}
-
-function validationError() {
-  return new Error('Array Methods must be provided an Array');
-}
-
-var Enumerator = function () {
-  function Enumerator(Constructor, input) {
-    this._instanceConstructor = Constructor;
-    this.promise = new Constructor(noop);
-
-    if (!this.promise[PROMISE_ID]) {
-      makePromise(this.promise);
+      asap(publishRejection, promise);
     }
 
-    if (isArray(input)) {
-      this.length = input.length;
-      this._remaining = input.length;
+    function subscribe(parent, child, onFulfillment, onRejection) {
+      var _subscribers = parent._subscribers;
+      var length = _subscribers.length;
 
-      this._result = new Array(this.length);
+      parent._onerror = null;
 
-      if (this.length === 0) {
-        fulfill(this.promise, this._result);
-      } else {
-        this.length = this.length || 0;
-        this._enumerate(input);
-        if (this._remaining === 0) {
-          fulfill(this.promise, this._result);
+      _subscribers[length] = child;
+      _subscribers[length + FULFILLED] = onFulfillment;
+      _subscribers[length + REJECTED] = onRejection;
+
+      if (length === 0 && parent._state) {
+        asap(publish, parent);
+      }
+    }
+
+    function publish(promise) {
+      var subscribers = promise._subscribers;
+      var settled = promise._state;
+
+      if (subscribers.length === 0) {
+        return;
+      }
+
+      var child = void 0,
+        callback = void 0,
+        detail = promise._result;
+
+      for (var i = 0; i < subscribers.length; i += 3) {
+        child = subscribers[i];
+        callback = subscribers[i + settled];
+
+        if (child) {
+          invokeCallback(settled, child, callback, detail);
+        } else {
+          callback(detail);
         }
       }
-    } else {
-      reject(this.promise, validationError());
+
+      promise._subscribers.length = 0;
     }
-  }
 
-  Enumerator.prototype._enumerate = function _enumerate(input) {
-    for (var i = 0; this._state === PENDING && i < input.length; i++) {
-      this._eachEntry(input[i], i);
-    }
-  };
-
-  Enumerator.prototype._eachEntry = function _eachEntry(entry, i) {
-    var c = this._instanceConstructor;
-    var resolve$$1 = c.resolve;
-
-
-    if (resolve$$1 === resolve$1) {
-      var _then = getThen(entry);
-
-      if (_then === then && entry._state !== PENDING) {
-        this._settledAt(entry._state, i, entry._result);
-      } else if (typeof _then !== 'function') {
-        this._remaining--;
-        this._result[i] = entry;
-      } else if (c === Promise$1) {
-        var promise = new c(noop);
-        handleMaybeThenable(promise, entry, _then);
-        this._willSettleAt(promise, i);
-      } else {
-        this._willSettleAt(new c(function (resolve$$1) {
-          return resolve$$1(entry);
-        }), i);
+    function tryCatch(callback, detail) {
+      try {
+        return callback(detail);
+      } catch (e) {
+        TRY_CATCH_ERROR.error = e;
+        return TRY_CATCH_ERROR;
       }
-    } else {
-      this._willSettleAt(resolve$$1(entry), i);
     }
-  };
 
-  Enumerator.prototype._settledAt = function _settledAt(state, i, value) {
-    var promise = this.promise;
+    function invokeCallback(settled, promise, callback, detail) {
+      var hasCallback = isFunction(callback),
+        value = void 0,
+        error = void 0,
+        succeeded = void 0,
+        failed = void 0;
 
+      if (hasCallback) {
+        value = tryCatch(callback, detail);
 
-    if (promise._state === PENDING) {
-      this._remaining--;
+        if (value === TRY_CATCH_ERROR) {
+          failed = true;
+          error = value.error;
+          value.error = null;
+        } else {
+          succeeded = true;
+        }
 
-      if (state === REJECTED) {
+        if (promise === value) {
+          reject(promise, cannotReturnOwn());
+          return;
+        }
+      } else {
+        value = detail;
+        succeeded = true;
+      }
+
+      if (promise._state !== PENDING) {
+        // noop
+      } else if (hasCallback && succeeded) {
+        resolve(promise, value);
+      } else if (failed) {
+        reject(promise, error);
+      } else if (settled === FULFILLED) {
+        fulfill(promise, value);
+      } else if (settled === REJECTED) {
         reject(promise, value);
-      } else {
-        this._result[i] = value;
       }
     }
 
-    if (this._remaining === 0) {
-      fulfill(promise, this._result);
+    function initializePromise(promise, resolver) {
+      try {
+        resolver(
+          function resolvePromise(value) {
+            resolve(promise, value);
+          },
+          function rejectPromise(reason) {
+            reject(promise, reason);
+          }
+        );
+      } catch (e) {
+        reject(promise, e);
+      }
     }
-  };
 
-  Enumerator.prototype._willSettleAt = function _willSettleAt(promise, i) {
-    var enumerator = this;
+    var id = 0;
+    function nextId() {
+      return id++;
+    }
 
-    subscribe(promise, undefined, function (value) {
-      return enumerator._settledAt(FULFILLED, i, value);
-    }, function (reason) {
-      return enumerator._settledAt(REJECTED, i, reason);
-    });
-  };
+    function makePromise(promise) {
+      promise[PROMISE_ID] = id++;
+      promise._state = undefined;
+      promise._result = undefined;
+      promise._subscribers = [];
+    }
 
-  return Enumerator;
-}();
+    function validationError() {
+      return new Error("Array Methods must be provided an Array");
+    }
 
-/**
+    var Enumerator = (function () {
+      function Enumerator(Constructor, input) {
+        this._instanceConstructor = Constructor;
+        this.promise = new Constructor(noop);
+
+        if (!this.promise[PROMISE_ID]) {
+          makePromise(this.promise);
+        }
+
+        if (isArray(input)) {
+          this.length = input.length;
+          this._remaining = input.length;
+
+          this._result = new Array(this.length);
+
+          if (this.length === 0) {
+            fulfill(this.promise, this._result);
+          } else {
+            this.length = this.length || 0;
+            this._enumerate(input);
+            if (this._remaining === 0) {
+              fulfill(this.promise, this._result);
+            }
+          }
+        } else {
+          reject(this.promise, validationError());
+        }
+      }
+
+      Enumerator.prototype._enumerate = function _enumerate(input) {
+        for (var i = 0; this._state === PENDING && i < input.length; i++) {
+          this._eachEntry(input[i], i);
+        }
+      };
+
+      Enumerator.prototype._eachEntry = function _eachEntry(entry, i) {
+        var c = this._instanceConstructor;
+        var resolve$$1 = c.resolve;
+
+        if (resolve$$1 === resolve$1) {
+          var _then = getThen(entry);
+
+          if (_then === then && entry._state !== PENDING) {
+            this._settledAt(entry._state, i, entry._result);
+          } else if (typeof _then !== "function") {
+            this._remaining--;
+            this._result[i] = entry;
+          } else if (c === Promise$1) {
+            var promise = new c(noop);
+            handleMaybeThenable(promise, entry, _then);
+            this._willSettleAt(promise, i);
+          } else {
+            this._willSettleAt(
+              new c(function (resolve$$1) {
+                return resolve$$1(entry);
+              }),
+              i
+            );
+          }
+        } else {
+          this._willSettleAt(resolve$$1(entry), i);
+        }
+      };
+
+      Enumerator.prototype._settledAt = function _settledAt(state, i, value) {
+        var promise = this.promise;
+
+        if (promise._state === PENDING) {
+          this._remaining--;
+
+          if (state === REJECTED) {
+            reject(promise, value);
+          } else {
+            this._result[i] = value;
+          }
+        }
+
+        if (this._remaining === 0) {
+          fulfill(promise, this._result);
+        }
+      };
+
+      Enumerator.prototype._willSettleAt = function _willSettleAt(promise, i) {
+        var enumerator = this;
+
+        subscribe(
+          promise,
+          undefined,
+          function (value) {
+            return enumerator._settledAt(FULFILLED, i, value);
+          },
+          function (reason) {
+            return enumerator._settledAt(REJECTED, i, reason);
+          }
+        );
+      };
+
+      return Enumerator;
+    })();
+
+    /**
   `Promise.all` accepts an array of promises, and returns a new promise which
   is fulfilled with an array of fulfillment values for the passed promises, or
   rejected with the reason of the first passed promise to be rejected. It casts all
@@ -755,11 +809,11 @@ var Enumerator = function () {
   fulfilled, or rejected if any of them become rejected.
   @static
 */
-function all(entries) {
-  return new Enumerator(this, entries).promise;
-}
+    function all(entries) {
+      return new Enumerator(this, entries).promise;
+    }
 
-/**
+    /**
   `Promise.race` returns a new promise which is settled in the same way as the
   first passed promise to settle.
 
@@ -824,25 +878,25 @@ function all(entries) {
   @return {Promise} a promise which settles in the same way as the first passed
   promise to settle.
 */
-function race(entries) {
-  /*jshint validthis:true */
-  var Constructor = this;
+    function race(entries) {
+      /*jshint validthis:true */
+      var Constructor = this;
 
-  if (!isArray(entries)) {
-    return new Constructor(function (_, reject) {
-      return reject(new TypeError('You must pass an array to race.'));
-    });
-  } else {
-    return new Constructor(function (resolve, reject) {
-      var length = entries.length;
-      for (var i = 0; i < length; i++) {
-        Constructor.resolve(entries[i]).then(resolve, reject);
+      if (!isArray(entries)) {
+        return new Constructor(function (_, reject) {
+          return reject(new TypeError("You must pass an array to race."));
+        });
+      } else {
+        return new Constructor(function (resolve, reject) {
+          var length = entries.length;
+          for (var i = 0; i < length; i++) {
+            Constructor.resolve(entries[i]).then(resolve, reject);
+          }
+        });
       }
-    });
-  }
-}
+    }
 
-/**
+    /**
   `Promise.reject` returns a promise rejected with the passed `reason`.
   It is shorthand for the following:
 
@@ -876,23 +930,27 @@ function race(entries) {
   Useful for tooling.
   @return {Promise} a promise rejected with the given `reason`.
 */
-function reject$1(reason) {
-  /*jshint validthis:true */
-  var Constructor = this;
-  var promise = new Constructor(noop);
-  reject(promise, reason);
-  return promise;
-}
+    function reject$1(reason) {
+      /*jshint validthis:true */
+      var Constructor = this;
+      var promise = new Constructor(noop);
+      reject(promise, reason);
+      return promise;
+    }
 
-function needsResolver() {
-  throw new TypeError('You must pass a resolver function as the first argument to the promise constructor');
-}
+    function needsResolver() {
+      throw new TypeError(
+        "You must pass a resolver function as the first argument to the promise constructor"
+      );
+    }
 
-function needsNew() {
-  throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");
-}
+    function needsNew() {
+      throw new TypeError(
+        "Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function."
+      );
+    }
 
-/**
+    /**
   Promise objects represent the eventual result of an asynchronous operation. The
   primary way of interacting with a promise is through its `then` method, which
   registers callbacks to receive either a promise's eventual value or the reason
@@ -996,19 +1054,21 @@ function needsNew() {
   @constructor
 */
 
-var Promise$1 = function () {
-  function Promise(resolver) {
-    this[PROMISE_ID] = nextId();
-    this._result = this._state = undefined;
-    this._subscribers = [];
+    var Promise$1 = (function () {
+      function Promise(resolver) {
+        this[PROMISE_ID] = nextId();
+        this._result = this._state = undefined;
+        this._subscribers = [];
 
-    if (noop !== resolver) {
-      typeof resolver !== 'function' && needsResolver();
-      this instanceof Promise ? initializePromise(this, resolver) : needsNew();
-    }
-  }
+        if (noop !== resolver) {
+          typeof resolver !== "function" && needsResolver();
+          this instanceof Promise
+            ? initializePromise(this, resolver)
+            : needsNew();
+        }
+      }
 
-  /**
+      /**
   The primary way of interacting with a promise is through its `then` method,
   which registers callbacks to receive either a promise's eventual value or the
   reason why the promise cannot be fulfilled.
@@ -1169,7 +1229,7 @@ var Promise$1 = function () {
   @return {Promise}
   */
 
-  /**
+      /**
   `catch` is simply sugar for `then(undefined, onRejection)` which makes it the same
   as the catch block of a try/catch statement.
   ```js
@@ -1193,12 +1253,11 @@ var Promise$1 = function () {
   @return {Promise}
   */
 
+      Promise.prototype.catch = function _catch(onRejection) {
+        return this.then(null, onRejection);
+      };
 
-  Promise.prototype.catch = function _catch(onRejection) {
-    return this.then(null, onRejection);
-  };
-
-  /**
+      /**
     `finally` will be invoked regardless of the promise's fate just as native
     try/catch/finally behaves
   
@@ -1237,83 +1296,82 @@ var Promise$1 = function () {
     @return {Promise}
   */
 
+      Promise.prototype.finally = function _finally(callback) {
+        var promise = this;
+        var constructor = promise.constructor;
 
-  Promise.prototype.finally = function _finally(callback) {
-    var promise = this;
-    var constructor = promise.constructor;
+        if (isFunction(callback)) {
+          return promise.then(
+            function (value) {
+              return constructor.resolve(callback()).then(function () {
+                return value;
+              });
+            },
+            function (reason) {
+              return constructor.resolve(callback()).then(function () {
+                throw reason;
+              });
+            }
+          );
+        }
 
-    if (isFunction(callback)) {
-      return promise.then(function (value) {
-        return constructor.resolve(callback()).then(function () {
-          return value;
-        });
-      }, function (reason) {
-        return constructor.resolve(callback()).then(function () {
-          throw reason;
-        });
-      });
+        return promise.then(callback, callback);
+      };
+
+      return Promise;
+    })();
+
+    Promise$1.prototype.then = then;
+    Promise$1.all = all;
+    Promise$1.race = race;
+    Promise$1.resolve = resolve$1;
+    Promise$1.reject = reject$1;
+    Promise$1._setScheduler = setScheduler;
+    Promise$1._setAsap = setAsap;
+    Promise$1._asap = asap;
+
+    /*global self*/
+    function polyfill() {
+      var local = void 0;
+
+      if (typeof commonjsGlobal !== "undefined") {
+        local = commonjsGlobal;
+      } else if (typeof self !== "undefined") {
+        local = self;
+      } else {
+        try {
+          local = Function("return this")();
+        } catch (e) {
+          throw new Error(
+            "polyfill failed because global object is unavailable in this environment"
+          );
+        }
+      }
+
+      var P = local.Promise;
+
+      if (P) {
+        var promiseToString = null;
+        try {
+          promiseToString = Object.prototype.toString.call(P.resolve());
+        } catch (e) {
+          // silently ignored
+        }
+
+        if (promiseToString === "[object Promise]" && !P.cast) {
+          return;
+        }
+      }
+
+      local.Promise = Promise$1;
     }
 
-    return promise.then(callback, callback);
-  };
+    // Strange compat..
+    Promise$1.polyfill = polyfill;
+    Promise$1.Promise = Promise$1;
 
-  return Promise;
-}();
-
-Promise$1.prototype.then = then;
-Promise$1.all = all;
-Promise$1.race = race;
-Promise$1.resolve = resolve$1;
-Promise$1.reject = reject$1;
-Promise$1._setScheduler = setScheduler;
-Promise$1._setAsap = setAsap;
-Promise$1._asap = asap;
-
-/*global self*/
-function polyfill() {
-  var local = void 0;
-
-  if (typeof commonjsGlobal !== 'undefined') {
-    local = commonjsGlobal;
-  } else if (typeof self !== 'undefined') {
-    local = self;
-  } else {
-    try {
-      local = Function('return this')();
-    } catch (e) {
-      throw new Error('polyfill failed because global object is unavailable in this environment');
-    }
-  }
-
-  var P = local.Promise;
-
-  if (P) {
-    var promiseToString = null;
-    try {
-      promiseToString = Object.prototype.toString.call(P.resolve());
-    } catch (e) {
-      // silently ignored
-    }
-
-    if (promiseToString === '[object Promise]' && !P.cast) {
-      return;
-    }
-  }
-
-  local.Promise = Promise$1;
-}
-
-// Strange compat..
-Promise$1.polyfill = polyfill;
-Promise$1.Promise = Promise$1;
-
-return Promise$1;
-
-})));
-
-
-
-
+    return Promise$1;
+  });
 });
 
 var Promise$1 = es6Promise.Promise;
@@ -1322,7 +1380,10 @@ var Promise$1 = es6Promise.Promise;
 
 var Worker = function Worker(opt) {
   // Create the root parent for the proto chain, and the starting Worker.
-  var root = _extends(Worker.convert(Promise$1.resolve()), JSON.parse(JSON.stringify(Worker.template)));
+  var root = _extends(
+    Worker.convert(Promise$1.resolve()),
+    JSON.parse(JSON.stringify(Worker.template))
+  );
   var self = Worker.convert(Promise$1.resolve(), root);
 
   // Set progress, optional settings, and return.
@@ -1350,22 +1411,22 @@ Worker.template = {
     canvas: null,
     img: null,
     pdf: null,
-    pageSize: null
+    pageSize: null,
   },
   progress: {
     val: 0,
     state: null,
     n: 0,
-    stack: []
+    stack: [],
   },
   opt: {
-    filename: 'file.pdf',
+    filename: "file.pdf",
     margin: [0, 0, 0, 0],
-    image: { type: 'jpeg', quality: 0.95 },
+    image: { type: "jpeg", quality: 0.95 },
     enableLinks: true,
     html2canvas: {},
-    jsPDF: {}
-  }
+    jsPDF: {},
+  },
 };
 
 /* ----- FROM / TO ----- */
@@ -1373,28 +1434,28 @@ Worker.template = {
 Worker.prototype.from = function from(src, type) {
   function getType(src) {
     switch (objType(src)) {
-      case 'string':
-        return 'string';
-      case 'element':
-        return src.nodeName.toLowerCase === 'canvas' ? 'canvas' : 'element';
+      case "string":
+        return "string";
+      case "element":
+        return src.nodeName.toLowerCase === "canvas" ? "canvas" : "element";
       default:
-        return 'unknown';
+        return "unknown";
     }
   }
 
   return this.then(function from_main() {
     type = type || getType(src);
     switch (type) {
-      case 'string':
-        return this.set({ src: createElement('div', { innerHTML: src }) });
-      case 'element':
+      case "string":
+        return this.set({ src: createElement("div", { innerHTML: src }) });
+      case "element":
         return this.set({ src: src });
-      case 'canvas':
+      case "canvas":
         return this.set({ canvas: src });
-      case 'img':
+      case "img":
         return this.set({ img: src });
       default:
-        return this.error('Unknown source type.');
+        return this.error("Unknown source type.");
     }
   });
 };
@@ -1402,47 +1463,69 @@ Worker.prototype.from = function from(src, type) {
 Worker.prototype.to = function to(target) {
   // Route the 'to' request to the appropriate method.
   switch (target) {
-    case 'container':
+    case "container":
       return this.toContainer();
-    case 'canvas':
+    case "canvas":
       return this.toCanvas();
-    case 'img':
+    case "img":
       return this.toImg();
-    case 'pdf':
+    case "pdf":
       return this.toPdf();
     default:
-      return this.error('Invalid target.');
+      return this.error("Invalid target.");
   }
 };
 
 Worker.prototype.toContainer = function toContainer() {
   // Set up function prerequisites.
-  var prereqs = [function checkSrc() {
-    return this.prop.src || this.error('Cannot duplicate - no source HTML.');
-  }, function checkPageSize() {
-    return this.prop.pageSize || this.setPageSize();
-  }];
+  var prereqs = [
+    function checkSrc() {
+      return this.prop.src || this.error("Cannot duplicate - no source HTML.");
+    },
+    function checkPageSize() {
+      return this.prop.pageSize || this.setPageSize();
+    },
+  ];
 
   return this.thenList(prereqs).then(function toContainer_main() {
     // Define the CSS styles for the container and its overlay parent.
     var overlayCSS = {
-      position: 'fixed', overflow: 'hidden', zIndex: 1000,
-      left: 0, right: 0, bottom: 0, top: 0,
-      backgroundColor: 'rgba(0,0,0,0.8)'
+      position: "fixed",
+      overflow: "hidden",
+      zIndex: 1000,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      top: 0,
+      backgroundColor: "rgba(0,0,0,0.8)",
     };
     var containerCSS = {
-      position: 'absolute', width: this.prop.pageSize.inner.width + this.prop.pageSize.unit,
-      left: 0, right: 0, top: 0, height: 'auto', margin: 'auto',
-      backgroundColor: 'white'
+      position: "absolute",
+      width: this.prop.pageSize.inner.width + this.prop.pageSize.unit,
+      left: 0,
+      right: 0,
+      top: 0,
+      height: "auto",
+      margin: "auto",
+      backgroundColor: "white",
     };
 
     // Set the overlay to hidden (could be changed in the future to provide a print preview).
     overlayCSS.opacity = 0;
 
     // Create and attach the elements.
-    var source = cloneNode(this.prop.src, this.opt.html2canvas.javascriptEnabled);
-    this.prop.overlay = createElement('div', { className: 'html2pdf__overlay', style: overlayCSS });
-    this.prop.container = createElement('div', { className: 'html2pdf__container', style: containerCSS });
+    var source = cloneNode(
+      this.prop.src,
+      this.opt.html2canvas.javascriptEnabled
+    );
+    this.prop.overlay = createElement("div", {
+      className: "html2pdf__overlay",
+      style: overlayCSS,
+    });
+    this.prop.container = createElement("div", {
+      className: "html2pdf__container",
+      style: containerCSS,
+    });
     this.prop.container.appendChild(source);
     this.prop.overlay.appendChild(this.prop.container);
     document.body.appendChild(this.prop.overlay);
@@ -1451,46 +1534,57 @@ Worker.prototype.toContainer = function toContainer() {
 
 Worker.prototype.toCanvas = function toCanvas() {
   // Set up function prerequisites.
-  var prereqs = [function checkContainer() {
-    return document.body.contains(this.prop.container) || this.toContainer();
-  }];
+  var prereqs = [
+    function checkContainer() {
+      return document.body.contains(this.prop.container) || this.toContainer();
+    },
+  ];
 
   // Fulfill prereqs then create the canvas.
-  return this.thenList(prereqs).then(function toCanvas_main() {
-    // Handle old-fashioned 'onrendered' argument.
-    var options = _extends({}, this.opt.html2canvas);
-    delete options.onrendered;
+  return this.thenList(prereqs)
+    .then(function toCanvas_main() {
+      // Handle old-fashioned 'onrendered' argument.
+      var options = _extends({}, this.opt.html2canvas);
+      delete options.onrendered;
 
-    return html2canvas(this.prop.container, options);
-  }).then(function toCanvas_post(canvas) {
-    // Handle old-fashioned 'onrendered' argument.
-    var onRendered = this.opt.html2canvas.onrendered || function () {};
-    onRendered(canvas);
+      return html2canvas(this.prop.container, options);
+    })
+    .then(function toCanvas_post(canvas) {
+      // Handle old-fashioned 'onrendered' argument.
+      var onRendered = this.opt.html2canvas.onrendered || function () {};
+      onRendered(canvas);
 
-    this.prop.canvas = canvas;
-    document.body.removeChild(this.prop.overlay);
-  });
+      this.prop.canvas = canvas;
+      document.body.removeChild(this.prop.overlay);
+    });
 };
 
 Worker.prototype.toImg = function toImg() {
   // Set up function prerequisites.
-  var prereqs = [function checkCanvas() {
-    return this.prop.canvas || this.toCanvas();
-  }];
+  var prereqs = [
+    function checkCanvas() {
+      return this.prop.canvas || this.toCanvas();
+    },
+  ];
 
   // Fulfill prereqs then create the image.
   return this.thenList(prereqs).then(function toImg_main() {
-    var imgData = this.prop.canvas.toDataURL('image/' + this.opt.image.type, this.opt.image.quality);
-    this.prop.img = document.createElement('img');
+    var imgData = this.prop.canvas.toDataURL(
+      "image/" + this.opt.image.type,
+      this.opt.image.quality
+    );
+    this.prop.img = document.createElement("img");
     this.prop.img.src = imgData;
   });
 };
 
 Worker.prototype.toPdf = function toPdf() {
   // Set up function prerequisites.
-  var prereqs = [function checkCanvas() {
-    return this.prop.canvas || this.toCanvas();
-  }];
+  var prereqs = [
+    function checkCanvas() {
+      return this.prop.canvas || this.toCanvas();
+    },
+  ];
 
   // Fulfill prereqs then create the image.
   return this.thenList(prereqs).then(function toPdf_main() {
@@ -1500,15 +1594,17 @@ Worker.prototype.toPdf = function toPdf() {
 
     // Calculate the number of pages.
     var pxFullHeight = canvas.height;
-    var pxPageHeight = Math.floor(canvas.width * this.prop.pageSize.inner.ratio);
+    var pxPageHeight = Math.floor(
+      canvas.width * this.prop.pageSize.inner.ratio
+    );
     var nPages = Math.ceil(pxFullHeight / pxPageHeight);
 
     // Define pageHeight separately so it can be trimmed on the final page.
     var pageHeight = this.prop.pageSize.inner.height;
 
     // Create a one-page canvas to split up the full image.
-    var pageCanvas = document.createElement('canvas');
-    var pageCtx = pageCanvas.getContext('2d');
+    var pageCanvas = document.createElement("canvas");
+    var pageCtx = pageCanvas.getContext("2d");
     pageCanvas.width = canvas.width;
     pageCanvas.height = pxPageHeight;
 
@@ -1519,20 +1615,32 @@ Worker.prototype.toPdf = function toPdf() {
       // Trim the final page to reduce file size.
       if (page === nPages - 1 && pxFullHeight % pxPageHeight !== 0) {
         pageCanvas.height = pxFullHeight % pxPageHeight;
-        pageHeight = pageCanvas.height * this.prop.pageSize.inner.width / pageCanvas.width;
+        pageHeight =
+          (pageCanvas.height * this.prop.pageSize.inner.width) /
+          pageCanvas.width;
       }
 
       // Display the page.
       var w = pageCanvas.width;
       var h = pageCanvas.height;
-      pageCtx.fillStyle = 'white';
+      pageCtx.fillStyle = "white";
       pageCtx.fillRect(0, 0, w, h);
       pageCtx.drawImage(canvas, 0, page * pxPageHeight, w, h, 0, 0, w, h);
 
       // Add the page to the PDF.
       if (page) this.prop.pdf.addPage();
-      var imgData = pageCanvas.toDataURL('image/' + opt.image.type, opt.image.quality);
-      this.prop.pdf.addImage(imgData, opt.image.type, opt.margin[1], opt.margin[0], this.prop.pageSize.inner.width, pageHeight);
+      var imgData = pageCanvas.toDataURL(
+        "image/" + opt.image.type,
+        opt.image.quality
+      );
+      this.prop.pdf.addImage(
+        imgData,
+        opt.image.type,
+        opt.margin[1],
+        opt.margin[0],
+        this.prop.pageSize.inner.width,
+        pageHeight
+      );
     }
   });
 };
@@ -1541,8 +1649,8 @@ Worker.prototype.toPdf = function toPdf() {
 
 Worker.prototype.output = function output(type, options, src) {
   // Redirect requests to the correct function (outputPdf / outputImg).
-  src = src || 'pdf';
-  if (src.toLowerCase() === 'img' || src.toLowerCase() === 'image') {
+  src = src || "pdf";
+  if (src.toLowerCase() === "img" || src.toLowerCase() === "image") {
     return this.outputImg(type, options);
   } else {
     return this.outputPdf(type, options);
@@ -1551,9 +1659,11 @@ Worker.prototype.output = function output(type, options, src) {
 
 Worker.prototype.outputPdf = function outputPdf(type, options) {
   // Set up function prerequisites.
-  var prereqs = [function checkPdf() {
-    return this.prop.pdf || this.toPdf();
-  }];
+  var prereqs = [
+    function checkPdf() {
+      return this.prop.pdf || this.toPdf();
+    },
+  ];
 
   // Fulfill prereqs then perform the appropriate output.
   return this.thenList(prereqs).then(function outputPdf_main() {
@@ -1568,22 +1678,24 @@ Worker.prototype.outputPdf = function outputPdf(type, options) {
 
 Worker.prototype.outputImg = function outputImg(type, options) {
   // Set up function prerequisites.
-  var prereqs = [function checkImg() {
-    return this.prop.img || this.toImg();
-  }];
+  var prereqs = [
+    function checkImg() {
+      return this.prop.img || this.toImg();
+    },
+  ];
 
   // Fulfill prereqs then perform the appropriate output.
   return this.thenList(prereqs).then(function outputImg_main() {
     switch (type) {
       case undefined:
-      case 'img':
+      case "img":
         return this.prop.img;
-      case 'datauristring':
-      case 'dataurlstring':
+      case "datauristring":
+      case "dataurlstring":
         return this.prop.img.src;
-      case 'datauri':
-      case 'dataurl':
-        return document.location.href = this.prop.img.src;
+      case "datauri":
+      case "dataurl":
+        return (document.location.href = this.prop.img.src);
       default:
         throw 'Image output type "' + type + '" is not supported.';
     }
@@ -1592,14 +1704,18 @@ Worker.prototype.outputImg = function outputImg(type, options) {
 
 Worker.prototype.save = function save(filename) {
   // Set up function prerequisites.
-  var prereqs = [function checkPdf() {
-    return this.prop.pdf || this.toPdf();
-  }];
+  var prereqs = [
+    function checkPdf() {
+      return this.prop.pdf || this.toPdf();
+    },
+  ];
 
   // Fulfill prereqs, update the filename (if provided), and save the PDF.
-  return this.thenList(prereqs).set(filename ? { filename: filename } : null).then(function save_main() {
-    this.prop.pdf.save(this.opt.filename);
-  });
+  return this.thenList(prereqs)
+    .set(filename ? { filename: filename } : null)
+    .then(function save_main() {
+      this.prop.pdf.save(this.opt.filename);
+    });
 };
 
 /* ----- SET / GET ----- */
@@ -1608,7 +1724,7 @@ Worker.prototype.set = function set$$1(opt) {
   // TODO: Implement ordered pairs?
 
   // Silently ignore invalid or empty input.
-  if (objType(opt) !== 'object') {
+  if (objType(opt) !== "object") {
     return this;
   }
 
@@ -1621,13 +1737,14 @@ Worker.prototype.set = function set$$1(opt) {
       };
     } else {
       switch (key) {
-        case 'margin':
+        case "margin":
           return this.setMargin.bind(this, opt.margin);
-        case 'jsPDF':
+        case "jsPDF":
           return function set_jsPDF() {
-            this.opt.jsPDF = opt.jsPDF;return this.setPageSize();
+            this.opt.jsPDF = opt.jsPDF;
+            return this.setPageSize();
           };
-        case 'pageSize':
+        case "pageSize":
           return this.setPageSize.bind(this, opt.pageSize);
         default:
           // Set any other properties in opt.
@@ -1656,9 +1773,9 @@ Worker.prototype.setMargin = function setMargin(margin) {
   return this.then(function setMargin_main() {
     // Parse the margin property: [top, left, bottom, right].
     switch (objType(margin)) {
-      case 'number':
+      case "number":
         margin = [margin, margin, margin, margin];
-      case 'array':
+      case "array":
         if (margin.length === 2) {
           margin = [margin[0], margin[1], margin[0], margin[1]];
         }
@@ -1666,7 +1783,7 @@ Worker.prototype.setMargin = function setMargin(margin) {
           break;
         }
       default:
-        return this.error('Invalid margin array.');
+        return this.error("Invalid margin array.");
     }
 
     // Set the margin property, then update pageSize.
@@ -1680,14 +1797,14 @@ Worker.prototype.setPageSize = function setPageSize(pageSize) {
     pageSize = pageSize || jsPDF.getPageSize(this.opt.jsPDF);
 
     // Add 'inner' field if not present.
-    if (!pageSize.hasOwnProperty('inner')) {
+    if (!pageSize.hasOwnProperty("inner")) {
       pageSize.inner = {
         width: pageSize.width - this.opt.margin[1] - this.opt.margin[3],
-        height: pageSize.height - this.opt.margin[0] - this.opt.margin[2]
+        height: pageSize.height - this.opt.margin[0] - this.opt.margin[2],
       };
       pageSize.inner.px = {
         width: toPx(pageSize.inner.width, pageSize.k),
-        height: toPx(pageSize.inner.height, pageSize.k)
+        height: toPx(pageSize.inner.height, pageSize.k),
       };
       pageSize.inner.ratio = pageSize.inner.height / pageSize.inner.width;
     }
@@ -1709,9 +1826,19 @@ Worker.prototype.setProgress = function setProgress(val, state, n, stack) {
   return this;
 };
 
-Worker.prototype.updateProgress = function updateProgress(val, state, n, stack) {
+Worker.prototype.updateProgress = function updateProgress(
+  val,
+  state,
+  n,
+  stack
+) {
   // Immediately update all progress values, using setProgress.
-  return this.setProgress(val ? this.progress.val + val : null, state ? state : null, n ? this.progress.n + n : null, stack ? this.progress.stack.concat(stack) : null);
+  return this.setProgress(
+    val ? this.progress.val + val : null,
+    state ? state : null,
+    n ? this.progress.n + n : null,
+    stack ? this.progress.stack.concat(stack) : null
+  );
 };
 
 /* ----- PROMISE MAPPING ----- */
@@ -1720,20 +1847,31 @@ Worker.prototype.then = function then(onFulfilled, onRejected) {
   // Wrap `this` for encapsulation.
   var self = this;
 
-  return this.thenCore(onFulfilled, onRejected, function then_main(onFulfilled, onRejected) {
-    // Update progress while queuing, calling, and resolving `then`.
-    self.updateProgress(null, null, 1, [onFulfilled]);
-    return Promise$1.prototype.then.call(this, function then_pre(val) {
-      self.updateProgress(null, onFulfilled);
-      return val;
-    }).then(onFulfilled, onRejected).then(function then_post(val) {
-      self.updateProgress(1);
-      return val;
-    });
-  });
+  return this.thenCore(
+    onFulfilled,
+    onRejected,
+    function then_main(onFulfilled, onRejected) {
+      // Update progress while queuing, calling, and resolving `then`.
+      self.updateProgress(null, null, 1, [onFulfilled]);
+      return Promise$1.prototype.then
+        .call(this, function then_pre(val) {
+          self.updateProgress(null, onFulfilled);
+          return val;
+        })
+        .then(onFulfilled, onRejected)
+        .then(function then_post(val) {
+          self.updateProgress(1);
+          return val;
+        });
+    }
+  );
 };
 
-Worker.prototype.thenCore = function thenCore(onFulfilled, onRejected, thenBase) {
+Worker.prototype.thenCore = function thenCore(
+  onFulfilled,
+  onRejected,
+  thenBase
+) {
   // Handle optional thenBase parameter.
   thenBase = thenBase || Promise$1.prototype.then;
 
@@ -1747,8 +1885,12 @@ Worker.prototype.thenCore = function thenCore(onFulfilled, onRejected, thenBase)
   }
 
   // Cast self into a Promise to avoid polyfills recursively defining `then`.
-  var isNative = Promise$1.toString().indexOf('[native code]') !== -1 && Promise$1.name === 'Promise';
-  var selfPromise = isNative ? self : Worker.convert(_extends({}, self), Promise$1.prototype);
+  var isNative =
+    Promise$1.toString().indexOf("[native code]") !== -1 &&
+    Promise$1.name === "Promise";
+  var selfPromise = isNative
+    ? self
+    : Worker.convert(_extends({}, self), Promise$1.prototype);
 
   // Return the promise, after casting it into a Worker and preserving props.
   var returnVal = thenBase.call(selfPromise, onFulfilled, onRejected);
@@ -1769,18 +1911,18 @@ Worker.prototype.thenList = function thenList(fns) {
   return self;
 };
 
-Worker.prototype['catch'] = function (onRejected) {
+Worker.prototype["catch"] = function (onRejected) {
   // Bind `this` to the promise handler, call `catch`, and return a Worker.
   if (onRejected) {
     onRejected = onRejected.bind(this);
   }
-  var returnVal = Promise$1.prototype['catch'].call(this, onRejected);
+  var returnVal = Promise$1.prototype["catch"].call(this, onRejected);
   return Worker.convert(returnVal, this);
 };
 
 Worker.prototype.catchExternal = function catchExternal(onRejected) {
   // Call `catch` and return a standard promise (exits the Worker chain).
-  return Promise$1.prototype['catch'].call(this, onRejected);
+  return Promise$1.prototype["catch"].call(this, onRejected);
 };
 
 Worker.prototype.error = function error(msg) {
@@ -1801,7 +1943,11 @@ Worker.prototype.run = Worker.prototype.then;
 // Get dimensions of a PDF page, as determined by jsPDF.
 jsPDF.getPageSize = function (orientation, unit, format) {
   // Decode options object
-  if ((typeof orientation === 'undefined' ? 'undefined' : _typeof(orientation)) === 'object') {
+  if (
+    (typeof orientation === "undefined"
+      ? "undefined"
+      : _typeof(orientation)) === "object"
+  ) {
     var options = orientation;
     orientation = options.orientation;
     unit = options.unit || unit;
@@ -1809,59 +1955,84 @@ jsPDF.getPageSize = function (orientation, unit, format) {
   }
 
   // Default options
-  unit = unit || 'mm';
-  format = format || 'a4';
-  orientation = ('' + (orientation || 'P')).toLowerCase();
-  var format_as_string = ('' + format).toLowerCase();
+  unit = unit || "mm";
+  format = format || "a4";
+  orientation = ("" + (orientation || "P")).toLowerCase();
+  var format_as_string = ("" + format).toLowerCase();
 
   // Size in pt of various paper formats
   var pageFormats = {
-    'a0': [2383.94, 3370.39], 'a1': [1683.78, 2383.94],
-    'a2': [1190.55, 1683.78], 'a3': [841.89, 1190.55],
-    'a4': [595.28, 841.89], 'a5': [419.53, 595.28],
-    'a6': [297.64, 419.53], 'a7': [209.76, 297.64],
-    'a8': [147.40, 209.76], 'a9': [104.88, 147.40],
-    'a10': [73.70, 104.88], 'b0': [2834.65, 4008.19],
-    'b1': [2004.09, 2834.65], 'b2': [1417.32, 2004.09],
-    'b3': [1000.63, 1417.32], 'b4': [708.66, 1000.63],
-    'b5': [498.90, 708.66], 'b6': [354.33, 498.90],
-    'b7': [249.45, 354.33], 'b8': [175.75, 249.45],
-    'b9': [124.72, 175.75], 'b10': [87.87, 124.72],
-    'c0': [2599.37, 3676.54], 'c1': [1836.85, 2599.37],
-    'c2': [1298.27, 1836.85], 'c3': [918.43, 1298.27],
-    'c4': [649.13, 918.43], 'c5': [459.21, 649.13],
-    'c6': [323.15, 459.21], 'c7': [229.61, 323.15],
-    'c8': [161.57, 229.61], 'c9': [113.39, 161.57],
-    'c10': [79.37, 113.39], 'dl': [311.81, 623.62],
-    'letter': [612, 792],
-    'government-letter': [576, 756],
-    'legal': [612, 1008],
-    'junior-legal': [576, 360],
-    'ledger': [1224, 792],
-    'tabloid': [792, 1224],
-    'credit-card': [153, 243]
+    a0: [2383.94, 3370.39],
+    a1: [1683.78, 2383.94],
+    a2: [1190.55, 1683.78],
+    a3: [841.89, 1190.55],
+    a4: [595.28, 841.89],
+    a5: [419.53, 595.28],
+    a6: [297.64, 419.53],
+    a7: [209.76, 297.64],
+    a8: [147.4, 209.76],
+    a9: [104.88, 147.4],
+    a10: [73.7, 104.88],
+    b0: [2834.65, 4008.19],
+    b1: [2004.09, 2834.65],
+    b2: [1417.32, 2004.09],
+    b3: [1000.63, 1417.32],
+    b4: [708.66, 1000.63],
+    b5: [498.9, 708.66],
+    b6: [354.33, 498.9],
+    b7: [249.45, 354.33],
+    b8: [175.75, 249.45],
+    b9: [124.72, 175.75],
+    b10: [87.87, 124.72],
+    c0: [2599.37, 3676.54],
+    c1: [1836.85, 2599.37],
+    c2: [1298.27, 1836.85],
+    c3: [918.43, 1298.27],
+    c4: [649.13, 918.43],
+    c5: [459.21, 649.13],
+    c6: [323.15, 459.21],
+    c7: [229.61, 323.15],
+    c8: [161.57, 229.61],
+    c9: [113.39, 161.57],
+    c10: [79.37, 113.39],
+    dl: [311.81, 623.62],
+    letter: [612, 792],
+    "government-letter": [576, 756],
+    legal: [612, 1008],
+    "junior-legal": [576, 360],
+    ledger: [1224, 792],
+    tabloid: [792, 1224],
+    "credit-card": [153, 243],
   };
 
   // Unit conversion
   switch (unit) {
-    case 'pt':
-      var k = 1;break;
-    case 'mm':
-      var k = 72 / 25.4;break;
-    case 'cm':
-      var k = 72 / 2.54;break;
-    case 'in':
-      var k = 72;break;
-    case 'px':
-      var k = 72 / 96;break;
-    case 'pc':
-      var k = 12;break;
-    case 'em':
-      var k = 12;break;
-    case 'ex':
-      var k = 6;break;
+    case "pt":
+      var k = 1;
+      break;
+    case "mm":
+      var k = 72 / 25.4;
+      break;
+    case "cm":
+      var k = 72 / 2.54;
+      break;
+    case "in":
+      var k = 72;
+      break;
+    case "px":
+      var k = 72 / 96;
+      break;
+    case "pc":
+      var k = 12;
+      break;
+    case "em":
+      var k = 12;
+      break;
+    case "ex":
+      var k = 6;
+      break;
     default:
-      throw 'Invalid unit: ' + unit;
+      throw "Invalid unit: " + unit;
   }
 
   // Dimensions are stored as user units and converted to points on output
@@ -1873,31 +2044,31 @@ jsPDF.getPageSize = function (orientation, unit, format) {
       var pageHeight = format[1];
       var pageWidth = format[0];
     } catch (err) {
-      throw new Error('Invalid format: ' + format);
+      throw new Error("Invalid format: " + format);
     }
   }
 
   // Handle page orientation
-  if (orientation === 'p' || orientation === 'portrait') {
-    orientation = 'p';
+  if (orientation === "p" || orientation === "portrait") {
+    orientation = "p";
     if (pageWidth > pageHeight) {
       var tmp = pageWidth;
       pageWidth = pageHeight;
       pageHeight = tmp;
     }
-  } else if (orientation === 'l' || orientation === 'landscape') {
-    orientation = 'l';
+  } else if (orientation === "l" || orientation === "landscape") {
+    orientation = "l";
     if (pageHeight > pageWidth) {
       var tmp = pageWidth;
       pageWidth = pageHeight;
       pageHeight = tmp;
     }
   } else {
-    throw 'Invalid orientation: ' + orientation;
+    throw "Invalid orientation: " + orientation;
   }
 
   // Return information (k is the unit conversion ratio from pts)
-  var info = { 'width': pageWidth, 'height': pageHeight, 'unit': unit, 'k': k };
+  var info = { width: pageWidth, height: pageHeight, unit: unit, k: k };
   return info;
 };
 
@@ -1925,15 +2096,15 @@ jsPDF.getPageSize = function (orientation, unit, format) {
 
 // Refs to original functions.
 var orig = {
-  toContainer: Worker.prototype.toContainer
+  toContainer: Worker.prototype.toContainer,
 };
 
 // Add pagebreak default options to the Worker template.
 Worker.template.opt.pagebreak = {
-  mode: ['css', 'legacy'],
+  mode: ["css", "legacy"],
   before: [],
   after: [],
-  avoid: []
+  avoid: [],
 };
 
 Worker.prototype.toContainer = function toContainer() {
@@ -1945,34 +2116,36 @@ Worker.prototype.toContainer = function toContainer() {
     // Check all requested modes.
     var modeSrc = [].concat(this.opt.pagebreak.mode);
     var mode = {
-      avoidAll: modeSrc.indexOf('avoid-all') !== -1,
-      css: modeSrc.indexOf('css') !== -1,
-      legacy: modeSrc.indexOf('legacy') !== -1
+      avoidAll: modeSrc.indexOf("avoid-all") !== -1,
+      css: modeSrc.indexOf("css") !== -1,
+      legacy: modeSrc.indexOf("legacy") !== -1,
     };
 
     // Get arrays of all explicitly requested elements.
     var select = {};
     var self = this;
-    ['before', 'after', 'avoid'].forEach(function (key) {
-      var all = mode.avoidAll && key === 'avoid';
+    ["before", "after", "avoid"].forEach(function (key) {
+      var all = mode.avoidAll && key === "avoid";
       select[key] = all ? [] : [].concat(self.opt.pagebreak[key] || []);
       if (select[key].length > 0) {
-        select[key] = Array.prototype.slice.call(root.querySelectorAll(select[key].join(', ')));
+        select[key] = Array.prototype.slice.call(
+          root.querySelectorAll(select[key].join(", "))
+        );
       }
     });
 
     // Get all legacy page-break elements.
-    var legacyEls = root.querySelectorAll('.html2pdf__page-break');
+    var legacyEls = root.querySelectorAll(".html2pdf__page-break");
     legacyEls = Array.prototype.slice.call(legacyEls);
 
     // Loop through all elements.
-    var els = root.querySelectorAll('*');
+    var els = root.querySelectorAll("*");
     Array.prototype.forEach.call(els, function pagebreak_loop(el) {
       // Setup pagebreak rules based on legacy and avoidAll modes.
       var rules = {
         before: false,
         after: mode.legacy && legacyEls.indexOf(el) !== -1,
-        avoid: mode.avoidAll
+        avoid: mode.avoidAll,
       };
 
       // Add rules for css mode.
@@ -1981,12 +2154,18 @@ Worker.prototype.toContainer = function toContainer() {
         var style = window.getComputedStyle(el);
         // TODO: Handle 'left' and 'right' correctly.
         // TODO: Add support for 'avoid' on breakBefore/After.
-        var breakOpt = ['always', 'page', 'left', 'right'];
-        var avoidOpt = ['avoid', 'avoid-page'];
+        var breakOpt = ["always", "page", "left", "right"];
+        var avoidOpt = ["avoid", "avoid-page"];
         rules = {
-          before: rules.before || breakOpt.indexOf(style.breakBefore || style.pageBreakBefore) !== -1,
-          after: rules.after || breakOpt.indexOf(style.breakAfter || style.pageBreakAfter) !== -1,
-          avoid: rules.avoid || avoidOpt.indexOf(style.breakInside || style.pageBreakInside) !== -1
+          before:
+            rules.before ||
+            breakOpt.indexOf(style.breakBefore || style.pageBreakBefore) !== -1,
+          after:
+            rules.after ||
+            breakOpt.indexOf(style.breakAfter || style.pageBreakAfter) !== -1,
+          avoid:
+            rules.avoid ||
+            avoidOpt.indexOf(style.breakInside || style.pageBreakInside) !== -1,
         };
       }
 
@@ -2003,7 +2182,8 @@ Worker.prototype.toContainer = function toContainer() {
       if (rules.avoid && !rules.before) {
         var startPage = Math.floor(clientRect.top / pxPageHeight);
         var endPage = Math.floor(clientRect.bottom / pxPageHeight);
-        var nPages = Math.abs(clientRect.bottom - clientRect.top) / pxPageHeight;
+        var nPages =
+          Math.abs(clientRect.bottom - clientRect.top) / pxPageHeight;
 
         // Turn on rules.before if the el is broken and is at most one page long.
         if (endPage !== startPage && nPages <= 1) {
@@ -2013,19 +2193,23 @@ Worker.prototype.toContainer = function toContainer() {
 
       // Before: Create a padding div to push the element to the next page.
       if (rules.before) {
-        var pad = createElement('div', { style: {
-            display: 'block',
-            height: pxPageHeight - clientRect.top % pxPageHeight + 'px'
-          } });
+        var pad = createElement("div", {
+          style: {
+            display: "block",
+            height: pxPageHeight - (clientRect.top % pxPageHeight) + "px",
+          },
+        });
         el.parentNode.insertBefore(pad, el);
       }
 
       // After: Create a padding div to fill the remaining page.
       if (rules.after) {
-        var pad = createElement('div', { style: {
-            display: 'block',
-            height: pxPageHeight - clientRect.bottom % pxPageHeight + 'px'
-          } });
+        var pad = createElement("div", {
+          style: {
+            display: "block",
+            height: pxPageHeight - (clientRect.bottom % pxPageHeight) + "px",
+          },
+        });
         el.parentNode.insertBefore(pad, el.nextSibling);
       }
     });
@@ -2038,7 +2222,7 @@ Worker.prototype.toContainer = function toContainer() {
 var linkInfo = [];
 var orig$1 = {
   toContainer: Worker.prototype.toContainer,
-  toPdf: Worker.prototype.toPdf
+  toPdf: Worker.prototype.toPdf,
 };
 
 Worker.prototype.toContainer = function toContainer() {
@@ -2047,26 +2231,42 @@ Worker.prototype.toContainer = function toContainer() {
     if (this.opt.enableLinks) {
       // Find all anchor tags and get the container's bounds for reference.
       var container = this.prop.container;
-      var links = container.querySelectorAll('a');
-      var containerRect = unitConvert(container.getBoundingClientRect(), this.prop.pageSize.k);
+      var links = container.querySelectorAll("a");
+      var containerRect = unitConvert(
+        container.getBoundingClientRect(),
+        this.prop.pageSize.k
+      );
       linkInfo = [];
 
       // Loop through each anchor tag.
-      Array.prototype.forEach.call(links, function (link) {
-        // Treat each client rect as a separate link (for text-wrapping).
-        var clientRects = link.getClientRects();
-        for (var i = 0; i < clientRects.length; i++) {
-          var clientRect = unitConvert(clientRects[i], this.prop.pageSize.k);
-          clientRect.left -= containerRect.left;
-          clientRect.top -= containerRect.top;
+      Array.prototype.forEach.call(
+        links,
+        function (link) {
+          // Treat each client rect as a separate link (for text-wrapping).
+          var clientRects = link.getClientRects();
+          for (var i = 0; i < clientRects.length; i++) {
+            var clientRect = unitConvert(clientRects[i], this.prop.pageSize.k);
+            clientRect.left -= containerRect.left;
+            clientRect.top -= containerRect.top;
 
-          var page = Math.floor(clientRect.top / this.prop.pageSize.inner.height) + 1;
-          var top = this.opt.margin[0] + clientRect.top % this.prop.pageSize.inner.height;
-          var left = this.opt.margin[1] + clientRect.left;
+            var page =
+              Math.floor(clientRect.top / this.prop.pageSize.inner.height) + 1;
+            var top =
+              this.opt.margin[0] +
+              (clientRect.top % this.prop.pageSize.inner.height);
+            var left = this.opt.margin[1] + clientRect.left;
 
-          linkInfo.push({ page: page, top: top, left: left, clientRect: clientRect, link: link });
-        }
-      }, this);
+            linkInfo.push({
+              page: page,
+              top: top,
+              left: left,
+              clientRect: clientRect,
+              link: link,
+            });
+          }
+        },
+        this
+      );
     }
   });
 };
@@ -2078,7 +2278,13 @@ Worker.prototype.toPdf = function toPdf() {
       // Attach each anchor tag based on info from toContainer().
       linkInfo.forEach(function (l) {
         this.prop.pdf.setPage(l.page);
-        this.prop.pdf.link(l.left, l.top, l.clientRect.width, l.clientRect.height, { url: l.link.href });
+        this.prop.pdf.link(
+          l.left,
+          l.top,
+          l.clientRect.width,
+          l.clientRect.height,
+          { url: l.link.href }
+        );
       }, this);
 
       // Reset the active page of the PDF to the final page.
