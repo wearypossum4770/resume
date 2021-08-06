@@ -22,7 +22,7 @@ export default function Bond() {
   const [bond, setBond] = useState(bondState);
   performance.mark("ComponentMountStart");
   console.log(bond.annual_periods);
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setBond({ ...bond, [name]: value });
   };
@@ -30,7 +30,7 @@ export default function Bond() {
   performance.measure(
     "HomeComponentMount",
     "ComponentMountStart",
-    "ComponentMountEnd",
+    "ComponentMountEnd"
   );
   return (
     <form>
@@ -66,7 +66,8 @@ export default function Bond() {
         <select
           name="annual_payments_made"
           id="annual_payments_made"
-          onChange={handleChange}>
+          onChange={handleChange}
+        >
           <option value="not_selected">Select one...</option>
           <option value="weekly" data-calculation="52">
             weekly

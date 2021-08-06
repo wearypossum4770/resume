@@ -13,7 +13,7 @@ export default function Signup() {
   });
   const handleChange = ({ target: { name, value } }) =>
     setState({ ...state, [name]: value });
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
   };
   const handleClick = () => {
@@ -38,7 +38,8 @@ export default function Signup() {
     <div className="content-section">
       <form
         className="w3-container w3-card-4 w3-light-grey"
-        onSubmit={handleSubmit}>
+        onSubmit={handleSubmit}
+      >
         <p>
           <label> First Name </label>
 
@@ -46,8 +47,8 @@ export default function Signup() {
             autoComplete="firstName"
             className="w3-input"
             id="first_name"
-            onChange={e => handleChange(e)}
-            onClick={e => handleChange(e)}
+            onChange={(e) => handleChange(e)}
+            onClick={(e) => handleChange(e)}
             name="first_name"
             type="text"
             value="john"
@@ -60,8 +61,8 @@ export default function Signup() {
             autoComplete="middleName"
             className="w3-input"
             id="middle_name"
-            onChange={e => handleChange(e)}
-            onClick={e => handleChange(e)}
+            onChange={(e) => handleChange(e)}
+            onClick={(e) => handleChange(e)}
             name="middle_name"
             value="daniel"
             type="text"
@@ -74,8 +75,8 @@ export default function Signup() {
             autoComplete="lastName"
             className="w3-input"
             id="last_name"
-            onChange={e => handleChange(e)}
-            onClick={e => handleChange(e)}
+            onChange={(e) => handleChange(e)}
+            onClick={(e) => handleChange(e)}
             name="last_name"
             value="doe"
             type="text"
@@ -88,8 +89,8 @@ export default function Signup() {
             autoComplete="email"
             className="w3-input"
             id="email"
-            onChange={e => handleChange(e)}
-            onClick={e => handleChange(e)}
+            onChange={(e) => handleChange(e)}
+            onClick={(e) => handleChange(e)}
             name="email"
             value="john.daniel.doe@example.com"
             type="email"
@@ -101,8 +102,8 @@ export default function Signup() {
             autoComplete="username"
             className="w3-input"
             id="username"
-            onChange={e => handleChange(e)}
-            onClick={e => handleChange(e)}
+            onChange={(e) => handleChange(e)}
+            onClick={(e) => handleChange(e)}
             name="username"
             value="john.daniel.doe"
           />
@@ -114,8 +115,8 @@ export default function Signup() {
             autoComplete="new-password"
             className="w3-input"
             id="password1"
-            onChange={e => handleChange(e)}
-            onClick={e => handleChange(e)}
+            onChange={(e) => handleChange(e)}
+            onClick={(e) => handleChange(e)}
             name="password1"
             type="password"
             value="jjq4dSj4nDYQnFS"
@@ -128,8 +129,8 @@ export default function Signup() {
             autoComplete="new-password"
             className="w3-input"
             id="password2"
-            onChange={e => handleChange(e)}
-            onClick={e => handleChange(e)}
+            onChange={(e) => handleChange(e)}
+            onClick={(e) => handleChange(e)}
             name="password2"
             type="password"
             value="jjq4dSj4nDYQnFS"

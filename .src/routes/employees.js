@@ -5,8 +5,8 @@ import { EmployeeModel } from "../models/Employee.js";
 const employeeRouter = Router();
 employeeRouter.route("/").get((req, res) => {
   EmployeeModel.find()
-    .then(employees => res.json(employees))
-    .catch(err => res.status(400).json(`ERROR:${err}`));
+    .then((employees) => res.json(employees))
+    .catch((err) => res.status(400).json(`ERROR:${err}`));
 });
 employeeRouter.route("/add").post((req, res) => {
   console.log(req.body);
@@ -19,7 +19,7 @@ employeeRouter.route("/add").post((req, res) => {
   newUser
     .save()
     .then(() => res.json("Employee Added!"))
-    .catch(err => res.status(400).json(`Error:${err}`));
+    .catch((err) => res.status(400).json(`Error:${err}`));
 });
 export default employeeRouter;
 function clock_in(employeeID) {}

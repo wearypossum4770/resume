@@ -5,9 +5,9 @@ const getBaseLog = (x, y) => Math.log(y) / Math.log(x);
 
 const sturges_rule = (x, y) => 1 + getBaseLog(x, y);
 
-const sorted = array => array.sort((a, b) => a - b);
+const sorted = (array) => array.sort((a, b) => a - b);
 
-const median = array => {
+const median = (array) => {
   let init = sorted(array);
   let half = init.length / 2;
   if (init.length % 2 === 0) {

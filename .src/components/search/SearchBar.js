@@ -8,7 +8,7 @@ export default function SearchBar({ searchTerm, onSearchChange }) {
     <input
       type="text"
       id="search"
-      onChange={e => onSearchChange(e.target.value)}
+      onChange={(e) => onSearchChange(e.target.value)}
       placeholder="Search term here..."
       value={searchTerm}
     />

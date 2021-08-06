@@ -37,7 +37,7 @@ const employeeSchema = new Schema(
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 export const EmployeeModel = mongoose.model("Employee", employeeSchema);

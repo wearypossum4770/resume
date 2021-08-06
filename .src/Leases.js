@@ -3,7 +3,7 @@
  * @OnlyCurrentDoc
  */
 
-const isFinanceLease = array => array.some(element => true);
+const isFinanceLease = (array) => array.some((element) => true);
 function calculatePresentValueSingleSum(array) {
   const obj = {
     number_of_periods: array[2],
@@ -45,17 +45,17 @@ function calculatePresentValueOfAnnuityDue(array) {
   return parseFloat(presentValueAnnuityDue(obj)) * obj.annual_payment;
 }
 
-const interestRate = rate => rate / 100;
+const interestRate = (rate) => rate / 100;
 
 const futureValueSingleSum = ({ interest_rate, number_of_periods }) =>
   parseFloat(Math.pow(1 + interestRate(interest_rate), number_of_periods));
 
-const presentValueSingleSum = init => 1 / futureValueSingleSum(init);
+const presentValueSingleSum = (init) => 1 / futureValueSingleSum(init);
 
-const futureValueOrdinaryAnnuity = init =>
+const futureValueOrdinaryAnnuity = (init) =>
   (futureValueSingleSum(init) - 1) / interestRate(init.interest_rate);
 
-const presentValueOrdinaryAnnuity = init =>
+const presentValueOrdinaryAnnuity = (init) =>
   (1 - presentValueSingleSum(init)) / interestRate(init.interest_rate);
 
 const presentValueAnnuityDue = ({ interest_rate, number_of_periods }) =>
@@ -70,12 +70,12 @@ function financial(func) {
   return Number.parseFloat(func).toFixed(2);
 }
 
-const alternativeUseTest = str => str.toLowerCase() === "yes";
+const alternativeUseTest = (str) => str.toLowerCase() === "yes";
 
-const transferOfOwnershipTest = str => str.toLowerCase() === "yes";
+const transferOfOwnershipTest = (str) => str.toLowerCase() === "yes";
 
-const purchaseOptionTest = str => str.toLowerCase() === "yes";
+const purchaseOptionTest = (str) => str.toLowerCase() === "yes";
 
-const presentValueTest = array => array[0] / array[1] > 0.9;
+const presentValueTest = (array) => array[0] / array[1] > 0.9;
 
-const leaseTermTest = array => array[0] / array[1] > 0.75;
+const leaseTermTest = (array) => array[0] / array[1] > 0.75;

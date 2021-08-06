@@ -23,7 +23,7 @@ export default class TimeSheet {
     this.#_timesheets.push(timesheet);
   }
 }
-export const findTimeSheet = employeeName =>
+export const findTimeSheet = (employeeName) =>
   JSON.parse(readFileSync(`../src/data/${employeeName}_time_clock.json`)).map(
-    time => new TimeEntry(time),
+    (time) => new TimeEntry(time)
   );

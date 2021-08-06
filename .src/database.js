@@ -13,7 +13,7 @@ const userTable = async () => {
   }
 };
 userTable();
-const insertDocuments = documents => {
+const insertDocuments = (documents) => {
   let docs = client.db.create("");
 };
 const insertMany = () => null;

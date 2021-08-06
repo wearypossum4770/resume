@@ -6900,14 +6900,13 @@
             "Unsupported PNG image data, try using JPEG instead."
           );
         }),
-        (/**
+        /**
          * jsPDF gif Support PlugIn
          * Copyright (c) 2017 Aras Abbasi
          *
          * Licensed under the MIT License.
          * http://opensource.org/licenses/mit-license
-         */
-        (A = $.API).processGIF89A = function (t, e, n, r, i) {
+         */ ((A = $.API).processGIF89A = function (t, e, n, r, i) {
           var o = new mt(t),
             a = o.width,
             s = o.height,
@@ -6918,14 +6917,13 @@
           return A.processJPEG.call(this, l, e, n, r);
         }),
         (A.processGIF87A = A.processGIF89A),
-        (/**
+        /**
          * jsPDF bmp Support PlugIn
          * Copyright (c) 2018 Aras Abbasi
          *
          * Licensed under the MIT License.
          * http://opensource.org/licenses/mit-license
-         */
-        (O = $.API).processBMP = function (t, e, n, r, i) {
+         */ ((O = $.API).processBMP = function (t, e, n, r, i) {
           var o = new xt(t, !1),
             a = o.width,
             s = o.height,
@@ -7468,12 +7466,11 @@
                     "')."
                 );
           },
-        ]),
-        (/** @preserve
+        ]) /** @preserve
   jsPDF SVG plugin
   Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
-  */
-        (V = $.API).addSvg = function (t, e, n, r, i) {
+  */,
+        ((V = $.API).addSvg = function (t, e, n, r, i) {
           if (void 0 === e || void 0 === n)
             throw new Error("addSVG needs values for 'x' and 'y'");
           function o(t) {

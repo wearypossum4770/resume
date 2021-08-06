@@ -1,6 +1,6 @@
 /** @format */
 
-const arrayReducer = array =>
+const arrayReducer = (array) =>
   array.reduce((accum, currVal) => parseInt(accum) + parseInt(currVal));
 const luhn_algorithm = ({ card_number }) => {
   let cardNumber = Array.from(card_number.toString());
@@ -25,7 +25,7 @@ const luhn_algorithm = ({ card_number }) => {
       intermediatArray.push(number);
     }
   });
-  let is_Valid = num => (num + checkDigit) % 10 === 0;
+  let is_Valid = (num) => (num + checkDigit) % 10 === 0;
   let nonCheckDigits = arrayReducer(intermediatArray);
   return is_Valid(nonCheckDigits);
 };
@@ -42,5 +42,5 @@ test.concurrent.each([
   [79927398719, false],
   [79927398710, false],
 ])("It should be true", (test_input, expected) =>
-  expect(luhn_algorithm({ card_number: test_input })).toEqual(expected),
+  expect(luhn_algorithm({ card_number: test_input })).toEqual(expected)
 );

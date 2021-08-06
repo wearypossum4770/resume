@@ -11,7 +11,7 @@ const reducer = (state, action) => {
     case "REMOVE_POST":
       return {
         ...state,
-        posts: state.posts.filter(post => post.id !== action.payload),
+        posts: state.posts.filter((post) => post.id !== action.payload),
       };
     case "SET_ERROR":
       return { ...state, error: action.payload };

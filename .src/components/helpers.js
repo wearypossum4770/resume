@@ -1,8 +1,8 @@
 /** @format */
 
-export const milisecondsToDay = miliseconds => 86_400_000 * miliseconds;
+export const milisecondsToDay = (miliseconds) => 86_400_000 * miliseconds;
 
-export const yearsToSeconds = years => years * 31_536_000;
+export const yearsToSeconds = (years) => years * 31_536_000;
 // https://standardjs.com/#what-you-might-do-if-youre-clever
 
 export const balanceSheetToCashFlow = () => {
