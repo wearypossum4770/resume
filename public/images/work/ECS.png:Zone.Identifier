@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://mail.yahoo.com/
+HostUrl=https://apis.mail.yahoo.com/ws/v3/mailboxes/@.id==VjN-_5nUlk1rieOtRdn2GMm0nZ-IblDu3WLtLhOqnQ11s_Lx-yc2PiC35DWeAnbjUsh_TekMA6ez0RaMBrHVmg80Qw/messages/@.id==ACfH1F1mq25CYQf6MAS3CIJt5qQ/content/parts/@.id==2/thumbnail?appid=YMailNodin&downloadWhenThumbnailFails=true&pid=2
