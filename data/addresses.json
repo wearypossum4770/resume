@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "idempotent_key": "ckpfzqd7l0000nbve3vq1hfgl",
+    "address_type": "RESD",
+    "street1": "1600 Pennsylvania Avenue NW",
+    "street2": "",
+    "state": "Washington",
+    "city": "DC",
+    "zipcode": "20500"
+  }
+]

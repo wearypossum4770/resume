@@ -50,8 +50,7 @@
 }
 body {
   margin: 0;
-  padding: 0;
-  /*background: url("../images/bg_dark_green.png");*/
+  padding: 0;   
   background-color: inherit;
   font-size: 16px;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -295,14 +294,16 @@ abbr {
 .button-link {
   background: transparent;
   border: none !important;
-  /*font-size:0;*/
   color: white;
   padding: 20px 34px;
   text-align: right;
-  float: right;
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+div.education-section {
+  margin: 20px 0;
 }
