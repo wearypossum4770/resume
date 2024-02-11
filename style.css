@@ -18,6 +18,9 @@
   color: white;
 }
 
+time:hover::after {
+  content: attr(datetime);
+}
 @media (prefers-color-scheme: dark) {
   .day.dark-scheme {
     background: #333;
