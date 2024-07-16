@@ -1,7 +1,8 @@
 @font-face {
   font-family: "devicon";
   src: url("fonts/devicon.eot?dvqgvl");
-  src: url("fonts/devicon.eot?dvqgvl#iefix") format("embedded-opentype"),
+  src:
+    url("fonts/devicon.eot?dvqgvl#iefix") format("embedded-opentype"),
     url("fonts/devicon.ttf?dvqgvl") format("truetype"),
     url("fonts/devicon.woff?dvqgvl") format("woff"),
     url("fonts/devicon.svg?dvqgvl#devicon") format("svg");

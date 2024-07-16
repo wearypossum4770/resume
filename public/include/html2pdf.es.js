@@ -100,7 +100,7 @@ var cloneNode = function cloneNode(node, javascriptEnabled) {
         clone.scrollTop = node.scrollTop;
         clone.scrollLeft = node.scrollLeft;
       },
-      true
+      true,
     );
   }
 
@@ -130,14 +130,14 @@ var commonjsGlobal =
   typeof window !== "undefined"
     ? window
     : typeof global !== "undefined"
-    ? global
-    : typeof self !== "undefined"
-    ? self
-    : {};
+      ? global
+      : typeof self !== "undefined"
+        ? self
+        : {};
 
 function commonjsRequire() {
   throw new Error(
-    "Dynamic requires are not currently supported by rollup-plugin-commonjs"
+    "Dynamic requires are not currently supported by rollup-plugin-commonjs",
   );
 }
 
@@ -398,7 +398,7 @@ var es6Promise = createCommonjsModule(function (module, exports) {
 
     function cannotReturnOwn() {
       return new TypeError(
-        "A promises callback cannot return that same promise."
+        "A promises callback cannot return that same promise.",
       );
     }
 
@@ -444,7 +444,7 @@ var es6Promise = createCommonjsModule(function (module, exports) {
 
             reject(promise, reason);
           },
-          "Settle: " + (promise._label || " unknown promise")
+          "Settle: " + (promise._label || " unknown promise"),
         );
 
         if (!sealed && error) {
@@ -468,7 +468,7 @@ var es6Promise = createCommonjsModule(function (module, exports) {
           },
           function (reason) {
             return reject(promise, reason);
-          }
+          },
         );
       }
     }
@@ -633,7 +633,7 @@ var es6Promise = createCommonjsModule(function (module, exports) {
           },
           function rejectPromise(reason) {
             reject(promise, reason);
-          }
+          },
         );
       } catch (e) {
         reject(promise, e);
@@ -712,7 +712,7 @@ var es6Promise = createCommonjsModule(function (module, exports) {
               new c(function (resolve$$1) {
                 return resolve$$1(entry);
               }),
-              i
+              i,
             );
           }
         } else {
@@ -749,7 +749,7 @@ var es6Promise = createCommonjsModule(function (module, exports) {
           },
           function (reason) {
             return enumerator._settledAt(REJECTED, i, reason);
-          }
+          },
         );
       };
 
@@ -934,13 +934,13 @@ var es6Promise = createCommonjsModule(function (module, exports) {
 
     function needsResolver() {
       throw new TypeError(
-        "You must pass a resolver function as the first argument to the promise constructor"
+        "You must pass a resolver function as the first argument to the promise constructor",
       );
     }
 
     function needsNew() {
       throw new TypeError(
-        "Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function."
+        "Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.",
       );
     }
 
@@ -1305,7 +1305,7 @@ var es6Promise = createCommonjsModule(function (module, exports) {
               return constructor.resolve(callback()).then(function () {
                 throw reason;
               });
-            }
+            },
           );
         }
 
@@ -1337,7 +1337,7 @@ var es6Promise = createCommonjsModule(function (module, exports) {
           local = Function("return this")();
         } catch (e) {
           throw new Error(
-            "polyfill failed because global object is unavailable in this environment"
+            "polyfill failed because global object is unavailable in this environment",
           );
         }
       }
@@ -1376,7 +1376,7 @@ var Worker = function Worker(opt) {
   // Create the root parent for the proto chain, and the starting Worker.
   var root = _extends(
     Worker.convert(Promise$1.resolve()),
-    JSON.parse(JSON.stringify(Worker.template))
+    JSON.parse(JSON.stringify(Worker.template)),
   );
   var self = Worker.convert(Promise$1.resolve(), root);
 
@@ -1510,7 +1510,7 @@ Worker.prototype.toContainer = function toContainer() {
     // Create and attach the elements.
     var source = cloneNode(
       this.prop.src,
-      this.opt.html2canvas.javascriptEnabled
+      this.opt.html2canvas.javascriptEnabled,
     );
     this.prop.overlay = createElement("div", {
       className: "html2pdf__overlay",
@@ -1565,7 +1565,7 @@ Worker.prototype.toImg = function toImg() {
   return this.thenList(prereqs).then(function toImg_main() {
     var imgData = this.prop.canvas.toDataURL(
       "image/" + this.opt.image.type,
-      this.opt.image.quality
+      this.opt.image.quality,
     );
     this.prop.img = document.createElement("img");
     this.prop.img.src = imgData;
@@ -1589,7 +1589,7 @@ Worker.prototype.toPdf = function toPdf() {
     // Calculate the number of pages.
     var pxFullHeight = canvas.height;
     var pxPageHeight = Math.floor(
-      canvas.width * this.prop.pageSize.inner.ratio
+      canvas.width * this.prop.pageSize.inner.ratio,
     );
     var nPages = Math.ceil(pxFullHeight / pxPageHeight);
 
@@ -1625,7 +1625,7 @@ Worker.prototype.toPdf = function toPdf() {
       if (page) this.prop.pdf.addPage();
       var imgData = pageCanvas.toDataURL(
         "image/" + opt.image.type,
-        opt.image.quality
+        opt.image.quality,
       );
       this.prop.pdf.addImage(
         imgData,
@@ -1633,7 +1633,7 @@ Worker.prototype.toPdf = function toPdf() {
         opt.margin[1],
         opt.margin[0],
         this.prop.pageSize.inner.width,
-        pageHeight
+        pageHeight,
       );
     }
   });
@@ -1824,14 +1824,14 @@ Worker.prototype.updateProgress = function updateProgress(
   val,
   state,
   n,
-  stack
+  stack,
 ) {
   // Immediately update all progress values, using setProgress.
   return this.setProgress(
     val ? this.progress.val + val : null,
     state ? state : null,
     n ? this.progress.n + n : null,
-    stack ? this.progress.stack.concat(stack) : null
+    stack ? this.progress.stack.concat(stack) : null,
   );
 };
 
@@ -1857,14 +1857,14 @@ Worker.prototype.then = function then(onFulfilled, onRejected) {
           self.updateProgress(1);
           return val;
         });
-    }
+    },
   );
 };
 
 Worker.prototype.thenCore = function thenCore(
   onFulfilled,
   onRejected,
-  thenBase
+  thenBase,
 ) {
   // Handle optional thenBase parameter.
   thenBase = thenBase || Promise$1.prototype.then;
@@ -2123,7 +2123,7 @@ Worker.prototype.toContainer = function toContainer() {
       select[key] = all ? [] : [].concat(self.opt.pagebreak[key] || []);
       if (select[key].length > 0) {
         select[key] = Array.prototype.slice.call(
-          root.querySelectorAll(select[key].join(", "))
+          root.querySelectorAll(select[key].join(", ")),
         );
       }
     });
@@ -2228,7 +2228,7 @@ Worker.prototype.toContainer = function toContainer() {
       var links = container.querySelectorAll("a");
       var containerRect = unitConvert(
         container.getBoundingClientRect(),
-        this.prop.pageSize.k
+        this.prop.pageSize.k,
       );
       linkInfo = [];
 
@@ -2259,7 +2259,7 @@ Worker.prototype.toContainer = function toContainer() {
             });
           }
         },
-        this
+        this,
       );
     }
   });
@@ -2277,7 +2277,7 @@ Worker.prototype.toPdf = function toPdf() {
           l.top,
           l.clientRect.width,
           l.clientRect.height,
-          { url: l.link.href }
+          { url: l.link.href },
         );
       }, this);
 

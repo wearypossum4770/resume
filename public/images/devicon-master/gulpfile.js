@@ -35,7 +35,7 @@ async function createDeviconMinCSS() {
  */
 async function createCSSFiles() {
   const deviconJson = JSON.parse(
-    await fsPromise.readFile(path.join(__dirname, deviconJSONName), "utf8")
+    await fsPromise.readFile(path.join(__dirname, deviconJSONName), "utf8"),
   );
 
   await Promise.all([
@@ -135,7 +135,7 @@ function cleanUp() {
       } catch (e) {
         console.log(e);
       }
-    })
+    }),
   );
 }
 
