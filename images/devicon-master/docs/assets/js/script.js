@@ -23,7 +23,7 @@ devicon.controller("IconListCtrl", function ($scope, $http, $compile) {
     })
     .error(function () {
       console.log(
-        "Unable to determine latest release version, fallback to master."
+        "Unable to determine latest release version, fallback to master.",
       );
     });
 
@@ -124,7 +124,7 @@ devicon.controller("IconListCtrl", function ($scope, $http, $compile) {
           $scope.selectedIcon.name +
           "-" +
           svgVersion +
-          ".svg"
+          ".svg",
       )
       .success(function (data) {
         var svgElement = angular.element(data);

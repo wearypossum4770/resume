@@ -7,8 +7,8 @@
   typeof exports === "object" && typeof module !== "undefined"
     ? (module.exports = factory())
     : typeof define === "function" && define.amd
-    ? define(factory)
-    : (global.html2pdf = factory());
+      ? define(factory)
+      : (global.html2pdf = factory());
 })(this, function () {
   "use strict";
 
@@ -16,14 +16,14 @@
     typeof window !== "undefined"
       ? window
       : typeof global !== "undefined"
-      ? global
-      : typeof self !== "undefined"
-      ? self
-      : {};
+        ? global
+        : typeof self !== "undefined"
+          ? self
+          : {};
 
   function commonjsRequire() {
     throw new Error(
-      "Dynamic requires are not currently supported by rollup-plugin-commonjs"
+      "Dynamic requires are not currently supported by rollup-plugin-commonjs",
     );
   }
 
@@ -285,13 +285,13 @@
                     switch (t.precision) {
                       case 2:
                         e = [N(n / 255), N(r / 255), N(i / 255), a[1]].join(
-                          " "
+                          " ",
                         );
                         break;
                       default:
                       case 3:
                         e = [z(n / 255), z(r / 255), z(i / 255), a[1]].join(
-                          " "
+                          " ",
                         );
                     }
                   o && 0 === o.a && (e = ["255", "255", "255", a[1]].join(" "));
@@ -338,10 +338,10 @@
                     "[object Date]" === Object.prototype.toString.call(t)
                       ? j(t)
                       : /^D:(20[0-2][0-9]|203[0-7]|19[7-9][0-9])(0[0-9]|1[0-2])([0-2][0-9]|3[0-1])(0[0-9]|1[0-9]|2[0-3])(0[0-9]|[1-5][0-9])(0[0-9]|[1-5][0-9])(\+0[0-9]|\+1[0-4]|\-0[0-9]|\-1[0-1])\'(0[0-9]|[1-5][0-9])\'?$/.test(
-                          t
-                        )
-                      ? t
-                      : j(new Date())),
+                            t,
+                          )
+                        ? t
+                        : j(new Date())),
                   (c = e)
                 );
               },
@@ -371,7 +371,7 @@
                       .split("")
                       .map(function () {
                         return "ABCDEF0123456789".charAt(
-                          Math.floor(16 * Math.random())
+                          Math.floor(16 * Math.random()),
                         );
                       })
                       .join("")),
@@ -396,7 +396,7 @@
               },
               W = function () {
                 for (var t in (it(
-                  "/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]"
+                  "/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]",
                 ),
                 it("/Font <<"),
                 nt))
@@ -488,7 +488,7 @@
                           n +
                           " of string '" +
                           t +
-                          "' exceeds 16bits. Cannot be encoded into UCS-2 BE"
+                          "' exceeds 16bits. Cannot be encoded into UCS-2 BE",
                       );
                     s.push(l), s.push(c - (l << 8));
                   }
@@ -521,12 +521,12 @@
                     (I[k] = { width: Number(t) || u, height: Number(e) || v }),
                     (A[k] = {}),
                     J(k);
-                }.apply(this, arguments),
+                }).apply(this, arguments),
                   it(N(p * w) + " w"),
                   it(d),
                   0 !== F && it(F + " J"),
                   0 !== P && it(P + " j"),
-                  rt.publish("addPage", { pageNumber: k }));
+                  rt.publish("addPage", { pageNumber: k });
               },
               J = function (t) {
                 0 < t && t <= k && ((u = I[(o = t)].width), (v = I[t].height));
@@ -542,15 +542,15 @@
                   void 0 !== S[r] && void 0 !== S[r][e]
                     ? (i = S[r][e])
                     : void 0 !== S[t] && void 0 !== S[t][e]
-                    ? (i = S[t][e])
-                    : !1 === n.disableWarning &&
-                      console.warn(
-                        "Unable to look up font label for font '" +
-                          t +
-                          "', '" +
-                          e +
-                          "'. Refer to getFontList() for available fonts."
-                      ),
+                      ? (i = S[t][e])
+                      : !1 === n.disableWarning &&
+                        console.warn(
+                          "Unable to look up font label for font '" +
+                            t +
+                            "', '" +
+                            e +
+                            "'. Refer to getFontList() for available fonts.",
+                        ),
                   i ||
                     n.noFallback ||
                     (null == (i = S.times[e]) && (i = S.times.normal)),
@@ -607,7 +607,7 @@
                           (i = new Deflater(6)).append(new Uint8Array(n)),
                           (e = i.flush()),
                           (n = new Uint8Array(e.length + 6)).set(
-                            new Uint8Array([120, 156])
+                            new Uint8Array([120, 156]),
                           ),
                           n.set(e, 2),
                           n.set(
@@ -617,13 +617,13 @@
                               (o >> 16) & 255,
                               (o >> 24) & 255,
                             ]),
-                            e.length + 2
+                            e.length + 2,
                           ),
                           (e = String.fromCharCode.apply(null, n)),
                           it(
                             "<</Length " +
                               e.length +
-                              " /Filter [/FlateDecode]>>"
+                              " /Filter [/FlateDecode]>>",
                           );
                       } else it("<</Length " + e.length + ">>");
                       H(e), it("endobj");
@@ -662,7 +662,7 @@
                             t.substr(1) +
                             " (" +
                             ot(q[t]) +
-                            ")"
+                            ")",
                         );
                     it("/CreationDate (" + c + ")");
                   })(),
@@ -695,7 +695,7 @@
                           (s = parseInt(s) / 100),
                           "number" == typeof s &&
                             it(
-                              "/OpenAction [3 0 R /XYZ null null " + N(s) + "]"
+                              "/OpenAction [3 0 R /XYZ null null " + N(s) + "]",
                             );
                     }
                     switch ((h || (h = "continuous"), h)) {
@@ -728,7 +728,7 @@
                   it(
                     "function" == typeof r
                       ? (n + x[t]()).slice(-10) + " 00000 n "
-                      : (n + x[t]).slice(-10) + " 00000 n "
+                      : (n + x[t]).slice(-10) + " 00000 n ",
                   );
                 }
                 return (
@@ -752,9 +752,9 @@
                   "F" === t
                     ? (e = "f")
                     : "FD" === t || "DF" === t
-                    ? (e = "B")
-                    : ("f" !== t && "f*" !== t && "B" !== t && "B*" !== t) ||
-                      (e = t),
+                      ? (e = "B")
+                      : ("f" !== t && "f*" !== t && "B" !== t && "B*" !== t) ||
+                        (e = t),
                   e
                 );
               },
@@ -815,7 +815,7 @@
                       return (pt.document.location.href = n);
                     default:
                       throw new Error(
-                        'Output type "' + t + '" is not supported.'
+                        'Output type "' + t + '" is not supported.',
                       );
                   }
                 }).foo = function () {
@@ -896,7 +896,7 @@
                 it(
                   1 === arguments.length
                     ? t
-                    : Array.prototype.join.call(arguments, " ")
+                    : Array.prototype.join.call(arguments, " "),
                 );
               },
               getCoordinateString: function (t) {
@@ -1025,7 +1025,7 @@
                 throw new Error(
                   'Page mode must be one of UseNone, UseOutlines, UseThumbs, or FullScreen. "' +
                     n +
-                    '" is not recognized.'
+                    '" is not recognized.',
                 );
               return this;
             }),
@@ -1040,9 +1040,9 @@
                   "string" == typeof (e = n.shift())
                     ? r.push(e)
                     : "[object Array]" === Object.prototype.toString.call(t) &&
-                      1 === e.length
-                    ? r.push(e[0])
-                    : r.push([e[0], e[1], e[2]]);
+                        1 === e.length
+                      ? r.push(e[0])
+                      : r.push([e[0], e[1], e[2]]);
                 return r;
               }
               function l(t, e) {
@@ -1087,7 +1087,7 @@
                 throw new Error(
                   'Type of text must be string or Array. "' +
                     t +
-                    '" is not recognized.'
+                    '" is not recognized.',
                 );
               var b = nt[K].encoding;
               ("WinAnsiEncoding" !== b && "StandardEncoding" !== b) ||
@@ -1230,7 +1230,7 @@
                 } else {
                   if ("justify" !== d)
                     throw new Error(
-                      'Unrecognized alignment option, use "left", "center", "right" or "justify".'
+                      'Unrecognized alignment option, use "left", "center", "right" or "justify".',
                     );
                   t = [];
                   for (j = 0 !== j ? j : O, H = 0, v = y.length; H < v; H++)
@@ -1241,7 +1241,7 @@
                           (
                             ((j - U[H]) / (y[H].split(" ").length - 1)) *
                             S
-                          ).toFixed(2)
+                          ).toFixed(2),
                         ),
                       t.push([y[H], N, M]);
                 }
@@ -1288,8 +1288,8 @@
                   0 !== k.length && 0 === H
                     ? t.push(X + k.join(" ") + " " + W + " " + G + " Tm\n" + V)
                     : 1 === Y || (0 === Y && 0 === H)
-                    ? t.push(X + W + " " + G + " Td\n" + V)
-                    : t.push(X + V);
+                      ? t.push(X + W + " " + G + " Td\n" + V)
+                      : t.push(X + V);
               (t = 0 === Y ? t.join(" Tj\nT* ") : t.join(" Tj\n")),
                 (t += " Tj\n");
               var J =
@@ -1356,7 +1356,7 @@
                         z(g * w) +
                         " " +
                         z((v - m) * w) +
-                        " c"
+                        " c",
                     ));
               return o && it(" h"), null !== i && it(ht(i)), this;
             }),
@@ -1365,8 +1365,8 @@
               return (
                 it(
                   [N(t * w), N((v - e) * w), N(n * w), N(-r * w), "re"].join(
-                    " "
-                  )
+                    " ",
+                  ),
                 ),
                 null !== i && it(ht(i)),
                 this
@@ -1384,7 +1384,7 @@
                   e,
                   [1, 1],
                   a,
-                  !0
+                  !0,
                 ),
                 this
               );
@@ -1406,7 +1406,7 @@
                   t + i,
                   e,
                   [1, 1],
-                  a
+                  a,
                 ),
                 this
               );
@@ -1427,7 +1427,7 @@
                     N(t * w),
                     N((v - (e - r)) * w),
                     "c",
-                  ].join(" ")
+                  ].join(" "),
                 ),
                 it(
                   [
@@ -1438,7 +1438,7 @@
                     N((t - n) * w),
                     N((v - e) * w),
                     "c",
-                  ].join(" ")
+                  ].join(" "),
                 ),
                 it(
                   [
@@ -1449,7 +1449,7 @@
                     N(t * w),
                     N((v - (e + r)) * w),
                     "c",
-                  ].join(" ")
+                  ].join(" "),
                 ),
                 it(
                   [
@@ -1460,7 +1460,7 @@
                     N((t + n) * w),
                     N((v - e) * w),
                     "c",
-                  ].join(" ")
+                  ].join(" "),
                 ),
                 null !== i && it(ht(i)),
                 this
@@ -1479,9 +1479,10 @@
             (O.setFont = function (t, e) {
               return (K = at(t, e)), this;
             }),
-            (O.setFontStyle = O.setFontType = function (t) {
-              return (K = at(void 0, t)), this;
-            }),
+            (O.setFontStyle = O.setFontType =
+              function (t) {
+                return (K = at(void 0, t)), this;
+              }),
             (O.getFontList = function () {
               var t,
                 e,
@@ -1509,7 +1510,7 @@
                     ch4: r,
                     pdfColorType: "draw",
                     precision: 2,
-                  })
+                  }),
                 ),
                 this
               );
@@ -1524,7 +1525,7 @@
                     ch4: r,
                     pdfColorType: "fill",
                     precision: 2,
-                  })
+                  }),
                 ),
                 this
               );
@@ -1569,7 +1570,7 @@
                 throw new Error(
                   "Line cap style of '" +
                     t +
-                    "' is not recognized. See or extend .CapJoinStyles property for valid styles"
+                    "' is not recognized. See or extend .CapJoinStyles property for valid styles",
                 );
               return it((F = e) + " J"), this;
             }),
@@ -1579,7 +1580,7 @@
                 throw new Error(
                   "Line join style of '" +
                     t +
-                    "' is not recognized. See or extend .CapJoinStyles property for valid styles"
+                    "' is not recognized. See or extend .CapJoinStyles property for valid styles",
                 );
               return it((P = e) + " j"), this;
             }),
@@ -1597,7 +1598,7 @@
                           (r = e[i][1]),
                           t.subscribe.apply(
                             t,
-                            [n].concat("function" == typeof r ? [r] : r)
+                            [n].concat("function" == typeof r ? [r] : r),
                           );
                     })(rt, yt.API.events)
                   : (O[dt] = yt.API[dt]));
@@ -1652,8 +1653,8 @@
                   return yt;
                 })
               : "undefined" != "object" && module.exports
-              ? ((module.exports = yt), (module.exports.jsPDF = yt))
-              : (pt.jsPDF = yt),
+                ? ((module.exports = yt), (module.exports.jsPDF = yt))
+                : (pt.jsPDF = yt),
             yt
           );
         })(
@@ -1661,7 +1662,7 @@
             ("undefined" != typeof window && window) ||
             ("undefined" != typeof commonjsGlobal && commonjsGlobal) ||
             Function('return typeof this === "object" && this.content')() ||
-            Function("return this")()
+            Function("return this")(),
         );
       /** @preserve
        * jsPDF - PDF Document creation from JavaScript
@@ -1793,7 +1794,7 @@
               o = (e =
                 ")" ==
                 (e = "(" == e.substr(0, 1) ? e.substr(1) : e).substr(
-                  e.length - 1
+                  e.length - 1,
                 )
                   ? e.substr(0, e.length - 1)
                   : e).split(" "),
@@ -1940,13 +1941,13 @@
               ? l.internal.write(
                   "/AcroForm " +
                     l.internal.acroformPlugin.acroFormDictionaryRoot.objId +
-                    " 0 R"
+                    " 0 R",
                 )
               : console.log("Root missing...");
           },
           y = function () {
             l.internal.events.unsubscribe(
-              l.internal.acroformPlugin.acroFormDictionaryRoot._eventID
+              l.internal.acroformPlugin.acroFormDictionaryRoot._eventID,
             ),
               delete l.internal.acroformPlugin.acroFormDictionaryRoot._eventID,
               (l.internal.acroformPlugin.printedOut = !0);
@@ -1955,10 +1956,10 @@
             var e = !t;
             t ||
               (l.internal.newObjectDeferredBegin(
-                l.internal.acroformPlugin.acroFormDictionaryRoot.objId
+                l.internal.acroformPlugin.acroFormDictionaryRoot.objId,
               ),
               l.internal.out(
-                l.internal.acroformPlugin.acroFormDictionaryRoot.getString()
+                l.internal.acroformPlugin.acroFormDictionaryRoot.getString(),
               ));
             t = t || l.internal.acroformPlugin.acroFormDictionaryRoot.Kids;
             for (var n in t) {
@@ -2035,10 +2036,8 @@
               (e = l.internal.scaleFactor),
                 (a = l.internal.pageSize.getHeight()),
                 (l.internal.acroformPlugin.acroFormDictionaryRoot = new C()),
-                (l.internal.acroformPlugin.acroFormDictionaryRoot._eventID = l.internal.events.subscribe(
-                  "postPutResources",
-                  y
-                )),
+                (l.internal.acroformPlugin.acroFormDictionaryRoot._eventID =
+                  l.internal.events.subscribe("postPutResources", y)),
                 l.internal.events.subscribe("buildDocument", p),
                 l.internal.events.subscribe("putCatalog", w),
                 l.internal.events.subscribe("postPutPages", v),
@@ -2362,9 +2361,8 @@
           T.call(this),
             (this.Parent = t),
             (this._AppearanceType = N.RadioButton.Circle),
-            (this.appearanceStreamContent = this._AppearanceType.createAppearanceStream(
-              e
-            )),
+            (this.appearanceStreamContent =
+              this._AppearanceType.createAppearanceStream(e)),
             (this.F = i(this.F, 3, 1)),
             (this.MK = this._AppearanceType.createMK()),
             (this.AS = "/Off"),
@@ -2380,7 +2378,7 @@
               }
             else
               console.log(
-                "Couldn't assign Appearance to RadioButton. Appearance was Invalid!"
+                "Couldn't assign Appearance to RadioButton. Appearance was Invalid!",
               );
           }),
           (R.prototype.createOption = function (t) {
@@ -2390,7 +2388,8 @@
           });
         var D = function () {
           O.call(this),
-            (this.appearanceStreamContent = N.CheckBox.createAppearanceStream()),
+            (this.appearanceStreamContent =
+              N.CheckBox.createAppearanceStream()),
             (this.MK = N.CheckBox.createMK()),
             (this.AS = "/On"),
             (this.V = "/On");
@@ -2515,7 +2514,7 @@
                     N.internal.getWidth(t).toFixed(2) +
                     " " +
                     N.internal.getHeight(t).toFixed(2) +
-                    " re"
+                    " re",
                 ),
                 n.push("f"),
                 n.push("BMC"),
@@ -2546,7 +2545,11 @@
                 r.push("q"),
                 r.push("0 0 1 rg"),
                 r.push(
-                  "0 0 " + (o - 1).toFixed(2) + " " + (i - 1).toFixed(2) + " re"
+                  "0 0 " +
+                    (o - 1).toFixed(2) +
+                    " " +
+                    (i - 1).toFixed(2) +
+                    " re",
                 ),
                 r.push("W"),
                 r.push("n"),
@@ -2570,7 +2573,7 @@
                     N.internal.getWidth(t).toFixed(2) +
                     " " +
                     N.internal.getHeight(t).toFixed(2) +
-                    " re"
+                    " re",
                 ),
                 n.push("f"),
                 (e.stream = n.join("\n")),
@@ -2607,11 +2610,11 @@
                       N.internal.getWidth(t) / 2 +
                       " " +
                       N.internal.getHeight(t) / 2 +
-                      " cm"
+                      " cm",
                   ),
                   n.push(r + " 0 m"),
                   n.push(
-                    r + " " + r * i + " " + r * i + " " + r + " 0 " + r + " c"
+                    r + " " + r * i + " " + r * i + " " + r + " 0 " + r + " c",
                   ),
                   n.push(
                     "-" +
@@ -2624,7 +2627,7 @@
                       r * i +
                       " -" +
                       r +
-                      " 0 c"
+                      " 0 c",
                   ),
                   n.push(
                     "-" +
@@ -2637,10 +2640,19 @@
                       r +
                       " 0 -" +
                       r +
-                      " c"
+                      " c",
                   ),
                   n.push(
-                    r * i + " -" + r + " " + r + " -" + r * i + " " + r + " 0 c"
+                    r * i +
+                      " -" +
+                      r +
+                      " " +
+                      r +
+                      " -" +
+                      r * i +
+                      " " +
+                      r +
+                      " 0 c",
                   ),
                   n.push("f"),
                   n.push("Q"),
@@ -2666,15 +2678,25 @@
                       (N.internal.getWidth(t) / 2).toFixed(2) +
                       " " +
                       (N.internal.getHeight(t) / 2).toFixed(2) +
-                      " cm"
+                      " cm",
                   ),
                   n.push(i + " 0 m"),
                   n.push(i + " " + o + " " + o + " " + i + " 0 " + i + " c"),
                   n.push(
-                    "-" + o + " " + i + " -" + i + " " + o + " -" + i + " 0 c"
+                    "-" + o + " " + i + " -" + i + " " + o + " -" + i + " 0 c",
                   ),
                   n.push(
-                    "-" + i + " -" + o + " -" + o + " -" + i + " 0 -" + i + " c"
+                    "-" +
+                      i +
+                      " -" +
+                      o +
+                      " -" +
+                      o +
+                      " -" +
+                      i +
+                      " 0 -" +
+                      i +
+                      " c",
                   ),
                   n.push(o + " -" + i + " " + i + " -" + o + " " + i + " 0 c"),
                   n.push("f"),
@@ -2686,15 +2708,25 @@
                       (N.internal.getWidth(t) / 2).toFixed(2) +
                       " " +
                       (N.internal.getHeight(t) / 2).toFixed(2) +
-                      " cm"
+                      " cm",
                   ),
                   n.push(r + " 0 m"),
                   n.push(r + " " + a + " " + a + " " + r + " 0 " + r + " c"),
                   n.push(
-                    "-" + a + " " + r + " -" + r + " " + a + " -" + r + " 0 c"
+                    "-" + a + " " + r + " -" + r + " " + a + " -" + r + " 0 c",
                   ),
                   n.push(
-                    "-" + r + " -" + a + " -" + a + " -" + r + " 0 -" + r + " c"
+                    "-" +
+                      r +
+                      " -" +
+                      a +
+                      " -" +
+                      a +
+                      " -" +
+                      r +
+                      " 0 -" +
+                      r +
+                      " c",
                   ),
                   n.push(a + " -" + r + " " + r + " -" + a + " " + r + " 0 c"),
                   n.push("f"),
@@ -2720,15 +2752,25 @@
                       (N.internal.getWidth(t) / 2).toFixed(2) +
                       " " +
                       (N.internal.getHeight(t) / 2).toFixed(2) +
-                      " cm"
+                      " cm",
                   ),
                   n.push(i + " 0 m"),
                   n.push(i + " " + o + " " + o + " " + i + " 0 " + i + " c"),
                   n.push(
-                    "-" + o + " " + i + " -" + i + " " + o + " -" + i + " 0 c"
+                    "-" + o + " " + i + " -" + i + " " + o + " -" + i + " 0 c",
                   ),
                   n.push(
-                    "-" + i + " -" + o + " -" + o + " -" + i + " 0 -" + i + " c"
+                    "-" +
+                      i +
+                      " -" +
+                      o +
+                      " -" +
+                      o +
+                      " -" +
+                      i +
+                      " 0 -" +
+                      i +
+                      " c",
                   ),
                   n.push(o + " -" + i + " " + i + " -" + o + " " + i + " 0 c"),
                   n.push("f"),
@@ -2761,7 +2803,7 @@
                       (N.internal.getWidth(t) - 2).toFixed(2) +
                       " " +
                       (N.internal.getHeight(t) - 2).toFixed(2) +
-                      " re"
+                      " re",
                   ),
                   n.push("W"),
                   n.push("n"),
@@ -2786,7 +2828,7 @@
                       N.internal.getWidth(t).toFixed(2) +
                       " " +
                       N.internal.getHeight(t).toFixed(2) +
-                      " re"
+                      " re",
                   ),
                   r.push("f"),
                   r.push("q"),
@@ -2795,7 +2837,7 @@
                       (N.internal.getWidth(t) - 2).toFixed(2) +
                       " " +
                       (N.internal.getHeight(t) - 2).toFixed(2) +
-                      " re"
+                      " re",
                   ),
                   r.push("W"),
                   r.push("n"),
@@ -2819,7 +2861,7 @@
                       N.internal.getWidth(t).toFixed(2) +
                       " " +
                       N.internal.getHeight(t).toFixed(2) +
-                      " re"
+                      " re",
                   ),
                   n.push("f"),
                   (e.stream = n.join("\n")),
@@ -2870,12 +2912,12 @@
               t instanceof M
                 ? this.addTextField.call(this, t)
                 : t instanceof F
-                ? this.addChoiceField.call(this, t)
-                : t instanceof O
-                ? this.addButton.call(this, t)
-                : t instanceof j
-                ? g.call(this, t)
-                : t && g.call(this, t),
+                  ? this.addChoiceField.call(this, t)
+                  : t instanceof O
+                    ? this.addButton.call(this, t)
+                    : t instanceof j
+                      ? g.call(this, t)
+                      : t && g.call(this, t),
               (t.page = l.internal.getCurrentPageInfo().pageNumber),
               this
             );
@@ -2938,7 +2980,7 @@
       })(
         $.API,
         ("undefined" != typeof window && window) ||
-          ("undefined" != typeof commonjsGlobal && commonjsGlobal)
+          ("undefined" != typeof commonjsGlobal && commonjsGlobal),
       ),
         ($.API.addHTML = function (t, p, g, s, m) {
           if (
@@ -2946,7 +2988,7 @@
             "undefined" == typeof rasterizeHTML
           )
             throw new Error(
-              "You need either https://github.com/niklasvh/html2canvas or https://github.com/cburgmer/rasterizeHTML.js"
+              "You need either https://github.com/niklasvh/html2canvas or https://github.com/cburgmer/rasterizeHTML.js",
             );
           "number" != typeof p && ((s = p), (m = g)),
             "function" == typeof s && ((m = s), (s = null)),
@@ -2961,7 +3003,7 @@
               var t = s.dim || {},
                 c = Object.assign(
                   { top: 0, right: 0, bottom: 0, left: 0, useFor: "content" },
-                  s.margin
+                  s.margin,
                 ),
                 e = t.h || Math.min(v, h.height / w),
                 l = t.w || Math.min(y, h.width / w) - p,
@@ -3000,11 +3042,11 @@
                               (i.top = 0))
                           : ((t = Math.min(
                               (y - c.left - c.right) * w,
-                              h.width
+                              h.width,
                             )),
                             (e = Math.min(
                               (v - c.bottom - c.top) * w,
-                              h.height - n
+                              h.height - n,
                             ))),
                         o)
                       )
@@ -3072,7 +3114,7 @@
                 },
                 function (t) {
                   m(null, t);
-                }
+                },
               )
             );
           }
@@ -3127,7 +3169,7 @@
                 (console.warn(
                   'FileType of Image not recognized. Processing image as "' +
                     e +
-                    '".'
+                    '".',
                 ),
                 (s = e)),
               s
@@ -3149,7 +3191,7 @@
                         (e.pal.length / 3 - 1) +
                         " " +
                         ("smask" in e ? n + 2 : n + 1) +
-                        " 0 R]"
+                        " 0 R]",
                     )
                   : (r("/ColorSpace /" + e.cs),
                     e.cs === this.color_spaces.DEVICE_CMYK &&
@@ -3229,7 +3271,7 @@
                 i.drawImage(t, 0, 0, r.width, r.height);
               }
               return r.toDataURL(
-                "png" == ("" + e).toLowerCase() ? "image/png" : "image/jpeg"
+                "png" == ("" + e).toLowerCase() ? "image/png" : "image/jpeg",
               );
             },
             C = function (t, e) {
@@ -3292,7 +3334,7 @@
                   (e = !1),
                 !1 ===
                   /[A-Za-z0-9\/][A-Za-z0-9+\/]|[A-Za-z0-9+\/]=|==/.test(
-                    t.substr(-2)
+                    t.substr(-2),
                   ) && (e = !1),
                 e
               );
@@ -3397,7 +3439,7 @@
               c,
               l,
               u,
-              f
+              f,
             ) {
               var d = { alias: s, w: e, h: n, cs: r, bpc: i, i: a, data: t };
               return (
@@ -3436,7 +3478,7 @@
                 throw (
                   (console.error(
                     "jsPDF.addImage: Invalid coordinates",
-                    arguments
+                    arguments,
                   ),
                   new Error("Invalid coordinates passed to jsPDF.addImage"))
                 );
@@ -3477,7 +3519,7 @@
                       e +
                       "', please ensure that a plugin for '" +
                       e +
-                      "' support is added."
+                      "' support is added.",
                   );
                 if (
                   (this.supportsArrayBuffer() &&
@@ -3498,11 +3540,11 @@
                     a,
                     ((p = s) && "string" == typeof p && (p = p.toUpperCase()),
                     p in b.image_compression ? p : b.image_compression.NONE),
-                    d
+                    d,
                   )))
                 )
                   throw new Error(
-                    "An unkwown error occurred whilst processing the image"
+                    "An unkwown error occurred whilst processing the image",
                   );
               }
               return (
@@ -3533,14 +3575,16 @@
                   this.internal.write("q"),
                     s
                       ? (this.internal.write(
-                          [1, "0", "0", 1, c(t), l(e + r), "cm"].join(" ")
+                          [1, "0", "0", 1, c(t), l(e + r), "cm"].join(" "),
                         ),
                         this.internal.write(p.join(" ")),
                         this.internal.write(
-                          [c(n), "0", "0", c(r), "0", "0", "cm"].join(" ")
+                          [c(n), "0", "0", c(r), "0", "0", "cm"].join(" "),
                         ))
                       : this.internal.write(
-                          [c(n), "0", "0", c(r), c(t), l(e + r), "cm"].join(" ")
+                          [c(n), "0", "0", c(r), c(t), l(e + r), "cm"].join(
+                            " ",
+                          ),
                         ),
                     this.internal.write("/I" + i.i + " Do"),
                     this.internal.write("Q");
@@ -3585,7 +3629,7 @@
                     0 === !t.charCodeAt(10)
                   )
                     throw new Error(
-                      "getJpegSize requires a binary string jpeg file"
+                      "getJpegSize requires a binary string jpeg file",
                     );
                   for (
                     var n = 256 * t.charCodeAt(4) + t.charCodeAt(5),
@@ -3596,7 +3640,7 @@
                   ) {
                     if (((r += n), 255 !== t.charCodeAt(r)))
                       throw new Error(
-                        "getJpegSize could not find the size of the image"
+                        "getJpegSize could not find the size of the image",
                       );
                     if (
                       192 === t.charCodeAt(r + 1) ||
@@ -3641,7 +3685,7 @@
                     i += 2;
                   }
                   throw new Error(
-                    "getJpegSizeFromBytes could not find the size of the image"
+                    "getJpegSizeFromBytes could not find the size of the image",
                   );
                 })(t)),
                 (t = i || this.arrayBufferToBinaryString(t))),
@@ -3666,7 +3710,7 @@
             (b.loadImageFile = function (t, e, n) {
               (e = e || !0), (n = n || function () {});
               Object.prototype.toString.call(
-                "undefined" != typeof process ? process : 0
+                "undefined" != typeof process ? process : 0,
               );
               if (
                 void 0 !==
@@ -3720,7 +3764,7 @@
                     n +
                     "', please ensure that a plugin for '" +
                     n +
-                    "' support is added."
+                    "' support is added.",
                 );
               if (
                 (this.supportsArrayBuffer() &&
@@ -3729,7 +3773,7 @@
                 !(e = this["process" + n.toUpperCase()](t)))
               )
                 throw new Error(
-                  "An unkwown error occurred whilst processing the image"
+                  "An unkwown error occurred whilst processing the image",
                 );
               return {
                 fileType: n,
@@ -4082,19 +4126,8 @@
             },
             e = [1570, 1571, 1573, 1575],
             n = [
-              1569,
-              1570,
-              1571,
-              1572,
-              1573,
-              1575,
-              1577,
-              1583,
-              1584,
-              1585,
-              1586,
-              1608,
-              1688,
+              1569, 1570, 1571, 1572, 1573, 1575, 1577, 1583, 1584, 1585, 1586,
+              1608, 1688,
             ],
             o = 0,
             s = 1,
@@ -4124,15 +4157,15 @@
                 (l(t) && l(e))
                   ? ((u = Object.assign(u, d)), o)
                   : g((i = t)) &&
-                    4 == u[i.charCodeAt(0)].length &&
-                    g(e) &&
-                    !l(e) &&
-                    g(n) &&
-                    w(n)
-                  ? ((u = Object.assign(u, d)), c)
-                  : l(t) || !g(n)
-                  ? ((u = Object.assign(u, d)), s)
-                  : ((u = Object.assign(u, d)), h))
+                      4 == u[i.charCodeAt(0)].length &&
+                      g(e) &&
+                      !l(e) &&
+                      g(n) &&
+                      w(n)
+                    ? ((u = Object.assign(u, d)), c)
+                    : l(t) || !g(n)
+                      ? ((u = Object.assign(u, d)), s)
+                      : ((u = Object.assign(u, d)), h))
               : -1;
             var i;
           }
@@ -4157,14 +4190,14 @@
                       (n = String.fromCharCode(f[h.charCodeAt(0)][s])),
                       (o = o.substr(0, o.length - 1) + n))
                     : void 0 !== c &&
-                      1617 === c.charCodeAt(0) &&
-                      void 0 !== (r = h) &&
-                      void 0 !== p[r.charCodeAt(0)]
-                    ? ((s = y(h, t[a - 2], t[a + 1], d)),
-                      (n = String.fromCharCode(p[h.charCodeAt(0)][s])),
-                      (o = o.substr(0, o.length - 1) + n))
-                    : ((s = y(h, c, l, d)),
-                      (o += String.fromCharCode(u[h.charCodeAt(0)][s])))
+                        1617 === c.charCodeAt(0) &&
+                        void 0 !== (r = h) &&
+                        void 0 !== p[r.charCodeAt(0)]
+                      ? ((s = y(h, t[a - 2], t[a + 1], d)),
+                        (n = String.fromCharCode(p[h.charCodeAt(0)][s])),
+                        (o = o.substr(0, o.length - 1) + n))
+                      : ((s = y(h, c, l, d)),
+                        (o += String.fromCharCode(u[h.charCodeAt(0)][s])))
                   : (o += e ? { "(": ")", ")": "(" }[(i = h)] || i : h);
             return e ? o.split("").reverse().join("") : o;
           });
@@ -4328,7 +4361,7 @@
                 this.text(
                   u,
                   t + n - f - 3,
-                  e + this.internal.getLineHeight() * (l + 1)
+                  e + this.internal.getLineHeight() * (l + 1),
                 );
               }
             } else this.text(i, t + 3, e + this.internal.getLineHeight());
@@ -4471,7 +4504,8 @@
           t.events.push([
             "initialized",
             function () {
-              (((this.context2d.pdf = this).context2d.internal.pdf = this).context2d.ctx = new e()),
+              (((this.context2d.pdf = this).context2d.internal.pdf =
+                this).context2d.ctx = new e()),
                 (this.context2d.ctxStack = []),
                 (this.context2d.path = []);
             },
@@ -4569,25 +4603,26 @@
                       (r = parseInt(a[3])),
                       (i = 1))
                     : null != (a = this.internal.rxRgba.exec(t))
-                    ? ((e = parseInt(a[1])),
-                      (n = parseInt(a[2])),
-                      (r = parseInt(a[3])),
-                      (i = parseFloat(a[4])))
-                    : ((i = 1),
-                      "#" != t.charAt(0) && (t = o.ok ? o.toHex() : "#000000"),
-                      4 === t.length
-                        ? ((e = t.substring(1, 2)),
-                          (e += e),
-                          (n = t.substring(2, 3)),
-                          (n += n),
-                          (r = t.substring(3, 4)),
-                          (r += r))
-                        : ((e = t.substring(1, 3)),
-                          (n = t.substring(3, 5)),
-                          (r = t.substring(5, 7))),
-                      (e = parseInt(e, 16)),
-                      (n = parseInt(n, 16)),
-                      (r = parseInt(r, 16)));
+                      ? ((e = parseInt(a[1])),
+                        (n = parseInt(a[2])),
+                        (r = parseInt(a[3])),
+                        (i = parseFloat(a[4])))
+                      : ((i = 1),
+                        "#" != t.charAt(0) &&
+                          (t = o.ok ? o.toHex() : "#000000"),
+                        4 === t.length
+                          ? ((e = t.substring(1, 2)),
+                            (e += e),
+                            (n = t.substring(2, 3)),
+                            (n += n),
+                            (r = t.substring(3, 4)),
+                            (r += r))
+                          : ((e = t.substring(1, 3)),
+                            (n = t.substring(3, 5)),
+                            (r = t.substring(5, 7))),
+                        (e = parseInt(e, 16)),
+                        (n = parseInt(n, 16)),
+                        (r = parseInt(r, 16)));
                 }
                 return { r: e, g: n, b: r, a: i, style: t };
               },
@@ -4677,7 +4712,7 @@
                       e,
                       this._getBaseline(n),
                       { stroke: !0 },
-                      o
+                      o,
                     );
                   else {
                     var c = this.pdf.internal.getFontSize();
@@ -4687,7 +4722,7 @@
                         e,
                         this._getBaseline(n),
                         { stroke: !0 },
-                        o
+                        o,
                       ),
                       this.pdf.setFontSize(c);
                   }
@@ -4698,9 +4733,10 @@
                 if (
                   ((this.ctx.font = t),
                   null !=
-                    (c = /\s*(\w+)\s+(\w+)\s+(\w+)\s+([\d\.]+)(px|pt|em)\s+(.*)?/.exec(
-                      t
-                    )))
+                    (c =
+                      /\s*(\w+)\s+(\w+)\s+(\w+)\s+([\d\.]+)(px|pt|em)\s+(.*)?/.exec(
+                        t,
+                      )))
                 ) {
                   var e = c[1],
                     n = (c[2], c[3]),
@@ -4711,22 +4747,22 @@
                     "px" === i
                       ? Math.floor(parseFloat(r))
                       : "em" === i
-                      ? Math.floor(parseFloat(r) * this.pdf.getFontSize())
-                      : Math.floor(parseFloat(r))),
+                        ? Math.floor(parseFloat(r) * this.pdf.getFontSize())
+                        : Math.floor(parseFloat(r))),
                     this.pdf.setFontSize(r),
                     "bold" === n || "700" === n
                       ? this.pdf.setFontStyle("bold")
                       : "italic" === e
-                      ? this.pdf.setFontStyle("italic")
-                      : this.pdf.setFontStyle("normal"),
+                        ? this.pdf.setFontStyle("italic")
+                        : this.pdf.setFontStyle("normal"),
                     (l =
                       "bold" === n || "700" === n
                         ? "italic" === e
                           ? "bolditalic"
                           : "bold"
                         : "italic" === e
-                        ? "italic"
-                        : "normal");
+                          ? "italic"
+                          : "normal");
                   for (
                     var a = o.toLowerCase().split(/\s*,\s*/),
                       s = "Times",
@@ -4820,7 +4856,7 @@
               transform: function (t, e, n, r, i, o) {
                 this.ctx._transform = this._matrix_multiply(
                   this.ctx._transform,
-                  [t, e, n, r, i, o]
+                  [t, e, n, r, i, o],
                 );
               },
               setTransform: function (t, e, n, r, i, o) {
@@ -4921,7 +4957,7 @@
                   var s = this._matrix_map_point(this.ctx._transform, [0, 0]),
                     h = this._matrix_map_point(this.ctx._transform, [0, n]);
                   n = Math.sqrt(
-                    Math.pow(h[0] - s[0], 2) + Math.pow(h[1] - s[1], 2)
+                    Math.pow(h[0] - s[0], 2) + Math.pow(h[1] - s[1], 2),
                   );
                 }
                 var c = {
@@ -5039,21 +5075,21 @@
                 ];
                 this.ctx._transform = this._matrix_multiply(
                   this.ctx._transform,
-                  e
+                  e,
                 );
               },
               scale: function (t, e) {
                 var n = [t, 0, 0, e, 0, 0];
                 this.ctx._transform = this._matrix_multiply(
                   this.ctx._transform,
-                  n
+                  n,
                 );
               },
               translate: function (t, e) {
                 var n = [1, 0, 0, 1, t, e];
                 this.ctx._transform = this._matrix_multiply(
                   this.ctx._transform,
-                  n
+                  n,
                 );
               },
               stroke: function () {
@@ -5145,7 +5181,7 @@
                           w,
                           g.anticlockwise,
                           f,
-                          t
+                          t,
                         );
                       }
                     else {
@@ -5314,7 +5350,7 @@
                               T,
                               I.anticlockwise,
                               null,
-                              e
+                              e,
                             ),
                             A === _.length - 1 && i[p].start)
                           ) {
@@ -5530,9 +5566,12 @@
               },
             }),
             (E.internal = {}),
-            (E.internal.rxRgb = /rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/),
-            (E.internal.rxRgba = /rgba\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([\d\.]+)\s*\)/),
-            (E.internal.rxTransparent = /transparent|rgba\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*0+\s*\)/),
+            (E.internal.rxRgb =
+              /rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/),
+            (E.internal.rxRgba =
+              /rgba\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([\d\.]+)\s*\)/),
+            (E.internal.rxTransparent =
+              /transparent|rgba\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*0+\s*\)/),
             (E.internal.arc = function (t, e, n, r, i, o, a, s) {
               for (
                 var h = this.pdf.internal.scaleFactor,
@@ -5559,7 +5598,7 @@
                         l((g.x4 + e) * h),
                         l((c - (g.y4 + n)) * h),
                         "c",
-                      ].join(" ")
+                      ].join(" "),
                     )
                   : this.pdf.internal.out(
                       [
@@ -5570,7 +5609,7 @@
                         l((g.x4 + e) * h),
                         l((c - (g.y4 + n)) * h),
                         "c",
-                      ].join(" ")
+                      ].join(" "),
                     ),
                   (t._lastPoint = { x: e, y: n });
               }
@@ -5597,7 +5636,7 @@
                 o = this.pdf.internal.f2,
                 a = { x: e, y: n };
               this.pdf.internal.out(
-                [o(a.x * r), o((i - a.y) * r), "l"].join(" ")
+                [o(a.x * r), o((i - a.y) * r), "l"].join(" "),
               ),
                 (t._lastPoint = a);
             }),
@@ -5655,7 +5694,7 @@
             ("undefined" != typeof window && window) ||
             ("undefined" != typeof commonjsGlobal && commonjsGlobal) ||
             Function('return typeof this === "object" && this.content')() ||
-            Function("return this")()
+            Function("return this")(),
         ),
         (function (t) {
           var T, F, i, a, s, h, c, l, P, v, f, u, d, n, E, q, p, g, m, O;
@@ -5698,23 +5737,23 @@
                 (e = n[t])
                   ? e
                   : void 0 !==
-                    (e = {
-                      "xx-small": 9,
-                      "x-small": 11,
-                      small: 13,
-                      medium: 16,
-                      large: 19,
-                      "x-large": 23,
-                      "xx-large": 28,
-                      auto: 0,
-                    }[t])
-                  ? (n[t] = e / 16)
-                  : (e = parseFloat(t))
-                  ? (n[t] = e / 16)
-                  : ((e = t.match(/([\d\.]+)(px)/)),
-                    Array.isArray(e) && 3 === e.length
-                      ? (n[t] = parseFloat(e[1]) / 16)
-                      : (n[t] = 1))
+                      (e = {
+                        "xx-small": 9,
+                        "x-small": 11,
+                        small: 13,
+                        medium: 16,
+                        large: 19,
+                        "x-large": 23,
+                        "xx-large": 28,
+                        auto: 0,
+                      }[t])
+                    ? (n[t] = e / 16)
+                    : (e = parseFloat(t))
+                      ? (n[t] = e / 16)
+                      : ((e = t.match(/([\d\.]+)(px)/)),
+                        Array.isArray(e) && 3 === e.length
+                          ? (n[t] = parseFloat(e[1]) / 16)
+                          : (n[t] = 1))
               );
             }),
             (P = function (t) {
@@ -5725,8 +5764,8 @@
                   document.defaultView && document.defaultView.getComputedStyle
                     ? document.defaultView.getComputedStyle(o, null)
                     : o.currentStyle
-                    ? o.currentStyle
-                    : o.style),
+                      ? o.currentStyle
+                      : o.style),
                 (n = void 0),
                 ((e = {})["font-family"] =
                   u(
@@ -5737,7 +5776,7 @@
                         })),
                         i[t]
                       );
-                    })("font-family")
+                    })("font-family"),
                   ) || "times"),
                 (e["font-style"] = a[r("font-style")] || "normal"),
                 (e["text-align"] = s[r("text-align")] || "left"),
@@ -5853,7 +5892,7 @@
                         (i.pdf.margins_doc.top = i.y + 10),
                         (i.y += 10);
                     },
-                    !1
+                    !1,
                   );
                 }
                 if (8 === n.nodeType && "#comment" === n.nodeName)
@@ -5924,8 +5963,8 @@
                               this,
                               "left" === b.float ? -n.width - k - _ : 0,
                               i.y + n.height + A + I,
-                              n.width
-                            )
+                              n.width,
+                            ),
                           ),
                           i.watchFunctions.push(
                             function (t, e, n) {
@@ -5941,8 +5980,8 @@
                             }.bind(
                               this,
                               i.y + n.height,
-                              i.pdf.internal.getNumberOfPages()
-                            )
+                              i.pdf.internal.getNumberOfPages(),
+                            ),
                           ),
                           (i.settings.width -= n.width + k + _),
                           "left" === b.float && (i.x += n.width + k + _))
@@ -5990,19 +6029,20 @@
                   var i = new Image();
                   (a = ++s),
                     (i.crossOrigin = ""),
-                    (i.onerror = i.onload = function () {
-                      if (
-                        i.complete &&
-                        (0 === i.src.indexOf("data:image/") &&
-                          ((i.width = n || i.width || 0),
-                          (i.height = r || i.height || 0)),
-                        i.width + i.height)
-                      ) {
-                        var t = o.pdf.sHashCode(e) || e;
-                        q[t] = q[t] || i;
-                      }
-                      --s || h();
-                    }),
+                    (i.onerror = i.onload =
+                      function () {
+                        if (
+                          i.complete &&
+                          (0 === i.src.indexOf("data:image/") &&
+                            ((i.width = n || i.width || 0),
+                            (i.height = r || i.height || 0)),
+                          i.width + i.height)
+                        ) {
+                          var t = o.pdf.sHashCode(e) || e;
+                          q[t] = q[t] || i;
+                        }
+                        --s || h();
+                      }),
                     (i.src = e);
                 }
               }
@@ -6058,9 +6098,9 @@
                       "htmlRenderingFinished",
                       o.pdf.putTotalPages.bind(
                         o.pdf,
-                        "###jsPDFVarTotalPages###"
+                        "###jsPDFVarTotalPages###",
                       ),
-                      !0
+                      !0,
                     );
                 o.pdf.internal.events.subscribe("addPage", r, !1),
                   r(),
@@ -6098,7 +6138,7 @@
                       ? o(l)
                       : t &&
                         console.error(
-                          "jsPDF Warning: rendering issues? provide a callback to fromHTML!"
+                          "jsPDF Warning: rendering issues? provide a callback to fromHTML!",
                         );
                 }),
                 l || { x: u.x, y: u.y }
@@ -6216,13 +6256,13 @@
                     this.getPdfColor(e.color),
                     this.pdf.internal.getCoordinateString(this.x),
                     this.pdf.internal.getVerticalCoordinateString(this.y),
-                    "Td"
+                    "Td",
                   ),
                   (r = Math.max(r, e["line-height"], e["font-size"])),
                   this.pdf.internal.write(0, (-12 * r).toFixed(2), "Td")),
                 (n = this.pdf.internal.getFont(
                   e["font-family"],
-                  e["font-style"]
+                  e["font-style"],
                 ));
               var i = this.getPdfColor(e.color);
               i !== this.lastTextColor &&
@@ -6234,7 +6274,7 @@
                   "/" + n.id,
                   (12 * e["font-size"]).toFixed(2),
                   "Tf",
-                  "(" + this.pdf.internal.pdfEscape(t) + ") Tj"
+                  "(" + this.pdf.internal.pdfEscape(t) + ") Tj",
                 ),
                 void 0 !== e["word-spacing"] &&
                   this.pdf.internal.write(0, "Tw");
@@ -6292,7 +6332,7 @@
                   (u =
                     (Math.max(
                       (e["margin-top"] || 0) - this.priorMarginBottom,
-                      0
+                      0,
                     ) +
                       (e["padding-top"] || 0)) *
                     n),
@@ -6313,7 +6353,7 @@
                     "BT 0 g",
                     this.pdf.internal.getCoordinateString(this.x),
                     this.pdf.internal.getVerticalCoordinateString(this.y),
-                    "Td"
+                    "Td",
                   );
                 for (var p = 0; s.length; ) {
                   for (i = h = 0, o = (a = s.shift()).length; i !== o; )
@@ -6321,7 +6361,7 @@
                       ((h = Math.max(
                         h,
                         a[i][1]["line-height"],
-                        a[i][1]["font-size"]
+                        a[i][1]["font-size"],
                       )),
                       (d = 7 * a[i][1]["font-size"])),
                       i++;
@@ -6332,13 +6372,13 @@
                       0 < a[0][1]["margin-left"] &&
                       ((g =
                         (m = this.pdf.internal.getCoordinateString(
-                          a[0][1]["margin-left"]
+                          a[0][1]["margin-left"],
                         )) - p),
                       (p = m)),
                       c(
                         g + Math.max(e["margin-left"] || 0, 0) * n,
                         (-12 * h).toFixed(2),
-                        "Td"
+                        "Td",
                       ),
                       i = 0,
                       o = a.length;
@@ -6364,7 +6404,7 @@
                         "BT 0 g",
                         this.pdf.internal.getCoordinateString(this.x),
                         this.pdf.internal.getVerticalCoordinateString(this.y),
-                        "Td"
+                        "Td",
                       );
                   }
                 }
@@ -6487,7 +6527,7 @@
                 h.push(c);
                 var l = t.internal.getPageInfo(r + 1);
                 t.internal.write(
-                  "<< /D[" + l.objId + " 0 R /XYZ null null null]>> endobj"
+                  "<< /D[" + l.objId + " 0 R /XYZ null null null]>> endobj",
                 );
               }
               var u = t.internal.newObject();
@@ -6506,7 +6546,7 @@
             0 < this.outline.root.children.length &&
               (this.internal.write(
                 "/Outlines",
-                this.outline.makeRef(this.outline.root)
+                this.outline.makeRef(this.outline.root),
               ),
               this.outline.createNamedDestinations &&
                 this.internal.write("/Names " + namesOid + " 0 R"));
@@ -6546,7 +6586,8 @@
                   0 < t.children.length &&
                     (this.line("/First " + this.makeRef(t.children[0])),
                     this.line(
-                      "/Last " + this.makeRef(t.children[t.children.length - 1])
+                      "/Last " +
+                        this.makeRef(t.children[t.children.length - 1]),
                     )),
                   this.line("/Count " + this.count_r({ count: 0 }, t)),
                   this.objEnd();
@@ -6565,7 +6606,7 @@
                       (this.line("/First " + this.makeRef(n.children[0])),
                       this.line(
                         "/Last " +
-                          this.makeRef(n.children[n.children.length - 1])
+                          this.makeRef(n.children[n.children.length - 1]),
                       ));
                   var r = (this.count = this.count_r({ count: 0 }, n));
                   if (
@@ -6579,7 +6620,7 @@
                         " 0 R /XYZ 0 " +
                         this.ctx.pdf.internal.pageSize.getHeight() *
                           this.ctx.pdf.internal.scaleFactor +
-                        " 0]"
+                        " 0]",
                     );
                   }
                   this.objEnd();
@@ -6786,8 +6827,8 @@
                       32 == o.pixelBitlength
                         ? new Uint32Array(o.decodePixels().buffer)
                         : 16 == o.pixelBitlength
-                        ? new Uint16Array(o.decodePixels().buffer)
-                        : new Uint8Array(o.decodePixels().buffer)).length,
+                          ? new Uint16Array(o.decodePixels().buffer)
+                          : new Uint8Array(o.decodePixels().buffer)).length,
                     m = new Uint8Array(g * o.colors),
                     w = new Uint8Array(g),
                     y = o.pixelBitlength - o.bits,
@@ -6892,12 +6933,12 @@
                 s,
                 c,
                 l,
-                C
+                C,
               )
             );
           }
           throw new Error(
-            "Unsupported PNG image data, try using JPEG instead."
+            "Unsupported PNG image data, try using JPEG instead.",
           );
         }),
         /**
@@ -7141,7 +7182,7 @@
                   this.internal.write(
                     "/Lang (" +
                       this.internal.languageSettings.languageCode +
-                      ")"
+                      ")",
                   );
                 }),
                 (this.internal.languageSettings.isSubscribed = !0))),
@@ -7149,43 +7190,46 @@
           );
         }),
         (B = $.API),
-        (R = B.getCharWidthsArray = function (t, e) {
-          var n,
-            r,
-            i,
-            o = (e = e || {}).font || this.internal.getFont(),
-            a = e.fontSize || this.internal.getFontSize(),
-            s = e.charSpace || this.internal.getCharSpace(),
-            h = e.widths ? e.widths : o.metadata.Unicode.widths,
-            c = h.fof ? h.fof : 1,
-            l = e.kerning ? e.kerning : o.metadata.Unicode.kerning,
-            u = l.fof ? l.fof : 1,
-            f = 0,
-            d = h[0] || c,
-            p = [];
-          for (n = 0, r = t.length; n < r; n++)
-            (i = t.charCodeAt(n)),
-              "function" == typeof o.metadata.widthOfString
-                ? p.push(
-                    (o.metadata.widthOfGlyph(o.metadata.characterToGlyph(i)) +
-                      s * (1e3 / a) || 0) / 1e3
-                  )
-                : p.push((h[i] || d) / c + ((l[i] && l[i][f]) || 0) / u),
-              (f = i);
-          return p;
-        }),
-        (j = B.getArraySum = function (t) {
-          for (var e = t.length, n = 0; e; ) n += t[--e];
-          return n;
-        }),
-        (D = B.getStringUnitWidth = function (t, e) {
-          var n = (e = e || {}).fontSize || this.internal.getFontSize(),
-            r = e.font || this.internal.getFont(),
-            i = e.charSpace || this.internal.getCharSpace();
-          return "function" == typeof r.metadata.widthOfString
-            ? r.metadata.widthOfString(t, n, i) / n
-            : j(R.apply(this, arguments));
-        }),
+        (R = B.getCharWidthsArray =
+          function (t, e) {
+            var n,
+              r,
+              i,
+              o = (e = e || {}).font || this.internal.getFont(),
+              a = e.fontSize || this.internal.getFontSize(),
+              s = e.charSpace || this.internal.getCharSpace(),
+              h = e.widths ? e.widths : o.metadata.Unicode.widths,
+              c = h.fof ? h.fof : 1,
+              l = e.kerning ? e.kerning : o.metadata.Unicode.kerning,
+              u = l.fof ? l.fof : 1,
+              f = 0,
+              d = h[0] || c,
+              p = [];
+            for (n = 0, r = t.length; n < r; n++)
+              (i = t.charCodeAt(n)),
+                "function" == typeof o.metadata.widthOfString
+                  ? p.push(
+                      (o.metadata.widthOfGlyph(o.metadata.characterToGlyph(i)) +
+                        s * (1e3 / a) || 0) / 1e3,
+                    )
+                  : p.push((h[i] || d) / c + ((l[i] && l[i][f]) || 0) / u),
+                (f = i);
+            return p;
+          }),
+        (j = B.getArraySum =
+          function (t) {
+            for (var e = t.length, n = 0; e; ) n += t[--e];
+            return n;
+          }),
+        (D = B.getStringUnitWidth =
+          function (t, e) {
+            var n = (e = e || {}).fontSize || this.internal.getFontSize(),
+              r = e.font || this.internal.getFont(),
+              i = e.charSpace || this.internal.getCharSpace();
+            return "function" == typeof r.metadata.widthOfString
+              ? r.metadata.widthOfString(t, n, i) / n
+              : j(R.apply(this, arguments));
+          }),
         (M = function (t, e, n, r) {
           for (
             var i = [], o = 0, a = t.length, s = 0;
@@ -7224,7 +7268,7 @@
                 ? (w = w.concat(
                     t.map(function (t, e) {
                       return (e && t.length ? "\n" : "") + t;
-                    })
+                    }),
                   ))
                 : w.push(t[0]);
             }),
@@ -7323,30 +7367,30 @@
                     ? ((s = o.join("")), (o = i))
                     : (o = [])
                   : o
-                  ? o.push(h)
-                  : "{" == h
-                  ? (f.push([u, s]), (u = {}), (s = i))
-                  : "}" == h
-                  ? (((a = f.pop())[0][a[1]] = u), (s = i), (u = a[0]))
-                  : "-" == h
-                  ? (l = -1)
-                  : s === i
-                  ? n.hasOwnProperty(h)
-                    ? ((d += n[h]),
-                      (s = parseInt(d, 16) * l),
-                      (l = 1),
-                      (d = ""))
-                    : (d += h)
-                  : n.hasOwnProperty(h)
-                  ? ((p += n[h]),
-                    (u[s] = parseInt(p, 16) * l),
-                    (l = 1),
-                    (s = i),
-                    (p = ""))
-                  : (p += h);
+                    ? o.push(h)
+                    : "{" == h
+                      ? (f.push([u, s]), (u = {}), (s = i))
+                      : "}" == h
+                        ? (((a = f.pop())[0][a[1]] = u), (s = i), (u = a[0]))
+                        : "-" == h
+                          ? (l = -1)
+                          : s === i
+                            ? n.hasOwnProperty(h)
+                              ? ((d += n[h]),
+                                (s = parseInt(d, 16) * l),
+                                (l = 1),
+                                (d = ""))
+                              : (d += h)
+                            : n.hasOwnProperty(h)
+                              ? ((p += n[h]),
+                                (u[s] = parseInt(p, 16) * l),
+                                (l = 1),
+                                (s = i),
+                                (p = ""))
+                              : (p += h);
             return c;
           })(
-            "{19m8n201n9q201o9r201s9l201t9m201u8m201w9n201x9o201y8o202k8q202l8r202m9p202q8p20aw8k203k8t203t8v203u9v2cq8s212m9t15m8w15n9w2dw9s16k8u16l9u17s9z17x8y17y9y}"
+            "{19m8n201n9q201o9r201s9l201t9m201u8m201w9n201x9o201y8o202k8q202l8r202m9p202q8p20aw8k203k8t203t8v203u9v2cq8s212m9t15m8w15n9w2dw9s16k8u16l9u17s9z17x8y17y9y}",
           ),
         }),
         (H = {
@@ -7385,37 +7429,37 @@
           Unicode: {
             "Courier-Oblique": z("{'widths'{k3w'fof'6o}'kerning'{'fof'-6o}}"),
             "Times-BoldItalic": z(
-              "{'widths'{k3o2q4ycx2r201n3m201o6o201s2l201t2l201u2l201w3m201x3m201y3m2k1t2l2r202m2n2n3m2o3m2p5n202q6o2r1w2s2l2t2l2u3m2v3t2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v2l3w3t3x3t3y3t3z3m4k5n4l4m4m4m4n4m4o4s4p4m4q4m4r4s4s4y4t2r4u3m4v4m4w3x4x5t4y4s4z4s5k3x5l4s5m4m5n3r5o3x5p4s5q4m5r5t5s4m5t3x5u3x5v2l5w1w5x2l5y3t5z3m6k2l6l3m6m3m6n2w6o3m6p2w6q2l6r3m6s3r6t1w6u1w6v3m6w1w6x4y6y3r6z3m7k3m7l3m7m2r7n2r7o1w7p3r7q2w7r4m7s3m7t2w7u2r7v2n7w1q7x2n7y3t202l3mcl4mal2ram3man3mao3map3mar3mas2lat4uau1uav3maw3way4uaz2lbk2sbl3t'fof'6obo2lbp3tbq3mbr1tbs2lbu1ybv3mbz3mck4m202k3mcm4mcn4mco4mcp4mcq5ycr4mcs4mct4mcu4mcv4mcw2r2m3rcy2rcz2rdl4sdm4sdn4sdo4sdp4sdq4sds4sdt4sdu4sdv4sdw4sdz3mek3mel3mem3men3meo3mep3meq4ser2wes2wet2weu2wev2wew1wex1wey1wez1wfl3rfm3mfn3mfo3mfp3mfq3mfr3tfs3mft3rfu3rfv3rfw3rfz2w203k6o212m6o2dw2l2cq2l3t3m3u2l17s3x19m3m}'kerning'{cl{4qu5kt5qt5rs17ss5ts}201s{201ss}201t{cks4lscmscnscoscpscls2wu2yu201ts}201x{2wu2yu}2k{201ts}2w{4qx5kx5ou5qx5rs17su5tu}2x{17su5tu5ou}2y{4qx5kx5ou5qx5rs17ss5ts}'fof'-6ofn{17sw5tw5ou5qw5rs}7t{cksclscmscnscoscps4ls}3u{17su5tu5os5qs}3v{17su5tu5os5qs}7p{17su5tu}ck{4qu5kt5qt5rs17ss5ts}4l{4qu5kt5qt5rs17ss5ts}cm{4qu5kt5qt5rs17ss5ts}cn{4qu5kt5qt5rs17ss5ts}co{4qu5kt5qt5rs17ss5ts}cp{4qu5kt5qt5rs17ss5ts}6l{4qu5ou5qw5rt17su5tu}5q{ckuclucmucnucoucpu4lu}5r{ckuclucmucnucoucpu4lu}7q{cksclscmscnscoscps4ls}6p{4qu5ou5qw5rt17sw5tw}ek{4qu5ou5qw5rt17su5tu}el{4qu5ou5qw5rt17su5tu}em{4qu5ou5qw5rt17su5tu}en{4qu5ou5qw5rt17su5tu}eo{4qu5ou5qw5rt17su5tu}ep{4qu5ou5qw5rt17su5tu}es{17ss5ts5qs4qu}et{4qu5ou5qw5rt17sw5tw}eu{4qu5ou5qw5rt17ss5ts}ev{17ss5ts5qs4qu}6z{17sw5tw5ou5qw5rs}fm{17sw5tw5ou5qw5rs}7n{201ts}fo{17sw5tw5ou5qw5rs}fp{17sw5tw5ou5qw5rs}fq{17sw5tw5ou5qw5rs}7r{cksclscmscnscoscps4ls}fs{17sw5tw5ou5qw5rs}ft{17su5tu}fu{17su5tu}fv{17su5tu}fw{17su5tu}fz{cksclscmscnscoscps4ls}}}"
+              "{'widths'{k3o2q4ycx2r201n3m201o6o201s2l201t2l201u2l201w3m201x3m201y3m2k1t2l2r202m2n2n3m2o3m2p5n202q6o2r1w2s2l2t2l2u3m2v3t2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v2l3w3t3x3t3y3t3z3m4k5n4l4m4m4m4n4m4o4s4p4m4q4m4r4s4s4y4t2r4u3m4v4m4w3x4x5t4y4s4z4s5k3x5l4s5m4m5n3r5o3x5p4s5q4m5r5t5s4m5t3x5u3x5v2l5w1w5x2l5y3t5z3m6k2l6l3m6m3m6n2w6o3m6p2w6q2l6r3m6s3r6t1w6u1w6v3m6w1w6x4y6y3r6z3m7k3m7l3m7m2r7n2r7o1w7p3r7q2w7r4m7s3m7t2w7u2r7v2n7w1q7x2n7y3t202l3mcl4mal2ram3man3mao3map3mar3mas2lat4uau1uav3maw3way4uaz2lbk2sbl3t'fof'6obo2lbp3tbq3mbr1tbs2lbu1ybv3mbz3mck4m202k3mcm4mcn4mco4mcp4mcq5ycr4mcs4mct4mcu4mcv4mcw2r2m3rcy2rcz2rdl4sdm4sdn4sdo4sdp4sdq4sds4sdt4sdu4sdv4sdw4sdz3mek3mel3mem3men3meo3mep3meq4ser2wes2wet2weu2wev2wew1wex1wey1wez1wfl3rfm3mfn3mfo3mfp3mfq3mfr3tfs3mft3rfu3rfv3rfw3rfz2w203k6o212m6o2dw2l2cq2l3t3m3u2l17s3x19m3m}'kerning'{cl{4qu5kt5qt5rs17ss5ts}201s{201ss}201t{cks4lscmscnscoscpscls2wu2yu201ts}201x{2wu2yu}2k{201ts}2w{4qx5kx5ou5qx5rs17su5tu}2x{17su5tu5ou}2y{4qx5kx5ou5qx5rs17ss5ts}'fof'-6ofn{17sw5tw5ou5qw5rs}7t{cksclscmscnscoscps4ls}3u{17su5tu5os5qs}3v{17su5tu5os5qs}7p{17su5tu}ck{4qu5kt5qt5rs17ss5ts}4l{4qu5kt5qt5rs17ss5ts}cm{4qu5kt5qt5rs17ss5ts}cn{4qu5kt5qt5rs17ss5ts}co{4qu5kt5qt5rs17ss5ts}cp{4qu5kt5qt5rs17ss5ts}6l{4qu5ou5qw5rt17su5tu}5q{ckuclucmucnucoucpu4lu}5r{ckuclucmucnucoucpu4lu}7q{cksclscmscnscoscps4ls}6p{4qu5ou5qw5rt17sw5tw}ek{4qu5ou5qw5rt17su5tu}el{4qu5ou5qw5rt17su5tu}em{4qu5ou5qw5rt17su5tu}en{4qu5ou5qw5rt17su5tu}eo{4qu5ou5qw5rt17su5tu}ep{4qu5ou5qw5rt17su5tu}es{17ss5ts5qs4qu}et{4qu5ou5qw5rt17sw5tw}eu{4qu5ou5qw5rt17ss5ts}ev{17ss5ts5qs4qu}6z{17sw5tw5ou5qw5rs}fm{17sw5tw5ou5qw5rs}7n{201ts}fo{17sw5tw5ou5qw5rs}fp{17sw5tw5ou5qw5rs}fq{17sw5tw5ou5qw5rs}7r{cksclscmscnscoscps4ls}fs{17sw5tw5ou5qw5rs}ft{17su5tu}fu{17su5tu}fv{17su5tu}fw{17su5tu}fz{cksclscmscnscoscps4ls}}}",
             ),
             "Helvetica-Bold": z(
-              "{'widths'{k3s2q4scx1w201n3r201o6o201s1w201t1w201u1w201w3m201x3m201y3m2k1w2l2l202m2n2n3r2o3r2p5t202q6o2r1s2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v2l3w3u3x3u3y3u3z3x4k6l4l4s4m4s4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3r4v4s4w3x4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v2l5w1w5x2l5y3u5z3r6k2l6l3r6m3x6n3r6o3x6p3r6q2l6r3x6s3x6t1w6u1w6v3r6w1w6x5t6y3x6z3x7k3x7l3x7m2r7n3r7o2l7p3x7q3r7r4y7s3r7t3r7u3m7v2r7w1w7x2r7y3u202l3rcl4sal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3xbq3rbr1wbs2lbu2obv3rbz3xck4s202k3rcm4scn4sco4scp4scq6ocr4scs4mct4mcu4mcv4mcw1w2m2zcy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3res3ret3reu3rev3rew1wex1wey1wez1wfl3xfm3xfn3xfo3xfp3xfq3xfr3ufs3xft3xfu3xfv3xfw3xfz3r203k6o212m6o2dw2l2cq2l3t3r3u2l17s4m19m3r}'kerning'{cl{4qs5ku5ot5qs17sv5tv}201t{2ww4wy2yw}201w{2ks}201x{2ww4wy2yw}2k{201ts201xs}2w{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}2x{5ow5qs}2y{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}'fof'-6o7p{17su5tu5ot}ck{4qs5ku5ot5qs17sv5tv}4l{4qs5ku5ot5qs17sv5tv}cm{4qs5ku5ot5qs17sv5tv}cn{4qs5ku5ot5qs17sv5tv}co{4qs5ku5ot5qs17sv5tv}cp{4qs5ku5ot5qs17sv5tv}6l{17st5tt5os}17s{2kwclvcmvcnvcovcpv4lv4wwckv}5o{2kucltcmtcntcotcpt4lt4wtckt}5q{2ksclscmscnscoscps4ls4wvcks}5r{2ks4ws}5t{2kwclvcmvcnvcovcpv4lv4wwckv}eo{17st5tt5os}fu{17su5tu5ot}6p{17ss5ts}ek{17st5tt5os}el{17st5tt5os}em{17st5tt5os}en{17st5tt5os}6o{201ts}ep{17st5tt5os}es{17ss5ts}et{17ss5ts}eu{17ss5ts}ev{17ss5ts}6z{17su5tu5os5qt}fm{17su5tu5os5qt}fn{17su5tu5os5qt}fo{17su5tu5os5qt}fp{17su5tu5os5qt}fq{17su5tu5os5qt}fs{17su5tu5os5qt}ft{17su5tu5ot}7m{5os}fv{17su5tu5ot}fw{17su5tu5ot}}}"
+              "{'widths'{k3s2q4scx1w201n3r201o6o201s1w201t1w201u1w201w3m201x3m201y3m2k1w2l2l202m2n2n3r2o3r2p5t202q6o2r1s2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v2l3w3u3x3u3y3u3z3x4k6l4l4s4m4s4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3r4v4s4w3x4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v2l5w1w5x2l5y3u5z3r6k2l6l3r6m3x6n3r6o3x6p3r6q2l6r3x6s3x6t1w6u1w6v3r6w1w6x5t6y3x6z3x7k3x7l3x7m2r7n3r7o2l7p3x7q3r7r4y7s3r7t3r7u3m7v2r7w1w7x2r7y3u202l3rcl4sal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3xbq3rbr1wbs2lbu2obv3rbz3xck4s202k3rcm4scn4sco4scp4scq6ocr4scs4mct4mcu4mcv4mcw1w2m2zcy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3res3ret3reu3rev3rew1wex1wey1wez1wfl3xfm3xfn3xfo3xfp3xfq3xfr3ufs3xft3xfu3xfv3xfw3xfz3r203k6o212m6o2dw2l2cq2l3t3r3u2l17s4m19m3r}'kerning'{cl{4qs5ku5ot5qs17sv5tv}201t{2ww4wy2yw}201w{2ks}201x{2ww4wy2yw}2k{201ts201xs}2w{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}2x{5ow5qs}2y{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}'fof'-6o7p{17su5tu5ot}ck{4qs5ku5ot5qs17sv5tv}4l{4qs5ku5ot5qs17sv5tv}cm{4qs5ku5ot5qs17sv5tv}cn{4qs5ku5ot5qs17sv5tv}co{4qs5ku5ot5qs17sv5tv}cp{4qs5ku5ot5qs17sv5tv}6l{17st5tt5os}17s{2kwclvcmvcnvcovcpv4lv4wwckv}5o{2kucltcmtcntcotcpt4lt4wtckt}5q{2ksclscmscnscoscps4ls4wvcks}5r{2ks4ws}5t{2kwclvcmvcnvcovcpv4lv4wwckv}eo{17st5tt5os}fu{17su5tu5ot}6p{17ss5ts}ek{17st5tt5os}el{17st5tt5os}em{17st5tt5os}en{17st5tt5os}6o{201ts}ep{17st5tt5os}es{17ss5ts}et{17ss5ts}eu{17ss5ts}ev{17ss5ts}6z{17su5tu5os5qt}fm{17su5tu5os5qt}fn{17su5tu5os5qt}fo{17su5tu5os5qt}fp{17su5tu5os5qt}fq{17su5tu5os5qt}fs{17su5tu5os5qt}ft{17su5tu5ot}7m{5os}fv{17su5tu5ot}fw{17su5tu5ot}}}",
             ),
             Courier: z("{'widths'{k3w'fof'6o}'kerning'{'fof'-6o}}"),
             "Courier-BoldOblique": z(
-              "{'widths'{k3w'fof'6o}'kerning'{'fof'-6o}}"
+              "{'widths'{k3w'fof'6o}'kerning'{'fof'-6o}}",
             ),
             "Times-Bold": z(
-              "{'widths'{k3q2q5ncx2r201n3m201o6o201s2l201t2l201u2l201w3m201x3m201y3m2k1t2l2l202m2n2n3m2o3m2p6o202q6o2r1w2s2l2t2l2u3m2v3t2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v2l3w3t3x3t3y3t3z3m4k5x4l4s4m4m4n4s4o4s4p4m4q3x4r4y4s4y4t2r4u3m4v4y4w4m4x5y4y4s4z4y5k3x5l4y5m4s5n3r5o4m5p4s5q4s5r6o5s4s5t4s5u4m5v2l5w1w5x2l5y3u5z3m6k2l6l3m6m3r6n2w6o3r6p2w6q2l6r3m6s3r6t1w6u2l6v3r6w1w6x5n6y3r6z3m7k3r7l3r7m2w7n2r7o2l7p3r7q3m7r4s7s3m7t3m7u2w7v2r7w1q7x2r7y3o202l3mcl4sal2lam3man3mao3map3mar3mas2lat4uau1yav3maw3tay4uaz2lbk2sbl3t'fof'6obo2lbp3rbr1tbs2lbu2lbv3mbz3mck4s202k3mcm4scn4sco4scp4scq6ocr4scs4mct4mcu4mcv4mcw2r2m3rcy2rcz2rdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3rek3mel3mem3men3meo3mep3meq4ser2wes2wet2weu2wev2wew1wex1wey1wez1wfl3rfm3mfn3mfo3mfp3mfq3mfr3tfs3mft3rfu3rfv3rfw3rfz3m203k6o212m6o2dw2l2cq2l3t3m3u2l17s4s19m3m}'kerning'{cl{4qt5ks5ot5qy5rw17sv5tv}201t{cks4lscmscnscoscpscls4wv}2k{201ts}2w{4qu5ku7mu5os5qx5ru17su5tu}2x{17su5tu5ou5qs}2y{4qv5kv7mu5ot5qz5ru17su5tu}'fof'-6o7t{cksclscmscnscoscps4ls}3u{17su5tu5os5qu}3v{17su5tu5os5qu}fu{17su5tu5ou5qu}7p{17su5tu5ou5qu}ck{4qt5ks5ot5qy5rw17sv5tv}4l{4qt5ks5ot5qy5rw17sv5tv}cm{4qt5ks5ot5qy5rw17sv5tv}cn{4qt5ks5ot5qy5rw17sv5tv}co{4qt5ks5ot5qy5rw17sv5tv}cp{4qt5ks5ot5qy5rw17sv5tv}6l{17st5tt5ou5qu}17s{ckuclucmucnucoucpu4lu4wu}5o{ckuclucmucnucoucpu4lu4wu}5q{ckzclzcmzcnzcozcpz4lz4wu}5r{ckxclxcmxcnxcoxcpx4lx4wu}5t{ckuclucmucnucoucpu4lu4wu}7q{ckuclucmucnucoucpu4lu}6p{17sw5tw5ou5qu}ek{17st5tt5qu}el{17st5tt5ou5qu}em{17st5tt5qu}en{17st5tt5qu}eo{17st5tt5qu}ep{17st5tt5ou5qu}es{17ss5ts5qu}et{17sw5tw5ou5qu}eu{17sw5tw5ou5qu}ev{17ss5ts5qu}6z{17sw5tw5ou5qu5rs}fm{17sw5tw5ou5qu5rs}fn{17sw5tw5ou5qu5rs}fo{17sw5tw5ou5qu5rs}fp{17sw5tw5ou5qu5rs}fq{17sw5tw5ou5qu5rs}7r{cktcltcmtcntcotcpt4lt5os}fs{17sw5tw5ou5qu5rs}ft{17su5tu5ou5qu}7m{5os}fv{17su5tu5ou5qu}fw{17su5tu5ou5qu}fz{cksclscmscnscoscps4ls}}}"
+              "{'widths'{k3q2q5ncx2r201n3m201o6o201s2l201t2l201u2l201w3m201x3m201y3m2k1t2l2l202m2n2n3m2o3m2p6o202q6o2r1w2s2l2t2l2u3m2v3t2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v2l3w3t3x3t3y3t3z3m4k5x4l4s4m4m4n4s4o4s4p4m4q3x4r4y4s4y4t2r4u3m4v4y4w4m4x5y4y4s4z4y5k3x5l4y5m4s5n3r5o4m5p4s5q4s5r6o5s4s5t4s5u4m5v2l5w1w5x2l5y3u5z3m6k2l6l3m6m3r6n2w6o3r6p2w6q2l6r3m6s3r6t1w6u2l6v3r6w1w6x5n6y3r6z3m7k3r7l3r7m2w7n2r7o2l7p3r7q3m7r4s7s3m7t3m7u2w7v2r7w1q7x2r7y3o202l3mcl4sal2lam3man3mao3map3mar3mas2lat4uau1yav3maw3tay4uaz2lbk2sbl3t'fof'6obo2lbp3rbr1tbs2lbu2lbv3mbz3mck4s202k3mcm4scn4sco4scp4scq6ocr4scs4mct4mcu4mcv4mcw2r2m3rcy2rcz2rdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3rek3mel3mem3men3meo3mep3meq4ser2wes2wet2weu2wev2wew1wex1wey1wez1wfl3rfm3mfn3mfo3mfp3mfq3mfr3tfs3mft3rfu3rfv3rfw3rfz3m203k6o212m6o2dw2l2cq2l3t3m3u2l17s4s19m3m}'kerning'{cl{4qt5ks5ot5qy5rw17sv5tv}201t{cks4lscmscnscoscpscls4wv}2k{201ts}2w{4qu5ku7mu5os5qx5ru17su5tu}2x{17su5tu5ou5qs}2y{4qv5kv7mu5ot5qz5ru17su5tu}'fof'-6o7t{cksclscmscnscoscps4ls}3u{17su5tu5os5qu}3v{17su5tu5os5qu}fu{17su5tu5ou5qu}7p{17su5tu5ou5qu}ck{4qt5ks5ot5qy5rw17sv5tv}4l{4qt5ks5ot5qy5rw17sv5tv}cm{4qt5ks5ot5qy5rw17sv5tv}cn{4qt5ks5ot5qy5rw17sv5tv}co{4qt5ks5ot5qy5rw17sv5tv}cp{4qt5ks5ot5qy5rw17sv5tv}6l{17st5tt5ou5qu}17s{ckuclucmucnucoucpu4lu4wu}5o{ckuclucmucnucoucpu4lu4wu}5q{ckzclzcmzcnzcozcpz4lz4wu}5r{ckxclxcmxcnxcoxcpx4lx4wu}5t{ckuclucmucnucoucpu4lu4wu}7q{ckuclucmucnucoucpu4lu}6p{17sw5tw5ou5qu}ek{17st5tt5qu}el{17st5tt5ou5qu}em{17st5tt5qu}en{17st5tt5qu}eo{17st5tt5qu}ep{17st5tt5ou5qu}es{17ss5ts5qu}et{17sw5tw5ou5qu}eu{17sw5tw5ou5qu}ev{17ss5ts5qu}6z{17sw5tw5ou5qu5rs}fm{17sw5tw5ou5qu5rs}fn{17sw5tw5ou5qu5rs}fo{17sw5tw5ou5qu5rs}fp{17sw5tw5ou5qu5rs}fq{17sw5tw5ou5qu5rs}7r{cktcltcmtcntcotcpt4lt5os}fs{17sw5tw5ou5qu5rs}ft{17su5tu5ou5qu}7m{5os}fv{17su5tu5ou5qu}fw{17su5tu5ou5qu}fz{cksclscmscnscoscps4ls}}}",
             ),
             Symbol: z(
-              "{'widths'{k3uaw4r19m3m2k1t2l2l202m2y2n3m2p5n202q6o3k3m2s2l2t2l2v3r2w1t3m3m2y1t2z1wbk2sbl3r'fof'6o3n3m3o3m3p3m3q3m3r3m3s3m3t3m3u1w3v1w3w3r3x3r3y3r3z2wbp3t3l3m5v2l5x2l5z3m2q4yfr3r7v3k7w1o7x3k}'kerning'{'fof'-6o}}"
+              "{'widths'{k3uaw4r19m3m2k1t2l2l202m2y2n3m2p5n202q6o3k3m2s2l2t2l2v3r2w1t3m3m2y1t2z1wbk2sbl3r'fof'6o3n3m3o3m3p3m3q3m3r3m3s3m3t3m3u1w3v1w3w3r3x3r3y3r3z2wbp3t3l3m5v2l5x2l5z3m2q4yfr3r7v3k7w1o7x3k}'kerning'{'fof'-6o}}",
             ),
             Helvetica: z(
-              "{'widths'{k3p2q4mcx1w201n3r201o6o201s1q201t1q201u1q201w2l201x2l201y2l2k1w2l1w202m2n2n3r2o3r2p5t202q6o2r1n2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v1w3w3u3x3u3y3u3z3r4k6p4l4m4m4m4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3m4v4m4w3r4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v1w5w1w5x1w5y2z5z3r6k2l6l3r6m3r6n3m6o3r6p3r6q1w6r3r6s3r6t1q6u1q6v3m6w1q6x5n6y3r6z3r7k3r7l3r7m2l7n3m7o1w7p3r7q3m7r4s7s3m7t3m7u3m7v2l7w1u7x2l7y3u202l3rcl4mal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3rbr1wbs2lbu2obv3rbz3xck4m202k3rcm4mcn4mco4mcp4mcq6ocr4scs4mct4mcu4mcv4mcw1w2m2ncy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3mes3ret3reu3rev3rew1wex1wey1wez1wfl3rfm3rfn3rfo3rfp3rfq3rfr3ufs3xft3rfu3rfv3rfw3rfz3m203k6o212m6o2dw2l2cq2l3t3r3u1w17s4m19m3r}'kerning'{5q{4wv}cl{4qs5kw5ow5qs17sv5tv}201t{2wu4w1k2yu}201x{2wu4wy2yu}17s{2ktclucmucnu4otcpu4lu4wycoucku}2w{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}2x{17sy5ty5oy5qs}2y{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}'fof'-6o7p{17sv5tv5ow}ck{4qs5kw5ow5qs17sv5tv}4l{4qs5kw5ow5qs17sv5tv}cm{4qs5kw5ow5qs17sv5tv}cn{4qs5kw5ow5qs17sv5tv}co{4qs5kw5ow5qs17sv5tv}cp{4qs5kw5ow5qs17sv5tv}6l{17sy5ty5ow}do{17st5tt}4z{17st5tt}7s{fst}dm{17st5tt}dn{17st5tt}5o{ckwclwcmwcnwcowcpw4lw4wv}dp{17st5tt}dq{17st5tt}7t{5ow}ds{17st5tt}5t{2ktclucmucnu4otcpu4lu4wycoucku}fu{17sv5tv5ow}6p{17sy5ty5ow5qs}ek{17sy5ty5ow}el{17sy5ty5ow}em{17sy5ty5ow}en{5ty}eo{17sy5ty5ow}ep{17sy5ty5ow}es{17sy5ty5qs}et{17sy5ty5ow5qs}eu{17sy5ty5ow5qs}ev{17sy5ty5ow5qs}6z{17sy5ty5ow5qs}fm{17sy5ty5ow5qs}fn{17sy5ty5ow5qs}fo{17sy5ty5ow5qs}fp{17sy5ty5qs}fq{17sy5ty5ow5qs}7r{5ow}fs{17sy5ty5ow5qs}ft{17sv5tv5ow}7m{5ow}fv{17sv5tv5ow}fw{17sv5tv5ow}}}"
+              "{'widths'{k3p2q4mcx1w201n3r201o6o201s1q201t1q201u1q201w2l201x2l201y2l2k1w2l1w202m2n2n3r2o3r2p5t202q6o2r1n2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v1w3w3u3x3u3y3u3z3r4k6p4l4m4m4m4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3m4v4m4w3r4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v1w5w1w5x1w5y2z5z3r6k2l6l3r6m3r6n3m6o3r6p3r6q1w6r3r6s3r6t1q6u1q6v3m6w1q6x5n6y3r6z3r7k3r7l3r7m2l7n3m7o1w7p3r7q3m7r4s7s3m7t3m7u3m7v2l7w1u7x2l7y3u202l3rcl4mal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3rbr1wbs2lbu2obv3rbz3xck4m202k3rcm4mcn4mco4mcp4mcq6ocr4scs4mct4mcu4mcv4mcw1w2m2ncy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3mes3ret3reu3rev3rew1wex1wey1wez1wfl3rfm3rfn3rfo3rfp3rfq3rfr3ufs3xft3rfu3rfv3rfw3rfz3m203k6o212m6o2dw2l2cq2l3t3r3u1w17s4m19m3r}'kerning'{5q{4wv}cl{4qs5kw5ow5qs17sv5tv}201t{2wu4w1k2yu}201x{2wu4wy2yu}17s{2ktclucmucnu4otcpu4lu4wycoucku}2w{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}2x{17sy5ty5oy5qs}2y{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}'fof'-6o7p{17sv5tv5ow}ck{4qs5kw5ow5qs17sv5tv}4l{4qs5kw5ow5qs17sv5tv}cm{4qs5kw5ow5qs17sv5tv}cn{4qs5kw5ow5qs17sv5tv}co{4qs5kw5ow5qs17sv5tv}cp{4qs5kw5ow5qs17sv5tv}6l{17sy5ty5ow}do{17st5tt}4z{17st5tt}7s{fst}dm{17st5tt}dn{17st5tt}5o{ckwclwcmwcnwcowcpw4lw4wv}dp{17st5tt}dq{17st5tt}7t{5ow}ds{17st5tt}5t{2ktclucmucnu4otcpu4lu4wycoucku}fu{17sv5tv5ow}6p{17sy5ty5ow5qs}ek{17sy5ty5ow}el{17sy5ty5ow}em{17sy5ty5ow}en{5ty}eo{17sy5ty5ow}ep{17sy5ty5ow}es{17sy5ty5qs}et{17sy5ty5ow5qs}eu{17sy5ty5ow5qs}ev{17sy5ty5ow5qs}6z{17sy5ty5ow5qs}fm{17sy5ty5ow5qs}fn{17sy5ty5ow5qs}fo{17sy5ty5ow5qs}fp{17sy5ty5qs}fq{17sy5ty5ow5qs}7r{5ow}fs{17sy5ty5ow5qs}ft{17sv5tv5ow}7m{5ow}fv{17sv5tv5ow}fw{17sv5tv5ow}}}",
             ),
             "Helvetica-BoldOblique": z(
-              "{'widths'{k3s2q4scx1w201n3r201o6o201s1w201t1w201u1w201w3m201x3m201y3m2k1w2l2l202m2n2n3r2o3r2p5t202q6o2r1s2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v2l3w3u3x3u3y3u3z3x4k6l4l4s4m4s4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3r4v4s4w3x4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v2l5w1w5x2l5y3u5z3r6k2l6l3r6m3x6n3r6o3x6p3r6q2l6r3x6s3x6t1w6u1w6v3r6w1w6x5t6y3x6z3x7k3x7l3x7m2r7n3r7o2l7p3x7q3r7r4y7s3r7t3r7u3m7v2r7w1w7x2r7y3u202l3rcl4sal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3xbq3rbr1wbs2lbu2obv3rbz3xck4s202k3rcm4scn4sco4scp4scq6ocr4scs4mct4mcu4mcv4mcw1w2m2zcy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3res3ret3reu3rev3rew1wex1wey1wez1wfl3xfm3xfn3xfo3xfp3xfq3xfr3ufs3xft3xfu3xfv3xfw3xfz3r203k6o212m6o2dw2l2cq2l3t3r3u2l17s4m19m3r}'kerning'{cl{4qs5ku5ot5qs17sv5tv}201t{2ww4wy2yw}201w{2ks}201x{2ww4wy2yw}2k{201ts201xs}2w{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}2x{5ow5qs}2y{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}'fof'-6o7p{17su5tu5ot}ck{4qs5ku5ot5qs17sv5tv}4l{4qs5ku5ot5qs17sv5tv}cm{4qs5ku5ot5qs17sv5tv}cn{4qs5ku5ot5qs17sv5tv}co{4qs5ku5ot5qs17sv5tv}cp{4qs5ku5ot5qs17sv5tv}6l{17st5tt5os}17s{2kwclvcmvcnvcovcpv4lv4wwckv}5o{2kucltcmtcntcotcpt4lt4wtckt}5q{2ksclscmscnscoscps4ls4wvcks}5r{2ks4ws}5t{2kwclvcmvcnvcovcpv4lv4wwckv}eo{17st5tt5os}fu{17su5tu5ot}6p{17ss5ts}ek{17st5tt5os}el{17st5tt5os}em{17st5tt5os}en{17st5tt5os}6o{201ts}ep{17st5tt5os}es{17ss5ts}et{17ss5ts}eu{17ss5ts}ev{17ss5ts}6z{17su5tu5os5qt}fm{17su5tu5os5qt}fn{17su5tu5os5qt}fo{17su5tu5os5qt}fp{17su5tu5os5qt}fq{17su5tu5os5qt}fs{17su5tu5os5qt}ft{17su5tu5ot}7m{5os}fv{17su5tu5ot}fw{17su5tu5ot}}}"
+              "{'widths'{k3s2q4scx1w201n3r201o6o201s1w201t1w201u1w201w3m201x3m201y3m2k1w2l2l202m2n2n3r2o3r2p5t202q6o2r1s2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v2l3w3u3x3u3y3u3z3x4k6l4l4s4m4s4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3r4v4s4w3x4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v2l5w1w5x2l5y3u5z3r6k2l6l3r6m3x6n3r6o3x6p3r6q2l6r3x6s3x6t1w6u1w6v3r6w1w6x5t6y3x6z3x7k3x7l3x7m2r7n3r7o2l7p3x7q3r7r4y7s3r7t3r7u3m7v2r7w1w7x2r7y3u202l3rcl4sal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3xbq3rbr1wbs2lbu2obv3rbz3xck4s202k3rcm4scn4sco4scp4scq6ocr4scs4mct4mcu4mcv4mcw1w2m2zcy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3res3ret3reu3rev3rew1wex1wey1wez1wfl3xfm3xfn3xfo3xfp3xfq3xfr3ufs3xft3xfu3xfv3xfw3xfz3r203k6o212m6o2dw2l2cq2l3t3r3u2l17s4m19m3r}'kerning'{cl{4qs5ku5ot5qs17sv5tv}201t{2ww4wy2yw}201w{2ks}201x{2ww4wy2yw}2k{201ts201xs}2w{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}2x{5ow5qs}2y{7qs4qu5kw5os5qw5rs17su5tu7tsfzs}'fof'-6o7p{17su5tu5ot}ck{4qs5ku5ot5qs17sv5tv}4l{4qs5ku5ot5qs17sv5tv}cm{4qs5ku5ot5qs17sv5tv}cn{4qs5ku5ot5qs17sv5tv}co{4qs5ku5ot5qs17sv5tv}cp{4qs5ku5ot5qs17sv5tv}6l{17st5tt5os}17s{2kwclvcmvcnvcovcpv4lv4wwckv}5o{2kucltcmtcntcotcpt4lt4wtckt}5q{2ksclscmscnscoscps4ls4wvcks}5r{2ks4ws}5t{2kwclvcmvcnvcovcpv4lv4wwckv}eo{17st5tt5os}fu{17su5tu5ot}6p{17ss5ts}ek{17st5tt5os}el{17st5tt5os}em{17st5tt5os}en{17st5tt5os}6o{201ts}ep{17st5tt5os}es{17ss5ts}et{17ss5ts}eu{17ss5ts}ev{17ss5ts}6z{17su5tu5os5qt}fm{17su5tu5os5qt}fn{17su5tu5os5qt}fo{17su5tu5os5qt}fp{17su5tu5os5qt}fq{17su5tu5os5qt}fs{17su5tu5os5qt}ft{17su5tu5ot}7m{5os}fv{17su5tu5ot}fw{17su5tu5ot}}}",
             ),
             ZapfDingbats: z("{'widths'{k4u2k1w'fof'6o}'kerning'{'fof'-6o}}"),
             "Courier-Bold": z("{'widths'{k3w'fof'6o}'kerning'{'fof'-6o}}"),
             "Times-Italic": z(
-              "{'widths'{k3n2q4ycx2l201n3m201o5t201s2l201t2l201u2l201w3r201x3r201y3r2k1t2l2l202m2n2n3m2o3m2p5n202q5t2r1p2s2l2t2l2u3m2v4n2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v2l3w4n3x4n3y4n3z3m4k5w4l3x4m3x4n4m4o4s4p3x4q3x4r4s4s4s4t2l4u2w4v4m4w3r4x5n4y4m4z4s5k3x5l4s5m3x5n3m5o3r5p4s5q3x5r5n5s3x5t3r5u3r5v2r5w1w5x2r5y2u5z3m6k2l6l3m6m3m6n2w6o3m6p2w6q1w6r3m6s3m6t1w6u1w6v2w6w1w6x4s6y3m6z3m7k3m7l3m7m2r7n2r7o1w7p3m7q2w7r4m7s2w7t2w7u2r7v2s7w1v7x2s7y3q202l3mcl3xal2ram3man3mao3map3mar3mas2lat4wau1vav3maw4nay4waz2lbk2sbl4n'fof'6obo2lbp3mbq3obr1tbs2lbu1zbv3mbz3mck3x202k3mcm3xcn3xco3xcp3xcq5tcr4mcs3xct3xcu3xcv3xcw2l2m2ucy2lcz2ldl4mdm4sdn4sdo4sdp4sdq4sds4sdt4sdu4sdv4sdw4sdz3mek3mel3mem3men3meo3mep3meq4mer2wes2wet2weu2wev2wew1wex1wey1wez1wfl3mfm3mfn3mfo3mfp3mfq3mfr4nfs3mft3mfu3mfv3mfw3mfz2w203k6o212m6m2dw2l2cq2l3t3m3u2l17s3r19m3m}'kerning'{cl{5kt4qw}201s{201sw}201t{201tw2wy2yy6q-t}201x{2wy2yy}2k{201tw}2w{7qs4qy7rs5ky7mw5os5qx5ru17su5tu}2x{17ss5ts5os}2y{7qs4qy7rs5ky7mw5os5qx5ru17su5tu}'fof'-6o6t{17ss5ts5qs}7t{5os}3v{5qs}7p{17su5tu5qs}ck{5kt4qw}4l{5kt4qw}cm{5kt4qw}cn{5kt4qw}co{5kt4qw}cp{5kt4qw}6l{4qs5ks5ou5qw5ru17su5tu}17s{2ks}5q{ckvclvcmvcnvcovcpv4lv}5r{ckuclucmucnucoucpu4lu}5t{2ks}6p{4qs5ks5ou5qw5ru17su5tu}ek{4qs5ks5ou5qw5ru17su5tu}el{4qs5ks5ou5qw5ru17su5tu}em{4qs5ks5ou5qw5ru17su5tu}en{4qs5ks5ou5qw5ru17su5tu}eo{4qs5ks5ou5qw5ru17su5tu}ep{4qs5ks5ou5qw5ru17su5tu}es{5ks5qs4qs}et{4qs5ks5ou5qw5ru17su5tu}eu{4qs5ks5qw5ru17su5tu}ev{5ks5qs4qs}ex{17ss5ts5qs}6z{4qv5ks5ou5qw5ru17su5tu}fm{4qv5ks5ou5qw5ru17su5tu}fn{4qv5ks5ou5qw5ru17su5tu}fo{4qv5ks5ou5qw5ru17su5tu}fp{4qv5ks5ou5qw5ru17su5tu}fq{4qv5ks5ou5qw5ru17su5tu}7r{5os}fs{4qv5ks5ou5qw5ru17su5tu}ft{17su5tu5qs}fu{17su5tu5qs}fv{17su5tu5qs}fw{17su5tu5qs}}}"
+              "{'widths'{k3n2q4ycx2l201n3m201o5t201s2l201t2l201u2l201w3r201x3r201y3r2k1t2l2l202m2n2n3m2o3m2p5n202q5t2r1p2s2l2t2l2u3m2v4n2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v2l3w4n3x4n3y4n3z3m4k5w4l3x4m3x4n4m4o4s4p3x4q3x4r4s4s4s4t2l4u2w4v4m4w3r4x5n4y4m4z4s5k3x5l4s5m3x5n3m5o3r5p4s5q3x5r5n5s3x5t3r5u3r5v2r5w1w5x2r5y2u5z3m6k2l6l3m6m3m6n2w6o3m6p2w6q1w6r3m6s3m6t1w6u1w6v2w6w1w6x4s6y3m6z3m7k3m7l3m7m2r7n2r7o1w7p3m7q2w7r4m7s2w7t2w7u2r7v2s7w1v7x2s7y3q202l3mcl3xal2ram3man3mao3map3mar3mas2lat4wau1vav3maw4nay4waz2lbk2sbl4n'fof'6obo2lbp3mbq3obr1tbs2lbu1zbv3mbz3mck3x202k3mcm3xcn3xco3xcp3xcq5tcr4mcs3xct3xcu3xcv3xcw2l2m2ucy2lcz2ldl4mdm4sdn4sdo4sdp4sdq4sds4sdt4sdu4sdv4sdw4sdz3mek3mel3mem3men3meo3mep3meq4mer2wes2wet2weu2wev2wew1wex1wey1wez1wfl3mfm3mfn3mfo3mfp3mfq3mfr4nfs3mft3mfu3mfv3mfw3mfz2w203k6o212m6m2dw2l2cq2l3t3m3u2l17s3r19m3m}'kerning'{cl{5kt4qw}201s{201sw}201t{201tw2wy2yy6q-t}201x{2wy2yy}2k{201tw}2w{7qs4qy7rs5ky7mw5os5qx5ru17su5tu}2x{17ss5ts5os}2y{7qs4qy7rs5ky7mw5os5qx5ru17su5tu}'fof'-6o6t{17ss5ts5qs}7t{5os}3v{5qs}7p{17su5tu5qs}ck{5kt4qw}4l{5kt4qw}cm{5kt4qw}cn{5kt4qw}co{5kt4qw}cp{5kt4qw}6l{4qs5ks5ou5qw5ru17su5tu}17s{2ks}5q{ckvclvcmvcnvcovcpv4lv}5r{ckuclucmucnucoucpu4lu}5t{2ks}6p{4qs5ks5ou5qw5ru17su5tu}ek{4qs5ks5ou5qw5ru17su5tu}el{4qs5ks5ou5qw5ru17su5tu}em{4qs5ks5ou5qw5ru17su5tu}en{4qs5ks5ou5qw5ru17su5tu}eo{4qs5ks5ou5qw5ru17su5tu}ep{4qs5ks5ou5qw5ru17su5tu}es{5ks5qs4qs}et{4qs5ks5ou5qw5ru17su5tu}eu{4qs5ks5qw5ru17su5tu}ev{5ks5qs4qs}ex{17ss5ts5qs}6z{4qv5ks5ou5qw5ru17su5tu}fm{4qv5ks5ou5qw5ru17su5tu}fn{4qv5ks5ou5qw5ru17su5tu}fo{4qv5ks5ou5qw5ru17su5tu}fp{4qv5ks5ou5qw5ru17su5tu}fq{4qv5ks5ou5qw5ru17su5tu}7r{5os}fs{4qv5ks5ou5qw5ru17su5tu}ft{17su5tu5qs}fu{17su5tu5qs}fv{17su5tu5qs}fw{17su5tu5qs}}}",
             ),
             "Times-Roman": z(
-              "{'widths'{k3n2q4ycx2l201n3m201o6o201s2l201t2l201u2l201w2w201x2w201y2w2k1t2l2l202m2n2n3m2o3m2p5n202q6o2r1m2s2l2t2l2u3m2v3s2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v1w3w3s3x3s3y3s3z2w4k5w4l4s4m4m4n4m4o4s4p3x4q3r4r4s4s4s4t2l4u2r4v4s4w3x4x5t4y4s4z4s5k3r5l4s5m4m5n3r5o3x5p4s5q4s5r5y5s4s5t4s5u3x5v2l5w1w5x2l5y2z5z3m6k2l6l2w6m3m6n2w6o3m6p2w6q2l6r3m6s3m6t1w6u1w6v3m6w1w6x4y6y3m6z3m7k3m7l3m7m2l7n2r7o1w7p3m7q3m7r4s7s3m7t3m7u2w7v3k7w1o7x3k7y3q202l3mcl4sal2lam3man3mao3map3mar3mas2lat4wau1vav3maw3say4waz2lbk2sbl3s'fof'6obo2lbp3mbq2xbr1tbs2lbu1zbv3mbz2wck4s202k3mcm4scn4sco4scp4scq5tcr4mcs3xct3xcu3xcv3xcw2l2m2tcy2lcz2ldl4sdm4sdn4sdo4sdp4sdq4sds4sdt4sdu4sdv4sdw4sdz3mek2wel2wem2wen2weo2wep2weq4mer2wes2wet2weu2wev2wew1wex1wey1wez1wfl3mfm3mfn3mfo3mfp3mfq3mfr3sfs3mft3mfu3mfv3mfw3mfz3m203k6o212m6m2dw2l2cq2l3t3m3u1w17s4s19m3m}'kerning'{cl{4qs5ku17sw5ou5qy5rw201ss5tw201ws}201s{201ss}201t{ckw4lwcmwcnwcowcpwclw4wu201ts}2k{201ts}2w{4qs5kw5os5qx5ru17sx5tx}2x{17sw5tw5ou5qu}2y{4qs5kw5os5qx5ru17sx5tx}'fof'-6o7t{ckuclucmucnucoucpu4lu5os5rs}3u{17su5tu5qs}3v{17su5tu5qs}7p{17sw5tw5qs}ck{4qs5ku17sw5ou5qy5rw201ss5tw201ws}4l{4qs5ku17sw5ou5qy5rw201ss5tw201ws}cm{4qs5ku17sw5ou5qy5rw201ss5tw201ws}cn{4qs5ku17sw5ou5qy5rw201ss5tw201ws}co{4qs5ku17sw5ou5qy5rw201ss5tw201ws}cp{4qs5ku17sw5ou5qy5rw201ss5tw201ws}6l{17su5tu5os5qw5rs}17s{2ktclvcmvcnvcovcpv4lv4wuckv}5o{ckwclwcmwcnwcowcpw4lw4wu}5q{ckyclycmycnycoycpy4ly4wu5ms}5r{cktcltcmtcntcotcpt4lt4ws}5t{2ktclvcmvcnvcovcpv4lv4wuckv}7q{cksclscmscnscoscps4ls}6p{17su5tu5qw5rs}ek{5qs5rs}el{17su5tu5os5qw5rs}em{17su5tu5os5qs5rs}en{17su5qs5rs}eo{5qs5rs}ep{17su5tu5os5qw5rs}es{5qs}et{17su5tu5qw5rs}eu{17su5tu5qs5rs}ev{5qs}6z{17sv5tv5os5qx5rs}fm{5os5qt5rs}fn{17sv5tv5os5qx5rs}fo{17sv5tv5os5qx5rs}fp{5os5qt5rs}fq{5os5qt5rs}7r{ckuclucmucnucoucpu4lu5os}fs{17sv5tv5os5qx5rs}ft{17ss5ts5qs}fu{17sw5tw5qs}fv{17sw5tw5qs}fw{17ss5ts5qs}fz{ckuclucmucnucoucpu4lu5os5rs}}}"
+              "{'widths'{k3n2q4ycx2l201n3m201o6o201s2l201t2l201u2l201w2w201x2w201y2w2k1t2l2l202m2n2n3m2o3m2p5n202q6o2r1m2s2l2t2l2u3m2v3s2w1t2x2l2y1t2z1w3k3m3l3m3m3m3n3m3o3m3p3m3q3m3r3m3s3m203t2l203u2l3v1w3w3s3x3s3y3s3z2w4k5w4l4s4m4m4n4m4o4s4p3x4q3r4r4s4s4s4t2l4u2r4v4s4w3x4x5t4y4s4z4s5k3r5l4s5m4m5n3r5o3x5p4s5q4s5r5y5s4s5t4s5u3x5v2l5w1w5x2l5y2z5z3m6k2l6l2w6m3m6n2w6o3m6p2w6q2l6r3m6s3m6t1w6u1w6v3m6w1w6x4y6y3m6z3m7k3m7l3m7m2l7n2r7o1w7p3m7q3m7r4s7s3m7t3m7u2w7v3k7w1o7x3k7y3q202l3mcl4sal2lam3man3mao3map3mar3mas2lat4wau1vav3maw3say4waz2lbk2sbl3s'fof'6obo2lbp3mbq2xbr1tbs2lbu1zbv3mbz2wck4s202k3mcm4scn4sco4scp4scq5tcr4mcs3xct3xcu3xcv3xcw2l2m2tcy2lcz2ldl4sdm4sdn4sdo4sdp4sdq4sds4sdt4sdu4sdv4sdw4sdz3mek2wel2wem2wen2weo2wep2weq4mer2wes2wet2weu2wev2wew1wex1wey1wez1wfl3mfm3mfn3mfo3mfp3mfq3mfr3sfs3mft3mfu3mfv3mfw3mfz3m203k6o212m6m2dw2l2cq2l3t3m3u1w17s4s19m3m}'kerning'{cl{4qs5ku17sw5ou5qy5rw201ss5tw201ws}201s{201ss}201t{ckw4lwcmwcnwcowcpwclw4wu201ts}2k{201ts}2w{4qs5kw5os5qx5ru17sx5tx}2x{17sw5tw5ou5qu}2y{4qs5kw5os5qx5ru17sx5tx}'fof'-6o7t{ckuclucmucnucoucpu4lu5os5rs}3u{17su5tu5qs}3v{17su5tu5qs}7p{17sw5tw5qs}ck{4qs5ku17sw5ou5qy5rw201ss5tw201ws}4l{4qs5ku17sw5ou5qy5rw201ss5tw201ws}cm{4qs5ku17sw5ou5qy5rw201ss5tw201ws}cn{4qs5ku17sw5ou5qy5rw201ss5tw201ws}co{4qs5ku17sw5ou5qy5rw201ss5tw201ws}cp{4qs5ku17sw5ou5qy5rw201ss5tw201ws}6l{17su5tu5os5qw5rs}17s{2ktclvcmvcnvcovcpv4lv4wuckv}5o{ckwclwcmwcnwcowcpw4lw4wu}5q{ckyclycmycnycoycpy4ly4wu5ms}5r{cktcltcmtcntcotcpt4lt4ws}5t{2ktclvcmvcnvcovcpv4lv4wuckv}7q{cksclscmscnscoscps4ls}6p{17su5tu5qw5rs}ek{5qs5rs}el{17su5tu5os5qw5rs}em{17su5tu5os5qs5rs}en{17su5qs5rs}eo{5qs5rs}ep{17su5tu5os5qw5rs}es{5qs}et{17su5tu5qw5rs}eu{17su5tu5qs5rs}ev{5qs}6z{17sv5tv5os5qx5rs}fm{5os5qt5rs}fn{17sv5tv5os5qx5rs}fo{17sv5tv5os5qx5rs}fp{5os5qt5rs}fq{5os5qt5rs}7r{ckuclucmucnucoucpu4lu5os}fs{17sv5tv5os5qx5rs}ft{17ss5ts5qs}fu{17sw5tw5qs}fv{17sw5tw5qs}fw{17ss5ts5qs}fz{ckuclucmucnucoucpu4lu5os5rs}}}",
             ),
             "Helvetica-Oblique": z(
-              "{'widths'{k3p2q4mcx1w201n3r201o6o201s1q201t1q201u1q201w2l201x2l201y2l2k1w2l1w202m2n2n3r2o3r2p5t202q6o2r1n2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v1w3w3u3x3u3y3u3z3r4k6p4l4m4m4m4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3m4v4m4w3r4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v1w5w1w5x1w5y2z5z3r6k2l6l3r6m3r6n3m6o3r6p3r6q1w6r3r6s3r6t1q6u1q6v3m6w1q6x5n6y3r6z3r7k3r7l3r7m2l7n3m7o1w7p3r7q3m7r4s7s3m7t3m7u3m7v2l7w1u7x2l7y3u202l3rcl4mal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3rbr1wbs2lbu2obv3rbz3xck4m202k3rcm4mcn4mco4mcp4mcq6ocr4scs4mct4mcu4mcv4mcw1w2m2ncy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3mes3ret3reu3rev3rew1wex1wey1wez1wfl3rfm3rfn3rfo3rfp3rfq3rfr3ufs3xft3rfu3rfv3rfw3rfz3m203k6o212m6o2dw2l2cq2l3t3r3u1w17s4m19m3r}'kerning'{5q{4wv}cl{4qs5kw5ow5qs17sv5tv}201t{2wu4w1k2yu}201x{2wu4wy2yu}17s{2ktclucmucnu4otcpu4lu4wycoucku}2w{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}2x{17sy5ty5oy5qs}2y{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}'fof'-6o7p{17sv5tv5ow}ck{4qs5kw5ow5qs17sv5tv}4l{4qs5kw5ow5qs17sv5tv}cm{4qs5kw5ow5qs17sv5tv}cn{4qs5kw5ow5qs17sv5tv}co{4qs5kw5ow5qs17sv5tv}cp{4qs5kw5ow5qs17sv5tv}6l{17sy5ty5ow}do{17st5tt}4z{17st5tt}7s{fst}dm{17st5tt}dn{17st5tt}5o{ckwclwcmwcnwcowcpw4lw4wv}dp{17st5tt}dq{17st5tt}7t{5ow}ds{17st5tt}5t{2ktclucmucnu4otcpu4lu4wycoucku}fu{17sv5tv5ow}6p{17sy5ty5ow5qs}ek{17sy5ty5ow}el{17sy5ty5ow}em{17sy5ty5ow}en{5ty}eo{17sy5ty5ow}ep{17sy5ty5ow}es{17sy5ty5qs}et{17sy5ty5ow5qs}eu{17sy5ty5ow5qs}ev{17sy5ty5ow5qs}6z{17sy5ty5ow5qs}fm{17sy5ty5ow5qs}fn{17sy5ty5ow5qs}fo{17sy5ty5ow5qs}fp{17sy5ty5qs}fq{17sy5ty5ow5qs}7r{5ow}fs{17sy5ty5ow5qs}ft{17sv5tv5ow}7m{5ow}fv{17sv5tv5ow}fw{17sv5tv5ow}}}"
+              "{'widths'{k3p2q4mcx1w201n3r201o6o201s1q201t1q201u1q201w2l201x2l201y2l2k1w2l1w202m2n2n3r2o3r2p5t202q6o2r1n2s2l2t2l2u2r2v3u2w1w2x2l2y1w2z1w3k3r3l3r3m3r3n3r3o3r3p3r3q3r3r3r3s3r203t2l203u2l3v1w3w3u3x3u3y3u3z3r4k6p4l4m4m4m4n4s4o4s4p4m4q3x4r4y4s4s4t1w4u3m4v4m4w3r4x5n4y4s4z4y5k4m5l4y5m4s5n4m5o3x5p4s5q4m5r5y5s4m5t4m5u3x5v1w5w1w5x1w5y2z5z3r6k2l6l3r6m3r6n3m6o3r6p3r6q1w6r3r6s3r6t1q6u1q6v3m6w1q6x5n6y3r6z3r7k3r7l3r7m2l7n3m7o1w7p3r7q3m7r4s7s3m7t3m7u3m7v2l7w1u7x2l7y3u202l3rcl4mal2lam3ran3rao3rap3rar3ras2lat4tau2pav3raw3uay4taz2lbk2sbl3u'fof'6obo2lbp3rbr1wbs2lbu2obv3rbz3xck4m202k3rcm4mcn4mco4mcp4mcq6ocr4scs4mct4mcu4mcv4mcw1w2m2ncy1wcz1wdl4sdm4ydn4ydo4ydp4ydq4yds4ydt4sdu4sdv4sdw4sdz3xek3rel3rem3ren3reo3rep3req5ter3mes3ret3reu3rev3rew1wex1wey1wez1wfl3rfm3rfn3rfo3rfp3rfq3rfr3ufs3xft3rfu3rfv3rfw3rfz3m203k6o212m6o2dw2l2cq2l3t3r3u1w17s4m19m3r}'kerning'{5q{4wv}cl{4qs5kw5ow5qs17sv5tv}201t{2wu4w1k2yu}201x{2wu4wy2yu}17s{2ktclucmucnu4otcpu4lu4wycoucku}2w{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}2x{17sy5ty5oy5qs}2y{7qs4qz5k1m17sy5ow5qx5rsfsu5ty7tufzu}'fof'-6o7p{17sv5tv5ow}ck{4qs5kw5ow5qs17sv5tv}4l{4qs5kw5ow5qs17sv5tv}cm{4qs5kw5ow5qs17sv5tv}cn{4qs5kw5ow5qs17sv5tv}co{4qs5kw5ow5qs17sv5tv}cp{4qs5kw5ow5qs17sv5tv}6l{17sy5ty5ow}do{17st5tt}4z{17st5tt}7s{fst}dm{17st5tt}dn{17st5tt}5o{ckwclwcmwcnwcowcpw4lw4wv}dp{17st5tt}dq{17st5tt}7t{5ow}ds{17st5tt}5t{2ktclucmucnu4otcpu4lu4wycoucku}fu{17sv5tv5ow}6p{17sy5ty5ow5qs}ek{17sy5ty5ow}el{17sy5ty5ow}em{17sy5ty5ow}en{5ty}eo{17sy5ty5ow}ep{17sy5ty5ow}es{17sy5ty5qs}et{17sy5ty5ow5qs}eu{17sy5ty5ow5qs}ev{17sy5ty5ow5qs}6z{17sy5ty5ow5qs}fm{17sy5ty5ow5qs}fn{17sy5ty5ow5qs}fo{17sy5ty5ow5qs}fp{17sy5ty5qs}fq{17sy5ty5ow5qs}7r{5ow}fs{17sy5ty5ow5qs}ft{17sv5tv5ow}7m{5ow}fv{17sv5tv5ow}fw{17sv5tv5ow}}}",
             ),
           },
         }),
@@ -7452,7 +7496,7 @@
                   t.postScriptName,
                   t.fontName,
                   G.API.getFileFromVFS(t.postScriptName),
-                  t.encoding
+                  t.encoding,
                 )),
                 (t.metadata.Unicode = t.metadata.Unicode || {
                   encoding: {},
@@ -7463,7 +7507,7 @@
                 console.error(
                   "Font does not exist in FileInVFS, import fonts or remove declaration doc.addFont('" +
                     t.postScriptName +
-                    "')."
+                    "').",
                 );
           },
         ]) /** @preserve
@@ -7494,9 +7538,9 @@
                   ]),
                   (i += 7))
                 : "l" === t[i]
-                ? (r.push([parseFloat(t[i + 1]), parseFloat(t[i + 2])]),
-                  (i += 3))
-                : (i += 1);
+                  ? (r.push([parseFloat(t[i + 1]), parseFloat(t[i + 2])]),
+                    (i += 3))
+                  : (i += 1);
             return [e, n, r];
           }
           var a,
@@ -7528,7 +7572,7 @@
             g =
               ((a = t),
               (h = ((s = p).contentWindow || s.contentDocument).document).write(
-                a
+                a,
               ),
               h.close(),
               h.getElementsByTagName("svg")[0]),
@@ -7540,8 +7584,8 @@
             (r && i
               ? (m = [r / w, i / y])
               : r
-              ? (m = [r / w, r / w])
-              : i && (m = [i / y, i / y]));
+                ? (m = [r / w, r / w])
+                : i && (m = [i / y, i / y]));
           var v,
             b,
             x,
@@ -7561,7 +7605,7 @@
             throw (
               (console.error(
                 "jsPDF.addSvgAsImage: Invalid coordinates",
-                arguments
+                arguments,
               ),
               new Error("Invalid coordinates passed to jsPDF.addSvgAsImage"))
             );
@@ -7569,10 +7613,10 @@
             throw (
               (console.error(
                 "jsPDF.addSvgAsImage: Invalid measurements",
-                arguments
+                arguments,
               ),
               new Error(
-                "Invalid measurements (width and/or height) passed to jsPDF.addSvgAsImage"
+                "Invalid measurements (width and/or height) passed to jsPDF.addSvgAsImage",
               ))
             );
           var h = document.createElement("canvas");
@@ -7600,7 +7644,7 @@
             for (var r = 0; r < this.internal.pages[n].length; r++)
               this.internal.pages[n][r] = this.internal.pages[n][r].replace(
                 e,
-                this.internal.getNumberOfPages()
+                this.internal.getNumberOfPages(),
               );
           return this;
         }),
@@ -7792,7 +7836,7 @@
             (void 0 === this.internal.viewerpreferences &&
               ((this.internal.viewerpreferences = {}),
               (this.internal.viewerpreferences.configuration = JSON.parse(
-                JSON.stringify(o)
+                JSON.stringify(o),
               )),
               (this.internal.viewerpreferences.isSubscribed = !1)),
             (n = this.internal.viewerpreferences.configuration),
@@ -7840,7 +7884,7 @@
                       : e.push("/" + t + " " + n[t].value));
                 0 !== e.length &&
                   this.internal.write(
-                    "/ViewerPreferences\n<<\n" + e.join("\n") + "\n>>"
+                    "/ViewerPreferences\n<<\n" + e.join("\n") + "\n>>",
                   );
               }),
               (this.internal.viewerpreferences.isSubscribed = !0)),
@@ -7861,20 +7905,20 @@
                     J +
                     '"><jspdf:metadata>',
                   e = unescape(
-                    encodeURIComponent('<x:xmpmeta xmlns:x="adobe:ns:meta/">')
+                    encodeURIComponent('<x:xmpmeta xmlns:x="adobe:ns:meta/">'),
                   ),
                   n = unescape(encodeURIComponent(t)),
                   r = unescape(encodeURIComponent(X)),
                   i = unescape(
                     encodeURIComponent(
-                      "</jspdf:metadata></rdf:Description></rdf:RDF>"
-                    )
+                      "</jspdf:metadata></rdf:Description></rdf:RDF>",
+                    ),
                   ),
                   o = unescape(encodeURIComponent("</x:xmpmeta>")),
                   a = n.length + r.length + i.length + e.length + o.length;
                 (K = this.internal.newObject()),
                   this.internal.write(
-                    "<< /Type /Metadata /Subtype /XML /Length " + a + " >>"
+                    "<< /Type /Metadata /Subtype /XML /Length " + a + " >>",
                   ),
                   this.internal.write("stream"),
                   this.internal.write(e + n + r + i + o),
@@ -7996,7 +8040,7 @@
                       e("/FontFile2 " + a + " 0 R"),
                       e("/Flags 96"),
                       e(
-                        "/FontBBox " + l.API.PDFObject.convert(t.metadata.bbox)
+                        "/FontBBox " + l.API.PDFObject.convert(t.metadata.bbox),
                       ),
                       e("/FontName /" + t.fontName),
                       e("/ItalicAngle " + t.metadata.italicAngle),
@@ -8010,7 +8054,7 @@
                   )
                     t.metadata.hmtx.widths[o] = parseInt(
                       t.metadata.hmtx.widths[o] *
-                        (1e3 / t.metadata.head.unitsPerEm)
+                        (1e3 / t.metadata.head.unitsPerEm),
                     );
                   e(
                     "<</Subtype/TrueType/Type/Font/BaseFont/" +
@@ -8021,7 +8065,7 @@
                       t.encoding +
                       " /FirstChar 29 /LastChar 255 /Widths " +
                       l.API.PDFObject.convert(t.metadata.hmtx.widths) +
-                      ">>"
+                      ">>",
                   ),
                     e("endobj"),
                     (t.isAlreadyPutted = !0);
@@ -8060,9 +8104,9 @@
                 e
                   ? (u += d[f])
                   : d[f].charCodeAt(0) < 256 &&
-                    l[n].metadata.hasOwnProperty("Unicode")
-                  ? (u += d[f])
-                  : (u += "");
+                      l[n].metadata.hasOwnProperty("Unicode")
+                    ? (u += d[f])
+                    : (u += "");
             var g = "";
             return (
               parseInt(n.slice(1)) < 14 || "WinAnsiEncoding" === p
@@ -8130,7 +8174,7 @@
           ("undefined" != typeof self && self) ||
             ("undefined" != typeof commonjsGlobal && commonjsGlobal) ||
             ("undefined" != typeof window && window) ||
-            Function("return this")()
+            Function("return this")(),
         ),
         (Q = $.API),
         (Z = {}),
@@ -8173,9 +8217,10 @@
                 l = function (t) {
                   this.code = this[(this.name = t)];
                 },
-                i = "NOT_FOUND_ERR SECURITY_ERR ABORT_ERR NOT_READABLE_ERR ENCODING_ERR NO_MODIFICATION_ALLOWED_ERR INVALID_STATE_ERR SYNTAX_ERR".split(
-                  " "
-                ),
+                i =
+                  "NOT_FOUND_ERR SECURITY_ERR ABORT_ERR NOT_READABLE_ERR ENCODING_ERR NO_MODIFICATION_ALLOWED_ERR INVALID_STATE_ERR SYNTAX_ERR".split(
+                    " ",
+                  ),
                 o = i.length,
                 a = t.URL || t.webkitURL || t,
                 u = a.createObjectURL,
@@ -8189,21 +8234,22 @@
               for (h.fake = r.fake = !0; o--; ) l.prototype[i[o]] = o + 1;
               return (
                 a.createObjectURL ||
-                  (d = t.URL = function (t) {
-                    var e,
-                      n = document.createElementNS(
-                        "http://www.w3.org/1999/xhtml",
-                        "a"
+                  (d = t.URL =
+                    function (t) {
+                      var e,
+                        n = document.createElementNS(
+                          "http://www.w3.org/1999/xhtml",
+                          "a",
+                        );
+                      return (
+                        (n.href = t),
+                        "origin" in n ||
+                          ("data:" === n.protocol.toLowerCase()
+                            ? (n.origin = null)
+                            : ((e = t.match(y)), (n.origin = e && e[1]))),
+                        n
                       );
-                    return (
-                      (n.href = t),
-                      "origin" in n ||
-                        ("data:" === n.protocol.toLowerCase()
-                          ? (n.origin = null)
-                          : ((e = t.match(y)), (n.origin = e && e[1]))),
-                      n
-                    );
-                  }),
+                    }),
                 (d.createObjectURL = function (t) {
                   var e,
                     n = t.type;
@@ -8214,13 +8260,13 @@
                         "base64" === t.encoding
                           ? e + ";base64," + t.data
                           : "URI" === t.encoding
-                          ? e + "," + decodeURIComponent(t.data)
-                          : p
-                          ? e + ";base64," + p(t.data)
-                          : e + "," + encodeURIComponent(t.data))
+                            ? e + "," + decodeURIComponent(t.data)
+                            : p
+                              ? e + ";base64," + p(t.data)
+                              : e + "," + encodeURIComponent(t.data))
                       : u
-                      ? u.call(a, t)
-                      : void 0
+                        ? u.call(a, t)
+                        : void 0
                   );
                 }),
                 (d.revokeObjectURL = function (t) {
@@ -8245,8 +8291,8 @@
                       ? "base64" === t.encoding && g
                         ? e.push(g(t.data))
                         : "URI" === t.encoding
-                        ? e.push(decodeURIComponent(t.data))
-                        : "raw" === t.encoding && e.push(t.data)
+                          ? e.push(decodeURIComponent(t.data))
+                          : "raw" === t.encoding && e.push(t.data)
                       : ("string" != typeof t && (t += ""),
                         e.push(unescape(encodeURIComponent(t))));
                 }),
@@ -8266,7 +8312,7 @@
                     new h(
                       this.data.slice(t, 1 < r ? e : this.data.length),
                       n,
-                      this.encoding
+                      this.encoding,
                     )
                   );
                 }),
@@ -8300,7 +8346,7 @@
           ("undefined" != typeof self && self) ||
             ("undefined" != typeof window && window) ||
             window.content ||
-            window
+            window,
         );
       var tt,
         et,
@@ -8348,7 +8394,7 @@
                 },
                 g = function (t) {
                   return /^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(
-                    t.type
+                    t.type,
                   )
                     ? new Blob([String.fromCharCode(65279), t], {
                         type: t.type,
@@ -8397,7 +8443,7 @@
                             ? e.result
                             : e.result.replace(
                                 /^data:[^;]*;/,
-                                "data:attachment/file;"
+                                "data:attachment/file;",
                               );
                           s.open(t, "_blank") || (s.location.href = t),
                             (t = void 0),
@@ -8429,7 +8475,14 @@
                   (e.readyState = e.INIT = 0),
                   (e.WRITING = 1),
                   (e.DONE = 2),
-                  (e.error = e.onwritestart = e.onprogress = e.onwrite = e.onabort = e.onerror = e.onwriteend = null),
+                  (e.error =
+                    e.onwritestart =
+                    e.onprogress =
+                    e.onwrite =
+                    e.onabort =
+                    e.onerror =
+                    e.onwriteend =
+                      null),
                   function (t, e, n) {
                     return new r(t, e || t.name || "download", n);
                   });
@@ -8437,7 +8490,7 @@
           })(
             ("undefined" != typeof self && self) ||
               ("undefined" != typeof window && window) ||
-              window.content
+              window.content,
           );
       function mt(x) {
         var t = 0;
@@ -8669,7 +8722,7 @@
             var b = v;
             if (r < f + y + (w !== m ? 1 : 0))
               return void console.log(
-                "Warning, gif stream longer than expected."
+                "Warning, gif stream longer than expected.",
               );
             n[f++] = b;
             var x = (f += y);
@@ -8746,16 +8799,17 @@
             ((((it = (rt = function (t) {
               if (!(this instanceof rt))
                 throw new TypeError(
-                  "Constructor cannot called be as a function."
+                  "Constructor cannot called be as a function.",
                 );
               if (!isFinite((t = null == t ? 1 : +t)))
                 throw new Error("First arguments needs to be a finite number.");
               this.checksum = t >>> 0;
-            }).prototype = {}).constructor = rt).from =
+            }).prototype =
+              {}).constructor = rt).from =
               (((tt = function (t) {
                 if (!(this instanceof rt))
                   throw new TypeError(
-                    "Constructor cannot called be as a function."
+                    "Constructor cannot called be as a function.",
                   );
                 if (null == t)
                   throw new Error("First argument needs to be a string.");
@@ -8766,7 +8820,7 @@
               (((et = function (t) {
                 if (!(this instanceof rt))
                   throw new TypeError(
-                    "Constructor cannot called be as a function."
+                    "Constructor cannot called be as a function.",
                   );
                 if (null == t)
                   throw new Error("First argument needs to be a string.");
@@ -8779,7 +8833,7 @@
                 (((nt = function (t) {
                   if (!(this instanceof rt))
                     throw new TypeError(
-                      "Constructor cannot called be as a function."
+                      "Constructor cannot called be as a function.",
                     );
                   if (!st(t))
                     throw new Error("First argument needs to be ArrayBuffer.");
@@ -9035,9 +9089,7 @@
     LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
     NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-  */ function yt(
-        t
-      ) {
+  */ function yt(t) {
         var S,
           k,
           _,
@@ -9061,403 +9113,43 @@
           n = new Array(256),
           j = new Array(2048),
           b = [
-            0,
-            1,
-            5,
-            6,
-            14,
-            15,
-            27,
-            28,
-            2,
-            4,
-            7,
-            13,
-            16,
-            26,
-            29,
-            42,
-            3,
-            8,
-            12,
-            17,
-            25,
-            30,
-            41,
-            43,
-            9,
-            11,
-            18,
-            24,
-            31,
-            40,
-            44,
-            53,
-            10,
-            19,
-            23,
-            32,
-            39,
-            45,
-            52,
-            54,
-            20,
-            22,
-            33,
-            38,
-            46,
-            51,
-            55,
-            60,
-            21,
-            34,
-            37,
-            47,
-            50,
-            56,
-            59,
-            61,
-            35,
-            36,
-            48,
-            49,
-            57,
-            58,
-            62,
-            63,
+            0, 1, 5, 6, 14, 15, 27, 28, 2, 4, 7, 13, 16, 26, 29, 42, 3, 8, 12,
+            17, 25, 30, 41, 43, 9, 11, 18, 24, 31, 40, 44, 53, 10, 19, 23, 32,
+            39, 45, 52, 54, 20, 22, 33, 38, 46, 51, 55, 60, 21, 34, 37, 47, 50,
+            56, 59, 61, 35, 36, 48, 49, 57, 58, 62, 63,
           ],
           D = [0, 0, 1, 5, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
           M = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
           U = [0, 0, 2, 1, 3, 3, 2, 4, 3, 5, 5, 4, 4, 0, 0, 1, 125],
           N = [
-            1,
-            2,
-            3,
-            0,
-            4,
-            17,
-            5,
-            18,
-            33,
-            49,
-            65,
-            6,
-            19,
-            81,
-            97,
-            7,
-            34,
-            113,
-            20,
-            50,
-            129,
-            145,
-            161,
-            8,
-            35,
-            66,
-            177,
-            193,
-            21,
-            82,
-            209,
-            240,
-            36,
-            51,
-            98,
-            114,
-            130,
-            9,
-            10,
-            22,
-            23,
-            24,
-            25,
-            26,
-            37,
-            38,
-            39,
-            40,
-            41,
-            42,
-            52,
-            53,
-            54,
-            55,
-            56,
-            57,
-            58,
-            67,
-            68,
-            69,
-            70,
-            71,
-            72,
-            73,
-            74,
-            83,
-            84,
-            85,
-            86,
-            87,
-            88,
-            89,
-            90,
-            99,
-            100,
-            101,
-            102,
-            103,
-            104,
-            105,
-            106,
-            115,
-            116,
-            117,
-            118,
-            119,
-            120,
-            121,
-            122,
-            131,
-            132,
-            133,
-            134,
-            135,
-            136,
-            137,
-            138,
-            146,
-            147,
-            148,
-            149,
-            150,
-            151,
-            152,
-            153,
-            154,
-            162,
-            163,
-            164,
-            165,
-            166,
-            167,
-            168,
-            169,
-            170,
-            178,
-            179,
-            180,
-            181,
-            182,
-            183,
-            184,
-            185,
-            186,
-            194,
-            195,
-            196,
-            197,
-            198,
-            199,
-            200,
-            201,
-            202,
-            210,
-            211,
-            212,
-            213,
-            214,
-            215,
-            216,
-            217,
-            218,
-            225,
-            226,
-            227,
-            228,
-            229,
-            230,
-            231,
-            232,
-            233,
-            234,
-            241,
-            242,
-            243,
-            244,
-            245,
-            246,
-            247,
-            248,
-            249,
+            1, 2, 3, 0, 4, 17, 5, 18, 33, 49, 65, 6, 19, 81, 97, 7, 34, 113, 20,
+            50, 129, 145, 161, 8, 35, 66, 177, 193, 21, 82, 209, 240, 36, 51,
+            98, 114, 130, 9, 10, 22, 23, 24, 25, 26, 37, 38, 39, 40, 41, 42, 52,
+            53, 54, 55, 56, 57, 58, 67, 68, 69, 70, 71, 72, 73, 74, 83, 84, 85,
+            86, 87, 88, 89, 90, 99, 100, 101, 102, 103, 104, 105, 106, 115, 116,
+            117, 118, 119, 120, 121, 122, 131, 132, 133, 134, 135, 136, 137,
+            138, 146, 147, 148, 149, 150, 151, 152, 153, 154, 162, 163, 164,
+            165, 166, 167, 168, 169, 170, 178, 179, 180, 181, 182, 183, 184,
+            185, 186, 194, 195, 196, 197, 198, 199, 200, 201, 202, 210, 211,
+            212, 213, 214, 215, 216, 217, 218, 225, 226, 227, 228, 229, 230,
+            231, 232, 233, 234, 241, 242, 243, 244, 245, 246, 247, 248, 249,
             250,
           ],
           z = [0, 0, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
           L = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
           H = [0, 0, 2, 1, 2, 4, 4, 3, 4, 7, 5, 4, 4, 0, 1, 2, 119],
           W = [
-            0,
-            1,
-            2,
-            3,
-            17,
-            4,
-            5,
-            33,
-            49,
-            6,
-            18,
-            65,
-            81,
-            7,
-            97,
-            113,
-            19,
-            34,
-            50,
-            129,
-            8,
-            20,
-            66,
-            145,
-            161,
-            177,
-            193,
-            9,
-            35,
-            51,
-            82,
-            240,
-            21,
-            98,
-            114,
-            209,
-            10,
-            22,
-            36,
-            52,
-            225,
-            37,
-            241,
-            23,
-            24,
-            25,
-            26,
-            38,
-            39,
-            40,
-            41,
-            42,
-            53,
-            54,
-            55,
-            56,
-            57,
-            58,
-            67,
-            68,
-            69,
-            70,
-            71,
-            72,
-            73,
-            74,
-            83,
-            84,
-            85,
-            86,
-            87,
-            88,
-            89,
-            90,
-            99,
-            100,
-            101,
-            102,
-            103,
-            104,
-            105,
-            106,
-            115,
-            116,
-            117,
-            118,
-            119,
-            120,
-            121,
-            122,
-            130,
-            131,
-            132,
-            133,
-            134,
-            135,
-            136,
-            137,
-            138,
-            146,
-            147,
-            148,
-            149,
-            150,
-            151,
-            152,
-            153,
-            154,
-            162,
-            163,
-            164,
-            165,
-            166,
-            167,
-            168,
-            169,
-            170,
-            178,
-            179,
-            180,
-            181,
-            182,
-            183,
-            184,
-            185,
-            186,
-            194,
-            195,
-            196,
-            197,
-            198,
-            199,
-            200,
-            201,
-            202,
-            210,
-            211,
-            212,
-            213,
-            214,
-            215,
-            216,
-            217,
-            218,
-            226,
-            227,
-            228,
-            229,
-            230,
-            231,
-            232,
-            233,
-            234,
-            242,
-            243,
-            244,
-            245,
-            246,
-            247,
-            248,
-            249,
+            0, 1, 2, 3, 17, 4, 5, 33, 49, 6, 18, 65, 81, 7, 97, 113, 19, 34, 50,
+            129, 8, 20, 66, 145, 161, 177, 193, 9, 35, 51, 82, 240, 21, 98, 114,
+            209, 10, 22, 36, 52, 225, 37, 241, 23, 24, 25, 26, 38, 39, 40, 41,
+            42, 53, 54, 55, 56, 57, 58, 67, 68, 69, 70, 71, 72, 73, 74, 83, 84,
+            85, 86, 87, 88, 89, 90, 99, 100, 101, 102, 103, 104, 105, 106, 115,
+            116, 117, 118, 119, 120, 121, 122, 130, 131, 132, 133, 134, 135,
+            136, 137, 138, 146, 147, 148, 149, 150, 151, 152, 153, 154, 162,
+            163, 164, 165, 166, 167, 168, 169, 170, 178, 179, 180, 181, 182,
+            183, 184, 185, 186, 194, 195, 196, 197, 198, 199, 200, 201, 202,
+            210, 211, 212, 213, 214, 215, 216, 217, 218, 226, 227, 228, 229,
+            230, 231, 232, 233, 234, 242, 243, 244, 245, 246, 247, 248, 249,
             250,
           ];
         function r(t, e) {
@@ -9598,70 +9290,11 @@
             (function (t) {
               for (
                 var e = [
-                    16,
-                    11,
-                    10,
-                    16,
-                    24,
-                    40,
-                    51,
-                    61,
-                    12,
-                    12,
-                    14,
-                    19,
-                    26,
-                    58,
-                    60,
-                    55,
-                    14,
-                    13,
-                    16,
-                    24,
-                    40,
-                    57,
-                    69,
-                    56,
-                    14,
-                    17,
-                    22,
-                    29,
-                    51,
-                    87,
-                    80,
-                    62,
-                    18,
-                    22,
-                    37,
-                    56,
-                    68,
-                    109,
-                    103,
-                    77,
-                    24,
-                    35,
-                    55,
-                    64,
-                    81,
-                    104,
-                    113,
-                    92,
-                    49,
-                    64,
-                    78,
-                    87,
-                    103,
-                    121,
-                    120,
-                    101,
-                    72,
-                    92,
-                    95,
-                    98,
-                    112,
-                    100,
-                    103,
-                    99,
+                    16, 11, 10, 16, 24, 40, 51, 61, 12, 12, 14, 19, 26, 58, 60,
+                    55, 14, 13, 16, 24, 40, 57, 69, 56, 14, 17, 22, 29, 51, 87,
+                    80, 62, 18, 22, 37, 56, 68, 109, 103, 77, 24, 35, 55, 64,
+                    81, 104, 113, 92, 49, 64, 78, 87, 103, 121, 120, 101, 72,
+                    92, 95, 98, 112, 100, 103, 99,
                   ],
                   n = 0;
                 n < 64;
@@ -9672,70 +9305,11 @@
               }
               for (
                 var i = [
-                    17,
-                    18,
-                    24,
-                    47,
-                    99,
-                    99,
-                    99,
-                    99,
-                    18,
-                    21,
-                    26,
-                    66,
-                    99,
-                    99,
-                    99,
-                    99,
-                    24,
-                    26,
-                    56,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    47,
-                    66,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
-                    99,
+                    17, 18, 24, 47, 99, 99, 99, 99, 18, 21, 26, 66, 99, 99, 99,
+                    99, 24, 26, 56, 99, 99, 99, 99, 99, 47, 66, 99, 99, 99, 99,
+                    99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99,
+                    99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99,
+                    99, 99, 99, 99,
                   ],
                   o = 0;
                 o < 64;
@@ -9746,14 +9320,8 @@
               }
               for (
                 var s = [
-                    1,
-                    1.387039845,
-                    1.306562965,
-                    1.175875602,
-                    1,
-                    0.785694958,
-                    0.5411961,
-                    0.275899379,
+                    1, 1.387039845, 1.306562965, 1.175875602, 1, 0.785694958,
+                    0.5411961, 0.275899379,
                   ],
                   h = 0,
                   c = 0;
@@ -10255,518 +9823,36 @@
         var p = 15,
           g = 573,
           e = [
-            0,
-            1,
-            2,
-            3,
-            4,
-            4,
-            5,
-            5,
-            6,
-            6,
-            6,
-            6,
-            7,
-            7,
-            7,
-            7,
-            8,
-            8,
-            8,
-            8,
-            8,
-            8,
-            8,
-            8,
-            9,
-            9,
-            9,
-            9,
-            9,
-            9,
-            9,
-            9,
-            10,
-            10,
-            10,
-            10,
-            10,
-            10,
-            10,
-            10,
-            10,
-            10,
-            10,
-            10,
-            10,
-            10,
-            10,
-            10,
-            11,
-            11,
-            11,
-            11,
-            11,
-            11,
-            11,
-            11,
-            11,
-            11,
-            11,
-            11,
-            11,
-            11,
-            11,
-            11,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            13,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            14,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            15,
-            0,
-            0,
-            16,
-            17,
-            18,
-            18,
-            19,
-            19,
-            20,
-            20,
-            20,
-            20,
-            21,
-            21,
-            21,
-            21,
-            22,
-            22,
-            22,
-            22,
-            22,
-            22,
-            22,
-            22,
-            23,
-            23,
-            23,
-            23,
-            23,
-            23,
-            23,
-            23,
-            24,
-            24,
-            24,
-            24,
-            24,
-            24,
-            24,
-            24,
-            24,
-            24,
-            24,
-            24,
-            24,
-            24,
-            24,
-            24,
-            25,
-            25,
-            25,
-            25,
-            25,
-            25,
-            25,
-            25,
-            25,
-            25,
-            25,
-            25,
-            25,
-            25,
-            25,
-            25,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            26,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            27,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            28,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
-            29,
+            0, 1, 2, 3, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8,
+            8, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+            10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,
+            11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12,
+            12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12,
+            12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13,
+            13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13,
+            13, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,
+            14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,
+            14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,
+            14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 15,
+            15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
+            15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
+            15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
+            15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 0, 0, 16, 17, 18, 18, 19,
+            19, 20, 20, 20, 20, 21, 21, 21, 21, 22, 22, 22, 22, 22, 22, 22, 22,
+            23, 23, 23, 23, 23, 23, 23, 23, 24, 24, 24, 24, 24, 24, 24, 24, 24,
+            24, 24, 24, 24, 24, 24, 24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25,
+            25, 25, 25, 25, 25, 25, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26,
+            26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26,
+            26, 26, 26, 26, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27,
+            27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27,
+            27, 27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28,
+            28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28,
+            28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28,
+            28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29, 29,
+            29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29,
+            29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29,
+            29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29,
+            29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29,
           ];
         function ut() {
           var d = this;
@@ -10877,1087 +9963,101 @@
             (o.max_length = i);
         }
         (ut._length_code = [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          8,
-          9,
-          9,
-          10,
-          10,
-          11,
-          11,
-          12,
-          12,
-          12,
-          12,
-          13,
-          13,
-          13,
-          13,
-          14,
-          14,
-          14,
-          14,
-          15,
-          15,
-          15,
-          15,
-          16,
-          16,
-          16,
-          16,
-          16,
-          16,
-          16,
-          16,
-          17,
-          17,
-          17,
-          17,
-          17,
-          17,
-          17,
-          17,
-          18,
-          18,
-          18,
-          18,
-          18,
-          18,
-          18,
-          18,
-          19,
-          19,
-          19,
-          19,
-          19,
-          19,
-          19,
-          19,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          20,
-          21,
-          21,
-          21,
-          21,
-          21,
-          21,
-          21,
-          21,
-          21,
-          21,
-          21,
-          21,
-          21,
-          21,
-          21,
-          21,
-          22,
-          22,
-          22,
-          22,
-          22,
-          22,
-          22,
-          22,
-          22,
-          22,
-          22,
-          22,
-          22,
-          22,
-          22,
-          22,
-          23,
-          23,
-          23,
-          23,
-          23,
-          23,
-          23,
-          23,
-          23,
-          23,
-          23,
-          23,
-          23,
-          23,
-          23,
-          23,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          24,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          25,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          26,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          27,
-          28,
+          0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 12, 12,
+          13, 13, 13, 13, 14, 14, 14, 14, 15, 15, 15, 15, 16, 16, 16, 16, 16,
+          16, 16, 16, 17, 17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 18,
+          18, 18, 19, 19, 19, 19, 19, 19, 19, 19, 20, 20, 20, 20, 20, 20, 20,
+          20, 20, 20, 20, 20, 20, 20, 20, 20, 21, 21, 21, 21, 21, 21, 21, 21,
+          21, 21, 21, 21, 21, 21, 21, 21, 22, 22, 22, 22, 22, 22, 22, 22, 22,
+          22, 22, 22, 22, 22, 22, 22, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23,
+          23, 23, 23, 23, 23, 23, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24,
+          24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24,
+          24, 24, 24, 24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25,
+          25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25,
+          25, 25, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26,
+          26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26,
+          27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27,
+          27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 28,
         ]),
           (ut.base_length = [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            10,
-            12,
-            14,
-            16,
-            20,
-            24,
-            28,
-            32,
-            40,
-            48,
-            56,
-            64,
-            80,
-            96,
-            112,
-            128,
-            160,
-            192,
-            224,
-            0,
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 14, 16, 20, 24, 28, 32, 40, 48,
+            56, 64, 80, 96, 112, 128, 160, 192, 224, 0,
           ]),
           (ut.base_dist = [
-            0,
-            1,
-            2,
-            3,
-            4,
-            6,
-            8,
-            12,
-            16,
-            24,
-            32,
-            48,
-            64,
-            96,
-            128,
-            192,
-            256,
-            384,
-            512,
-            768,
-            1024,
-            1536,
-            2048,
-            3072,
-            4096,
-            6144,
-            8192,
-            12288,
-            16384,
+            0, 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384,
+            512, 768, 1024, 1536, 2048, 3072, 4096, 6144, 8192, 12288, 16384,
             24576,
           ]),
           (ut.d_code = function (t) {
             return t < 256 ? e[t] : e[256 + (t >>> 7)];
           }),
           (ut.extra_lbits = [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            2,
-            2,
-            2,
-            2,
-            3,
-            3,
-            3,
-            3,
-            4,
-            4,
-            4,
-            4,
-            5,
-            5,
-            5,
-            5,
-            0,
+            0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4,
+            4, 5, 5, 5, 5, 0,
           ]),
           (ut.extra_dbits = [
-            0,
-            0,
-            0,
-            0,
-            1,
-            1,
-            2,
-            2,
-            3,
-            3,
-            4,
-            4,
-            5,
-            5,
-            6,
-            6,
-            7,
-            7,
-            8,
-            8,
-            9,
-            9,
-            10,
-            10,
-            11,
-            11,
-            12,
-            12,
-            13,
-            13,
+            0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9,
+            10, 10, 11, 11, 12, 12, 13, 13,
           ]),
           (ut.extra_blbits = [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            2,
-            3,
-            7,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 7,
           ]),
           (ut.bl_order = [
-            16,
-            17,
-            18,
-            0,
-            8,
-            7,
-            9,
-            6,
-            10,
-            5,
-            11,
-            4,
-            12,
-            3,
-            13,
-            2,
-            14,
-            1,
-            15,
+            16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15,
           ]),
           (ft.static_ltree = [
-            12,
-            8,
-            140,
-            8,
-            76,
-            8,
-            204,
-            8,
-            44,
-            8,
-            172,
-            8,
-            108,
-            8,
-            236,
-            8,
-            28,
-            8,
-            156,
-            8,
-            92,
-            8,
-            220,
-            8,
-            60,
-            8,
-            188,
-            8,
-            124,
-            8,
-            252,
-            8,
-            2,
-            8,
-            130,
-            8,
-            66,
-            8,
-            194,
-            8,
-            34,
-            8,
-            162,
-            8,
-            98,
-            8,
-            226,
-            8,
-            18,
-            8,
-            146,
-            8,
-            82,
-            8,
-            210,
-            8,
-            50,
-            8,
-            178,
-            8,
-            114,
-            8,
-            242,
-            8,
-            10,
-            8,
-            138,
-            8,
-            74,
-            8,
-            202,
-            8,
-            42,
-            8,
-            170,
-            8,
-            106,
-            8,
-            234,
-            8,
-            26,
-            8,
-            154,
-            8,
-            90,
-            8,
-            218,
-            8,
-            58,
-            8,
-            186,
-            8,
-            122,
-            8,
-            250,
-            8,
-            6,
-            8,
-            134,
-            8,
-            70,
-            8,
-            198,
-            8,
-            38,
-            8,
-            166,
-            8,
-            102,
-            8,
-            230,
-            8,
-            22,
-            8,
-            150,
-            8,
-            86,
-            8,
-            214,
-            8,
-            54,
-            8,
-            182,
-            8,
-            118,
-            8,
-            246,
-            8,
-            14,
-            8,
-            142,
-            8,
-            78,
-            8,
-            206,
-            8,
-            46,
-            8,
-            174,
-            8,
-            110,
-            8,
-            238,
-            8,
-            30,
-            8,
-            158,
-            8,
-            94,
-            8,
-            222,
-            8,
-            62,
-            8,
-            190,
-            8,
-            126,
-            8,
-            254,
-            8,
-            1,
-            8,
-            129,
-            8,
-            65,
-            8,
-            193,
-            8,
-            33,
-            8,
-            161,
-            8,
-            97,
-            8,
-            225,
-            8,
-            17,
-            8,
-            145,
-            8,
-            81,
-            8,
-            209,
-            8,
-            49,
-            8,
-            177,
-            8,
-            113,
-            8,
-            241,
-            8,
-            9,
-            8,
-            137,
-            8,
-            73,
-            8,
-            201,
-            8,
-            41,
-            8,
-            169,
-            8,
-            105,
-            8,
-            233,
-            8,
-            25,
-            8,
-            153,
-            8,
-            89,
-            8,
-            217,
-            8,
-            57,
-            8,
-            185,
-            8,
-            121,
-            8,
-            249,
-            8,
-            5,
-            8,
-            133,
-            8,
-            69,
-            8,
-            197,
-            8,
-            37,
-            8,
-            165,
-            8,
-            101,
-            8,
-            229,
-            8,
-            21,
-            8,
-            149,
-            8,
-            85,
-            8,
-            213,
-            8,
-            53,
-            8,
-            181,
-            8,
-            117,
-            8,
-            245,
-            8,
-            13,
-            8,
-            141,
-            8,
-            77,
-            8,
-            205,
-            8,
-            45,
-            8,
-            173,
-            8,
-            109,
-            8,
-            237,
-            8,
-            29,
-            8,
-            157,
-            8,
-            93,
-            8,
-            221,
-            8,
-            61,
-            8,
-            189,
-            8,
-            125,
-            8,
-            253,
-            8,
-            19,
-            9,
-            275,
-            9,
-            147,
-            9,
-            403,
-            9,
-            83,
-            9,
-            339,
-            9,
-            211,
-            9,
-            467,
-            9,
-            51,
-            9,
-            307,
-            9,
-            179,
-            9,
-            435,
-            9,
-            115,
-            9,
-            371,
-            9,
-            243,
-            9,
-            499,
-            9,
-            11,
-            9,
-            267,
-            9,
-            139,
-            9,
-            395,
-            9,
-            75,
-            9,
-            331,
-            9,
-            203,
-            9,
-            459,
-            9,
-            43,
-            9,
-            299,
-            9,
-            171,
-            9,
-            427,
-            9,
-            107,
-            9,
-            363,
-            9,
-            235,
-            9,
-            491,
-            9,
-            27,
-            9,
-            283,
-            9,
-            155,
-            9,
-            411,
-            9,
-            91,
-            9,
-            347,
-            9,
-            219,
-            9,
-            475,
-            9,
-            59,
-            9,
-            315,
-            9,
-            187,
-            9,
-            443,
-            9,
-            123,
-            9,
-            379,
-            9,
-            251,
-            9,
-            507,
-            9,
-            7,
-            9,
-            263,
-            9,
-            135,
-            9,
-            391,
-            9,
-            71,
-            9,
-            327,
-            9,
-            199,
-            9,
-            455,
-            9,
-            39,
-            9,
-            295,
-            9,
-            167,
-            9,
-            423,
-            9,
-            103,
-            9,
-            359,
-            9,
-            231,
-            9,
-            487,
-            9,
-            23,
-            9,
-            279,
-            9,
-            151,
-            9,
-            407,
-            9,
-            87,
-            9,
-            343,
-            9,
-            215,
-            9,
-            471,
-            9,
-            55,
-            9,
-            311,
-            9,
-            183,
-            9,
-            439,
-            9,
-            119,
-            9,
-            375,
-            9,
-            247,
-            9,
-            503,
-            9,
-            15,
-            9,
-            271,
-            9,
-            143,
-            9,
-            399,
-            9,
-            79,
-            9,
-            335,
-            9,
-            207,
-            9,
-            463,
-            9,
-            47,
-            9,
-            303,
-            9,
-            175,
-            9,
-            431,
-            9,
-            111,
-            9,
-            367,
-            9,
-            239,
-            9,
-            495,
-            9,
-            31,
-            9,
-            287,
-            9,
-            159,
-            9,
-            415,
-            9,
-            95,
-            9,
-            351,
-            9,
-            223,
-            9,
-            479,
-            9,
-            63,
-            9,
-            319,
-            9,
-            191,
-            9,
-            447,
-            9,
-            127,
-            9,
-            383,
-            9,
-            255,
-            9,
-            511,
-            9,
-            0,
-            7,
-            64,
-            7,
-            32,
-            7,
-            96,
-            7,
-            16,
-            7,
-            80,
-            7,
-            48,
-            7,
-            112,
-            7,
-            8,
-            7,
-            72,
-            7,
-            40,
-            7,
-            104,
-            7,
-            24,
-            7,
-            88,
-            7,
-            56,
-            7,
-            120,
-            7,
-            4,
-            7,
-            68,
-            7,
-            36,
-            7,
-            100,
-            7,
-            20,
-            7,
-            84,
-            7,
-            52,
-            7,
-            116,
-            7,
-            3,
-            8,
-            131,
-            8,
-            67,
-            8,
-            195,
-            8,
-            35,
-            8,
-            163,
-            8,
-            99,
-            8,
-            227,
-            8,
+            12, 8, 140, 8, 76, 8, 204, 8, 44, 8, 172, 8, 108, 8, 236, 8, 28, 8,
+            156, 8, 92, 8, 220, 8, 60, 8, 188, 8, 124, 8, 252, 8, 2, 8, 130, 8,
+            66, 8, 194, 8, 34, 8, 162, 8, 98, 8, 226, 8, 18, 8, 146, 8, 82, 8,
+            210, 8, 50, 8, 178, 8, 114, 8, 242, 8, 10, 8, 138, 8, 74, 8, 202, 8,
+            42, 8, 170, 8, 106, 8, 234, 8, 26, 8, 154, 8, 90, 8, 218, 8, 58, 8,
+            186, 8, 122, 8, 250, 8, 6, 8, 134, 8, 70, 8, 198, 8, 38, 8, 166, 8,
+            102, 8, 230, 8, 22, 8, 150, 8, 86, 8, 214, 8, 54, 8, 182, 8, 118, 8,
+            246, 8, 14, 8, 142, 8, 78, 8, 206, 8, 46, 8, 174, 8, 110, 8, 238, 8,
+            30, 8, 158, 8, 94, 8, 222, 8, 62, 8, 190, 8, 126, 8, 254, 8, 1, 8,
+            129, 8, 65, 8, 193, 8, 33, 8, 161, 8, 97, 8, 225, 8, 17, 8, 145, 8,
+            81, 8, 209, 8, 49, 8, 177, 8, 113, 8, 241, 8, 9, 8, 137, 8, 73, 8,
+            201, 8, 41, 8, 169, 8, 105, 8, 233, 8, 25, 8, 153, 8, 89, 8, 217, 8,
+            57, 8, 185, 8, 121, 8, 249, 8, 5, 8, 133, 8, 69, 8, 197, 8, 37, 8,
+            165, 8, 101, 8, 229, 8, 21, 8, 149, 8, 85, 8, 213, 8, 53, 8, 181, 8,
+            117, 8, 245, 8, 13, 8, 141, 8, 77, 8, 205, 8, 45, 8, 173, 8, 109, 8,
+            237, 8, 29, 8, 157, 8, 93, 8, 221, 8, 61, 8, 189, 8, 125, 8, 253, 8,
+            19, 9, 275, 9, 147, 9, 403, 9, 83, 9, 339, 9, 211, 9, 467, 9, 51, 9,
+            307, 9, 179, 9, 435, 9, 115, 9, 371, 9, 243, 9, 499, 9, 11, 9, 267,
+            9, 139, 9, 395, 9, 75, 9, 331, 9, 203, 9, 459, 9, 43, 9, 299, 9,
+            171, 9, 427, 9, 107, 9, 363, 9, 235, 9, 491, 9, 27, 9, 283, 9, 155,
+            9, 411, 9, 91, 9, 347, 9, 219, 9, 475, 9, 59, 9, 315, 9, 187, 9,
+            443, 9, 123, 9, 379, 9, 251, 9, 507, 9, 7, 9, 263, 9, 135, 9, 391,
+            9, 71, 9, 327, 9, 199, 9, 455, 9, 39, 9, 295, 9, 167, 9, 423, 9,
+            103, 9, 359, 9, 231, 9, 487, 9, 23, 9, 279, 9, 151, 9, 407, 9, 87,
+            9, 343, 9, 215, 9, 471, 9, 55, 9, 311, 9, 183, 9, 439, 9, 119, 9,
+            375, 9, 247, 9, 503, 9, 15, 9, 271, 9, 143, 9, 399, 9, 79, 9, 335,
+            9, 207, 9, 463, 9, 47, 9, 303, 9, 175, 9, 431, 9, 111, 9, 367, 9,
+            239, 9, 495, 9, 31, 9, 287, 9, 159, 9, 415, 9, 95, 9, 351, 9, 223,
+            9, 479, 9, 63, 9, 319, 9, 191, 9, 447, 9, 127, 9, 383, 9, 255, 9,
+            511, 9, 0, 7, 64, 7, 32, 7, 96, 7, 16, 7, 80, 7, 48, 7, 112, 7, 8,
+            7, 72, 7, 40, 7, 104, 7, 24, 7, 88, 7, 56, 7, 120, 7, 4, 7, 68, 7,
+            36, 7, 100, 7, 20, 7, 84, 7, 52, 7, 116, 7, 3, 8, 131, 8, 67, 8,
+            195, 8, 35, 8, 163, 8, 99, 8, 227, 8,
           ]),
           (ft.static_dtree = [
-            0,
-            5,
-            16,
-            5,
-            8,
-            5,
-            24,
-            5,
-            4,
-            5,
-            20,
-            5,
-            12,
-            5,
-            28,
-            5,
-            2,
-            5,
-            18,
-            5,
-            10,
-            5,
-            26,
-            5,
-            6,
-            5,
-            22,
-            5,
-            14,
-            5,
-            30,
-            5,
-            1,
-            5,
-            17,
-            5,
-            9,
-            5,
-            25,
-            5,
-            5,
-            5,
-            21,
-            5,
-            13,
-            5,
-            29,
-            5,
-            3,
-            5,
-            19,
-            5,
-            11,
-            5,
-            27,
-            5,
-            7,
-            5,
-            23,
-            5,
+            0, 5, 16, 5, 8, 5, 24, 5, 4, 5, 20, 5, 12, 5, 28, 5, 2, 5, 18, 5,
+            10, 5, 26, 5, 6, 5, 22, 5, 14, 5, 30, 5, 1, 5, 17, 5, 9, 5, 25, 5,
+            5, 5, 21, 5, 13, 5, 29, 5, 3, 5, 19, 5, 11, 5, 27, 5, 7, 5, 23, 5,
           ]),
           (ft.static_l_desc = new ft(
             ft.static_ltree,
             ut.extra_lbits,
             257,
             286,
-            p
+            p,
           )),
           (ft.static_d_desc = new ft(
             ft.static_dtree,
             ut.extra_dbits,
             0,
             30,
-            p
+            p,
           )),
           (ft.static_bl_desc = new ft(null, ut.extra_blbits, 0, 19, 7));
         function n(t, e, n, r, i) {
@@ -12072,16 +10172,16 @@
                   (a < h
                     ? (D[2 * r] += a)
                     : 0 !== r
-                    ? (r != i && D[2 * r]++, D[32]++)
-                    : a <= 10
-                    ? D[34]++
-                    : D[36]++,
+                      ? (r != i && D[2 * r]++, D[32]++)
+                      : a <= 10
+                        ? D[34]++
+                        : D[36]++,
                   (i = r),
                   (a = 0) === o
                     ? ((s = 138), (h = 3))
                     : r == o
-                    ? ((s = 6), (h = 3))
-                    : ((s = 7), (h = 4)));
+                      ? ((s = 6), (h = 3))
+                      : ((s = 7), (h = 4)));
           }
           function Q(t) {
             G.pending_buf[G.pending++] = t;
@@ -12117,14 +10217,14 @@
                   0 !== r
                     ? (r != i && (tt(r, D), a--), tt(16, D), $(a - 3, 2))
                     : a <= 10
-                    ? (tt(17, D), $(a - 3, 3))
-                    : (tt(18, D), $(a - 11, 7));
+                      ? (tt(17, D), $(a - 3, 3))
+                      : (tt(18, D), $(a - 11, 7));
                 (i = r),
                   (a = 0) === o
                     ? ((s = 138), (h = 3))
                     : r == o
-                    ? ((s = 6), (h = 3))
-                    : ((s = 7), (h = 4));
+                      ? ((s = 6), (h = 3))
+                      : ((s = 7), (h = 4));
               }
           }
           function nt() {
@@ -12218,19 +10318,20 @@
               e + 4 <= r && -1 != t
                 ? at(t, e, n)
                 : i == r
-                ? ($(2 + (n ? 1 : 0), 3), it(ft.static_ltree, ft.static_dtree))
-                : ($(4 + (n ? 1 : 0), 3),
-                  (function (t, e, n) {
-                    var r;
-                    for (
-                      $(t - 257, 5), $(e - 1, 5), $(n - 4, 4), r = 0;
-                      r < n;
-                      r++
-                    )
-                      $(D[2 * ut.bl_order[r] + 1], 3);
-                    et(s, t - 1), et(j, e - 1);
-                  })(V.max_code + 1, Y.max_code + 1, o + 1),
-                  it(s, j)),
+                  ? ($(2 + (n ? 1 : 0), 3),
+                    it(ft.static_ltree, ft.static_dtree))
+                  : ($(4 + (n ? 1 : 0), 3),
+                    (function (t, e, n) {
+                      var r;
+                      for (
+                        $(t - 257, 5), $(e - 1, 5), $(n - 4, 4), r = 0;
+                        r < n;
+                        r++
+                      )
+                        $(D[2 * ut.bl_order[r] + 1], 3);
+                      et(s, t - 1), et(j, e - 1);
+                    })(V.max_code + 1, Y.max_code + 1, o + 1),
+                    it(s, j)),
               J(),
               n && ot();
           }
@@ -12658,7 +10759,7 @@
                 : ((r.avail_in -= i),
                   t.set(
                     r.next_in.subarray(r.next_in_index, r.next_in_index + i),
-                    e
+                    e,
                   ),
                   (r.next_in_index += i),
                   (r.total_in += i),
@@ -12673,9 +10774,9 @@
                 (t.next_out.set(
                   t.dstate.pending_buf.subarray(
                     t.dstate.pending_out,
-                    t.dstate.pending_out + e
+                    t.dstate.pending_out + e,
                   ),
-                  t.next_out_index
+                  t.next_out_index,
                 ),
                 (t.next_out_index += e),
                 (t.dstate.pending_out += e),
@@ -12712,7 +10813,7 @@
                     (512 == s.next_out_index
                       ? r.push(new Uint8Array(h))
                       : r.push(
-                          new Uint8Array(h.subarray(0, s.next_out_index))
+                          new Uint8Array(h.subarray(0, s.next_out_index)),
                         )),
                     (a += s.next_out_index),
                     e &&
@@ -12761,7 +10862,7 @@
           ("undefined" != typeof window && window) ||
           ("undefined" != typeof commonjsGlobal && commonjsGlobal) ||
           Function('return typeof this === "object" && this.content')() ||
-          Function("return this")()
+          Function("return this")(),
       ),
         (function (t) {
           function f(t) {
@@ -13000,7 +11101,7 @@
                       s.toHex()),
                       h.appendChild(document.createTextNode("test"));
                     var c = document.createTextNode(
-                      " " + t[e] + " -> " + s.toRGB() + " -> " + s.toHex()
+                      " " + t[e] + " -> " + s.toRGB() + " -> " + s.toHex(),
                     );
                     a.appendChild(h), a.appendChild(c), o.appendChild(a);
                   } catch (t) {}
@@ -13018,7 +11119,7 @@
             ("undefined" != typeof window && window) ||
             ("undefined" != typeof commonjsGlobal && commonjsGlobal) ||
             Function('return typeof this === "object" && this.content')() ||
-            Function("return this")()
+            Function("return this")(),
         ),
         (function (t) {
           module.exports = t();
@@ -13046,7 +11147,7 @@
                   o,
                   a,
                   s,
-                  h
+                  h,
                 );
               }
               return s[n].exports;
@@ -13172,10 +11273,10 @@
                                   u - 48 < 10
                                     ? u - 22
                                     : u - 65 < 26
-                                    ? u - 65
-                                    : u - 97 < 26
-                                    ? u - 97
-                                    : y) ||
+                                      ? u - 65
+                                      : u - 97 < 26
+                                        ? u - 97
+                                        : y) ||
                                 h > _((w - p) / a)) &&
                                 I("overflow"),
                               (p += h * a),
@@ -13274,16 +11375,16 @@
                         else for (o in i) i.hasOwnProperty(o) && (e[o] = i[o]);
                       else t.punycode = i;
                     })(this);
-                  }.call(
+                  }).call(
                     this,
                     "undefined" != typeof commonjsGlobal
                       ? commonjsGlobal
                       : "undefined" != typeof self
-                      ? self
-                      : "undefined" != typeof window
-                      ? window
-                      : {}
-                  ));
+                        ? self
+                        : "undefined" != typeof window
+                          ? window
+                          : {},
+                  );
                 },
                 {},
               ],
@@ -13322,7 +11423,7 @@
                                         .getContext("2d")
                                         .getImageData(0, 0, e.width, e.height),
                                       0,
-                                      0
+                                      0,
                                     ));
                               } catch (t) {
                                 i("Unable to copy canvas content from", e, t);
@@ -13353,32 +11454,33 @@
                           n,
                           r,
                           i = l.contentWindow.document;
-                        (l.contentWindow.onload = l.onload = function () {
-                          var t = setInterval(function () {
-                            0 < i.body.childNodes.length &&
-                              (!(function t(e) {
-                                if (1 === e.nodeType) {
-                                  (e.scrollTop = e._scrollTop),
-                                    (e.scrollLeft = e._scrollLeft);
-                                  for (var n = e.firstChild; n; )
-                                    t(n), (n = n.nextSibling);
-                                }
-                              })(i.documentElement),
-                              clearInterval(t),
-                              "view" === a.type &&
-                                (l.contentWindow.scrollTo(s, h),
-                                !/(iPad|iPhone|iPod)/g.test(
-                                  navigator.userAgent
-                                ) ||
-                                  (l.contentWindow.scrollY === h &&
-                                    l.contentWindow.scrollX === s) ||
-                                  ((i.documentElement.style.top = -h + "px"),
-                                  (i.documentElement.style.left = -s + "px"),
-                                  (i.documentElement.style.position =
-                                    "absolute"))),
-                              e(l));
-                          }, 50);
-                        }),
+                        (l.contentWindow.onload = l.onload =
+                          function () {
+                            var t = setInterval(function () {
+                              0 < i.body.childNodes.length &&
+                                (!(function t(e) {
+                                  if (1 === e.nodeType) {
+                                    (e.scrollTop = e._scrollTop),
+                                      (e.scrollLeft = e._scrollLeft);
+                                    for (var n = e.firstChild; n; )
+                                      t(n), (n = n.nextSibling);
+                                  }
+                                })(i.documentElement),
+                                clearInterval(t),
+                                "view" === a.type &&
+                                  (l.contentWindow.scrollTo(s, h),
+                                  !/(iPad|iPhone|iPod)/g.test(
+                                    navigator.userAgent,
+                                  ) ||
+                                    (l.contentWindow.scrollY === h &&
+                                      l.contentWindow.scrollX === s) ||
+                                    ((i.documentElement.style.top = -h + "px"),
+                                    (i.documentElement.style.left = -s + "px"),
+                                    (i.documentElement.style.position =
+                                      "absolute"))),
+                                e(l));
+                            }, 50);
+                          }),
                           i.open(),
                           i.write("<!DOCTYPE html><html></html>"),
                           (n = s),
@@ -13453,7 +11555,8 @@
                       null !== e
                     );
                   };
-                  var a = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
+                  var a =
+                    /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
                   r.prototype.rgb = function (t) {
                     var e;
                     return (
@@ -13464,7 +11567,8 @@
                       null !== e
                     );
                   };
-                  var s = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d?\.?\d+)\s*\)$/;
+                  var s =
+                    /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d?\.?\d+)\s*\)$/;
                   (r.prototype.rgba = function (t) {
                     var e;
                     return (
@@ -13683,7 +11787,7 @@
                     ) {
                       if ("string" != typeof e.proxy)
                         return Promise.reject(
-                          "Proxy must be used when rendering url"
+                          "Proxy must be used when rendering url",
                         );
                       var o = null != e.width ? e.width : window.innerWidth,
                         a = null != e.height ? e.height : window.innerHeight;
@@ -13697,14 +11801,14 @@
                         document,
                         o,
                         a,
-                        e
+                        e,
                       ).then(function (t) {
                         return k(
                           t.contentWindow.document.documentElement,
                           t,
                           e,
                           o,
-                          a
+                          a,
                         );
                       });
                     }
@@ -13713,11 +11817,13 @@
                       c,
                       l,
                       u,
-                      f = (void 0 === t
-                        ? [document.documentElement]
-                        : t.length
-                        ? t
-                        : [t])[0];
+                      f = (
+                        void 0 === t
+                          ? [document.documentElement]
+                          : t.length
+                            ? t
+                            : [t]
+                      )[0];
                     return (
                       f.setAttribute(x + i, i),
                       ((s = f.ownerDocument),
@@ -13732,7 +11838,7 @@
                         l,
                         h,
                         s.defaultView.pageXOffset,
-                        s.defaultView.pageYOffset
+                        s.defaultView.pageYOffset,
                       ).then(function (t) {
                         w("Document cloned");
                         var e = x + u,
@@ -13751,7 +11857,7 @@
                         return (
                           "function" == typeof e.onrendered &&
                             (w(
-                              "options.onrendered is deprecated, html2canvas returns a Promise containing the canvas"
+                              "options.onrendered is deprecated, html2canvas returns a Promise containing the canvas",
                             ),
                             e.onrendered(t)),
                           t
@@ -13786,16 +11892,16 @@
                             Math.max(
                               Math.max(
                                 o.body.scrollWidth,
-                                o.documentElement.scrollWidth
+                                o.documentElement.scrollWidth,
                               ),
                               Math.max(
                                 o.body.offsetWidth,
-                                o.documentElement.offsetWidth
+                                o.documentElement.offsetWidth,
                               ),
                               Math.max(
                                 o.body.clientWidth,
-                                o.documentElement.clientWidth
-                              )
+                                o.documentElement.clientWidth,
+                              ),
                             )),
                       f =
                         "view" === i.type
@@ -13804,16 +11910,16 @@
                             Math.max(
                               Math.max(
                                 a.body.scrollHeight,
-                                a.documentElement.scrollHeight
+                                a.documentElement.scrollHeight,
                               ),
                               Math.max(
                                 a.body.offsetHeight,
-                                a.documentElement.offsetHeight
+                                a.documentElement.offsetHeight,
                               ),
                               Math.max(
                                 a.body.clientHeight,
-                                a.documentElement.clientHeight
-                              )
+                                a.documentElement.clientHeight,
+                              ),
                             )),
                       d = new i.renderer(u, f, c, i, document);
                     return new m(n, d, h, c, i).ready.then(function () {
@@ -13831,17 +11937,18 @@
                                 y: 0,
                               })
                             : n === s.document.body ||
-                              n === s.document.documentElement ||
-                              null != i.canvas
-                            ? d.canvas
-                            : _(d.canvas, {
-                                width: null != i.width ? i.width : l.width,
-                                height: null != i.height ? i.height : l.height,
-                                top: l.top,
-                                left: l.left,
-                                x: 0,
-                                y: 0,
-                              })),
+                                n === s.document.documentElement ||
+                                null != i.canvas
+                              ? d.canvas
+                              : _(d.canvas, {
+                                  width: null != i.width ? i.width : l.width,
+                                  height:
+                                    null != i.height ? i.height : l.height,
+                                  top: l.top,
+                                  left: l.left,
+                                  x: 0,
+                                  y: 0,
+                                })),
                         (e = r),
                         i.removeContainer &&
                           (e.parentNode.removeChild(e),
@@ -13869,7 +11976,7 @@
                         "width:",
                         s,
                         "height:",
-                        h
+                        h,
                       ),
                       w(
                         "Resulting crop with width",
@@ -13879,7 +11986,7 @@
                         "with x",
                         r,
                         "and y",
-                        o
+                        o,
                       ),
                       n
                         .getContext("2d")
@@ -13993,16 +12100,18 @@
                     (this.image = null), (this.src = e);
                     var r = this,
                       i = a(e);
-                    this.promise = (t
-                      ? new Promise(function (t) {
-                          "about:blank" === e.contentWindow.document.URL ||
-                          null == e.contentWindow.document.documentElement
-                            ? (e.contentWindow.onload = e.onload = function () {
-                                t(e);
-                              })
-                            : t(e);
-                        })
-                      : this.proxyLoad(n.proxy, i, n)
+                    this.promise = (
+                      t
+                        ? new Promise(function (t) {
+                            "about:blank" === e.contentWindow.document.URL ||
+                            null == e.contentWindow.document.documentElement
+                              ? (e.contentWindow.onload = e.onload =
+                                  function () {
+                                    t(e);
+                                  })
+                              : t(e);
+                          })
+                        : this.proxyLoad(n.proxy, i, n)
                     )
                       .then(function (t) {
                         return o("./core")(
@@ -14016,7 +12125,7 @@
                             removeContainer: n.removeContainer,
                             allowTaint: n.allowTaint,
                             imageTimeout: n.imageTimeout / 2,
-                          }
+                          },
                         );
                       })
                       .then(function (t) {
@@ -14044,7 +12153,8 @@
                       (this.promise = Promise.resolve(!0));
                   }
                   (r.TYPES = { LINEAR: 1, RADIAL: 2 }),
-                    (r.REGEXP_COLORSTOP = /^\s*(rgba?\(\s*\d{1,3},\s*\d{1,3},\s*\d{1,3}(?:,\s*[0-9\.]+)?\s*\)|[a-z]{3,20}|#[a-f0-9]{3,6})(?:\s+(\d{1,3}(?:\.\d+)?)(%|px)?)?(?:\s|$)/i),
+                    (r.REGEXP_COLORSTOP =
+                      /^\s*(rgba?\(\s*\d{1,3},\s*\d{1,3},\s*\d{1,3}(?:,\s*[0-9\.]+)?\s*\)|[a-z]{3,20}|#[a-f0-9]{3,6})(?:\s+(\d{1,3}(?:\.\d+)?)(%|px)?)?(?:\s|$)/i),
                     (e.exports = r);
                 },
                 {},
@@ -14122,7 +12232,7 @@
                             (n.splice(0, 0, r.call(this, e)),
                             o(
                               "Added image #" + n.length,
-                              "string" == typeof t ? t.substring(0, 100) : t
+                              "string" == typeof t ? t.substring(0, 100) : t,
                             ));
                         }, this);
                       };
@@ -14139,34 +12249,34 @@
                           ? e.match(/data:image\/.*;base64,/i)
                             ? new r(
                                 e.replace(/url\(['"]{0,}|['"]{0,}\)$/gi, ""),
-                                !1
+                                !1,
                               )
                             : this.isSameOrigin(e) ||
-                              !0 === this.options.allowTaint ||
-                              this.isSVG(e)
-                            ? new r(e, !1)
-                            : this.support.cors &&
-                              !this.options.allowTaint &&
-                              this.options.useCORS
-                            ? new r(e, !0)
-                            : this.options.proxy
-                            ? new a(e, this.options.proxy)
-                            : new i(e)
+                                !0 === this.options.allowTaint ||
+                                this.isSVG(e)
+                              ? new r(e, !1)
+                              : this.support.cors &&
+                                  !this.options.allowTaint &&
+                                  this.options.useCORS
+                                ? new r(e, !0)
+                                : this.options.proxy
+                                  ? new a(e, this.options.proxy)
+                                  : new i(e)
                           : new h(e);
                       }
                       return "linear-gradient" === t.method
                         ? new l(t)
                         : "gradient" === t.method
-                        ? new u(t)
-                        : "svg" === t.method
-                        ? new c(t.args[0], this.support.svg)
-                        : "IFRAME" === t.method
-                        ? new s(
-                            t.args[0],
-                            this.isSameOrigin(t.args[0].src),
-                            this.options
-                          )
-                        : new i(t);
+                          ? new u(t)
+                          : "svg" === t.method
+                            ? new c(t.args[0], this.support.svg)
+                            : "IFRAME" === t.method
+                              ? new s(
+                                  t.args[0],
+                                  this.isSameOrigin(t.args[0].src),
+                                  this.options,
+                                )
+                              : new i(t);
                     }),
                     (d.prototype.isSVG = function (t) {
                       return (
@@ -14197,7 +12307,7 @@
                           return new i(e.src).promise.then(function (t) {
                             e.image = t;
                           });
-                        }
+                        },
                       );
                     }),
                     (d.prototype.get = function (e) {
@@ -14212,7 +12322,7 @@
                       return (
                         (this.images = t.reduce(
                           f(this.findBackgroundImage, this),
-                          this.findImages(t)
+                          this.findImages(t),
                         )),
                         this.images.forEach(function (e, n) {
                           e.promise.then(
@@ -14221,11 +12331,11 @@
                             },
                             function (t) {
                               o("Failed loading image #" + (n + 1), e, t);
-                            }
+                            },
                           );
                         }),
                         (this.ready = Promise.all(
-                          this.images.map(this.getPromise, this)
+                          this.images.map(this.getPromise, this),
                         )),
                         o("Finished searching images"),
                         this
@@ -14342,7 +12452,8 @@
                       }, this);
                   }
                   (r.prototype = Object.create(i.prototype)),
-                    (r.REGEXP_DIRECTION = /^\s*(?:to|left|right|top|bottom|center|\d{1,3}(?:\.\d+)?%?)(?:\s|$)/i),
+                    (r.REGEXP_DIRECTION =
+                      /^\s*(?:to|left|right|top|bottom|center|\d{1,3}(?:\.\d+)?%?)(?:\s|$)/i),
                     (e.exports = r);
                 },
                 { "./color": 3, "./gradientcontainer": 9 },
@@ -14360,7 +12471,7 @@
                           [
                             Date.now() - r.options.start + "ms",
                             "html2canvas:",
-                          ].concat([].slice.call(arguments, 0))
+                          ].concat([].slice.call(arguments, 0)),
                         );
                   };
                   (r.options = { logging: !1 }), (e.exports = r);
@@ -14427,7 +12538,7 @@
                         : "none" !== this.css("display") &&
                             "hidden" !== this.css("visibility") &&
                             !this.node.hasAttribute(
-                              "data-html2canvas-ignore"
+                              "data-html2canvas-ignore",
                             ) &&
                             ("INPUT" !== this.node.nodeName ||
                               "hidden" !== this.node.getAttribute("type"));
@@ -14437,7 +12548,7 @@
                         this.computedStyles ||
                           (this.computedStyles = this.isPseudoElement
                             ? this.parent.computedStyle(
-                                this.before ? ":before" : ":after"
+                                this.before ? ":before" : ":after",
                               )
                             : this.computedStyle(null)),
                         this.styles[t] ||
@@ -14452,7 +12563,7 @@
                             return (
                               void 0 !==
                               (n = this.css(
-                                t + e.substr(0, 1).toUpperCase() + e.substr(1)
+                                t + e.substr(0, 1).toUpperCase() + e.substr(1),
                               ))
                             );
                           }, this),
@@ -14462,7 +12573,7 @@
                     (h.prototype.computedStyle = function (t) {
                       return this.node.ownerDocument.defaultView.getComputedStyle(
                         this.node,
-                        t
+                        t,
                       );
                     }),
                     (h.prototype.cssInt = function (t) {
@@ -14537,10 +12648,10 @@
                           "auto" === o[0] && "auto" === o[1]
                             ? e.height
                             : "auto" === o[1]
-                            ? (r / e.width) * e.height
-                            : c(o[1])
-                            ? (t.height * parseFloat(o[1])) / 100
-                            : parseInt(o[1], 10)),
+                              ? (r / e.width) * e.height
+                              : c(o[1])
+                                ? (t.height * parseFloat(o[1])) / 100
+                                : parseInt(o[1], 10)),
                         "auto" === o[0] && (r = (i / e.height) * e.width),
                         { width: r, height: i }
                       );
@@ -14549,7 +12660,7 @@
                       t,
                       e,
                       n,
-                      r
+                      r,
                     ) {
                       var i,
                         o,
@@ -14563,10 +12674,10 @@
                           "auto" === a[1]
                             ? (i / e.width) * e.height
                             : c(a[1])
-                            ? ((t.height - (r || e).height) *
-                                parseFloat(a[1])) /
-                              100
-                            : parseInt(a[1], 10)),
+                              ? ((t.height - (r || e).height) *
+                                  parseFloat(a[1])) /
+                                100
+                              : parseInt(a[1], 10)),
                         "auto" === a[0] && (i = (o / e.height) * e.width),
                         { left: i, top: o }
                       );
@@ -14680,9 +12791,12 @@
                       );
                     }),
                     (h.prototype.MATRIX_PROPERTY = /(matrix|matrix3d)\((.+)\)/),
-                    (h.prototype.TEXT_SHADOW_PROPERTY = /((rgba|rgb)\([^\)]+\)(\s-?\d+px){0,})/g),
-                    (h.prototype.TEXT_SHADOW_VALUES = /(-?\d+px)|(#.+)|(rgb\(.+\))|(rgba\(.+\))/g),
-                    (h.prototype.CLIP = /^rect\((\d+)px,? (\d+)px,? (\d+)px,? (\d+)px\)$/),
+                    (h.prototype.TEXT_SHADOW_PROPERTY =
+                      /((rgba|rgb)\([^\)]+\)(\s-?\d+px){0,})/g),
+                    (h.prototype.TEXT_SHADOW_VALUES =
+                      /(-?\d+px)|(#.+)|(rgb\(.+\))|(rgba\(.+\))/g),
+                    (h.prototype.CLIP =
+                      /^rect\((\d+)px,? (\d+)px,? (\d+)px,? (\d+)px\)$/),
                     (e.exports = h);
                 },
                 { "./color": 3, "./utils": 26 },
@@ -14718,7 +12832,7 @@
                           0,
                           e.width,
                           e.height,
-                          new u(i.background)
+                          new u(i.background),
                         ),
                       t === t.ownerDocument.documentElement)
                     ) {
@@ -14726,14 +12840,14 @@
                         o.color("backgroundColor").isTransparent()
                           ? t.ownerDocument.body
                           : t.ownerDocument.documentElement,
-                        null
+                        null,
                       );
                       e.rectangle(
                         0,
                         0,
                         e.width,
                         e.height,
-                        a.color("backgroundColor")
+                        a.color("backgroundColor"),
                       );
                     }
                     (o.visibile = o.isElementVisible()),
@@ -14745,7 +12859,7 @@
                           .filter(function (t) {
                             return (t.visible = t.isElementVisible());
                           })
-                          .map(this.getPseudoElements, this)
+                          .map(this.getPseudoElements, this),
                       )),
                       (this.fontMetrics = new l()),
                       s("Fetched nodes, total:", this.nodes.length),
@@ -14765,7 +12879,7 @@
                             s(
                               "Render queue created with " +
                                 this.renderQueue.length +
-                                " items"
+                                " items",
                             ),
                             new Promise(
                               g(function (t) {
@@ -14773,15 +12887,15 @@
                                   ? "function" == typeof i.async
                                     ? i.async.call(this, this.renderQueue, t)
                                     : 0 < this.renderQueue.length
-                                    ? ((this.renderIndex = 0),
-                                      this.asyncRenderer(this.renderQueue, t))
-                                    : t()
+                                      ? ((this.renderIndex = 0),
+                                        this.asyncRenderer(this.renderQueue, t))
+                                      : t()
                                   : (this.renderQueue.forEach(this.paint, this),
                                     t());
-                              }, this)
+                              }, this),
                             )
                           );
-                        }, this)
+                        }, this),
                       ));
                   }
                   function o(t) {
@@ -14826,13 +12940,13 @@
                         t.length === this.renderIndex
                           ? e()
                           : n + 20 > Date.now()
-                          ? this.asyncRenderer(t, e, n)
-                          : setTimeout(
-                              g(function () {
-                                this.asyncRenderer(t, e);
-                              }, this),
-                              0
-                            );
+                            ? this.asyncRenderer(t, e, n)
+                            : setTimeout(
+                                g(function () {
+                                  this.asyncRenderer(t, e);
+                                }, this),
+                                0,
+                              );
                     }),
                     (i.prototype.createPseudoHideStyles = function (t) {
                       this.createStyles(
@@ -14841,13 +12955,13 @@
                           d.prototype.PSEUDO_HIDE_ELEMENT_CLASS_BEFORE +
                           ':before { content: "" !important; display: none !important; }.' +
                           d.prototype.PSEUDO_HIDE_ELEMENT_CLASS_AFTER +
-                          ':after { content: "" !important; display: none !important; }'
+                          ':after { content: "" !important; display: none !important; }',
                       );
                     }),
                     (i.prototype.disableAnimations = function (t) {
                       this.createStyles(
                         t,
-                        "* { -webkit-animation: none !important; -moz-animation: none !important; -o-animation: none !important; animation: none !important; -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; transition: none !important;}"
+                        "* { -webkit-animation: none !important; -moz-animation: none !important; -o-animation: none !important; animation: none !important; -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; transition: none !important;}",
                       );
                     }),
                     (i.prototype.createStyles = function (t, e) {
@@ -14884,7 +12998,7 @@
                               : r),
                           a = "url" === o.substr(0, 3),
                           s = document.createElement(
-                            a ? "img" : "html2canvaspseudoelement"
+                            a ? "img" : "html2canvaspseudoelement",
                           ),
                           h = new d(s, t, e),
                           c = n.length - 1;
@@ -14922,7 +13036,7 @@
                               ? e.concat(this.getChildren(e[0]))
                               : []
                             : e;
-                        }, this)
+                        }, this),
                       );
                     }),
                     (i.prototype.newStackingContext = function (t, e) {
@@ -14949,14 +13063,14 @@
                           t.hasTransform())
                           ? this.newStackingContext(t, !0)
                           : j(t) &&
-                            ((O(t) && T(t)) ||
-                              -1 !==
-                                ["inline-block", "inline-table"].indexOf(
-                                  t.css("display")
-                                ) ||
-                              B(t))
-                          ? this.newStackingContext(t, !1)
-                          : t.assignStack(t.parent.stack);
+                              ((O(t) && T(t)) ||
+                                -1 !==
+                                  ["inline-block", "inline-table"].indexOf(
+                                    t.css("display"),
+                                  ) ||
+                                B(t))
+                            ? this.newStackingContext(t, !1)
+                            : t.assignStack(t.parent.stack);
                       }, this);
                     }),
                     (i.prototype.isBodyWithTransparentRoot = function (t) {
@@ -14978,7 +13092,7 @@
                             n.indexOf(t) / n.length -
                             (e.cssInt("zIndex") + n.indexOf(e) / n.length)
                           );
-                        })
+                        }),
                       ),
                         t.contexts.forEach(this.sortStackingContexts, this);
                     }),
@@ -15000,7 +13114,7 @@
                             var i = a.node.splitText(t.length),
                               o = this.getWrapperBounds(
                                 a.node,
-                                a.parent.hasTransform()
+                                a.parent.hasTransform(),
                               );
                             return (a.node = i), o;
                           }
@@ -15012,9 +13126,8 @@
                       };
                     }),
                     (i.prototype.getWrapperBounds = function (t, e) {
-                      var n = t.ownerDocument.createElement(
-                          "html2canvaswrapper"
-                        ),
+                      var n =
+                          t.ownerDocument.createElement("html2canvaswrapper"),
                         r = t.parentNode,
                         i = t.cloneNode(!0);
                       n.appendChild(t.cloneNode(!0)), r.replaceChild(n, t);
@@ -15058,10 +13171,10 @@
                         t instanceof y
                           ? this.renderer.ctx.restore()
                           : M(t)
-                          ? (D(t.parent) && t.parent.appendToDOM(),
-                            this.paintText(t),
-                            D(t.parent) && t.parent.cleanDOM())
-                          : this.paintNode(t);
+                            ? (D(t.parent) && t.parent.appendToDOM(),
+                              this.paintText(t),
+                              D(t.parent) && t.parent.cleanDOM())
+                            : this.paintNode(t);
                       } catch (t) {
                         if ((s(t), this.options.strict)) throw t;
                       }
@@ -15076,9 +13189,9 @@
                         "checkbox" === t.node.type
                           ? this.paintCheckbox(t)
                           : "INPUT" === t.node.nodeName &&
-                            "radio" === t.node.type
-                          ? this.paintRadio(t)
-                          : this.paintElement(t);
+                              "radio" === t.node.type
+                            ? this.paintRadio(t)
+                            : this.paintElement(t);
                     }),
                     (i.prototype.paintElement = function (n) {
                       var r = n.parseBounds();
@@ -15088,17 +13201,17 @@
                           this.renderer.renderBackground(
                             n,
                             r,
-                            n.borders.borders.map(N)
+                            n.borders.borders.map(N),
                           );
                         },
-                        this
+                        this,
                       ),
                         this.renderer.clip(
                           n.clip,
                           function () {
                             this.renderer.renderBorders(n.borders.borders);
                           },
-                          this
+                          this,
                         ),
                         this.renderer.clip(
                           n.backgroundClip,
@@ -15112,11 +13225,11 @@
                                       n,
                                       r,
                                       n.borders,
-                                      t
+                                      t,
                                     )
                                   : s(
                                       "Error loading <" + n.node.nodeName + ">",
-                                      n.node
+                                      n.node,
                                     );
                                 break;
                               case "IMG":
@@ -15126,7 +13239,7 @@
                                       n,
                                       r,
                                       n.borders,
-                                      e
+                                      e,
                                     )
                                   : s("Error loading <img>", n.node.src);
                                 break;
@@ -15141,7 +13254,7 @@
                                 this.paintFormValue(n);
                             }
                           },
-                          this
+                          this,
                         );
                     }),
                     (i.prototype.paintCheckbox = function (t) {
@@ -15167,7 +13280,7 @@
                             r.top + 1,
                             r.width - 2,
                             r.height - 2,
-                            new u("#DEDEDE")
+                            new u("#DEDEDE"),
                           ),
                             this.renderer.renderBorders(b(a, r, s, o)),
                             t.node.checked &&
@@ -15177,15 +13290,15 @@
                                 "normal",
                                 "bold",
                                 n - 3 + "px",
-                                "arial"
+                                "arial",
                               ),
                               this.renderer.text(
                                 "✔",
                                 r.left + n / 6,
-                                r.top + n - 1
+                                r.top + n - 1,
                               ));
                         },
-                        this
+                        this,
                       );
                     }),
                     (i.prototype.paintRadio = function (t) {
@@ -15200,17 +13313,17 @@
                             n,
                             new u("#DEDEDE"),
                             1,
-                            new u("#A5A5A5")
+                            new u("#A5A5A5"),
                           ),
                             t.node.checked &&
                               this.renderer.circle(
                                 Math.ceil(e.left + n / 4) + 1,
                                 Math.ceil(e.top + n / 4) + 1,
                                 Math.floor(n / 2),
-                                new u("#424242")
+                                new u("#424242"),
                               );
                         },
-                        this
+                        this,
                       );
                     }),
                     (i.prototype.paintFormValue = function (e) {
@@ -15244,7 +13357,7 @@
                           } catch (t) {
                             s(
                               "html2canvas: Parse: Exception caught in renderFormValue: " +
-                                t.message
+                                t.message,
                             );
                           }
                         });
@@ -15265,7 +13378,7 @@
                         r =
                           (this.options.letterRendering &&
                             !/^(normal|none|0px)$/.test(
-                              n.parent.css("letterSpacing")
+                              n.parent.css("letterSpacing"),
                             )) ||
                           ((t = n.node.data), /[^\u0000-\u00ff]/.test(t))
                             ? e.map(function (t) {
@@ -15301,14 +13414,14 @@
                         n.parent.css("fontVariant"),
                         i,
                         o,
-                        a
+                        a,
                       ),
                         s.length
                           ? this.renderer.fontShadow(
                               s[0].color,
                               s[0].offsetX,
                               s[0].offsetY,
-                              s[0].blur
+                              s[0].blur,
                             )
                           : this.renderer.clearShadow(),
                         this.renderer.clip(
@@ -15322,13 +13435,13 @@
                                   this.renderTextDecoration(
                                     n.parent,
                                     t,
-                                    this.fontMetrics.getMetrics(a, o)
+                                    this.fontMetrics.getMetrics(a, o),
                                   ));
                               },
-                              this
+                              this,
                             );
                           },
-                          this
+                          this,
                         );
                     }),
                     (i.prototype.renderTextDecoration = function (t, e, n) {
@@ -15339,7 +13452,7 @@
                             Math.round(e.top + n.baseline + n.lineWidth),
                             e.width,
                             1,
-                            t.color("color")
+                            t.color("color"),
                           );
                           break;
                         case "overline":
@@ -15348,7 +13461,7 @@
                             Math.round(e.top),
                             e.width,
                             1,
-                            t.color("color")
+                            t.color("color"),
                           );
                           break;
                         case "line-through":
@@ -15357,7 +13470,7 @@
                             Math.ceil(e.top + n.middle + n.lineWidth),
                             e.width,
                             1,
-                            t.color("color")
+                            t.color("color"),
                           );
                       }
                     });
@@ -15391,7 +13504,7 @@
                                 h.topLeftOuter,
                                 h.topLeftInner,
                                 h.topRightOuter,
-                                h.topRightInner
+                                h.topRightInner,
                               ));
                             break;
                           case 1:
@@ -15409,7 +13522,7 @@
                                 h.topRightOuter,
                                 h.topRightInner,
                                 h.bottomRightOuter,
-                                h.bottomRightInner
+                                h.bottomRightInner,
                               ));
                             break;
                           case 2:
@@ -15427,7 +13540,7 @@
                                 h.bottomRightOuter,
                                 h.bottomRightInner,
                                 h.bottomLeftOuter,
-                                h.bottomLeftInner
+                                h.bottomLeftInner,
                               ));
                             break;
                           case 3:
@@ -15444,7 +13557,7 @@
                                 h.bottomLeftOuter,
                                 h.bottomLeftInner,
                                 h.topLeftOuter,
-                                h.topLeftInner
+                                h.topLeftInner,
                               ));
                         }
                       }
@@ -15462,25 +13575,25 @@
                         { x: t, y: h },
                         { x: t, y: h - a },
                         { x: s - o, y: e },
-                        { x: s, y: e }
+                        { x: s, y: e },
                       ),
                       topRight: k(
                         { x: t, y: e },
                         { x: t + o, y: e },
                         { x: s, y: h - a },
-                        { x: s, y: h }
+                        { x: s, y: h },
                       ),
                       bottomRight: k(
                         { x: s, y: e },
                         { x: s, y: e + a },
                         { x: t + o, y: h },
-                        { x: t, y: h }
+                        { x: t, y: h },
                       ),
                       bottomLeft: k(
                         { x: s, y: h },
                         { x: s - o, y: h },
                         { x: t, y: e + a },
-                        { x: t, y: e }
+                        { x: t, y: e },
                       ),
                     };
                   }
@@ -15507,35 +13620,35 @@
                         r + n[3].width,
                         i + n[0].width,
                         Math.max(0, s - n[3].width),
-                        Math.max(0, h - n[0].width)
+                        Math.max(0, h - n[0].width),
                       ).topLeft.subdivide(0.5),
                       topRightOuter: x(r + g, i, c, l).topRight.subdivide(0.5),
                       topRightInner: x(
                         r + Math.min(g, o + n[3].width),
                         i + n[0].width,
                         g > o + n[3].width ? 0 : c - n[3].width,
-                        l - n[0].width
+                        l - n[0].width,
                       ).topRight.subdivide(0.5),
                       bottomRightOuter: x(
                         r + w,
                         i + m,
                         u,
-                        f
+                        f,
                       ).bottomRight.subdivide(0.5),
                       bottomRightInner: x(
                         r + Math.min(w, o - n[3].width),
                         i + Math.min(m, a + n[0].width),
                         Math.max(0, u - n[1].width),
-                        f - n[2].width
+                        f - n[2].width,
                       ).bottomRight.subdivide(0.5),
                       bottomLeftOuter: x(r, i + y, d, p).bottomLeft.subdivide(
-                        0.5
+                        0.5,
                       ),
                       bottomLeftInner: x(
                         r + n[3].width,
                         i + y,
                         Math.max(0, d - n[3].width),
-                        p - n[2].width
+                        p - n[2].width,
                       ).bottomLeft.subdivide(0.5),
                     };
                   }
@@ -15611,7 +13724,7 @@
                     return (
                       -1 !==
                       ["inline", "inline-block", "inline-table"].indexOf(
-                        t.css("display")
+                        t.css("display"),
                       )
                     );
                   }
@@ -15686,22 +13799,21 @@
                             n = e.split(" ");
                           return n.length <= 1 && (n[1] = n[0]), n.map(U);
                         })),
-                      n = ["Top", "Right", "Bottom", "Left"].map(function (
-                        t,
-                        e
-                      ) {
-                        var n = o.css("border" + t + "Style"),
-                          r = o.color("border" + t + "Color");
-                        "inset" === n &&
-                          r.isBlack() &&
-                          (r = new u([255, 255, 255, r.a]));
-                        var i = v[n] ? v[n][e] : null;
-                        return {
-                          width: o.cssInt("border" + t + "Width"),
-                          color: i ? r[i[0]](i[1]) : r,
-                          args: null,
-                        };
-                      }),
+                      n = ["Top", "Right", "Bottom", "Left"].map(
+                        function (t, e) {
+                          var n = o.css("border" + t + "Style"),
+                            r = o.color("border" + t + "Color");
+                          "inset" === n &&
+                            r.isBlack() &&
+                            (r = new u([255, 255, 255, r.a]));
+                          var i = v[n] ? v[n][e] : null;
+                          return {
+                            width: o.cssInt("border" + t + "Width"),
+                            color: i ? r[i[0]](i[1]) : r,
+                            args: null,
+                          };
+                        },
+                      ),
                       i = S(t, e, n);
                     return {
                       clip: this.parseBackgroundClip(o, i, n, e, t),
@@ -15713,7 +13825,7 @@
                       e,
                       n,
                       r,
-                      i
+                      i,
                     ) {
                       var o = [];
                       switch (t.css("backgroundClip")) {
@@ -15726,7 +13838,7 @@
                             e.topLeftInner,
                             e.topRightInner,
                             i.left + n[3].width,
-                            i.top + n[0].width
+                            i.top + n[0].width,
                           ),
                             A(
                               o,
@@ -15735,7 +13847,7 @@
                               e.topRightInner,
                               e.bottomRightInner,
                               i.left + i.width - n[1].width,
-                              i.top + n[0].width
+                              i.top + n[0].width,
                             ),
                             A(
                               o,
@@ -15744,7 +13856,7 @@
                               e.bottomRightInner,
                               e.bottomLeftInner,
                               i.left + i.width - n[1].width,
-                              i.top + i.height - n[2].width
+                              i.top + i.height - n[2].width,
                             ),
                             A(
                               o,
@@ -15753,7 +13865,7 @@
                               e.bottomLeftInner,
                               e.topLeftInner,
                               i.left + n[3].width,
-                              i.top + i.height - n[2].width
+                              i.top + i.height - n[2].width,
                             );
                           break;
                         default:
@@ -15764,7 +13876,7 @@
                             e.topLeftOuter,
                             e.topRightOuter,
                             i.left,
-                            i.top
+                            i.top,
                           ),
                             A(
                               o,
@@ -15773,7 +13885,7 @@
                               e.topRightOuter,
                               e.bottomRightOuter,
                               i.left + i.width,
-                              i.top
+                              i.top,
                             ),
                             A(
                               o,
@@ -15782,7 +13894,7 @@
                               e.bottomRightOuter,
                               e.bottomLeftOuter,
                               i.left + i.width,
-                              i.top + i.height
+                              i.top + i.height,
                             ),
                             A(
                               o,
@@ -15791,7 +13903,7 @@
                               e.bottomLeftOuter,
                               e.topLeftOuter,
                               i.left,
-                              i.top + i.height
+                              i.top + i.height,
                             );
                       }
                       return o;
@@ -15886,16 +13998,17 @@
                               n = t.parseFromString(e, "text/html");
                             } catch (t) {
                               s(
-                                "DOMParser not supported, falling back to createHTMLDocument"
+                                "DOMParser not supported, falling back to createHTMLDocument",
                               ),
-                                (n = document.implementation.createHTMLDocument(
-                                  ""
-                                ));
+                                (n =
+                                  document.implementation.createHTMLDocument(
+                                    "",
+                                  ));
                               try {
                                 n.open(), n.write(e), n.close();
                               } catch (t) {
                                 s(
-                                  "createHTMLDocument write not supported, falling back to document.body.innerHTML"
+                                  "createHTMLDocument write not supported, falling back to document.body.innerHTML",
                                 ),
                                   (n.body.innerHTML = e);
                               }
@@ -15907,7 +14020,7 @@
                                 n.head.insertBefore(i, n.head.firstChild);
                             }
                             return n;
-                          })
+                          }),
                         )
                         .then(function (t) {
                           return h(t, n, r, i, o, 0, 0);
@@ -15954,24 +14067,24 @@
                       (t.isPseudoElement = !0),
                       (t.before = this.before);
                   }),
-                    ((i.prototype = Object.create(
-                      r.prototype
-                    )).appendToDOM = function () {
-                      this.before
-                        ? this.parent.node.insertBefore(
-                            this.node,
-                            this.parent.node.firstChild
-                          )
-                        : this.parent.node.appendChild(this.node),
-                        (this.parent.node.className +=
-                          " " + this.getHideClass());
-                    }),
+                    ((i.prototype = Object.create(r.prototype)).appendToDOM =
+                      function () {
+                        this.before
+                          ? this.parent.node.insertBefore(
+                              this.node,
+                              this.parent.node.firstChild,
+                            )
+                          : this.parent.node.appendChild(this.node),
+                          (this.parent.node.className +=
+                            " " + this.getHideClass());
+                      }),
                     (i.prototype.cleanDOM = function () {
                       this.node.parentNode.removeChild(this.node),
-                        (this.parent.node.className = this.parent.node.className.replace(
-                          this.getHideClass(),
-                          ""
-                        ));
+                        (this.parent.node.className =
+                          this.parent.node.className.replace(
+                            this.getHideClass(),
+                            "",
+                          ));
                     }),
                     (i.prototype.getHideClass = function () {
                       return this[
@@ -16014,7 +14127,7 @@
                       e.left + i + h[3].width,
                       e.top + o + h[0].width,
                       c,
-                      l
+                      l,
                     );
                   }),
                     (r.prototype.renderBackground = function (t, e, n) {
@@ -16049,11 +14162,11 @@
                                     a,
                                     r,
                                     n.length - (e + 1),
-                                    s
+                                    s,
                                   )
                                 : h(
                                     "Error loading background-image",
-                                    t.args[0]
+                                    t.args[0],
                                   );
                               break;
                             case "linear-gradient":
@@ -16063,7 +14176,7 @@
                                 ? this.renderBackgroundGradient(i, a, s)
                                 : h(
                                     "Error loading background-image",
-                                    t.args[0]
+                                    t.args[0],
                                   );
                               break;
                             case "none":
@@ -16078,7 +14191,7 @@
                       e,
                       n,
                       r,
-                      i
+                      i,
                     ) {
                       var o = t.parseBackgroundSize(e, n.image, r),
                         a = t.parseBackgroundPosition(e, n.image, r, o);
@@ -16094,7 +14207,7 @@
                             e.top + a.top + i[0],
                             99999,
                             o.height,
-                            i
+                            i,
                           );
                           break;
                         case "repeat-y":
@@ -16108,7 +14221,7 @@
                             e.top + i[0],
                             o.width,
                             99999,
-                            i
+                            i,
                           );
                           break;
                         case "no-repeat":
@@ -16121,7 +14234,7 @@
                             e.top + a.top + i[0],
                             o.width,
                             o.height,
-                            i
+                            i,
                           );
                           break;
                         default:
@@ -16131,7 +14244,7 @@
                             o,
                             { top: e.top, left: e.left },
                             i[3],
-                            i[0]
+                            i[0],
                           );
                       }
                     }),
@@ -16162,15 +14275,14 @@
                   function s(t) {
                     return 0 < t.length;
                   }
-                  ((a.prototype = Object.create(
-                    r.prototype
-                  )).setFillStyle = function (t) {
-                    return (
-                      (this.ctx.fillStyle =
-                        "object" == typeof t && t.isColor ? t.toString() : t),
-                      this.ctx
-                    );
-                  }),
+                  ((a.prototype = Object.create(r.prototype)).setFillStyle =
+                    function (t) {
+                      return (
+                        (this.ctx.fillStyle =
+                          "object" == typeof t && t.isColor ? t.toString() : t),
+                        this.ctx
+                      );
+                    }),
                     (a.prototype.rectangle = function (t, e, n, r, i) {
                       this.setFillStyle(i).fillRect(t, e, n, r);
                     }),
@@ -16183,7 +14295,7 @@
                           n / 2,
                           0,
                           2 * Math.PI,
-                          !0
+                          !0,
                         ),
                         this.ctx.closePath(),
                         this.ctx.fill();
@@ -16220,7 +14332,7 @@
                       o,
                       a,
                       s,
-                      h
+                      h,
                     ) {
                       (this.taints(t) && !this.options.allowTaint) ||
                         this.ctx.drawImage(t.image, e, n, r, i, o, a, s, h);
@@ -16241,7 +14353,7 @@
                             ? this.ctx.rect.apply(this.ctx, t.slice(1))
                             : this.ctx[0 === e ? "moveTo" : t[0] + "To"].apply(
                                 this.ctx,
-                                t.slice(1)
+                                t.slice(1),
                               );
                         }, this),
                         this.ctx.closePath(),
@@ -16289,7 +14401,7 @@
                       o,
                       a,
                       s,
-                      h
+                      h,
                     ) {
                       var c = [
                         ["line", Math.round(i), Math.round(o)],
@@ -16302,7 +14414,7 @@
                         function () {
                           this.renderBackgroundRepeat(t, e, n, r, h[3], h[0]);
                         },
-                        this
+                        this,
                       );
                     }),
                     (a.prototype.renderBackgroundRepeat = function (
@@ -16311,12 +14423,15 @@
                       n,
                       r,
                       i,
-                      o
+                      o,
                     ) {
                       var a = Math.round(r.left + e.left + i),
                         s = Math.round(r.top + e.top + o);
                       this.setFillStyle(
-                        this.ctx.createPattern(this.resizeImage(t, n), "repeat")
+                        this.ctx.createPattern(
+                          this.resizeImage(t, n),
+                          "repeat",
+                        ),
                       ),
                         this.ctx.translate(a, s),
                         this.ctx.fill(),
@@ -16328,7 +14443,7 @@
                           e.left + e.width * t.x0,
                           e.top + e.height * t.y0,
                           e.left + e.width * t.x1,
-                          e.top + e.height * t.y1
+                          e.top + e.height * t.y1,
                         );
                         t.colorStops.forEach(function (t) {
                           n.addColorStop(t.stop, t.color.toString());
@@ -16355,7 +14470,7 @@
                             0,
                             0,
                             e.width,
-                            e.height
+                            e.height,
                           ),
                         r
                       );
@@ -16379,16 +14494,15 @@
                       (this.opacity =
                         (this.parent ? this.parent.stack.opacity : 1) * e);
                   }
-                  ((r.prototype = Object.create(
-                    i.prototype
-                  )).getParentStack = function (t) {
-                    var e = this.parent ? this.parent.stack : null;
-                    return e
-                      ? e.ownStacking
-                        ? e
-                        : e.getParentStack(t)
-                      : t.stack;
-                  }),
+                  ((r.prototype = Object.create(i.prototype)).getParentStack =
+                    function (t) {
+                      var e = this.parent ? this.parent.stack : null;
+                      return e
+                        ? e.ownStacking
+                          ? e
+                          : e.getParentStack(t)
+                        : t.stack;
+                    }),
                     (e.exports = r);
                 },
                 { "./nodecontainer": 14 },
@@ -16454,7 +14568,7 @@
                         return new Promise(function (t) {
                           window.html2canvas.svg.fabric.loadSVGFromString(
                             e,
-                            n.createCanvas.call(n, t)
+                            n.createCanvas.call(n, t),
                           );
                         });
                       });
@@ -16465,8 +14579,8 @@
                       ? Promise.resolve()
                       : Promise.reject(
                           new Error(
-                            "html2canvas.svg.js is not loaded, cannot render svg"
-                          )
+                            "html2canvas.svg.js is not loaded, cannot render svg",
+                          ),
                         );
                   }),
                     (o.prototype.inlineFormatting = function (t) {
@@ -16484,7 +14598,7 @@
                       var i = this;
                       return function (t, e) {
                         var n = new window.html2canvas.svg.fabric.StaticCanvas(
-                          "c"
+                          "c",
                         );
                         (i.image = n.lowerCanvasEl),
                           n
@@ -16493,8 +14607,8 @@
                             .add(
                               window.html2canvas.svg.fabric.util.groupSVGElements(
                                 t,
-                                e
-                              )
+                                e,
+                              ),
                             )
                             .renderAll(),
                           r(n.lowerCanvasEl);
@@ -16529,7 +14643,7 @@
                           return new Promise(function (t) {
                             window.html2canvas.svg.fabric.parseSVGDocument(
                               n,
-                              r.createCanvas.call(r, t)
+                              r.createCanvas.call(r, t),
                             );
                           });
                         });
@@ -16548,10 +14662,10 @@
                     if (0 < t.length) return e + n.toUpperCase();
                   }
                   ((i.prototype = Object.create(
-                    r.prototype
+                    r.prototype,
                   )).applyTextTransform = function () {
                     this.node.data = this.transform(
-                      this.parent.css("textTransform")
+                      this.parent.css("textTransform"),
                     );
                   }),
                     (i.prototype.transform = function (t) {
@@ -16604,8 +14718,8 @@
                             64 === r
                               ? String.fromCharCode(o)
                               : 64 === i || -1 === i
-                              ? String.fromCharCode(o, a)
-                              : String.fromCharCode(o, a, s));
+                                ? String.fromCharCode(o, a)
+                                : String.fromCharCode(o, a, s));
                       return l;
                     }),
                     (n.getBounds = function (t) {
@@ -16740,7 +14854,7 @@
               ],
             },
             {},
-            [4]
+            [4],
           )(4);
         }),
         (function (t) {
@@ -16756,16 +14870,16 @@
               return e === n || e === s
                 ? 62
                 : e === r || e === h
-                ? 63
-                : e < i
-                ? -1
-                : e < i + 10
-                ? e - i + 26 + 26
-                : e < a + 26
-                ? e - a
-                : e < o + 26
-                ? e - o + 26
-                : void 0;
+                  ? 63
+                  : e < i
+                    ? -1
+                    : e < i + 10
+                      ? e - i + 26 + 26
+                      : e < a + 26
+                        ? e - a
+                        : e < o + 26
+                          ? e - o + 26
+                          : void 0;
             };
           t.API.TTFFont = (function () {
             function i(t, e, n) {
@@ -16792,15 +14906,15 @@
                     var e, n, r, i, o, a;
                     if (0 < t.length % 4)
                       throw new Error(
-                        "Invalid string. Length must be a multiple of 4"
+                        "Invalid string. Length must be a multiple of 4",
                       );
                     var s = t.length;
                     (o =
                       "=" === t.charAt(s - 2)
                         ? 2
                         : "=" === t.charAt(s - 1)
-                        ? 1
-                        : 0),
+                          ? 1
+                          : 0),
                       (a = new Uint8Array((3 * t.length) / 4 - o)),
                       (r = 0 < o ? t.length - 4 : t.length);
                     var h = 0;
@@ -16815,7 +14929,7 @@
                             (l(t.charAt(e + 1)) << 12) |
                             (l(t.charAt(e + 2)) << 6) |
                             l(t.charAt(e + 3)))) >>
-                          16
+                          16,
                       ),
                         c((65280 & i) >> 8),
                         c(255 & i);
@@ -16825,7 +14939,7 @@
                             255 &
                               (i =
                                 (l(t.charAt(e)) << 2) |
-                                (l(t.charAt(e + 1)) >> 4))
+                                (l(t.charAt(e + 1)) >> 4)),
                           )
                         : 1 === o &&
                           (c(
@@ -16834,14 +14948,14 @@
                               (l(t.charAt(e + 1)) << 4) |
                               (l(t.charAt(e + 2)) >> 2)) >>
                               8) &
-                              255
+                              255,
                           ),
                           c(255 & i)),
                       a
                     );
                   })(n),
                   e,
-                  r
+                  r,
                 );
               }),
               (i.prototype.parse = function () {
@@ -16890,10 +15004,10 @@
                       (this.italicAngle = +(t + "." + e)))
                     : (this.italicAngle = 0),
                   (this.ascender = Math.round(
-                    this.ascender * this.scaleFactor
+                    this.ascender * this.scaleFactor,
                   )),
                   (this.decender = Math.round(
-                    this.decender * this.scaleFactor
+                    this.decender * this.scaleFactor,
                   )),
                   (this.lineGap = Math.round(this.lineGap * this.scaleFactor)),
                   (this.capHeight =
@@ -17741,7 +15855,7 @@
                     (this.version = s[5]),
                     (this.postscriptName = s[6][0].raw.replace(
                       /[\x00-\x19\x80-\xff]/g,
-                      ""
+                      "",
                     )),
                     (this.trademark = s[7]),
                     (this.manufacturer = s[8]),
@@ -17937,8 +16051,8 @@
                     128 & a
                       ? (o.pos += 8)
                       : 64 & a
-                      ? (o.pos += 4)
-                      : 8 & a && (o.pos += 2);
+                        ? (o.pos += 4)
+                        : 8 & a && (o.pos += 2);
               }
               return (
                 (t.prototype.encode = function (t) {
@@ -18221,7 +16335,7 @@
                         this.transparency.indexed.length > r)
                       )
                         throw new Error(
-                          "More transparent colors than palette size"
+                          "More transparent colors than palette size",
                         );
                       if (0 < (l = r - this.transparency.indexed.length))
                         for (d = 0; 0 <= l ? d < l : l < d; 0 <= l ? ++d : --d)
@@ -18239,7 +16353,7 @@
                     (h = String.fromCharCode.apply(String, u.slice(0, s))),
                     (this.text[h] = String.fromCharCode.apply(
                       String,
-                      u.slice(s + 1)
+                      u.slice(s + 1),
                     ));
                   break;
                 case "IEND":
@@ -18287,7 +16401,7 @@
                 var t;
                 return (
                   (t = new i(
-                    new Uint8Array(r.response || r.mozResponseArrayBuffer)
+                    new Uint8Array(r.response || r.mozResponseArrayBuffer),
                   )),
                   "function" == typeof (null != e ? e.getContext : void 0) &&
                     t.render(e),
@@ -18564,7 +16678,7 @@
             (i.prototype.stopAnimation = function () {
               var t;
               return clearTimeout(
-                null != (t = this.animation) ? t._timeout : void 0
+                null != (t = this.animation) ? t._timeout : void 0,
               );
             }),
             (i.prototype.render = function (t) {
@@ -18671,648 +16785,112 @@
         kt = (function () {
           if ("undefined" != typeof Uint32Array) {
             var F = new Uint32Array([
-                16,
-                17,
-                18,
-                0,
-                8,
-                7,
-                9,
-                6,
-                10,
-                5,
-                11,
-                4,
-                12,
-                3,
-                13,
-                2,
-                14,
-                1,
+                16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1,
                 15,
               ]),
               P = new Uint32Array([
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                65547,
-                65549,
-                65551,
-                65553,
-                131091,
-                131095,
-                131099,
-                131103,
-                196643,
-                196651,
-                196659,
-                196667,
-                262211,
-                262227,
-                262243,
-                262259,
-                327811,
-                327843,
-                327875,
-                327907,
-                258,
-                258,
-                258,
+                3, 4, 5, 6, 7, 8, 9, 10, 65547, 65549, 65551, 65553, 131091,
+                131095, 131099, 131103, 196643, 196651, 196659, 196667, 262211,
+                262227, 262243, 262259, 327811, 327843, 327875, 327907, 258,
+                258, 258,
               ]),
               E = new Uint32Array([
-                1,
-                2,
-                3,
-                4,
-                65541,
-                65543,
-                131081,
-                131085,
-                196625,
-                196633,
-                262177,
-                262193,
-                327745,
-                327777,
-                393345,
-                393409,
-                459009,
-                459137,
-                524801,
-                525057,
-                590849,
-                591361,
-                657409,
-                658433,
-                724993,
-                727041,
-                794625,
-                798721,
-                868353,
-                876545,
+                1, 2, 3, 4, 65541, 65543, 131081, 131085, 196625, 196633,
+                262177, 262193, 327745, 327777, 393345, 393409, 459009, 459137,
+                524801, 525057, 590849, 591361, 657409, 658433, 724993, 727041,
+                794625, 798721, 868353, 876545,
               ]),
               q = [
                 new Uint32Array([
-                  459008,
-                  524368,
-                  524304,
-                  524568,
-                  459024,
-                  524400,
-                  524336,
-                  590016,
-                  459016,
-                  524384,
-                  524320,
-                  589984,
-                  524288,
-                  524416,
-                  524352,
-                  590048,
-                  459012,
-                  524376,
-                  524312,
-                  589968,
-                  459028,
-                  524408,
-                  524344,
-                  590032,
-                  459020,
-                  524392,
-                  524328,
-                  59e4,
-                  524296,
-                  524424,
-                  524360,
-                  590064,
-                  459010,
-                  524372,
-                  524308,
-                  524572,
-                  459026,
-                  524404,
-                  524340,
-                  590024,
-                  459018,
-                  524388,
-                  524324,
-                  589992,
-                  524292,
-                  524420,
-                  524356,
-                  590056,
-                  459014,
-                  524380,
-                  524316,
-                  589976,
-                  459030,
-                  524412,
-                  524348,
-                  590040,
-                  459022,
-                  524396,
-                  524332,
-                  590008,
-                  524300,
-                  524428,
-                  524364,
-                  590072,
-                  459009,
-                  524370,
-                  524306,
-                  524570,
-                  459025,
-                  524402,
-                  524338,
-                  590020,
-                  459017,
-                  524386,
-                  524322,
-                  589988,
-                  524290,
-                  524418,
-                  524354,
-                  590052,
-                  459013,
-                  524378,
-                  524314,
-                  589972,
-                  459029,
-                  524410,
-                  524346,
-                  590036,
-                  459021,
-                  524394,
-                  524330,
-                  590004,
-                  524298,
-                  524426,
-                  524362,
-                  590068,
-                  459011,
-                  524374,
-                  524310,
-                  524574,
-                  459027,
-                  524406,
-                  524342,
-                  590028,
-                  459019,
-                  524390,
-                  524326,
-                  589996,
-                  524294,
-                  524422,
-                  524358,
-                  590060,
-                  459015,
-                  524382,
-                  524318,
-                  589980,
-                  459031,
-                  524414,
-                  524350,
-                  590044,
-                  459023,
-                  524398,
-                  524334,
-                  590012,
-                  524302,
-                  524430,
-                  524366,
-                  590076,
-                  459008,
-                  524369,
-                  524305,
-                  524569,
-                  459024,
-                  524401,
-                  524337,
-                  590018,
-                  459016,
-                  524385,
-                  524321,
-                  589986,
-                  524289,
-                  524417,
-                  524353,
-                  590050,
-                  459012,
-                  524377,
-                  524313,
-                  589970,
-                  459028,
-                  524409,
-                  524345,
-                  590034,
-                  459020,
-                  524393,
-                  524329,
-                  590002,
-                  524297,
-                  524425,
-                  524361,
-                  590066,
-                  459010,
-                  524373,
-                  524309,
-                  524573,
-                  459026,
-                  524405,
-                  524341,
-                  590026,
-                  459018,
-                  524389,
-                  524325,
-                  589994,
-                  524293,
-                  524421,
-                  524357,
-                  590058,
-                  459014,
-                  524381,
-                  524317,
-                  589978,
-                  459030,
-                  524413,
-                  524349,
-                  590042,
-                  459022,
-                  524397,
-                  524333,
-                  590010,
-                  524301,
-                  524429,
-                  524365,
-                  590074,
-                  459009,
-                  524371,
-                  524307,
-                  524571,
-                  459025,
-                  524403,
-                  524339,
-                  590022,
-                  459017,
-                  524387,
-                  524323,
-                  589990,
-                  524291,
-                  524419,
-                  524355,
-                  590054,
-                  459013,
-                  524379,
-                  524315,
-                  589974,
-                  459029,
-                  524411,
-                  524347,
-                  590038,
-                  459021,
-                  524395,
-                  524331,
-                  590006,
-                  524299,
-                  524427,
-                  524363,
-                  590070,
-                  459011,
-                  524375,
-                  524311,
-                  524575,
-                  459027,
-                  524407,
-                  524343,
-                  590030,
-                  459019,
-                  524391,
-                  524327,
-                  589998,
-                  524295,
-                  524423,
-                  524359,
-                  590062,
-                  459015,
-                  524383,
-                  524319,
-                  589982,
-                  459031,
-                  524415,
-                  524351,
-                  590046,
-                  459023,
-                  524399,
-                  524335,
-                  590014,
-                  524303,
-                  524431,
-                  524367,
-                  590078,
-                  459008,
-                  524368,
-                  524304,
-                  524568,
-                  459024,
-                  524400,
-                  524336,
-                  590017,
-                  459016,
-                  524384,
-                  524320,
-                  589985,
-                  524288,
-                  524416,
-                  524352,
-                  590049,
-                  459012,
-                  524376,
-                  524312,
-                  589969,
-                  459028,
-                  524408,
-                  524344,
-                  590033,
-                  459020,
-                  524392,
-                  524328,
-                  590001,
-                  524296,
-                  524424,
-                  524360,
-                  590065,
-                  459010,
-                  524372,
-                  524308,
-                  524572,
-                  459026,
-                  524404,
-                  524340,
-                  590025,
-                  459018,
-                  524388,
-                  524324,
-                  589993,
-                  524292,
-                  524420,
-                  524356,
-                  590057,
-                  459014,
-                  524380,
-                  524316,
-                  589977,
-                  459030,
-                  524412,
-                  524348,
-                  590041,
-                  459022,
-                  524396,
-                  524332,
-                  590009,
-                  524300,
-                  524428,
-                  524364,
-                  590073,
-                  459009,
-                  524370,
-                  524306,
-                  524570,
-                  459025,
-                  524402,
-                  524338,
-                  590021,
-                  459017,
-                  524386,
-                  524322,
-                  589989,
-                  524290,
-                  524418,
-                  524354,
-                  590053,
-                  459013,
-                  524378,
-                  524314,
-                  589973,
-                  459029,
-                  524410,
-                  524346,
-                  590037,
-                  459021,
-                  524394,
-                  524330,
-                  590005,
-                  524298,
-                  524426,
-                  524362,
-                  590069,
-                  459011,
-                  524374,
-                  524310,
-                  524574,
-                  459027,
-                  524406,
-                  524342,
-                  590029,
-                  459019,
-                  524390,
-                  524326,
-                  589997,
-                  524294,
-                  524422,
-                  524358,
-                  590061,
-                  459015,
-                  524382,
-                  524318,
-                  589981,
-                  459031,
-                  524414,
-                  524350,
-                  590045,
-                  459023,
-                  524398,
-                  524334,
-                  590013,
-                  524302,
-                  524430,
-                  524366,
-                  590077,
-                  459008,
-                  524369,
-                  524305,
-                  524569,
-                  459024,
-                  524401,
-                  524337,
-                  590019,
-                  459016,
-                  524385,
-                  524321,
-                  589987,
-                  524289,
-                  524417,
-                  524353,
-                  590051,
-                  459012,
-                  524377,
-                  524313,
-                  589971,
-                  459028,
-                  524409,
-                  524345,
-                  590035,
-                  459020,
-                  524393,
-                  524329,
-                  590003,
-                  524297,
-                  524425,
-                  524361,
-                  590067,
-                  459010,
-                  524373,
-                  524309,
-                  524573,
-                  459026,
-                  524405,
-                  524341,
-                  590027,
-                  459018,
-                  524389,
-                  524325,
-                  589995,
-                  524293,
-                  524421,
-                  524357,
-                  590059,
-                  459014,
-                  524381,
-                  524317,
-                  589979,
-                  459030,
-                  524413,
-                  524349,
-                  590043,
-                  459022,
-                  524397,
-                  524333,
-                  590011,
-                  524301,
-                  524429,
-                  524365,
-                  590075,
-                  459009,
-                  524371,
-                  524307,
-                  524571,
-                  459025,
-                  524403,
-                  524339,
-                  590023,
-                  459017,
-                  524387,
-                  524323,
-                  589991,
-                  524291,
-                  524419,
-                  524355,
-                  590055,
-                  459013,
-                  524379,
-                  524315,
-                  589975,
-                  459029,
-                  524411,
-                  524347,
-                  590039,
-                  459021,
-                  524395,
-                  524331,
-                  590007,
-                  524299,
-                  524427,
-                  524363,
-                  590071,
-                  459011,
-                  524375,
-                  524311,
-                  524575,
-                  459027,
-                  524407,
-                  524343,
-                  590031,
-                  459019,
-                  524391,
-                  524327,
-                  589999,
-                  524295,
-                  524423,
-                  524359,
-                  590063,
-                  459015,
-                  524383,
-                  524319,
-                  589983,
-                  459031,
-                  524415,
-                  524351,
-                  590047,
-                  459023,
-                  524399,
-                  524335,
-                  590015,
-                  524303,
-                  524431,
-                  524367,
-                  590079,
+                  459008, 524368, 524304, 524568, 459024, 524400, 524336,
+                  590016, 459016, 524384, 524320, 589984, 524288, 524416,
+                  524352, 590048, 459012, 524376, 524312, 589968, 459028,
+                  524408, 524344, 590032, 459020, 524392, 524328, 59e4, 524296,
+                  524424, 524360, 590064, 459010, 524372, 524308, 524572,
+                  459026, 524404, 524340, 590024, 459018, 524388, 524324,
+                  589992, 524292, 524420, 524356, 590056, 459014, 524380,
+                  524316, 589976, 459030, 524412, 524348, 590040, 459022,
+                  524396, 524332, 590008, 524300, 524428, 524364, 590072,
+                  459009, 524370, 524306, 524570, 459025, 524402, 524338,
+                  590020, 459017, 524386, 524322, 589988, 524290, 524418,
+                  524354, 590052, 459013, 524378, 524314, 589972, 459029,
+                  524410, 524346, 590036, 459021, 524394, 524330, 590004,
+                  524298, 524426, 524362, 590068, 459011, 524374, 524310,
+                  524574, 459027, 524406, 524342, 590028, 459019, 524390,
+                  524326, 589996, 524294, 524422, 524358, 590060, 459015,
+                  524382, 524318, 589980, 459031, 524414, 524350, 590044,
+                  459023, 524398, 524334, 590012, 524302, 524430, 524366,
+                  590076, 459008, 524369, 524305, 524569, 459024, 524401,
+                  524337, 590018, 459016, 524385, 524321, 589986, 524289,
+                  524417, 524353, 590050, 459012, 524377, 524313, 589970,
+                  459028, 524409, 524345, 590034, 459020, 524393, 524329,
+                  590002, 524297, 524425, 524361, 590066, 459010, 524373,
+                  524309, 524573, 459026, 524405, 524341, 590026, 459018,
+                  524389, 524325, 589994, 524293, 524421, 524357, 590058,
+                  459014, 524381, 524317, 589978, 459030, 524413, 524349,
+                  590042, 459022, 524397, 524333, 590010, 524301, 524429,
+                  524365, 590074, 459009, 524371, 524307, 524571, 459025,
+                  524403, 524339, 590022, 459017, 524387, 524323, 589990,
+                  524291, 524419, 524355, 590054, 459013, 524379, 524315,
+                  589974, 459029, 524411, 524347, 590038, 459021, 524395,
+                  524331, 590006, 524299, 524427, 524363, 590070, 459011,
+                  524375, 524311, 524575, 459027, 524407, 524343, 590030,
+                  459019, 524391, 524327, 589998, 524295, 524423, 524359,
+                  590062, 459015, 524383, 524319, 589982, 459031, 524415,
+                  524351, 590046, 459023, 524399, 524335, 590014, 524303,
+                  524431, 524367, 590078, 459008, 524368, 524304, 524568,
+                  459024, 524400, 524336, 590017, 459016, 524384, 524320,
+                  589985, 524288, 524416, 524352, 590049, 459012, 524376,
+                  524312, 589969, 459028, 524408, 524344, 590033, 459020,
+                  524392, 524328, 590001, 524296, 524424, 524360, 590065,
+                  459010, 524372, 524308, 524572, 459026, 524404, 524340,
+                  590025, 459018, 524388, 524324, 589993, 524292, 524420,
+                  524356, 590057, 459014, 524380, 524316, 589977, 459030,
+                  524412, 524348, 590041, 459022, 524396, 524332, 590009,
+                  524300, 524428, 524364, 590073, 459009, 524370, 524306,
+                  524570, 459025, 524402, 524338, 590021, 459017, 524386,
+                  524322, 589989, 524290, 524418, 524354, 590053, 459013,
+                  524378, 524314, 589973, 459029, 524410, 524346, 590037,
+                  459021, 524394, 524330, 590005, 524298, 524426, 524362,
+                  590069, 459011, 524374, 524310, 524574, 459027, 524406,
+                  524342, 590029, 459019, 524390, 524326, 589997, 524294,
+                  524422, 524358, 590061, 459015, 524382, 524318, 589981,
+                  459031, 524414, 524350, 590045, 459023, 524398, 524334,
+                  590013, 524302, 524430, 524366, 590077, 459008, 524369,
+                  524305, 524569, 459024, 524401, 524337, 590019, 459016,
+                  524385, 524321, 589987, 524289, 524417, 524353, 590051,
+                  459012, 524377, 524313, 589971, 459028, 524409, 524345,
+                  590035, 459020, 524393, 524329, 590003, 524297, 524425,
+                  524361, 590067, 459010, 524373, 524309, 524573, 459026,
+                  524405, 524341, 590027, 459018, 524389, 524325, 589995,
+                  524293, 524421, 524357, 590059, 459014, 524381, 524317,
+                  589979, 459030, 524413, 524349, 590043, 459022, 524397,
+                  524333, 590011, 524301, 524429, 524365, 590075, 459009,
+                  524371, 524307, 524571, 459025, 524403, 524339, 590023,
+                  459017, 524387, 524323, 589991, 524291, 524419, 524355,
+                  590055, 459013, 524379, 524315, 589975, 459029, 524411,
+                  524347, 590039, 459021, 524395, 524331, 590007, 524299,
+                  524427, 524363, 590071, 459011, 524375, 524311, 524575,
+                  459027, 524407, 524343, 590031, 459019, 524391, 524327,
+                  589999, 524295, 524423, 524359, 590063, 459015, 524383,
+                  524319, 589983, 459031, 524415, 524351, 590047, 459023,
+                  524399, 524335, 590015, 524303, 524431, 524367, 590079,
                 ]),
                 9,
               ],
               O = [
                 new Uint32Array([
-                  327680,
-                  327696,
-                  327688,
-                  327704,
-                  327684,
-                  327700,
-                  327692,
-                  327708,
-                  327682,
-                  327698,
-                  327690,
-                  327706,
-                  327686,
-                  327702,
-                  327694,
-                  0,
-                  327681,
-                  327697,
-                  327689,
-                  327705,
-                  327685,
-                  327701,
-                  327693,
-                  327709,
-                  327683,
-                  327699,
-                  327691,
-                  327707,
-                  327687,
-                  327703,
-                  327695,
-                  0,
+                  327680, 327696, 327688, 327704, 327684, 327700, 327692,
+                  327708, 327682, 327698, 327690, 327706, 327686, 327702,
+                  327694, 0, 327681, 327697, 327689, 327705, 327685, 327701,
+                  327693, 327709, 327683, 327699, 327691, 327707, 327687,
+                  327703, 327695, 0,
                 ]),
                 5,
               ];
             return (
               ((t.prototype = Object.create(St.prototype)).getBits = function (
-                t
+                t,
               ) {
                 for (
                   var e,
@@ -19412,10 +16990,10 @@
                       16 == d
                         ? t(this, f, 2, 3, l)
                         : 17 == d
-                        ? t(this, f, 3, 3, (l = 0))
-                        : 18 == d
-                        ? t(this, f, 7, 11, (l = 0))
-                        : (f[h++] = l = d);
+                          ? t(this, f, 3, 3, (l = 0))
+                          : 18 == d
+                            ? t(this, f, 7, 11, (l = 0))
+                            : (f[h++] = l = d);
                     }
                     (n = this.generateHuffmanTable(f.slice(0, i))),
                       (r = this.generateHuffmanTable(f.slice(i, u)));
@@ -19506,9 +17084,10 @@
                 r = t.console,
                 i = function () {},
                 o = ["memory"],
-                a = "assert,clear,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn".split(
-                  ","
-                );
+                a =
+                  "assert,clear,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn".split(
+                    ",",
+                  );
               (e = o.pop());
 
             )
@@ -19582,8 +17161,8 @@
                       64 == i
                         ? String.fromCharCode(e)
                         : 64 == o
-                        ? String.fromCharCode(e, n)
-                        : String.fromCharCode(e, n, r)),
+                          ? String.fromCharCode(e, n)
+                          : String.fromCharCode(e, n, r)),
                     s < t.length;
 
                 );
@@ -19651,7 +17230,7 @@
               (Object.assign = function (t) {
                 if (null == t)
                   throw new TypeError(
-                    "Cannot convert undefined or null to object"
+                    "Cannot convert undefined or null to object",
                   );
                 t = Object(t);
                 for (var e = 1; e < arguments.length; e++) {
@@ -19680,7 +17259,7 @@
             ("undefined" != typeof window && window) ||
             ("undefined" != typeof commonjsGlobal && commonjsGlobal) ||
             Function('return typeof this === "object" && this.content')() ||
-            Function("return this")()
+            Function("return this")(),
         ),
         $
       );
@@ -19745,7 +17324,7 @@
           return sliceIterator(arr, i);
         } else {
           throw new TypeError(
-            "Invalid attempt to destructure non-iterable instance"
+            "Invalid attempt to destructure non-iterable instance",
           );
         }
       };
@@ -19811,7 +17390,8 @@
       return false;
     };
 
-    var RGBA = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d?\.?\d+)\s*\)$/;
+    var RGBA =
+      /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d?\.?\d+)\s*\)$/;
     var rgba = function rgba(value) {
       var match = value.match(RGBA);
       if (match && match.length > 4) {
@@ -20054,7 +17634,11 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    exports.parseTextDecoration = exports.TEXT_DECORATION_LINE = exports.TEXT_DECORATION = exports.TEXT_DECORATION_STYLE = undefined;
+    exports.parseTextDecoration =
+      exports.TEXT_DECORATION_LINE =
+      exports.TEXT_DECORATION =
+      exports.TEXT_DECORATION_STYLE =
+        undefined;
 
     var _Color2 = _interopRequireDefault(Color_1);
 
@@ -20115,31 +17699,30 @@
       return TEXT_DECORATION_STYLE.SOLID;
     };
 
-    var parseTextDecoration = (exports.parseTextDecoration = function parseTextDecoration(
-      style
-    ) {
-      var textDecorationLine = parseTextDecorationLine(
-        style.textDecorationLine
-          ? style.textDecorationLine
-          : style.textDecoration
-      );
-      if (textDecorationLine === null) {
-        return TEXT_DECORATION.NONE;
-      }
+    var parseTextDecoration = (exports.parseTextDecoration =
+      function parseTextDecoration(style) {
+        var textDecorationLine = parseTextDecorationLine(
+          style.textDecorationLine
+            ? style.textDecorationLine
+            : style.textDecoration,
+        );
+        if (textDecorationLine === null) {
+          return TEXT_DECORATION.NONE;
+        }
 
-      var textDecorationColor = style.textDecorationColor
-        ? new _Color2.default(style.textDecorationColor)
-        : null;
-      var textDecorationStyle = parseTextDecorationStyle(
-        style.textDecorationStyle
-      );
+        var textDecorationColor = style.textDecorationColor
+          ? new _Color2.default(style.textDecorationColor)
+          : null;
+        var textDecorationStyle = parseTextDecorationStyle(
+          style.textDecorationStyle,
+        );
 
-      return {
-        textDecorationLine: textDecorationLine,
-        textDecorationColor: textDecorationColor,
-        textDecorationStyle: textDecorationStyle,
-      };
-    });
+        return {
+          textDecorationLine: textDecorationLine,
+          textDecorationColor: textDecorationColor,
+          textDecorationStyle: textDecorationStyle,
+        };
+      });
   });
 
   unwrapExports(textDecoration);
@@ -20181,13 +17764,13 @@
         null,
         gradient.colorStops.map(function (colorStop) {
           return colorStop.stop;
-        })
+        }),
       );
       var f = 1 / Math.max(1, maxStop);
       gradient.colorStops.forEach(function (colorStop) {
         canvasGradient.addColorStop(
           f * colorStop.stop,
-          colorStop.color.toString()
+          colorStop.color.toString(),
         );
       });
     };
@@ -20223,7 +17806,7 @@
                 "," +
                 options.y +
                 ") with scale " +
-                this.options.scale
+                this.options.scale,
             );
           },
         },
@@ -20259,7 +17842,7 @@
               destination.left,
               destination.top,
               destination.width,
-              destination.height
+              destination.height,
             );
           },
         },
@@ -20308,7 +17891,7 @@
                     point.endControl.x,
                     point.endControl.y,
                     point.end.x,
-                    point.end.y
+                    point.end.y,
                   );
                 }
               });
@@ -20319,7 +17902,7 @@
                 _path.radius,
                 0,
                 Math.PI * 2,
-                true
+                true,
               );
             }
 
@@ -20340,7 +17923,7 @@
               bounds.left + gradient.direction.x1,
               bounds.top + gradient.direction.y1,
               bounds.left + gradient.direction.x0,
-              bounds.top + gradient.direction.y0
+              bounds.top + gradient.direction.y0,
             );
 
             addColorStops(gradient, linearGradient);
@@ -20349,7 +17932,7 @@
               bounds.left,
               bounds.top,
               bounds.width,
-              bounds.height
+              bounds.height,
             );
           },
         },
@@ -20367,7 +17950,7 @@
               0,
               x,
               y,
-              gradient.radius.x
+              gradient.radius.x,
             );
             if (!radialGradient) {
               return;
@@ -20388,7 +17971,7 @@
                   bounds.left,
                   invF * (bounds.top - midY) + midY,
                   bounds.width,
-                  bounds.height * invF
+                  bounds.height * invF,
                 );
               });
             } else {
@@ -20396,7 +17979,7 @@
                 bounds.left,
                 bounds.top,
                 bounds.width,
-                bounds.height
+                bounds.height,
               );
             }
           },
@@ -20408,12 +17991,12 @@
             image,
             imageSize,
             offsetX,
-            offsetY
+            offsetY,
           ) {
             this.path(path);
             this.ctx.fillStyle = this.ctx.createPattern(
               this.resizeImage(image, imageSize),
-              "repeat"
+              "repeat",
             );
             this.ctx.translate(offsetX, offsetY);
             this.ctx.fill();
@@ -20427,7 +18010,7 @@
             color,
             font,
             textDecoration$$1,
-            textShadows
+            textShadows,
           ) {
             var _this4 = this;
 
@@ -20456,67 +18039,65 @@
                     _this4.ctx.fillText(
                       text.text,
                       text.bounds.left,
-                      text.bounds.top + text.bounds.height
+                      text.bounds.top + text.bounds.height,
                     );
                   });
               } else {
                 _this4.ctx.fillText(
                   text.text,
                   text.bounds.left,
-                  text.bounds.top + text.bounds.height
+                  text.bounds.top + text.bounds.height,
                 );
               }
 
               if (textDecoration$$1 !== null) {
                 var textDecorationColor =
                   textDecoration$$1.textDecorationColor || color;
-                textDecoration$$1.textDecorationLine.forEach(function (
-                  textDecorationLine
-                ) {
-                  switch (textDecorationLine) {
-                    case textDecoration.TEXT_DECORATION_LINE.UNDERLINE:
-                      // Draws a line at the baseline of the font
-                      // TODO As some browsers display the line as more than 1px if the font-size is big,
-                      // need to take that into account both in position and size
-                      var _options$fontMetrics$ = _this4.options.fontMetrics.getMetrics(
-                          font
-                        ),
-                        baseline = _options$fontMetrics$.baseline;
+                textDecoration$$1.textDecorationLine.forEach(
+                  function (textDecorationLine) {
+                    switch (textDecorationLine) {
+                      case textDecoration.TEXT_DECORATION_LINE.UNDERLINE:
+                        // Draws a line at the baseline of the font
+                        // TODO As some browsers display the line as more than 1px if the font-size is big,
+                        // need to take that into account both in position and size
+                        var _options$fontMetrics$ =
+                            _this4.options.fontMetrics.getMetrics(font),
+                          baseline = _options$fontMetrics$.baseline;
 
-                      _this4.rectangle(
-                        text.bounds.left,
-                        Math.round(text.bounds.top + baseline),
-                        text.bounds.width,
-                        1,
-                        textDecorationColor
-                      );
-                      break;
-                    case textDecoration.TEXT_DECORATION_LINE.OVERLINE:
-                      _this4.rectangle(
-                        text.bounds.left,
-                        Math.round(text.bounds.top),
-                        text.bounds.width,
-                        1,
-                        textDecorationColor
-                      );
-                      break;
-                    case textDecoration.TEXT_DECORATION_LINE.LINE_THROUGH:
-                      // TODO try and find exact position for line-through
-                      var _options$fontMetrics$2 = _this4.options.fontMetrics.getMetrics(
-                          font
-                        ),
-                        middle = _options$fontMetrics$2.middle;
+                        _this4.rectangle(
+                          text.bounds.left,
+                          Math.round(text.bounds.top + baseline),
+                          text.bounds.width,
+                          1,
+                          textDecorationColor,
+                        );
+                        break;
+                      case textDecoration.TEXT_DECORATION_LINE.OVERLINE:
+                        _this4.rectangle(
+                          text.bounds.left,
+                          Math.round(text.bounds.top),
+                          text.bounds.width,
+                          1,
+                          textDecorationColor,
+                        );
+                        break;
+                      case textDecoration.TEXT_DECORATION_LINE.LINE_THROUGH:
+                        // TODO try and find exact position for line-through
+                        var _options$fontMetrics$2 =
+                            _this4.options.fontMetrics.getMetrics(font),
+                          middle = _options$fontMetrics$2.middle;
 
-                      _this4.rectangle(
-                        text.bounds.left,
-                        Math.ceil(text.bounds.top + middle),
-                        text.bounds.width,
-                        1,
-                        textDecorationColor
-                      );
-                      break;
-                  }
-                });
+                        _this4.rectangle(
+                          text.bounds.left,
+                          Math.ceil(text.bounds.top + middle),
+                          text.bounds.width,
+                          1,
+                          textDecorationColor,
+                        );
+                        break;
+                    }
+                  },
+                );
               }
             });
           },
@@ -20541,7 +18122,7 @@
               0,
               0,
               size.width,
-              size.height
+              size.height,
             );
             return canvas;
           },
@@ -20563,7 +18144,7 @@
               matrix[2],
               matrix[3],
               matrix[4],
-              matrix[5]
+              matrix[5],
             );
             this.ctx.translate(-offsetX, -offsetY);
 
@@ -20647,7 +18228,7 @@
                   [
                     Date.now() - this.start + "ms",
                     this.id ? "html2canvas (" + this.id + "):" : "html2canvas:",
-                  ].concat([].slice.call(args, 0))
+                  ].concat([].slice.call(args, 0)),
                 );
             }
           },
@@ -20673,7 +18254,7 @@
                   [
                     Date.now() - this.start + "ms",
                     this.id ? "html2canvas (" + this.id + "):" : "html2canvas:",
-                  ].concat([].slice.call(args, 0))
+                  ].concat([].slice.call(args, 0)),
                 );
             }
           },
@@ -20702,7 +18283,7 @@
 
     var copyCSSStyles = (exports.copyCSSStyles = function copyCSSStyles(
       style,
-      target
+      target,
     ) {
       // Edge does not provide value for cssText
       for (var i = style.length - 1; i >= 0; i--) {
@@ -20802,7 +18383,7 @@
               return new Length(v);
             },
           },
-        ]
+        ],
       );
 
       return Length;
@@ -20817,28 +18398,26 @@
         : parseFloat(container.style.font.fontSize);
     };
 
-    var calculateLengthFromValueWithUnit = (exports.calculateLengthFromValueWithUnit = function calculateLengthFromValueWithUnit(
-      container,
-      value,
-      unit
-    ) {
-      switch (unit) {
-        case "px":
-        case "%":
-          return new Length(value + unit);
-        case "em":
-        case "rem":
-          var length = new Length(value);
-          length.value *=
-            unit === "em"
-              ? parseFloat(container.style.font.fontSize)
-              : getRootFontSize(container);
-          return length;
-        default:
-          // TODO: handle correctly if unknown unit is used
-          return new Length("0");
-      }
-    });
+    var calculateLengthFromValueWithUnit =
+      (exports.calculateLengthFromValueWithUnit =
+        function calculateLengthFromValueWithUnit(container, value, unit) {
+          switch (unit) {
+            case "px":
+            case "%":
+              return new Length(value + unit);
+            case "em":
+            case "rem":
+              var length = new Length(value);
+              length.value *=
+                unit === "em"
+                  ? parseFloat(container.style.font.fontSize)
+                  : getRootFontSize(container);
+              return length;
+            default:
+              // TODO: handle correctly if unknown unit is used
+              return new Length("0");
+          }
+        });
   });
 
   unwrapExports(Length_1);
@@ -20963,7 +18542,7 @@
               this.end,
               this.endControl,
               this.startControl,
-              this.start
+              this.start,
             );
           },
         },
@@ -20981,7 +18560,16 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    exports.parseBoundCurves = exports.calculatePaddingBoxPath = exports.calculateBorderBoxPath = exports.parsePathForBorder = exports.parseDocumentSize = exports.calculateContentBox = exports.calculatePaddingBox = exports.parseBounds = exports.Bounds = undefined;
+    exports.parseBoundCurves =
+      exports.calculatePaddingBoxPath =
+      exports.calculateBorderBoxPath =
+      exports.parsePathForBorder =
+      exports.parseDocumentSize =
+      exports.calculateContentBox =
+      exports.calculatePaddingBox =
+      exports.parseBounds =
+      exports.Bounds =
+        undefined;
 
     var _createClass = (function () {
       function defineProperties(target, props) {
@@ -21040,7 +18628,7 @@
               clientRect.left + scrollX,
               clientRect.top + scrollY,
               clientRect.width,
-              clientRect.height
+              clientRect.height,
             );
           },
         },
@@ -21052,120 +18640,114 @@
     var parseBounds = (exports.parseBounds = function parseBounds(
       node,
       scrollX,
-      scrollY
+      scrollY,
     ) {
       return Bounds.fromClientRect(
         node.getBoundingClientRect(),
         scrollX,
-        scrollY
+        scrollY,
       );
     });
 
-    var calculatePaddingBox = (exports.calculatePaddingBox = function calculatePaddingBox(
-      bounds,
-      borders
-    ) {
-      return new Bounds(
-        bounds.left + borders[LEFT].borderWidth,
-        bounds.top + borders[TOP].borderWidth,
-        bounds.width - (borders[RIGHT].borderWidth + borders[LEFT].borderWidth),
-        bounds.height - (borders[TOP].borderWidth + borders[BOTTOM].borderWidth)
-      );
-    });
+    var calculatePaddingBox = (exports.calculatePaddingBox =
+      function calculatePaddingBox(bounds, borders) {
+        return new Bounds(
+          bounds.left + borders[LEFT].borderWidth,
+          bounds.top + borders[TOP].borderWidth,
+          bounds.width -
+            (borders[RIGHT].borderWidth + borders[LEFT].borderWidth),
+          bounds.height -
+            (borders[TOP].borderWidth + borders[BOTTOM].borderWidth),
+        );
+      });
 
-    var calculateContentBox = (exports.calculateContentBox = function calculateContentBox(
-      bounds,
-      padding,
-      borders
-    ) {
-      // TODO support percentage paddings
-      var paddingTop = padding[TOP].value;
-      var paddingRight = padding[RIGHT].value;
-      var paddingBottom = padding[BOTTOM].value;
-      var paddingLeft = padding[LEFT].value;
+    var calculateContentBox = (exports.calculateContentBox =
+      function calculateContentBox(bounds, padding, borders) {
+        // TODO support percentage paddings
+        var paddingTop = padding[TOP].value;
+        var paddingRight = padding[RIGHT].value;
+        var paddingBottom = padding[BOTTOM].value;
+        var paddingLeft = padding[LEFT].value;
 
-      return new Bounds(
-        bounds.left + paddingLeft + borders[LEFT].borderWidth,
-        bounds.top + paddingTop + borders[TOP].borderWidth,
-        bounds.width -
-          (borders[RIGHT].borderWidth +
-            borders[LEFT].borderWidth +
-            paddingLeft +
-            paddingRight),
-        bounds.height -
-          (borders[TOP].borderWidth +
-            borders[BOTTOM].borderWidth +
-            paddingTop +
-            paddingBottom)
-      );
-    });
+        return new Bounds(
+          bounds.left + paddingLeft + borders[LEFT].borderWidth,
+          bounds.top + paddingTop + borders[TOP].borderWidth,
+          bounds.width -
+            (borders[RIGHT].borderWidth +
+              borders[LEFT].borderWidth +
+              paddingLeft +
+              paddingRight),
+          bounds.height -
+            (borders[TOP].borderWidth +
+              borders[BOTTOM].borderWidth +
+              paddingTop +
+              paddingBottom),
+        );
+      });
 
-    var parseDocumentSize = (exports.parseDocumentSize = function parseDocumentSize(
-      document
-    ) {
-      var body = document.body;
-      var documentElement = document.documentElement;
+    var parseDocumentSize = (exports.parseDocumentSize =
+      function parseDocumentSize(document) {
+        var body = document.body;
+        var documentElement = document.documentElement;
 
-      if (!body || !documentElement) {
-        throw new Error("");
-      }
-      var width = Math.max(
-        Math.max(body.scrollWidth, documentElement.scrollWidth),
-        Math.max(body.offsetWidth, documentElement.offsetWidth),
-        Math.max(body.clientWidth, documentElement.clientWidth)
-      );
+        if (!body || !documentElement) {
+          throw new Error("");
+        }
+        var width = Math.max(
+          Math.max(body.scrollWidth, documentElement.scrollWidth),
+          Math.max(body.offsetWidth, documentElement.offsetWidth),
+          Math.max(body.clientWidth, documentElement.clientWidth),
+        );
 
-      var height = Math.max(
-        Math.max(body.scrollHeight, documentElement.scrollHeight),
-        Math.max(body.offsetHeight, documentElement.offsetHeight),
-        Math.max(body.clientHeight, documentElement.clientHeight)
-      );
+        var height = Math.max(
+          Math.max(body.scrollHeight, documentElement.scrollHeight),
+          Math.max(body.offsetHeight, documentElement.offsetHeight),
+          Math.max(body.clientHeight, documentElement.clientHeight),
+        );
 
-      return new Bounds(0, 0, width, height);
-    });
+        return new Bounds(0, 0, width, height);
+      });
 
-    var parsePathForBorder = (exports.parsePathForBorder = function parsePathForBorder(
-      curves,
-      borderSide
-    ) {
-      switch (borderSide) {
-        case TOP:
-          return createPathFromCurves(
-            curves.topLeftOuter,
-            curves.topLeftInner,
-            curves.topRightOuter,
-            curves.topRightInner
-          );
-        case RIGHT:
-          return createPathFromCurves(
-            curves.topRightOuter,
-            curves.topRightInner,
-            curves.bottomRightOuter,
-            curves.bottomRightInner
-          );
-        case BOTTOM:
-          return createPathFromCurves(
-            curves.bottomRightOuter,
-            curves.bottomRightInner,
-            curves.bottomLeftOuter,
-            curves.bottomLeftInner
-          );
-        case LEFT:
-        default:
-          return createPathFromCurves(
-            curves.bottomLeftOuter,
-            curves.bottomLeftInner,
-            curves.topLeftOuter,
-            curves.topLeftInner
-          );
-      }
-    });
+    var parsePathForBorder = (exports.parsePathForBorder =
+      function parsePathForBorder(curves, borderSide) {
+        switch (borderSide) {
+          case TOP:
+            return createPathFromCurves(
+              curves.topLeftOuter,
+              curves.topLeftInner,
+              curves.topRightOuter,
+              curves.topRightInner,
+            );
+          case RIGHT:
+            return createPathFromCurves(
+              curves.topRightOuter,
+              curves.topRightInner,
+              curves.bottomRightOuter,
+              curves.bottomRightInner,
+            );
+          case BOTTOM:
+            return createPathFromCurves(
+              curves.bottomRightOuter,
+              curves.bottomRightInner,
+              curves.bottomLeftOuter,
+              curves.bottomLeftInner,
+            );
+          case LEFT:
+          default:
+            return createPathFromCurves(
+              curves.bottomLeftOuter,
+              curves.bottomLeftInner,
+              curves.topLeftOuter,
+              curves.topLeftInner,
+            );
+        }
+      });
 
     var createPathFromCurves = function createPathFromCurves(
       outer1,
       inner1,
       outer2,
-      inner2
+      inner2,
     ) {
       var path = [];
       if (outer1 instanceof _BezierCurve2.default) {
@@ -21195,182 +18777,188 @@
       return path;
     };
 
-    var calculateBorderBoxPath = (exports.calculateBorderBoxPath = function calculateBorderBoxPath(
-      curves
-    ) {
-      return [
-        curves.topLeftOuter,
-        curves.topRightOuter,
-        curves.bottomRightOuter,
-        curves.bottomLeftOuter,
-      ];
-    });
+    var calculateBorderBoxPath = (exports.calculateBorderBoxPath =
+      function calculateBorderBoxPath(curves) {
+        return [
+          curves.topLeftOuter,
+          curves.topRightOuter,
+          curves.bottomRightOuter,
+          curves.bottomLeftOuter,
+        ];
+      });
 
-    var calculatePaddingBoxPath = (exports.calculatePaddingBoxPath = function calculatePaddingBoxPath(
-      curves
-    ) {
-      return [
-        curves.topLeftInner,
-        curves.topRightInner,
-        curves.bottomRightInner,
-        curves.bottomLeftInner,
-      ];
-    });
+    var calculatePaddingBoxPath = (exports.calculatePaddingBoxPath =
+      function calculatePaddingBoxPath(curves) {
+        return [
+          curves.topLeftInner,
+          curves.topRightInner,
+          curves.bottomRightInner,
+          curves.bottomLeftInner,
+        ];
+      });
 
-    var parseBoundCurves = (exports.parseBoundCurves = function parseBoundCurves(
-      bounds,
-      borders,
-      borderRadius
-    ) {
-      var tlh = borderRadius[CORNER.TOP_LEFT][H].getAbsoluteValue(bounds.width);
-      var tlv = borderRadius[CORNER.TOP_LEFT][V].getAbsoluteValue(
-        bounds.height
-      );
-      var trh = borderRadius[CORNER.TOP_RIGHT][H].getAbsoluteValue(
-        bounds.width
-      );
-      var trv = borderRadius[CORNER.TOP_RIGHT][V].getAbsoluteValue(
-        bounds.height
-      );
-      var brh = borderRadius[CORNER.BOTTOM_RIGHT][H].getAbsoluteValue(
-        bounds.width
-      );
-      var brv = borderRadius[CORNER.BOTTOM_RIGHT][V].getAbsoluteValue(
-        bounds.height
-      );
-      var blh = borderRadius[CORNER.BOTTOM_LEFT][H].getAbsoluteValue(
-        bounds.width
-      );
-      var blv = borderRadius[CORNER.BOTTOM_LEFT][V].getAbsoluteValue(
-        bounds.height
-      );
+    var parseBoundCurves = (exports.parseBoundCurves =
+      function parseBoundCurves(bounds, borders, borderRadius) {
+        var tlh = borderRadius[CORNER.TOP_LEFT][H].getAbsoluteValue(
+          bounds.width,
+        );
+        var tlv = borderRadius[CORNER.TOP_LEFT][V].getAbsoluteValue(
+          bounds.height,
+        );
+        var trh = borderRadius[CORNER.TOP_RIGHT][H].getAbsoluteValue(
+          bounds.width,
+        );
+        var trv = borderRadius[CORNER.TOP_RIGHT][V].getAbsoluteValue(
+          bounds.height,
+        );
+        var brh = borderRadius[CORNER.BOTTOM_RIGHT][H].getAbsoluteValue(
+          bounds.width,
+        );
+        var brv = borderRadius[CORNER.BOTTOM_RIGHT][V].getAbsoluteValue(
+          bounds.height,
+        );
+        var blh = borderRadius[CORNER.BOTTOM_LEFT][H].getAbsoluteValue(
+          bounds.width,
+        );
+        var blv = borderRadius[CORNER.BOTTOM_LEFT][V].getAbsoluteValue(
+          bounds.height,
+        );
 
-      var factors = [];
-      factors.push((tlh + trh) / bounds.width);
-      factors.push((blh + brh) / bounds.width);
-      factors.push((tlv + blv) / bounds.height);
-      factors.push((trv + brv) / bounds.height);
-      var maxFactor = Math.max.apply(Math, factors);
+        var factors = [];
+        factors.push((tlh + trh) / bounds.width);
+        factors.push((blh + brh) / bounds.width);
+        factors.push((tlv + blv) / bounds.height);
+        factors.push((trv + brv) / bounds.height);
+        var maxFactor = Math.max.apply(Math, factors);
 
-      if (maxFactor > 1) {
-        tlh /= maxFactor;
-        tlv /= maxFactor;
-        trh /= maxFactor;
-        trv /= maxFactor;
-        brh /= maxFactor;
-        brv /= maxFactor;
-        blh /= maxFactor;
-        blv /= maxFactor;
-      }
+        if (maxFactor > 1) {
+          tlh /= maxFactor;
+          tlv /= maxFactor;
+          trh /= maxFactor;
+          trv /= maxFactor;
+          brh /= maxFactor;
+          brv /= maxFactor;
+          blh /= maxFactor;
+          blv /= maxFactor;
+        }
 
-      var topWidth = bounds.width - trh;
-      var rightHeight = bounds.height - brv;
-      var bottomWidth = bounds.width - brh;
-      var leftHeight = bounds.height - blv;
+        var topWidth = bounds.width - trh;
+        var rightHeight = bounds.height - brv;
+        var bottomWidth = bounds.width - brh;
+        var leftHeight = bounds.height - blv;
 
-      return {
-        topLeftOuter:
-          tlh > 0 || tlv > 0
-            ? getCurvePoints(bounds.left, bounds.top, tlh, tlv, CORNER.TOP_LEFT)
-            : new _Vector2.default(bounds.left, bounds.top),
-        topLeftInner:
-          tlh > 0 || tlv > 0
-            ? getCurvePoints(
-                bounds.left + borders[LEFT].borderWidth,
-                bounds.top + borders[TOP].borderWidth,
-                Math.max(0, tlh - borders[LEFT].borderWidth),
-                Math.max(0, tlv - borders[TOP].borderWidth),
-                CORNER.TOP_LEFT
-              )
-            : new _Vector2.default(
-                bounds.left + borders[LEFT].borderWidth,
-                bounds.top + borders[TOP].borderWidth
-              ),
-        topRightOuter:
-          trh > 0 || trv > 0
-            ? getCurvePoints(
-                bounds.left + topWidth,
-                bounds.top,
-                trh,
-                trv,
-                CORNER.TOP_RIGHT
-              )
-            : new _Vector2.default(bounds.left + bounds.width, bounds.top),
-        topRightInner:
-          trh > 0 || trv > 0
-            ? getCurvePoints(
-                bounds.left +
-                  Math.min(topWidth, bounds.width + borders[LEFT].borderWidth),
-                bounds.top + borders[TOP].borderWidth,
-                topWidth > bounds.width + borders[LEFT].borderWidth
-                  ? 0
-                  : trh - borders[LEFT].borderWidth,
-                trv - borders[TOP].borderWidth,
-                CORNER.TOP_RIGHT
-              )
-            : new _Vector2.default(
-                bounds.left + bounds.width - borders[RIGHT].borderWidth,
-                bounds.top + borders[TOP].borderWidth
-              ),
-        bottomRightOuter:
-          brh > 0 || brv > 0
-            ? getCurvePoints(
-                bounds.left + bottomWidth,
-                bounds.top + rightHeight,
-                brh,
-                brv,
-                CORNER.BOTTOM_RIGHT
-              )
-            : new _Vector2.default(
-                bounds.left + bounds.width,
-                bounds.top + bounds.height
-              ),
-        bottomRightInner:
-          brh > 0 || brv > 0
-            ? getCurvePoints(
-                bounds.left +
-                  Math.min(
-                    bottomWidth,
-                    bounds.width - borders[LEFT].borderWidth
-                  ),
-                bounds.top +
-                  Math.min(
-                    rightHeight,
-                    bounds.height + borders[TOP].borderWidth
-                  ),
-                Math.max(0, brh - borders[RIGHT].borderWidth),
-                brv - borders[BOTTOM].borderWidth,
-                CORNER.BOTTOM_RIGHT
-              )
-            : new _Vector2.default(
-                bounds.left + bounds.width - borders[RIGHT].borderWidth,
-                bounds.top + bounds.height - borders[BOTTOM].borderWidth
-              ),
-        bottomLeftOuter:
-          blh > 0 || blv > 0
-            ? getCurvePoints(
-                bounds.left,
-                bounds.top + leftHeight,
-                blh,
-                blv,
-                CORNER.BOTTOM_LEFT
-              )
-            : new _Vector2.default(bounds.left, bounds.top + bounds.height),
-        bottomLeftInner:
-          blh > 0 || blv > 0
-            ? getCurvePoints(
-                bounds.left + borders[LEFT].borderWidth,
-                bounds.top + leftHeight,
-                Math.max(0, blh - borders[LEFT].borderWidth),
-                blv - borders[BOTTOM].borderWidth,
-                CORNER.BOTTOM_LEFT
-              )
-            : new _Vector2.default(
-                bounds.left + borders[LEFT].borderWidth,
-                bounds.top + bounds.height - borders[BOTTOM].borderWidth
-              ),
-      };
-    });
+        return {
+          topLeftOuter:
+            tlh > 0 || tlv > 0
+              ? getCurvePoints(
+                  bounds.left,
+                  bounds.top,
+                  tlh,
+                  tlv,
+                  CORNER.TOP_LEFT,
+                )
+              : new _Vector2.default(bounds.left, bounds.top),
+          topLeftInner:
+            tlh > 0 || tlv > 0
+              ? getCurvePoints(
+                  bounds.left + borders[LEFT].borderWidth,
+                  bounds.top + borders[TOP].borderWidth,
+                  Math.max(0, tlh - borders[LEFT].borderWidth),
+                  Math.max(0, tlv - borders[TOP].borderWidth),
+                  CORNER.TOP_LEFT,
+                )
+              : new _Vector2.default(
+                  bounds.left + borders[LEFT].borderWidth,
+                  bounds.top + borders[TOP].borderWidth,
+                ),
+          topRightOuter:
+            trh > 0 || trv > 0
+              ? getCurvePoints(
+                  bounds.left + topWidth,
+                  bounds.top,
+                  trh,
+                  trv,
+                  CORNER.TOP_RIGHT,
+                )
+              : new _Vector2.default(bounds.left + bounds.width, bounds.top),
+          topRightInner:
+            trh > 0 || trv > 0
+              ? getCurvePoints(
+                  bounds.left +
+                    Math.min(
+                      topWidth,
+                      bounds.width + borders[LEFT].borderWidth,
+                    ),
+                  bounds.top + borders[TOP].borderWidth,
+                  topWidth > bounds.width + borders[LEFT].borderWidth
+                    ? 0
+                    : trh - borders[LEFT].borderWidth,
+                  trv - borders[TOP].borderWidth,
+                  CORNER.TOP_RIGHT,
+                )
+              : new _Vector2.default(
+                  bounds.left + bounds.width - borders[RIGHT].borderWidth,
+                  bounds.top + borders[TOP].borderWidth,
+                ),
+          bottomRightOuter:
+            brh > 0 || brv > 0
+              ? getCurvePoints(
+                  bounds.left + bottomWidth,
+                  bounds.top + rightHeight,
+                  brh,
+                  brv,
+                  CORNER.BOTTOM_RIGHT,
+                )
+              : new _Vector2.default(
+                  bounds.left + bounds.width,
+                  bounds.top + bounds.height,
+                ),
+          bottomRightInner:
+            brh > 0 || brv > 0
+              ? getCurvePoints(
+                  bounds.left +
+                    Math.min(
+                      bottomWidth,
+                      bounds.width - borders[LEFT].borderWidth,
+                    ),
+                  bounds.top +
+                    Math.min(
+                      rightHeight,
+                      bounds.height + borders[TOP].borderWidth,
+                    ),
+                  Math.max(0, brh - borders[RIGHT].borderWidth),
+                  brv - borders[BOTTOM].borderWidth,
+                  CORNER.BOTTOM_RIGHT,
+                )
+              : new _Vector2.default(
+                  bounds.left + bounds.width - borders[RIGHT].borderWidth,
+                  bounds.top + bounds.height - borders[BOTTOM].borderWidth,
+                ),
+          bottomLeftOuter:
+            blh > 0 || blv > 0
+              ? getCurvePoints(
+                  bounds.left,
+                  bounds.top + leftHeight,
+                  blh,
+                  blv,
+                  CORNER.BOTTOM_LEFT,
+                )
+              : new _Vector2.default(bounds.left, bounds.top + bounds.height),
+          bottomLeftInner:
+            blh > 0 || blv > 0
+              ? getCurvePoints(
+                  bounds.left + borders[LEFT].borderWidth,
+                  bounds.top + leftHeight,
+                  Math.max(0, blh - borders[LEFT].borderWidth),
+                  blv - borders[BOTTOM].borderWidth,
+                  CORNER.BOTTOM_LEFT,
+                )
+              : new _Vector2.default(
+                  bounds.left + borders[LEFT].borderWidth,
+                  bounds.top + bounds.height - borders[BOTTOM].borderWidth,
+                ),
+        };
+      });
 
     var CORNER = {
       TOP_LEFT: 0,
@@ -21392,21 +18980,21 @@
             new _Vector2.default(x, ym),
             new _Vector2.default(x, ym - oy),
             new _Vector2.default(xm - ox, y),
-            new _Vector2.default(xm, y)
+            new _Vector2.default(xm, y),
           );
         case CORNER.TOP_RIGHT:
           return new _BezierCurve2.default(
             new _Vector2.default(x, y),
             new _Vector2.default(x + ox, y),
             new _Vector2.default(xm, ym - oy),
-            new _Vector2.default(xm, ym)
+            new _Vector2.default(xm, ym),
           );
         case CORNER.BOTTOM_RIGHT:
           return new _BezierCurve2.default(
             new _Vector2.default(xm, y),
             new _Vector2.default(xm, y + oy),
             new _Vector2.default(x + ox, ym),
-            new _Vector2.default(x, ym)
+            new _Vector2.default(x, ym),
           );
         case CORNER.BOTTOM_LEFT:
         default:
@@ -21414,7 +19002,7 @@
             new _Vector2.default(xm, ym),
             new _Vector2.default(xm - ox, ym),
             new _Vector2.default(x, y + oy),
-            new _Vector2.default(x, y)
+            new _Vector2.default(x, y),
           );
       }
     };
@@ -21467,7 +19055,19 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    exports.parseBackgroundImage = exports.parseBackground = exports.calculateBackgroundRepeatPath = exports.calculateBackgroundPosition = exports.calculateBackgroungPositioningArea = exports.calculateBackgroungPaintingArea = exports.calculateGradientBackgroundSize = exports.calculateBackgroundSize = exports.BACKGROUND_ORIGIN = exports.BACKGROUND_CLIP = exports.BACKGROUND_SIZE = exports.BACKGROUND_REPEAT = undefined;
+    exports.parseBackgroundImage =
+      exports.parseBackground =
+      exports.calculateBackgroundRepeatPath =
+      exports.calculateBackgroundPosition =
+      exports.calculateBackgroungPositioningArea =
+      exports.calculateBackgroungPaintingArea =
+      exports.calculateGradientBackgroundSize =
+      exports.calculateBackgroundSize =
+      exports.BACKGROUND_ORIGIN =
+      exports.BACKGROUND_CLIP =
+      exports.BACKGROUND_SIZE =
+      exports.BACKGROUND_REPEAT =
+        undefined;
 
     var _Color2 = _interopRequireDefault(Color_1);
 
@@ -21529,234 +19129,229 @@
       }
     };
 
-    var calculateBackgroundSize = (exports.calculateBackgroundSize = function calculateBackgroundSize(
-      backgroundImage,
-      image,
-      bounds
-    ) {
-      var width = 0;
-      var height = 0;
-      var size = backgroundImage.size;
-      if (
-        size[0].size === BACKGROUND_SIZE.CONTAIN ||
-        size[0].size === BACKGROUND_SIZE.COVER
-      ) {
-        var targetRatio = bounds.width / bounds.height;
-        var currentRatio = image.width / image.height;
-        return targetRatio < currentRatio !==
-          (size[0].size === BACKGROUND_SIZE.COVER)
-          ? new _Size2.default(bounds.width, bounds.width / currentRatio)
-          : new _Size2.default(bounds.height * currentRatio, bounds.height);
-      }
+    var calculateBackgroundSize = (exports.calculateBackgroundSize =
+      function calculateBackgroundSize(backgroundImage, image, bounds) {
+        var width = 0;
+        var height = 0;
+        var size = backgroundImage.size;
+        if (
+          size[0].size === BACKGROUND_SIZE.CONTAIN ||
+          size[0].size === BACKGROUND_SIZE.COVER
+        ) {
+          var targetRatio = bounds.width / bounds.height;
+          var currentRatio = image.width / image.height;
+          return targetRatio < currentRatio !==
+            (size[0].size === BACKGROUND_SIZE.COVER)
+            ? new _Size2.default(bounds.width, bounds.width / currentRatio)
+            : new _Size2.default(bounds.height * currentRatio, bounds.height);
+        }
 
-      if (size[0].value) {
-        width = size[0].value.getAbsoluteValue(bounds.width);
-      }
+        if (size[0].value) {
+          width = size[0].value.getAbsoluteValue(bounds.width);
+        }
 
-      if (
-        size[0].size === BACKGROUND_SIZE.AUTO &&
-        size[1].size === BACKGROUND_SIZE.AUTO
-      ) {
-        height = image.height;
-      } else if (size[1].size === BACKGROUND_SIZE.AUTO) {
-        height = (width / image.width) * image.height;
-      } else if (size[1].value) {
-        height = size[1].value.getAbsoluteValue(bounds.height);
-      }
+        if (
+          size[0].size === BACKGROUND_SIZE.AUTO &&
+          size[1].size === BACKGROUND_SIZE.AUTO
+        ) {
+          height = image.height;
+        } else if (size[1].size === BACKGROUND_SIZE.AUTO) {
+          height = (width / image.width) * image.height;
+        } else if (size[1].value) {
+          height = size[1].value.getAbsoluteValue(bounds.height);
+        }
 
-      if (size[0].size === BACKGROUND_SIZE.AUTO) {
-        width = (height / image.height) * image.width;
-      }
+        if (size[0].size === BACKGROUND_SIZE.AUTO) {
+          width = (height / image.height) * image.width;
+        }
 
-      return new _Size2.default(width, height);
-    });
+        return new _Size2.default(width, height);
+      });
 
-    var calculateGradientBackgroundSize = (exports.calculateGradientBackgroundSize = function calculateGradientBackgroundSize(
-      backgroundImage,
-      bounds
-    ) {
-      var size = backgroundImage.size;
-      var width = size[0].value
-        ? size[0].value.getAbsoluteValue(bounds.width)
-        : bounds.width;
-      var height = size[1].value
-        ? size[1].value.getAbsoluteValue(bounds.height)
-        : size[0].value
-        ? width
-        : bounds.height;
+    var calculateGradientBackgroundSize =
+      (exports.calculateGradientBackgroundSize =
+        function calculateGradientBackgroundSize(backgroundImage, bounds) {
+          var size = backgroundImage.size;
+          var width = size[0].value
+            ? size[0].value.getAbsoluteValue(bounds.width)
+            : bounds.width;
+          var height = size[1].value
+            ? size[1].value.getAbsoluteValue(bounds.height)
+            : size[0].value
+              ? width
+              : bounds.height;
 
-      return new _Size2.default(width, height);
-    });
+          return new _Size2.default(width, height);
+        });
 
     var AUTO_SIZE = new BackgroundSize(AUTO);
 
-    var calculateBackgroungPaintingArea = (exports.calculateBackgroungPaintingArea = function calculateBackgroungPaintingArea(
-      curves,
-      clip
-    ) {
-      switch (clip) {
-        case BACKGROUND_CLIP.BORDER_BOX:
-          return (0, Bounds_1.calculateBorderBoxPath)(curves);
-        case BACKGROUND_CLIP.PADDING_BOX:
-        default:
-          return (0, Bounds_1.calculatePaddingBoxPath)(curves);
-      }
-    });
+    var calculateBackgroungPaintingArea =
+      (exports.calculateBackgroungPaintingArea =
+        function calculateBackgroungPaintingArea(curves, clip) {
+          switch (clip) {
+            case BACKGROUND_CLIP.BORDER_BOX:
+              return (0, Bounds_1.calculateBorderBoxPath)(curves);
+            case BACKGROUND_CLIP.PADDING_BOX:
+            default:
+              return (0, Bounds_1.calculatePaddingBoxPath)(curves);
+          }
+        });
 
-    var calculateBackgroungPositioningArea = (exports.calculateBackgroungPositioningArea = function calculateBackgroungPositioningArea(
-      backgroundOrigin,
-      bounds,
-      padding$$1,
-      border
-    ) {
-      var paddingBox = (0, Bounds_1.calculatePaddingBox)(bounds, border);
+    var calculateBackgroungPositioningArea =
+      (exports.calculateBackgroungPositioningArea =
+        function calculateBackgroungPositioningArea(
+          backgroundOrigin,
+          bounds,
+          padding$$1,
+          border,
+        ) {
+          var paddingBox = (0, Bounds_1.calculatePaddingBox)(bounds, border);
 
-      switch (backgroundOrigin) {
-        case BACKGROUND_ORIGIN.BORDER_BOX:
-          return bounds;
-        case BACKGROUND_ORIGIN.CONTENT_BOX:
-          var paddingLeft = padding$$1[
-            padding.PADDING_SIDES.LEFT
-          ].getAbsoluteValue(bounds.width);
-          var paddingRight = padding$$1[
-            padding.PADDING_SIDES.RIGHT
-          ].getAbsoluteValue(bounds.width);
-          var paddingTop = padding$$1[
-            padding.PADDING_SIDES.TOP
-          ].getAbsoluteValue(bounds.width);
-          var paddingBottom = padding$$1[
-            padding.PADDING_SIDES.BOTTOM
-          ].getAbsoluteValue(bounds.width);
-          return new Bounds_1.Bounds(
-            paddingBox.left + paddingLeft,
-            paddingBox.top + paddingTop,
-            paddingBox.width - paddingLeft - paddingRight,
-            paddingBox.height - paddingTop - paddingBottom
-          );
-        case BACKGROUND_ORIGIN.PADDING_BOX:
-        default:
-          return paddingBox;
-      }
-    });
+          switch (backgroundOrigin) {
+            case BACKGROUND_ORIGIN.BORDER_BOX:
+              return bounds;
+            case BACKGROUND_ORIGIN.CONTENT_BOX:
+              var paddingLeft = padding$$1[
+                padding.PADDING_SIDES.LEFT
+              ].getAbsoluteValue(bounds.width);
+              var paddingRight = padding$$1[
+                padding.PADDING_SIDES.RIGHT
+              ].getAbsoluteValue(bounds.width);
+              var paddingTop = padding$$1[
+                padding.PADDING_SIDES.TOP
+              ].getAbsoluteValue(bounds.width);
+              var paddingBottom = padding$$1[
+                padding.PADDING_SIDES.BOTTOM
+              ].getAbsoluteValue(bounds.width);
+              return new Bounds_1.Bounds(
+                paddingBox.left + paddingLeft,
+                paddingBox.top + paddingTop,
+                paddingBox.width - paddingLeft - paddingRight,
+                paddingBox.height - paddingTop - paddingBottom,
+              );
+            case BACKGROUND_ORIGIN.PADDING_BOX:
+            default:
+              return paddingBox;
+          }
+        });
 
-    var calculateBackgroundPosition = (exports.calculateBackgroundPosition = function calculateBackgroundPosition(
-      position,
-      size,
-      bounds
-    ) {
-      return new _Vector2.default(
-        position[0].getAbsoluteValue(bounds.width - size.width),
-        position[1].getAbsoluteValue(bounds.height - size.height)
-      );
-    });
+    var calculateBackgroundPosition = (exports.calculateBackgroundPosition =
+      function calculateBackgroundPosition(position, size, bounds) {
+        return new _Vector2.default(
+          position[0].getAbsoluteValue(bounds.width - size.width),
+          position[1].getAbsoluteValue(bounds.height - size.height),
+        );
+      });
 
-    var calculateBackgroundRepeatPath = (exports.calculateBackgroundRepeatPath = function calculateBackgroundRepeatPath(
-      background,
-      position,
-      size,
-      backgroundPositioningArea,
-      bounds
-    ) {
-      var repeat = background.repeat;
-      switch (repeat) {
-        case BACKGROUND_REPEAT.REPEAT_X:
-          return [
-            new _Vector2.default(
-              Math.round(bounds.left),
-              Math.round(backgroundPositioningArea.top + position.y)
-            ),
-            new _Vector2.default(
-              Math.round(bounds.left + bounds.width),
-              Math.round(backgroundPositioningArea.top + position.y)
-            ),
-            new _Vector2.default(
-              Math.round(bounds.left + bounds.width),
-              Math.round(
-                size.height + backgroundPositioningArea.top + position.y
-              )
-            ),
-            new _Vector2.default(
-              Math.round(bounds.left),
-              Math.round(
-                size.height + backgroundPositioningArea.top + position.y
-              )
-            ),
-          ];
-        case BACKGROUND_REPEAT.REPEAT_Y:
-          return [
-            new _Vector2.default(
-              Math.round(backgroundPositioningArea.left + position.x),
-              Math.round(bounds.top)
-            ),
-            new _Vector2.default(
-              Math.round(
-                backgroundPositioningArea.left + position.x + size.width
+    var calculateBackgroundRepeatPath = (exports.calculateBackgroundRepeatPath =
+      function calculateBackgroundRepeatPath(
+        background,
+        position,
+        size,
+        backgroundPositioningArea,
+        bounds,
+      ) {
+        var repeat = background.repeat;
+        switch (repeat) {
+          case BACKGROUND_REPEAT.REPEAT_X:
+            return [
+              new _Vector2.default(
+                Math.round(bounds.left),
+                Math.round(backgroundPositioningArea.top + position.y),
               ),
-              Math.round(bounds.top)
-            ),
-            new _Vector2.default(
-              Math.round(
-                backgroundPositioningArea.left + position.x + size.width
+              new _Vector2.default(
+                Math.round(bounds.left + bounds.width),
+                Math.round(backgroundPositioningArea.top + position.y),
               ),
-              Math.round(bounds.height + bounds.top)
-            ),
-            new _Vector2.default(
-              Math.round(backgroundPositioningArea.left + position.x),
-              Math.round(bounds.height + bounds.top)
-            ),
-          ];
-        case BACKGROUND_REPEAT.NO_REPEAT:
-          return [
-            new _Vector2.default(
-              Math.round(backgroundPositioningArea.left + position.x),
-              Math.round(backgroundPositioningArea.top + position.y)
-            ),
-            new _Vector2.default(
-              Math.round(
-                backgroundPositioningArea.left + position.x + size.width
+              new _Vector2.default(
+                Math.round(bounds.left + bounds.width),
+                Math.round(
+                  size.height + backgroundPositioningArea.top + position.y,
+                ),
               ),
-              Math.round(backgroundPositioningArea.top + position.y)
-            ),
-            new _Vector2.default(
-              Math.round(
-                backgroundPositioningArea.left + position.x + size.width
+              new _Vector2.default(
+                Math.round(bounds.left),
+                Math.round(
+                  size.height + backgroundPositioningArea.top + position.y,
+                ),
               ),
-              Math.round(
-                backgroundPositioningArea.top + position.y + size.height
-              )
-            ),
-            new _Vector2.default(
-              Math.round(backgroundPositioningArea.left + position.x),
-              Math.round(
-                backgroundPositioningArea.top + position.y + size.height
-              )
-            ),
-          ];
-        default:
-          return [
-            new _Vector2.default(
-              Math.round(bounds.left),
-              Math.round(bounds.top)
-            ),
-            new _Vector2.default(
-              Math.round(bounds.left + bounds.width),
-              Math.round(bounds.top)
-            ),
-            new _Vector2.default(
-              Math.round(bounds.left + bounds.width),
-              Math.round(bounds.height + bounds.top)
-            ),
-            new _Vector2.default(
-              Math.round(bounds.left),
-              Math.round(bounds.height + bounds.top)
-            ),
-          ];
-      }
-    });
+            ];
+          case BACKGROUND_REPEAT.REPEAT_Y:
+            return [
+              new _Vector2.default(
+                Math.round(backgroundPositioningArea.left + position.x),
+                Math.round(bounds.top),
+              ),
+              new _Vector2.default(
+                Math.round(
+                  backgroundPositioningArea.left + position.x + size.width,
+                ),
+                Math.round(bounds.top),
+              ),
+              new _Vector2.default(
+                Math.round(
+                  backgroundPositioningArea.left + position.x + size.width,
+                ),
+                Math.round(bounds.height + bounds.top),
+              ),
+              new _Vector2.default(
+                Math.round(backgroundPositioningArea.left + position.x),
+                Math.round(bounds.height + bounds.top),
+              ),
+            ];
+          case BACKGROUND_REPEAT.NO_REPEAT:
+            return [
+              new _Vector2.default(
+                Math.round(backgroundPositioningArea.left + position.x),
+                Math.round(backgroundPositioningArea.top + position.y),
+              ),
+              new _Vector2.default(
+                Math.round(
+                  backgroundPositioningArea.left + position.x + size.width,
+                ),
+                Math.round(backgroundPositioningArea.top + position.y),
+              ),
+              new _Vector2.default(
+                Math.round(
+                  backgroundPositioningArea.left + position.x + size.width,
+                ),
+                Math.round(
+                  backgroundPositioningArea.top + position.y + size.height,
+                ),
+              ),
+              new _Vector2.default(
+                Math.round(backgroundPositioningArea.left + position.x),
+                Math.round(
+                  backgroundPositioningArea.top + position.y + size.height,
+                ),
+              ),
+            ];
+          default:
+            return [
+              new _Vector2.default(
+                Math.round(bounds.left),
+                Math.round(bounds.top),
+              ),
+              new _Vector2.default(
+                Math.round(bounds.left + bounds.width),
+                Math.round(bounds.top),
+              ),
+              new _Vector2.default(
+                Math.round(bounds.left + bounds.width),
+                Math.round(bounds.height + bounds.top),
+              ),
+              new _Vector2.default(
+                Math.round(bounds.left),
+                Math.round(bounds.height + bounds.top),
+              ),
+            ];
+        }
+      });
 
     var parseBackground = (exports.parseBackground = function parseBackground(
       style,
-      resourceLoader
+      resourceLoader,
     ) {
       return {
         backgroundColor: new _Color2.default(style.backgroundColor),
@@ -21777,7 +19372,7 @@
     };
 
     var parseBackgroundOrigin = function parseBackgroundOrigin(
-      backgroundOrigin
+      backgroundOrigin,
     ) {
       switch (backgroundOrigin) {
         case "padding-box":
@@ -21789,7 +19384,7 @@
     };
 
     var parseBackgroundRepeat = function parseBackgroundRepeat(
-      backgroundRepeat
+      backgroundRepeat,
     ) {
       switch (backgroundRepeat.trim()) {
         case "no-repeat":
@@ -21809,17 +19404,17 @@
 
     var parseBackgroundImages = function parseBackgroundImages(
       style,
-      resourceLoader
+      resourceLoader,
     ) {
-      var sources = parseBackgroundImage(style.backgroundImage).map(function (
-        backgroundImage
-      ) {
-        if (backgroundImage.method === "url") {
-          var key = resourceLoader.loadImage(backgroundImage.args[0]);
-          backgroundImage.args = key ? [key] : [];
-        }
-        return backgroundImage;
-      });
+      var sources = parseBackgroundImage(style.backgroundImage).map(
+        function (backgroundImage) {
+          if (backgroundImage.method === "url") {
+            var key = resourceLoader.loadImage(backgroundImage.args[0]);
+            backgroundImage.args = key ? [key] : [];
+          }
+          return backgroundImage;
+        },
+      );
       var positions = style.backgroundPosition.split(",");
       var repeats = style.backgroundRepeat.split(",");
       var sizes = style.backgroundSize.split(",");
@@ -21837,7 +19432,7 @@
         return {
           source: source,
           repeat: parseBackgroundRepeat(
-            typeof repeats[index] === "string" ? repeats[index] : repeats[0]
+            typeof repeats[index] === "string" ? repeats[index] : repeats[0],
           ),
           size: size.length < 2 ? [size[0], AUTO_SIZE] : [size[0], size[1]],
           position:
@@ -21866,110 +19461,109 @@
       return new _Length2.default(position);
     };
 
-    var parseBackgroundImage = (exports.parseBackgroundImage = function parseBackgroundImage(
-      image
-    ) {
-      var whitespace = /^\s$/;
-      var results = [];
+    var parseBackgroundImage = (exports.parseBackgroundImage =
+      function parseBackgroundImage(image) {
+        var whitespace = /^\s$/;
+        var results = [];
 
-      var args = [];
-      var method = "";
-      var quote = null;
-      var definition = "";
-      var mode = 0;
-      var numParen = 0;
+        var args = [];
+        var method = "";
+        var quote = null;
+        var definition = "";
+        var mode = 0;
+        var numParen = 0;
 
-      var appendResult = function appendResult() {
-        var prefix = "";
-        if (method) {
-          if (definition.substr(0, 1) === '"') {
-            definition = definition.substr(1, definition.length - 2);
-          }
-
-          if (definition) {
-            args.push(definition.trim());
-          }
-
-          var prefix_i = method.indexOf("-", 1) + 1;
-          if (method.substr(0, 1) === "-" && prefix_i > 0) {
-            prefix = method.substr(0, prefix_i).toLowerCase();
-            method = method.substr(prefix_i);
-          }
-          method = method.toLowerCase();
-          if (method !== "none") {
-            results.push({
-              prefix: prefix,
-              method: method,
-              args: args,
-            });
-          }
-        }
-        args = [];
-        method = definition = "";
-      };
-
-      image.split("").forEach(function (c) {
-        if (mode === 0 && whitespace.test(c)) {
-          return;
-        }
-        switch (c) {
-          case '"':
-            if (!quote) {
-              quote = c;
-            } else if (quote === c) {
-              quote = null;
+        var appendResult = function appendResult() {
+          var prefix = "";
+          if (method) {
+            if (definition.substr(0, 1) === '"') {
+              definition = definition.substr(1, definition.length - 2);
             }
-            break;
-          case "(":
-            if (quote) {
-              break;
-            } else if (mode === 0) {
-              mode = 1;
-              return;
-            } else {
-              numParen++;
+
+            if (definition) {
+              args.push(definition.trim());
             }
-            break;
-          case ")":
-            if (quote) {
+
+            var prefix_i = method.indexOf("-", 1) + 1;
+            if (method.substr(0, 1) === "-" && prefix_i > 0) {
+              prefix = method.substr(0, prefix_i).toLowerCase();
+              method = method.substr(prefix_i);
+            }
+            method = method.toLowerCase();
+            if (method !== "none") {
+              results.push({
+                prefix: prefix,
+                method: method,
+                args: args,
+              });
+            }
+          }
+          args = [];
+          method = definition = "";
+        };
+
+        image.split("").forEach(function (c) {
+          if (mode === 0 && whitespace.test(c)) {
+            return;
+          }
+          switch (c) {
+            case '"':
+              if (!quote) {
+                quote = c;
+              } else if (quote === c) {
+                quote = null;
+              }
               break;
-            } else if (mode === 1) {
-              if (numParen === 0) {
-                mode = 0;
-                appendResult();
+            case "(":
+              if (quote) {
+                break;
+              } else if (mode === 0) {
+                mode = 1;
                 return;
               } else {
-                numParen--;
+                numParen++;
               }
-            }
-            break;
-
-          case ",":
-            if (quote) {
               break;
-            } else if (mode === 0) {
-              appendResult();
-              return;
-            } else if (mode === 1) {
-              if (numParen === 0 && !method.match(/^url$/i)) {
-                args.push(definition.trim());
-                definition = "";
-                return;
+            case ")":
+              if (quote) {
+                break;
+              } else if (mode === 1) {
+                if (numParen === 0) {
+                  mode = 0;
+                  appendResult();
+                  return;
+                } else {
+                  numParen--;
+                }
               }
-            }
-            break;
-        }
+              break;
 
-        if (mode === 0) {
-          method += c;
-        } else {
-          definition += c;
-        }
+            case ",":
+              if (quote) {
+                break;
+              } else if (mode === 0) {
+                appendResult();
+                return;
+              } else if (mode === 1) {
+                if (numParen === 0 && !method.match(/^url$/i)) {
+                  args.push(definition.trim());
+                  definition = "";
+                  return;
+                }
+              }
+              break;
+          }
+
+          if (mode === 0) {
+            method += c;
+          } else {
+            definition += c;
+          }
+        });
+
+        appendResult();
+        return results;
       });
-
-      appendResult();
-      return results;
-    });
   });
 
   unwrapExports(background);
@@ -21990,7 +19584,10 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    exports.parseBorder = exports.BORDER_SIDES = exports.BORDER_STYLE = undefined;
+    exports.parseBorder =
+      exports.BORDER_SIDES =
+      exports.BORDER_STYLE =
+        undefined;
 
     var _Color2 = _interopRequireDefault(Color_1);
 
@@ -22025,13 +19622,13 @@
     var parseBorder = (exports.parseBorder = function parseBorder(style) {
       return SIDES.map(function (side) {
         var borderColor = new _Color2.default(
-          style.getPropertyValue("border-" + side + "-color")
+          style.getPropertyValue("border-" + side + "-color"),
         );
         var borderStyle = parseBorderStyle(
-          style.getPropertyValue("border-" + side + "-style")
+          style.getPropertyValue("border-" + side + "-style"),
         );
         var borderWidth = parseFloat(
-          style.getPropertyValue("border-" + side + "-width")
+          style.getPropertyValue("border-" + side + "-width"),
         );
         return {
           borderColor: borderColor,
@@ -22087,7 +19684,7 @@
           return sliceIterator(arr, i);
         } else {
           throw new TypeError(
-            "Invalid attempt to destructure non-iterable instance"
+            "Invalid attempt to destructure non-iterable instance",
           );
         }
       };
@@ -22101,22 +19698,21 @@
 
     var SIDES = ["top-left", "top-right", "bottom-right", "bottom-left"];
 
-    var parseBorderRadius = (exports.parseBorderRadius = function parseBorderRadius(
-      style
-    ) {
-      return SIDES.map(function (side) {
-        var value = style.getPropertyValue("border-" + side + "-radius");
+    var parseBorderRadius = (exports.parseBorderRadius =
+      function parseBorderRadius(style) {
+        return SIDES.map(function (side) {
+          var value = style.getPropertyValue("border-" + side + "-radius");
 
-        var _value$split$map = value.split(" ").map(_Length2.default.create),
-          _value$split$map2 = _slicedToArray(_value$split$map, 2),
-          horizontal = _value$split$map2[0],
-          vertical = _value$split$map2[1];
+          var _value$split$map = value.split(" ").map(_Length2.default.create),
+            _value$split$map2 = _slicedToArray(_value$split$map, 2),
+            horizontal = _value$split$map2[0],
+            vertical = _value$split$map2[1];
 
-        return typeof vertical === "undefined"
-          ? [horizontal, horizontal]
-          : [horizontal, vertical];
+          return typeof vertical === "undefined"
+            ? [horizontal, horizontal]
+            : [horizontal, vertical];
+        });
       });
-    });
   });
 
   unwrapExports(borderRadius);
@@ -22309,15 +19905,14 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    var parseLetterSpacing = (exports.parseLetterSpacing = function parseLetterSpacing(
-      letterSpacing
-    ) {
-      if (letterSpacing === "normal") {
-        return 0;
-      }
-      var value = parseFloat(letterSpacing);
-      return isNaN(value) ? 0 : value;
-    });
+    var parseLetterSpacing = (exports.parseLetterSpacing =
+      function parseLetterSpacing(letterSpacing) {
+        if (letterSpacing === "normal") {
+          return 0;
+        }
+        var value = parseFloat(letterSpacing);
+        return isNaN(value) ? 0 : value;
+      });
   });
 
   unwrapExports(letterSpacing);
@@ -22333,7 +19928,7 @@
     });
 
     var parseLineBreak = (exports.parseLineBreak = function parseLineBreak(
-      wordBreak
+      wordBreak,
     ) {
       switch (wordBreak) {
         case "strict":
@@ -22353,7 +19948,11 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    exports.parseListStyle = exports.parseListStyleType = exports.LIST_STYLE_TYPE = exports.LIST_STYLE_POSITION = undefined;
+    exports.parseListStyle =
+      exports.parseListStyleType =
+      exports.LIST_STYLE_TYPE =
+      exports.LIST_STYLE_POSITION =
+        undefined;
 
     var LIST_STYLE_POSITION = (exports.LIST_STYLE_POSITION = {
       INSIDE: 0,
@@ -22417,135 +20016,134 @@
       DISCLOSURE_CLOSED: 51,
     });
 
-    var parseListStyleType = (exports.parseListStyleType = function parseListStyleType(
-      type
-    ) {
-      switch (type) {
-        case "disc":
-          return LIST_STYLE_TYPE.DISC;
-        case "circle":
-          return LIST_STYLE_TYPE.CIRCLE;
-        case "square":
-          return LIST_STYLE_TYPE.SQUARE;
-        case "decimal":
-          return LIST_STYLE_TYPE.DECIMAL;
-        case "cjk-decimal":
-          return LIST_STYLE_TYPE.CJK_DECIMAL;
-        case "decimal-leading-zero":
-          return LIST_STYLE_TYPE.DECIMAL_LEADING_ZERO;
-        case "lower-roman":
-          return LIST_STYLE_TYPE.LOWER_ROMAN;
-        case "upper-roman":
-          return LIST_STYLE_TYPE.UPPER_ROMAN;
-        case "lower-greek":
-          return LIST_STYLE_TYPE.LOWER_GREEK;
-        case "lower-alpha":
-          return LIST_STYLE_TYPE.LOWER_ALPHA;
-        case "upper-alpha":
-          return LIST_STYLE_TYPE.UPPER_ALPHA;
-        case "arabic-indic":
-          return LIST_STYLE_TYPE.ARABIC_INDIC;
-        case "armenian":
-          return LIST_STYLE_TYPE.ARMENIAN;
-        case "bengali":
-          return LIST_STYLE_TYPE.BENGALI;
-        case "cambodian":
-          return LIST_STYLE_TYPE.CAMBODIAN;
-        case "cjk-earthly-branch":
-          return LIST_STYLE_TYPE.CJK_EARTHLY_BRANCH;
-        case "cjk-heavenly-stem":
-          return LIST_STYLE_TYPE.CJK_HEAVENLY_STEM;
-        case "cjk-ideographic":
-          return LIST_STYLE_TYPE.CJK_IDEOGRAPHIC;
-        case "devanagari":
-          return LIST_STYLE_TYPE.DEVANAGARI;
-        case "ethiopic-numeric":
-          return LIST_STYLE_TYPE.ETHIOPIC_NUMERIC;
-        case "georgian":
-          return LIST_STYLE_TYPE.GEORGIAN;
-        case "gujarati":
-          return LIST_STYLE_TYPE.GUJARATI;
-        case "gurmukhi":
-          return LIST_STYLE_TYPE.GURMUKHI;
-        case "hebrew":
-          return LIST_STYLE_TYPE.HEBREW;
-        case "hiragana":
-          return LIST_STYLE_TYPE.HIRAGANA;
-        case "hiragana-iroha":
-          return LIST_STYLE_TYPE.HIRAGANA_IROHA;
-        case "japanese-formal":
-          return LIST_STYLE_TYPE.JAPANESE_FORMAL;
-        case "japanese-informal":
-          return LIST_STYLE_TYPE.JAPANESE_INFORMAL;
-        case "kannada":
-          return LIST_STYLE_TYPE.KANNADA;
-        case "katakana":
-          return LIST_STYLE_TYPE.KATAKANA;
-        case "katakana-iroha":
-          return LIST_STYLE_TYPE.KATAKANA_IROHA;
-        case "khmer":
-          return LIST_STYLE_TYPE.KHMER;
-        case "korean-hangul-formal":
-          return LIST_STYLE_TYPE.KOREAN_HANGUL_FORMAL;
-        case "korean-hanja-formal":
-          return LIST_STYLE_TYPE.KOREAN_HANJA_FORMAL;
-        case "korean-hanja-informal":
-          return LIST_STYLE_TYPE.KOREAN_HANJA_INFORMAL;
-        case "lao":
-          return LIST_STYLE_TYPE.LAO;
-        case "lower-armenian":
-          return LIST_STYLE_TYPE.LOWER_ARMENIAN;
-        case "malayalam":
-          return LIST_STYLE_TYPE.MALAYALAM;
-        case "mongolian":
-          return LIST_STYLE_TYPE.MONGOLIAN;
-        case "myanmar":
-          return LIST_STYLE_TYPE.MYANMAR;
-        case "oriya":
-          return LIST_STYLE_TYPE.ORIYA;
-        case "persian":
-          return LIST_STYLE_TYPE.PERSIAN;
-        case "simp-chinese-formal":
-          return LIST_STYLE_TYPE.SIMP_CHINESE_FORMAL;
-        case "simp-chinese-informal":
-          return LIST_STYLE_TYPE.SIMP_CHINESE_INFORMAL;
-        case "tamil":
-          return LIST_STYLE_TYPE.TAMIL;
-        case "telugu":
-          return LIST_STYLE_TYPE.TELUGU;
-        case "thai":
-          return LIST_STYLE_TYPE.THAI;
-        case "tibetan":
-          return LIST_STYLE_TYPE.TIBETAN;
-        case "trad-chinese-formal":
-          return LIST_STYLE_TYPE.TRAD_CHINESE_FORMAL;
-        case "trad-chinese-informal":
-          return LIST_STYLE_TYPE.TRAD_CHINESE_INFORMAL;
-        case "upper-armenian":
-          return LIST_STYLE_TYPE.UPPER_ARMENIAN;
-        case "disclosure-open":
-          return LIST_STYLE_TYPE.DISCLOSURE_OPEN;
-        case "disclosure-closed":
-          return LIST_STYLE_TYPE.DISCLOSURE_CLOSED;
-        case "none":
-        default:
-          return LIST_STYLE_TYPE.NONE;
-      }
-    });
+    var parseListStyleType = (exports.parseListStyleType =
+      function parseListStyleType(type) {
+        switch (type) {
+          case "disc":
+            return LIST_STYLE_TYPE.DISC;
+          case "circle":
+            return LIST_STYLE_TYPE.CIRCLE;
+          case "square":
+            return LIST_STYLE_TYPE.SQUARE;
+          case "decimal":
+            return LIST_STYLE_TYPE.DECIMAL;
+          case "cjk-decimal":
+            return LIST_STYLE_TYPE.CJK_DECIMAL;
+          case "decimal-leading-zero":
+            return LIST_STYLE_TYPE.DECIMAL_LEADING_ZERO;
+          case "lower-roman":
+            return LIST_STYLE_TYPE.LOWER_ROMAN;
+          case "upper-roman":
+            return LIST_STYLE_TYPE.UPPER_ROMAN;
+          case "lower-greek":
+            return LIST_STYLE_TYPE.LOWER_GREEK;
+          case "lower-alpha":
+            return LIST_STYLE_TYPE.LOWER_ALPHA;
+          case "upper-alpha":
+            return LIST_STYLE_TYPE.UPPER_ALPHA;
+          case "arabic-indic":
+            return LIST_STYLE_TYPE.ARABIC_INDIC;
+          case "armenian":
+            return LIST_STYLE_TYPE.ARMENIAN;
+          case "bengali":
+            return LIST_STYLE_TYPE.BENGALI;
+          case "cambodian":
+            return LIST_STYLE_TYPE.CAMBODIAN;
+          case "cjk-earthly-branch":
+            return LIST_STYLE_TYPE.CJK_EARTHLY_BRANCH;
+          case "cjk-heavenly-stem":
+            return LIST_STYLE_TYPE.CJK_HEAVENLY_STEM;
+          case "cjk-ideographic":
+            return LIST_STYLE_TYPE.CJK_IDEOGRAPHIC;
+          case "devanagari":
+            return LIST_STYLE_TYPE.DEVANAGARI;
+          case "ethiopic-numeric":
+            return LIST_STYLE_TYPE.ETHIOPIC_NUMERIC;
+          case "georgian":
+            return LIST_STYLE_TYPE.GEORGIAN;
+          case "gujarati":
+            return LIST_STYLE_TYPE.GUJARATI;
+          case "gurmukhi":
+            return LIST_STYLE_TYPE.GURMUKHI;
+          case "hebrew":
+            return LIST_STYLE_TYPE.HEBREW;
+          case "hiragana":
+            return LIST_STYLE_TYPE.HIRAGANA;
+          case "hiragana-iroha":
+            return LIST_STYLE_TYPE.HIRAGANA_IROHA;
+          case "japanese-formal":
+            return LIST_STYLE_TYPE.JAPANESE_FORMAL;
+          case "japanese-informal":
+            return LIST_STYLE_TYPE.JAPANESE_INFORMAL;
+          case "kannada":
+            return LIST_STYLE_TYPE.KANNADA;
+          case "katakana":
+            return LIST_STYLE_TYPE.KATAKANA;
+          case "katakana-iroha":
+            return LIST_STYLE_TYPE.KATAKANA_IROHA;
+          case "khmer":
+            return LIST_STYLE_TYPE.KHMER;
+          case "korean-hangul-formal":
+            return LIST_STYLE_TYPE.KOREAN_HANGUL_FORMAL;
+          case "korean-hanja-formal":
+            return LIST_STYLE_TYPE.KOREAN_HANJA_FORMAL;
+          case "korean-hanja-informal":
+            return LIST_STYLE_TYPE.KOREAN_HANJA_INFORMAL;
+          case "lao":
+            return LIST_STYLE_TYPE.LAO;
+          case "lower-armenian":
+            return LIST_STYLE_TYPE.LOWER_ARMENIAN;
+          case "malayalam":
+            return LIST_STYLE_TYPE.MALAYALAM;
+          case "mongolian":
+            return LIST_STYLE_TYPE.MONGOLIAN;
+          case "myanmar":
+            return LIST_STYLE_TYPE.MYANMAR;
+          case "oriya":
+            return LIST_STYLE_TYPE.ORIYA;
+          case "persian":
+            return LIST_STYLE_TYPE.PERSIAN;
+          case "simp-chinese-formal":
+            return LIST_STYLE_TYPE.SIMP_CHINESE_FORMAL;
+          case "simp-chinese-informal":
+            return LIST_STYLE_TYPE.SIMP_CHINESE_INFORMAL;
+          case "tamil":
+            return LIST_STYLE_TYPE.TAMIL;
+          case "telugu":
+            return LIST_STYLE_TYPE.TELUGU;
+          case "thai":
+            return LIST_STYLE_TYPE.THAI;
+          case "tibetan":
+            return LIST_STYLE_TYPE.TIBETAN;
+          case "trad-chinese-formal":
+            return LIST_STYLE_TYPE.TRAD_CHINESE_FORMAL;
+          case "trad-chinese-informal":
+            return LIST_STYLE_TYPE.TRAD_CHINESE_INFORMAL;
+          case "upper-armenian":
+            return LIST_STYLE_TYPE.UPPER_ARMENIAN;
+          case "disclosure-open":
+            return LIST_STYLE_TYPE.DISCLOSURE_OPEN;
+          case "disclosure-closed":
+            return LIST_STYLE_TYPE.DISCLOSURE_CLOSED;
+          case "none":
+          default:
+            return LIST_STYLE_TYPE.NONE;
+        }
+      });
 
     var parseListStyle = (exports.parseListStyle = function parseListStyle(
-      style
+      style,
     ) {
       var listStyleImage = (0, background.parseBackgroundImage)(
-        style.getPropertyValue("list-style-image")
+        style.getPropertyValue("list-style-image"),
       );
       return {
         listStyleType: parseListStyleType(
-          style.getPropertyValue("list-style-type")
+          style.getPropertyValue("list-style-type"),
         ),
         listStyleImage: listStyleImage.length ? listStyleImage[0] : null,
         listStylePosition: parseListStylePosition(
-          style.getPropertyValue("list-style-position")
+          style.getPropertyValue("list-style-position"),
         ),
       };
     });
@@ -22603,7 +20201,7 @@
     });
 
     var parseOverflow = (exports.parseOverflow = function parseOverflow(
-      overflow
+      overflow,
     ) {
       switch (overflow) {
         case "hidden":
@@ -22632,17 +20230,16 @@
       BREAK_WORD: 1,
     });
 
-    var parseOverflowWrap = (exports.parseOverflowWrap = function parseOverflowWrap(
-      overflow
-    ) {
-      switch (overflow) {
-        case "break-word":
-          return OVERFLOW_WRAP.BREAK_WORD;
-        case "normal":
-        default:
-          return OVERFLOW_WRAP.NORMAL;
-      }
-    });
+    var parseOverflowWrap = (exports.parseOverflowWrap =
+      function parseOverflowWrap(overflow) {
+        switch (overflow) {
+          case "break-word":
+            return OVERFLOW_WRAP.BREAK_WORD;
+          case "normal":
+          default:
+            return OVERFLOW_WRAP.NORMAL;
+        }
+      });
   });
 
   unwrapExports(overflowWrap);
@@ -22662,7 +20259,7 @@
     });
 
     var parsePosition = (exports.parsePosition = function parsePosition(
-      position
+      position,
     ) {
       switch (position) {
         case "relative":
@@ -22698,7 +20295,7 @@
     var NUMBER = /^([+-]|\d|\.)$/i;
 
     var parseTextShadow = (exports.parseTextShadow = function parseTextShadow(
-      textShadow
+      textShadow,
     ) {
       if (textShadow === "none" || typeof textShadow !== "string") {
         return null;
@@ -22795,20 +20392,19 @@
       CAPITALIZE: 3,
     });
 
-    var parseTextTransform = (exports.parseTextTransform = function parseTextTransform(
-      textTransform
-    ) {
-      switch (textTransform) {
-        case "uppercase":
-          return TEXT_TRANSFORM.UPPERCASE;
-        case "lowercase":
-          return TEXT_TRANSFORM.LOWERCASE;
-        case "capitalize":
-          return TEXT_TRANSFORM.CAPITALIZE;
-      }
+    var parseTextTransform = (exports.parseTextTransform =
+      function parseTextTransform(textTransform) {
+        switch (textTransform) {
+          case "uppercase":
+            return TEXT_TRANSFORM.UPPERCASE;
+          case "lowercase":
+            return TEXT_TRANSFORM.LOWERCASE;
+          case "capitalize":
+            return TEXT_TRANSFORM.CAPITALIZE;
+        }
 
-      return TEXT_TRANSFORM.NONE;
-    });
+        return TEXT_TRANSFORM.NONE;
+      });
   });
 
   unwrapExports(textTransform);
@@ -22834,7 +20430,7 @@
     var MATRIX = /(matrix|matrix3d)\((.+)\)/;
 
     var parseTransform = (exports.parseTransform = function parseTransform(
-      style
+      style,
     ) {
       var transform = parseTransformMatrix(
         style.transform ||
@@ -22843,7 +20439,7 @@
           // $FlowFixMe
           style.msTransform ||
           // $FlowFixMe
-          style.oTransform
+          style.oTransform,
       );
       if (transform === null) {
         return null;
@@ -22858,7 +20454,7 @@
             // $FlowFixMe
             style.msTransformOrigin ||
             // $FlowFixMe
-            style.oTransformOrigin
+            style.oTransformOrigin,
         ),
       };
     });
@@ -22921,7 +20517,7 @@
     });
 
     var parseVisibility = (exports.parseVisibility = function parseVisibility(
-      visibility
+      visibility,
     ) {
       switch (visibility) {
         case "hidden":
@@ -22950,7 +20546,7 @@
     });
 
     var parseWordBreak = (exports.parseWordBreak = function parseWordBreak(
-      wordBreak
+      wordBreak,
     ) {
       switch (wordBreak) {
         case "break-all":
@@ -22984,145 +20580,142 @@
   unwrapExports(zIndex);
   var zIndex_1 = zIndex.parseZIndex;
 
-  var ForeignObjectRenderer_1 = createCommonjsModule(function (
-    module,
-    exports
-  ) {
-    Object.defineProperty(exports, "__esModule", {
-      value: true,
-    });
+  var ForeignObjectRenderer_1 = createCommonjsModule(
+    function (module, exports) {
+      Object.defineProperty(exports, "__esModule", {
+        value: true,
+      });
 
-    var _createClass = (function () {
-      function defineProperties(target, props) {
-        for (var i = 0; i < props.length; i++) {
-          var descriptor = props[i];
-          descriptor.enumerable = descriptor.enumerable || false;
-          descriptor.configurable = true;
-          if ("value" in descriptor) descriptor.writable = true;
-          Object.defineProperty(target, descriptor.key, descriptor);
+      var _createClass = (function () {
+        function defineProperties(target, props) {
+          for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];
+            descriptor.enumerable = descriptor.enumerable || false;
+            descriptor.configurable = true;
+            if ("value" in descriptor) descriptor.writable = true;
+            Object.defineProperty(target, descriptor.key, descriptor);
+          }
+        }
+        return function (Constructor, protoProps, staticProps) {
+          if (protoProps) defineProperties(Constructor.prototype, protoProps);
+          if (staticProps) defineProperties(Constructor, staticProps);
+          return Constructor;
+        };
+      })();
+
+      function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+          throw new TypeError("Cannot call a class as a function");
         }
       }
-      return function (Constructor, protoProps, staticProps) {
-        if (protoProps) defineProperties(Constructor.prototype, protoProps);
-        if (staticProps) defineProperties(Constructor, staticProps);
-        return Constructor;
-      };
-    })();
 
-    function _classCallCheck(instance, Constructor) {
-      if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
-      }
-    }
+      var ForeignObjectRenderer = (function () {
+        function ForeignObjectRenderer(element) {
+          _classCallCheck(this, ForeignObjectRenderer);
 
-    var ForeignObjectRenderer = (function () {
-      function ForeignObjectRenderer(element) {
-        _classCallCheck(this, ForeignObjectRenderer);
+          this.element = element;
+        }
 
-        this.element = element;
-      }
+        _createClass(ForeignObjectRenderer, [
+          {
+            key: "render",
+            value: function render(options) {
+              var _this = this;
 
-      _createClass(ForeignObjectRenderer, [
-        {
-          key: "render",
-          value: function render(options) {
-            var _this = this;
+              this.options = options;
+              this.canvas = document.createElement("canvas");
+              this.ctx = this.canvas.getContext("2d");
+              this.canvas.width = Math.floor(options.width) * options.scale;
+              this.canvas.height = Math.floor(options.height) * options.scale;
+              this.canvas.style.width = options.width + "px";
+              this.canvas.style.height = options.height + "px";
 
-            this.options = options;
-            this.canvas = document.createElement("canvas");
-            this.ctx = this.canvas.getContext("2d");
-            this.canvas.width = Math.floor(options.width) * options.scale;
-            this.canvas.height = Math.floor(options.height) * options.scale;
-            this.canvas.style.width = options.width + "px";
-            this.canvas.style.height = options.height + "px";
-
-            options.logger.log(
-              "ForeignObject renderer initialized (" +
-                options.width +
-                "x" +
-                options.height +
-                " at " +
-                options.x +
-                "," +
-                options.y +
-                ") with scale " +
-                options.scale
-            );
-            var svg = createForeignObjectSVG(
-              Math.max(options.windowWidth, options.width) * options.scale,
-              Math.max(options.windowHeight, options.height) * options.scale,
-              options.scrollX * options.scale,
-              options.scrollY * options.scale,
-              this.element
-            );
-
-            return loadSerializedSVG(svg).then(function (img) {
-              if (options.backgroundColor) {
-                _this.ctx.fillStyle = options.backgroundColor.toString();
-                _this.ctx.fillRect(
-                  0,
-                  0,
-                  options.width * options.scale,
-                  options.height * options.scale
-                );
-              }
-
-              _this.ctx.drawImage(
-                img,
-                -options.x * options.scale,
-                -options.y * options.scale
+              options.logger.log(
+                "ForeignObject renderer initialized (" +
+                  options.width +
+                  "x" +
+                  options.height +
+                  " at " +
+                  options.x +
+                  "," +
+                  options.y +
+                  ") with scale " +
+                  options.scale,
               );
-              return _this.canvas;
-            });
+              var svg = createForeignObjectSVG(
+                Math.max(options.windowWidth, options.width) * options.scale,
+                Math.max(options.windowHeight, options.height) * options.scale,
+                options.scrollX * options.scale,
+                options.scrollY * options.scale,
+                this.element,
+              );
+
+              return loadSerializedSVG(svg).then(function (img) {
+                if (options.backgroundColor) {
+                  _this.ctx.fillStyle = options.backgroundColor.toString();
+                  _this.ctx.fillRect(
+                    0,
+                    0,
+                    options.width * options.scale,
+                    options.height * options.scale,
+                  );
+                }
+
+                _this.ctx.drawImage(
+                  img,
+                  -options.x * options.scale,
+                  -options.y * options.scale,
+                );
+                return _this.canvas;
+              });
+            },
           },
-        },
-      ]);
+        ]);
 
-      return ForeignObjectRenderer;
-    })();
+        return ForeignObjectRenderer;
+      })();
 
-    exports.default = ForeignObjectRenderer;
-    var createForeignObjectSVG = (exports.createForeignObjectSVG = function createForeignObjectSVG(
-      width,
-      height,
-      x,
-      y,
-      node
-    ) {
-      var xmlns = "http://www.w3.org/2000/svg";
-      var svg = document.createElementNS(xmlns, "svg");
-      var foreignObject = document.createElementNS(xmlns, "foreignObject");
-      svg.setAttributeNS(null, "width", width);
-      svg.setAttributeNS(null, "height", height);
+      exports.default = ForeignObjectRenderer;
+      var createForeignObjectSVG = (exports.createForeignObjectSVG =
+        function createForeignObjectSVG(width, height, x, y, node) {
+          var xmlns = "http://www.w3.org/2000/svg";
+          var svg = document.createElementNS(xmlns, "svg");
+          var foreignObject = document.createElementNS(xmlns, "foreignObject");
+          svg.setAttributeNS(null, "width", width);
+          svg.setAttributeNS(null, "height", height);
 
-      foreignObject.setAttributeNS(null, "width", "100%");
-      foreignObject.setAttributeNS(null, "height", "100%");
-      foreignObject.setAttributeNS(null, "x", x);
-      foreignObject.setAttributeNS(null, "y", y);
-      foreignObject.setAttributeNS(null, "externalResourcesRequired", "true");
-      svg.appendChild(foreignObject);
+          foreignObject.setAttributeNS(null, "width", "100%");
+          foreignObject.setAttributeNS(null, "height", "100%");
+          foreignObject.setAttributeNS(null, "x", x);
+          foreignObject.setAttributeNS(null, "y", y);
+          foreignObject.setAttributeNS(
+            null,
+            "externalResourcesRequired",
+            "true",
+          );
+          svg.appendChild(foreignObject);
 
-      foreignObject.appendChild(node);
+          foreignObject.appendChild(node);
 
-      return svg;
-    });
+          return svg;
+        });
 
-    var loadSerializedSVG = (exports.loadSerializedSVG = function loadSerializedSVG(
-      svg
-    ) {
-      return new Promise(function (resolve, reject) {
-        var img = new Image();
-        img.onload = function () {
-          return resolve(img);
-        };
-        img.onerror = reject;
+      var loadSerializedSVG = (exports.loadSerializedSVG =
+        function loadSerializedSVG(svg) {
+          return new Promise(function (resolve, reject) {
+            var img = new Image();
+            img.onload = function () {
+              return resolve(img);
+            };
+            img.onerror = reject;
 
-        img.src =
-          "data:image/svg+xml;charset=utf-8," +
-          encodeURIComponent(new XMLSerializer().serializeToString(svg));
-      });
-    });
-  });
+            img.src =
+              "data:image/svg+xml;charset=utf-8," +
+              encodeURIComponent(new XMLSerializer().serializeToString(svg));
+          });
+        });
+    },
+  );
 
   unwrapExports(ForeignObjectRenderer_1);
   var ForeignObjectRenderer_2 = ForeignObjectRenderer_1.createForeignObjectSVG;
@@ -23238,7 +20831,7 @@
         size,
         0,
         0,
-        img
+        img,
       );
       ctx.fillStyle = "red";
       ctx.fillRect(0, 0, size, size);
@@ -23261,8 +20854,8 @@
                   size,
                   0,
                   0,
-                  node
-                )
+                  node,
+                ),
               )
             : Promise.reject(false);
         })
@@ -23359,7 +20952,7 @@
           var extra = str.charCodeAt(i++);
           if ((extra & 0xfc00) === 0xdc00) {
             codePoints.push(
-              ((value & 0x3ff) << 10) + (extra & 0x3ff) + 0x10000
+              ((value & 0x3ff) << 10) + (extra & 0x3ff) + 0x10000,
             );
           } else {
             codePoints.push(value);
@@ -23395,7 +20988,7 @@
           codePoint -= 0x10000;
           codeUnits.push(
             (codePoint >> 10) + 0xd800,
-            (codePoint % 0x400) + 0xdc00
+            (codePoint % 0x400) + 0xdc00,
           );
         }
         if (index + 1 === length || codeUnits.length > 0x4000) {
@@ -23455,7 +21048,7 @@
     });
 
     var polyUint16Array = (exports.polyUint16Array = function polyUint16Array(
-      buffer
+      buffer,
     ) {
       var length = buffer.length;
       var bytes = [];
@@ -23466,7 +21059,7 @@
     });
 
     var polyUint32Array = (exports.polyUint32Array = function polyUint32Array(
-      buffer
+      buffer,
     ) {
       var length = buffer.length;
       var bytes = [];
@@ -23475,7 +21068,7 @@
           (buffer[_i2 + 3] << 24) |
             (buffer[_i2 + 2] << 16) |
             (buffer[_i2 + 1] << 8) |
-            buffer[_i2]
+            buffer[_i2],
         );
       }
       return bytes;
@@ -23493,7 +21086,24 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    exports.Trie = exports.createTrieFromBase64 = exports.UTRIE2_INDEX_2_MASK = exports.UTRIE2_INDEX_2_BLOCK_LENGTH = exports.UTRIE2_OMITTED_BMP_INDEX_1_LENGTH = exports.UTRIE2_INDEX_1_OFFSET = exports.UTRIE2_UTF8_2B_INDEX_2_LENGTH = exports.UTRIE2_UTF8_2B_INDEX_2_OFFSET = exports.UTRIE2_INDEX_2_BMP_LENGTH = exports.UTRIE2_LSCP_INDEX_2_LENGTH = exports.UTRIE2_DATA_MASK = exports.UTRIE2_DATA_BLOCK_LENGTH = exports.UTRIE2_LSCP_INDEX_2_OFFSET = exports.UTRIE2_SHIFT_1_2 = exports.UTRIE2_INDEX_SHIFT = exports.UTRIE2_SHIFT_1 = exports.UTRIE2_SHIFT_2 = undefined;
+    exports.Trie =
+      exports.createTrieFromBase64 =
+      exports.UTRIE2_INDEX_2_MASK =
+      exports.UTRIE2_INDEX_2_BLOCK_LENGTH =
+      exports.UTRIE2_OMITTED_BMP_INDEX_1_LENGTH =
+      exports.UTRIE2_INDEX_1_OFFSET =
+      exports.UTRIE2_UTF8_2B_INDEX_2_LENGTH =
+      exports.UTRIE2_UTF8_2B_INDEX_2_OFFSET =
+      exports.UTRIE2_INDEX_2_BMP_LENGTH =
+      exports.UTRIE2_LSCP_INDEX_2_LENGTH =
+      exports.UTRIE2_DATA_MASK =
+      exports.UTRIE2_DATA_BLOCK_LENGTH =
+      exports.UTRIE2_LSCP_INDEX_2_OFFSET =
+      exports.UTRIE2_SHIFT_1_2 =
+      exports.UTRIE2_INDEX_SHIFT =
+      exports.UTRIE2_SHIFT_1 =
+      exports.UTRIE2_SHIFT_2 =
+        undefined;
 
     var _createClass = (function () {
       function defineProperties(target, props) {
@@ -23564,7 +21174,8 @@
      * The 2-byte UTF-8 version of the index-2 table follows at offset 2080=0x820.
      * Length 32=0x20 for lead bytes C0..DF, regardless of UTRIE2_SHIFT_2.
      */
-    var UTRIE2_UTF8_2B_INDEX_2_OFFSET = (exports.UTRIE2_UTF8_2B_INDEX_2_OFFSET = UTRIE2_INDEX_2_BMP_LENGTH);
+    var UTRIE2_UTF8_2B_INDEX_2_OFFSET = (exports.UTRIE2_UTF8_2B_INDEX_2_OFFSET =
+      UTRIE2_INDEX_2_BMP_LENGTH);
     var UTRIE2_UTF8_2B_INDEX_2_LENGTH = (exports.UTRIE2_UTF8_2B_INDEX_2_LENGTH =
       0x800 >> 6); /* U+0800 is the first code point after 2-byte UTF-8 */
     /**
@@ -23586,8 +21197,8 @@
      * Number of index-1 entries for the BMP. 32=0x20
      * This part of the index-1 table is omitted from the serialized form.
      */
-    var UTRIE2_OMITTED_BMP_INDEX_1_LENGTH = (exports.UTRIE2_OMITTED_BMP_INDEX_1_LENGTH =
-      0x10000 >> UTRIE2_SHIFT_1);
+    var UTRIE2_OMITTED_BMP_INDEX_1_LENGTH =
+      (exports.UTRIE2_OMITTED_BMP_INDEX_1_LENGTH = 0x10000 >> UTRIE2_SHIFT_1);
 
     /** Number of entries in an index-2 block. 64=0x40 */
     var UTRIE2_INDEX_2_BLOCK_LENGTH = (exports.UTRIE2_INDEX_2_BLOCK_LENGTH =
@@ -23596,26 +21207,32 @@
     var UTRIE2_INDEX_2_MASK = (exports.UTRIE2_INDEX_2_MASK =
       UTRIE2_INDEX_2_BLOCK_LENGTH - 1);
 
-    var createTrieFromBase64 = (exports.createTrieFromBase64 = function createTrieFromBase64(
-      base64
-    ) {
-      var buffer = (0, Util$2.decode)(base64);
-      var view32 = Array.isArray(buffer)
-        ? (0, Util$2.polyUint32Array)(buffer)
-        : new Uint32Array(buffer);
-      var view16 = Array.isArray(buffer)
-        ? (0, Util$2.polyUint16Array)(buffer)
-        : new Uint16Array(buffer);
-      var headerLength = 24;
+    var createTrieFromBase64 = (exports.createTrieFromBase64 =
+      function createTrieFromBase64(base64) {
+        var buffer = (0, Util$2.decode)(base64);
+        var view32 = Array.isArray(buffer)
+          ? (0, Util$2.polyUint32Array)(buffer)
+          : new Uint32Array(buffer);
+        var view16 = Array.isArray(buffer)
+          ? (0, Util$2.polyUint16Array)(buffer)
+          : new Uint16Array(buffer);
+        var headerLength = 24;
 
-      var index = view16.slice(headerLength / 2, view32[4] / 2);
-      var data =
-        view32[5] === 2
-          ? view16.slice((headerLength + view32[4]) / 2)
-          : view32.slice(Math.ceil((headerLength + view32[4]) / 4));
+        var index = view16.slice(headerLength / 2, view32[4] / 2);
+        var data =
+          view32[5] === 2
+            ? view16.slice((headerLength + view32[4]) / 2)
+            : view32.slice(Math.ceil((headerLength + view32[4]) / 4));
 
-      return new Trie(view32[0], view32[1], view32[2], view32[3], index, data);
-    });
+        return new Trie(
+          view32[0],
+          view32[1],
+          view32[2],
+          view32[3],
+          index,
+          data,
+        );
+      });
 
     var Trie = (exports.Trie = (function () {
       function Trie(
@@ -23624,7 +21241,7 @@
         highStart,
         highValueIndex,
         index,
-        data
+        data,
       ) {
         _classCallCheck(this, Trie);
 
@@ -23669,10 +21286,11 @@
                 //   For this function, we need the code point data.
                 // Note: this expression could be refactored for slightly improved efficiency, but
                 //       surrogate code points will be so rare in practice that it's not worth it.
-                ix = this.index[
-                  UTRIE2_LSCP_INDEX_2_OFFSET +
-                    ((codePoint - 0xd800) >> UTRIE2_SHIFT_2)
-                ];
+                ix =
+                  this.index[
+                    UTRIE2_LSCP_INDEX_2_OFFSET +
+                      ((codePoint - 0xd800) >> UTRIE2_SHIFT_2)
+                  ];
                 ix =
                   (ix << UTRIE2_INDEX_SHIFT) + (codePoint & UTRIE2_DATA_MASK);
                 return this.data[ix];
@@ -23732,7 +21350,17 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    exports.LineBreaker = exports.inlineBreakOpportunities = exports.lineBreakAtIndex = exports.codePointsToCharacterClasses = exports.UnicodeTrie = exports.BREAK_ALLOWED = exports.BREAK_NOT_ALLOWED = exports.BREAK_MANDATORY = exports.classes = exports.LETTER_NUMBER_MODIFIER = undefined;
+    exports.LineBreaker =
+      exports.inlineBreakOpportunities =
+      exports.lineBreakAtIndex =
+      exports.codePointsToCharacterClasses =
+      exports.UnicodeTrie =
+      exports.BREAK_ALLOWED =
+      exports.BREAK_NOT_ALLOWED =
+      exports.BREAK_MANDATORY =
+      exports.classes =
+      exports.LETTER_NUMBER_MODIFIER =
+        undefined;
 
     var _createClass = (function () {
       function defineProperties(target, props) {
@@ -23785,7 +21413,7 @@
           return sliceIterator(arr, i);
         } else {
           throw new TypeError(
-            "Invalid attempt to destructure non-iterable instance"
+            "Invalid attempt to destructure non-iterable instance",
           );
         }
       };
@@ -23915,7 +21543,7 @@
     var BREAK_NOT_ALLOWED = (exports.BREAK_NOT_ALLOWED = "×");
     var BREAK_ALLOWED = (exports.BREAK_ALLOWED = "÷");
     var UnicodeTrie = (exports.UnicodeTrie = (0, Trie_1.createTrieFromBase64)(
-      _linebreakTrie2.default
+      _linebreakTrie2.default,
     ));
 
     var ALPHABETICS = [AL, HL];
@@ -23926,91 +21554,90 @@
     var KOREAN_SYLLABLE_BLOCK = [JL, JV, JT, H2, H3];
     var HYPHEN = [HY, BA];
 
-    var codePointsToCharacterClasses = (exports.codePointsToCharacterClasses = function codePointsToCharacterClasses(
-      codePoints
-    ) {
-      var lineBreak =
-        arguments.length > 1 && arguments[1] !== undefined
-          ? arguments[1]
-          : "strict";
+    var codePointsToCharacterClasses = (exports.codePointsToCharacterClasses =
+      function codePointsToCharacterClasses(codePoints) {
+        var lineBreak =
+          arguments.length > 1 && arguments[1] !== undefined
+            ? arguments[1]
+            : "strict";
 
-      var types = [];
-      var indicies = [];
-      var categories = [];
-      codePoints.forEach(function (codePoint, index) {
-        var classType = UnicodeTrie.get(codePoint);
-        if (classType > LETTER_NUMBER_MODIFIER) {
-          categories.push(true);
-          classType -= LETTER_NUMBER_MODIFIER;
-        } else {
-          categories.push(false);
-        }
-
-        if (["normal", "auto", "loose"].indexOf(lineBreak) !== -1) {
-          // U+2010, – U+2013, 〜 U+301C, ゠ U+30A0
-          if ([0x2010, 0x2013, 0x301c, 0x30a0].indexOf(codePoint) !== -1) {
-            indicies.push(index);
-            return types.push(CB);
-          }
-        }
-
-        if (classType === CM || classType === ZWJ) {
-          // LB10 Treat any remaining combining mark or ZWJ as AL.
-          if (index === 0) {
-            indicies.push(index);
-            return types.push(AL);
-          }
-
-          // LB9 Do not break a combining character sequence; treat it as if it has the line breaking class of
-          // the base character in all of the following rules. Treat ZWJ as if it were CM.
-          var prev = types[index - 1];
-          if (LINE_BREAKS.indexOf(prev) === -1) {
-            indicies.push(indicies[index - 1]);
-            return types.push(prev);
-          }
-          indicies.push(index);
-          return types.push(AL);
-        }
-
-        indicies.push(index);
-
-        if (classType === CJ) {
-          return types.push(lineBreak === "strict" ? NS : ID);
-        }
-
-        if (classType === SA) {
-          return types.push(AL);
-        }
-
-        if (classType === AI) {
-          return types.push(AL);
-        }
-
-        // For supplementary characters, a useful default is to treat characters in the range 10000..1FFFD as AL
-        // and characters in the ranges 20000..2FFFD and 30000..3FFFD as ID, until the implementation can be revised
-        // to take into account the actual line breaking properties for these characters.
-        if (classType === XX) {
-          if (
-            (codePoint >= 0x20000 && codePoint <= 0x2fffd) ||
-            (codePoint >= 0x30000 && codePoint <= 0x3fffd)
-          ) {
-            return types.push(ID);
+        var types = [];
+        var indicies = [];
+        var categories = [];
+        codePoints.forEach(function (codePoint, index) {
+          var classType = UnicodeTrie.get(codePoint);
+          if (classType > LETTER_NUMBER_MODIFIER) {
+            categories.push(true);
+            classType -= LETTER_NUMBER_MODIFIER;
           } else {
+            categories.push(false);
+          }
+
+          if (["normal", "auto", "loose"].indexOf(lineBreak) !== -1) {
+            // U+2010, – U+2013, 〜 U+301C, ゠ U+30A0
+            if ([0x2010, 0x2013, 0x301c, 0x30a0].indexOf(codePoint) !== -1) {
+              indicies.push(index);
+              return types.push(CB);
+            }
+          }
+
+          if (classType === CM || classType === ZWJ) {
+            // LB10 Treat any remaining combining mark or ZWJ as AL.
+            if (index === 0) {
+              indicies.push(index);
+              return types.push(AL);
+            }
+
+            // LB9 Do not break a combining character sequence; treat it as if it has the line breaking class of
+            // the base character in all of the following rules. Treat ZWJ as if it were CM.
+            var prev = types[index - 1];
+            if (LINE_BREAKS.indexOf(prev) === -1) {
+              indicies.push(indicies[index - 1]);
+              return types.push(prev);
+            }
+            indicies.push(index);
             return types.push(AL);
           }
-        }
 
-        types.push(classType);
+          indicies.push(index);
+
+          if (classType === CJ) {
+            return types.push(lineBreak === "strict" ? NS : ID);
+          }
+
+          if (classType === SA) {
+            return types.push(AL);
+          }
+
+          if (classType === AI) {
+            return types.push(AL);
+          }
+
+          // For supplementary characters, a useful default is to treat characters in the range 10000..1FFFD as AL
+          // and characters in the ranges 20000..2FFFD and 30000..3FFFD as ID, until the implementation can be revised
+          // to take into account the actual line breaking properties for these characters.
+          if (classType === XX) {
+            if (
+              (codePoint >= 0x20000 && codePoint <= 0x2fffd) ||
+              (codePoint >= 0x30000 && codePoint <= 0x3fffd)
+            ) {
+              return types.push(ID);
+            } else {
+              return types.push(AL);
+            }
+          }
+
+          types.push(classType);
+        });
+
+        return [indicies, types, categories];
       });
-
-      return [indicies, types, categories];
-    });
 
     var isAdjacentWithSpaceIgnored = function isAdjacentWithSpaceIgnored(
       a,
       b,
       currentIndex,
-      classTypes
+      classTypes,
     ) {
       var current = classTypes[currentIndex];
       if (Array.isArray(a) ? a.indexOf(current) !== -1 : a === current) {
@@ -24062,7 +21689,7 @@
 
     var previousNonSpaceClassType = function previousNonSpaceClassType(
       currentIndex,
-      classTypes
+      classTypes,
     ) {
       var i = currentIndex;
       while (i >= 0) {
@@ -24081,7 +21708,7 @@
       classTypes,
       indicies,
       index,
-      forbiddenBreaks
+      forbiddenBreaks,
     ) {
       if (indicies[index] === 0) {
         return BREAK_NOT_ALLOWED;
@@ -24350,31 +21977,29 @@
       return BREAK_ALLOWED;
     };
 
-    var lineBreakAtIndex = (exports.lineBreakAtIndex = function lineBreakAtIndex(
-      codePoints,
-      index
-    ) {
-      // LB2 Never break at the start of text.
-      if (index === 0) {
-        return BREAK_NOT_ALLOWED;
-      }
+    var lineBreakAtIndex = (exports.lineBreakAtIndex =
+      function lineBreakAtIndex(codePoints, index) {
+        // LB2 Never break at the start of text.
+        if (index === 0) {
+          return BREAK_NOT_ALLOWED;
+        }
 
-      // LB3 Always break at the end of text.
-      if (index >= codePoints.length) {
-        return BREAK_MANDATORY;
-      }
+        // LB3 Always break at the end of text.
+        if (index >= codePoints.length) {
+          return BREAK_MANDATORY;
+        }
 
-      var _codePointsToCharacte = codePointsToCharacterClasses(codePoints),
-        _codePointsToCharacte2 = _slicedToArray(_codePointsToCharacte, 2),
-        indicies = _codePointsToCharacte2[0],
-        classTypes = _codePointsToCharacte2[1];
+        var _codePointsToCharacte = codePointsToCharacterClasses(codePoints),
+          _codePointsToCharacte2 = _slicedToArray(_codePointsToCharacte, 2),
+          indicies = _codePointsToCharacte2[0],
+          classTypes = _codePointsToCharacte2[1];
 
-      return _lineBreakAtIndex(codePoints, classTypes, indicies, index);
-    });
+        return _lineBreakAtIndex(codePoints, classTypes, indicies, index);
+      });
 
     var cssFormattedClasses = function cssFormattedClasses(
       codePoints,
-      options
+      options,
     ) {
       if (!options) {
         options = { lineBreak: "normal", wordBreak: "normal" };
@@ -24382,7 +22007,7 @@
 
       var _codePointsToCharacte3 = codePointsToCharacterClasses(
           codePoints,
-          options.lineBreak
+          options.lineBreak,
         ),
         _codePointsToCharacte4 = _slicedToArray(_codePointsToCharacte3, 3),
         indicies = _codePointsToCharacte4[0],
@@ -24412,35 +22037,33 @@
       return [indicies, classTypes, forbiddenBreakpoints];
     };
 
-    var inlineBreakOpportunities = (exports.inlineBreakOpportunities = function inlineBreakOpportunities(
-      str,
-      options
-    ) {
-      var codePoints = (0, Util$2.toCodePoints)(str);
-      var output = BREAK_NOT_ALLOWED;
+    var inlineBreakOpportunities = (exports.inlineBreakOpportunities =
+      function inlineBreakOpportunities(str, options) {
+        var codePoints = (0, Util$2.toCodePoints)(str);
+        var output = BREAK_NOT_ALLOWED;
 
-      var _cssFormattedClasses = cssFormattedClasses(codePoints, options),
-        _cssFormattedClasses2 = _slicedToArray(_cssFormattedClasses, 3),
-        indicies = _cssFormattedClasses2[0],
-        classTypes = _cssFormattedClasses2[1],
-        forbiddenBreakpoints = _cssFormattedClasses2[2];
+        var _cssFormattedClasses = cssFormattedClasses(codePoints, options),
+          _cssFormattedClasses2 = _slicedToArray(_cssFormattedClasses, 3),
+          indicies = _cssFormattedClasses2[0],
+          classTypes = _cssFormattedClasses2[1],
+          forbiddenBreakpoints = _cssFormattedClasses2[2];
 
-      codePoints.forEach(function (codePoint, i) {
-        output +=
-          (0, Util$2.fromCodePoint)(codePoint) +
-          (i >= codePoints.length - 1
-            ? BREAK_MANDATORY
-            : _lineBreakAtIndex(
-                codePoints,
-                classTypes,
-                indicies,
-                i + 1,
-                forbiddenBreakpoints
-              ));
+        codePoints.forEach(function (codePoint, i) {
+          output +=
+            (0, Util$2.fromCodePoint)(codePoint) +
+            (i >= codePoints.length - 1
+              ? BREAK_MANDATORY
+              : _lineBreakAtIndex(
+                  codePoints,
+                  classTypes,
+                  indicies,
+                  i + 1,
+                  forbiddenBreakpoints,
+                ));
+        });
+
+        return output;
       });
-
-      return output;
-    });
 
     var Break = (function () {
       function Break(codePoints, lineBreak, start, end) {
@@ -24458,7 +22081,7 @@
           value: function slice() {
             return Util$2.fromCodePoint.apply(
               undefined,
-              _toConsumableArray(this._codePoints.slice(this.start, this.end))
+              _toConsumableArray(this._codePoints.slice(this.start, this.end)),
             );
           },
         },
@@ -24469,7 +22092,7 @@
 
     var LineBreaker = (exports.LineBreaker = function LineBreaker(
       str,
-      options
+      options,
     ) {
       var codePoints = (0, Util$2.toCodePoints)(str);
 
@@ -24496,7 +22119,7 @@
               classTypes,
               indicies,
               ++nextIndex,
-              forbiddenBreakpoints
+              forbiddenBreakpoints,
             )) === BREAK_NOT_ALLOWED
           ) {}
 
@@ -24556,7 +22179,10 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    exports.breakWords = exports.fromCodePoint = exports.toCodePoints = undefined;
+    exports.breakWords =
+      exports.fromCodePoint =
+      exports.toCodePoints =
+        undefined;
 
     Object.defineProperty(exports, "toCodePoints", {
       enumerable: true,
@@ -24630,7 +22256,7 @@
     var parseTextBounds = (exports.parseTextBounds = function parseTextBounds(
       value,
       parent,
-      node
+      node,
     ) {
       var letterRendering = parent.style.letterSpacing !== 0;
       var textList = letterRendering
@@ -24656,13 +22282,13 @@
             textBounds.push(
               new TextBounds(
                 text,
-                getRangeBounds(node, offset, text.length, scrollX, scrollY)
-              )
+                getRangeBounds(node, offset, text.length, scrollX, scrollY),
+              ),
             );
           } else {
             var replacementNode = node.splitText(text.length);
             textBounds.push(
-              new TextBounds(text, getWrapperBounds(node, scrollX, scrollY))
+              new TextBounds(text, getWrapperBounds(node, scrollX, scrollY)),
             );
             node = replacementNode;
           }
@@ -24694,7 +22320,7 @@
       offset,
       length,
       scrollX,
-      scrollY
+      scrollY,
     ) {
       var range = node.ownerDocument.createRange();
       range.setStart(node, offset);
@@ -24702,7 +22328,7 @@
       return Bounds_1.Bounds.fromClientRect(
         range.getBoundingClientRect(),
         scrollX,
-        scrollY
+        scrollY,
       );
     };
   });
@@ -24756,7 +22382,7 @@
             return new TextContainer(
               text,
               parent,
-              (0, TextBounds_1.parseTextBounds)(text, parent, node)
+              (0, TextBounds_1.parseTextBounds)(text, parent, node),
             );
           },
         },
@@ -24822,7 +22448,15 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    exports.reformatInputBounds = exports.inlineSelectElement = exports.inlineTextAreaElement = exports.inlineInputElement = exports.getInputBorderRadius = exports.INPUT_BACKGROUND = exports.INPUT_BORDERS = exports.INPUT_COLOR = undefined;
+    exports.reformatInputBounds =
+      exports.inlineSelectElement =
+      exports.inlineTextAreaElement =
+      exports.inlineInputElement =
+      exports.getInputBorderRadius =
+      exports.INPUT_BACKGROUND =
+      exports.INPUT_BORDERS =
+      exports.INPUT_COLOR =
+        undefined;
 
     var _TextContainer2 = _interopRequireDefault(TextContainer_1);
 
@@ -24880,110 +22514,105 @@
       CHECKBOX_BORDER_RADIUS_TUPLE,
     ];
 
-    var getInputBorderRadius = (exports.getInputBorderRadius = function getInputBorderRadius(
-      node
-    ) {
-      return node.type === "radio"
-        ? INPUT_RADIO_BORDER_RADIUS
-        : INPUT_CHECKBOX_BORDER_RADIUS;
-    });
+    var getInputBorderRadius = (exports.getInputBorderRadius =
+      function getInputBorderRadius(node) {
+        return node.type === "radio"
+          ? INPUT_RADIO_BORDER_RADIUS
+          : INPUT_CHECKBOX_BORDER_RADIUS;
+      });
 
-    var inlineInputElement = (exports.inlineInputElement = function inlineInputElement(
-      node,
-      container
-    ) {
-      if (node.type === "radio" || node.type === "checkbox") {
-        if (node.checked) {
-          var size = Math.min(container.bounds.width, container.bounds.height);
-          container.childNodes.push(
-            node.type === "checkbox"
-              ? [
-                  new _Vector2.default(
-                    container.bounds.left + size * 0.39363,
-                    container.bounds.top + size * 0.79
+    var inlineInputElement = (exports.inlineInputElement =
+      function inlineInputElement(node, container) {
+        if (node.type === "radio" || node.type === "checkbox") {
+          if (node.checked) {
+            var size = Math.min(
+              container.bounds.width,
+              container.bounds.height,
+            );
+            container.childNodes.push(
+              node.type === "checkbox"
+                ? [
+                    new _Vector2.default(
+                      container.bounds.left + size * 0.39363,
+                      container.bounds.top + size * 0.79,
+                    ),
+                    new _Vector2.default(
+                      container.bounds.left + size * 0.16,
+                      container.bounds.top + size * 0.5549,
+                    ),
+                    new _Vector2.default(
+                      container.bounds.left + size * 0.27347,
+                      container.bounds.top + size * 0.44071,
+                    ),
+                    new _Vector2.default(
+                      container.bounds.left + size * 0.39694,
+                      container.bounds.top + size * 0.5649,
+                    ),
+                    new _Vector2.default(
+                      container.bounds.left + size * 0.72983,
+                      container.bounds.top + size * 0.23,
+                    ),
+                    new _Vector2.default(
+                      container.bounds.left + size * 0.84,
+                      container.bounds.top + size * 0.34085,
+                    ),
+                    new _Vector2.default(
+                      container.bounds.left + size * 0.39363,
+                      container.bounds.top + size * 0.79,
+                    ),
+                  ]
+                : new _Circle2.default(
+                    container.bounds.left + size / 4,
+                    container.bounds.top + size / 4,
+                    size / 4,
                   ),
-                  new _Vector2.default(
-                    container.bounds.left + size * 0.16,
-                    container.bounds.top + size * 0.5549
-                  ),
-                  new _Vector2.default(
-                    container.bounds.left + size * 0.27347,
-                    container.bounds.top + size * 0.44071
-                  ),
-                  new _Vector2.default(
-                    container.bounds.left + size * 0.39694,
-                    container.bounds.top + size * 0.5649
-                  ),
-                  new _Vector2.default(
-                    container.bounds.left + size * 0.72983,
-                    container.bounds.top + size * 0.23
-                  ),
-                  new _Vector2.default(
-                    container.bounds.left + size * 0.84,
-                    container.bounds.top + size * 0.34085
-                  ),
-                  new _Vector2.default(
-                    container.bounds.left + size * 0.39363,
-                    container.bounds.top + size * 0.79
-                  ),
-                ]
-              : new _Circle2.default(
-                  container.bounds.left + size / 4,
-                  container.bounds.top + size / 4,
-                  size / 4
-                )
-          );
+            );
+          }
+        } else {
+          inlineFormElement(getInputValue(node), node, container, false);
         }
-      } else {
-        inlineFormElement(getInputValue(node), node, container, false);
-      }
-    });
+      });
 
-    var inlineTextAreaElement = (exports.inlineTextAreaElement = function inlineTextAreaElement(
-      node,
-      container
-    ) {
-      inlineFormElement(node.value, node, container, true);
-    });
+    var inlineTextAreaElement = (exports.inlineTextAreaElement =
+      function inlineTextAreaElement(node, container) {
+        inlineFormElement(node.value, node, container, true);
+      });
 
-    var inlineSelectElement = (exports.inlineSelectElement = function inlineSelectElement(
-      node,
-      container
-    ) {
-      var option = node.options[node.selectedIndex || 0];
-      inlineFormElement(
-        option ? option.text || "" : "",
-        node,
-        container,
-        false
-      );
-    });
+    var inlineSelectElement = (exports.inlineSelectElement =
+      function inlineSelectElement(node, container) {
+        var option = node.options[node.selectedIndex || 0];
+        inlineFormElement(
+          option ? option.text || "" : "",
+          node,
+          container,
+          false,
+        );
+      });
 
-    var reformatInputBounds = (exports.reformatInputBounds = function reformatInputBounds(
-      bounds
-    ) {
-      if (bounds.width > bounds.height) {
-        bounds.left += (bounds.width - bounds.height) / 2;
-        bounds.width = bounds.height;
-      } else if (bounds.width < bounds.height) {
-        bounds.top += (bounds.height - bounds.width) / 2;
-        bounds.height = bounds.width;
-      }
-      return bounds;
-    });
+    var reformatInputBounds = (exports.reformatInputBounds =
+      function reformatInputBounds(bounds) {
+        if (bounds.width > bounds.height) {
+          bounds.left += (bounds.width - bounds.height) / 2;
+          bounds.width = bounds.height;
+        } else if (bounds.width < bounds.height) {
+          bounds.top += (bounds.height - bounds.width) / 2;
+          bounds.height = bounds.width;
+        }
+        return bounds;
+      });
 
     var inlineFormElement = function inlineFormElement(
       value,
       node,
       container,
-      allowLinebreak
+      allowLinebreak,
     ) {
       var body = node.ownerDocument.body;
       if (value.length > 0 && body) {
         var wrapper = node.ownerDocument.createElement("html2canvaswrapper");
         (0, Util.copyCSSStyles)(
           node.ownerDocument.defaultView.getComputedStyle(node, null),
-          wrapper
+          wrapper,
         );
         wrapper.style.position = "absolute";
         wrapper.style.left = container.bounds.left + "px";
@@ -24995,7 +22624,7 @@
         wrapper.appendChild(text);
         body.appendChild(wrapper);
         container.childNodes.push(
-          _TextContainer2.default.fromTextNode(text, container)
+          _TextContainer2.default.fromTextNode(text, container),
         );
         body.removeChild(wrapper);
       }
@@ -25025,7 +22654,10 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    exports.createCounterText = exports.inlineListItemElement = exports.getListOwner = undefined;
+    exports.createCounterText =
+      exports.inlineListItemElement =
+      exports.getListOwner =
+        undefined;
 
     var _NodeContainer2 = _interopRequireDefault(NodeContainer_1);
 
@@ -25041,7 +22673,7 @@
     var ancestorTypes = ["OL", "UL", "MENU"];
 
     var getListOwner = (exports.getListOwner = function getListOwner(
-      container
+      container,
     ) {
       var parent = container.parent;
       if (!parent) {
@@ -25059,100 +22691,101 @@
       return container.parent;
     });
 
-    var inlineListItemElement = (exports.inlineListItemElement = function inlineListItemElement(
-      node,
-      container,
-      resourceLoader
-    ) {
-      var listStyle$$1 = container.style.listStyle;
+    var inlineListItemElement = (exports.inlineListItemElement =
+      function inlineListItemElement(node, container, resourceLoader) {
+        var listStyle$$1 = container.style.listStyle;
 
-      if (!listStyle$$1) {
-        return;
-      }
-
-      var style = node.ownerDocument.defaultView.getComputedStyle(node, null);
-      var wrapper = node.ownerDocument.createElement("html2canvaswrapper");
-      (0, Util.copyCSSStyles)(style, wrapper);
-
-      wrapper.style.position = "absolute";
-      wrapper.style.bottom = "auto";
-      wrapper.style.display = "block";
-      wrapper.style.letterSpacing = "normal";
-
-      switch (listStyle$$1.listStylePosition) {
-        case listStyle.LIST_STYLE_POSITION.OUTSIDE:
-          wrapper.style.left = "auto";
-          wrapper.style.right =
-            node.ownerDocument.defaultView.innerWidth -
-            container.bounds.left -
-            container.style.margin[1].getAbsoluteValue(container.bounds.width) +
-            MARGIN_RIGHT +
-            "px";
-          wrapper.style.textAlign = "right";
-          break;
-        case listStyle.LIST_STYLE_POSITION.INSIDE:
-          wrapper.style.left =
-            container.bounds.left -
-            container.style.margin[3].getAbsoluteValue(container.bounds.width) +
-            "px";
-          wrapper.style.right = "auto";
-          wrapper.style.textAlign = "left";
-          break;
-      }
-
-      var text = void 0;
-      var MARGIN_TOP = container.style.margin[0].getAbsoluteValue(
-        container.bounds.width
-      );
-      var styleImage = listStyle$$1.listStyleImage;
-      if (styleImage) {
-        if (styleImage.method === "url") {
-          var image = node.ownerDocument.createElement("img");
-          image.src = styleImage.args[0];
-          wrapper.style.top = container.bounds.top - MARGIN_TOP + "px";
-          wrapper.style.width = "auto";
-          wrapper.style.height = "auto";
-          wrapper.appendChild(image);
-        } else {
-          var size = parseFloat(container.style.font.fontSize) * 0.5;
-          wrapper.style.top =
-            container.bounds.top -
-            MARGIN_TOP +
-            container.bounds.height -
-            1.5 * size +
-            "px";
-          wrapper.style.width = size + "px";
-          wrapper.style.height = size + "px";
-          wrapper.style.backgroundImage = style.listStyleImage;
+        if (!listStyle$$1) {
+          return;
         }
-      } else if (typeof container.listIndex === "number") {
-        text = node.ownerDocument.createTextNode(
-          createCounterText(
-            container.listIndex,
-            listStyle$$1.listStyleType,
-            true
-          )
-        );
-        wrapper.appendChild(text);
-        wrapper.style.top = container.bounds.top - MARGIN_TOP + "px";
-      }
 
-      // $FlowFixMe
-      var body = node.ownerDocument.body;
-      body.appendChild(wrapper);
+        var style = node.ownerDocument.defaultView.getComputedStyle(node, null);
+        var wrapper = node.ownerDocument.createElement("html2canvaswrapper");
+        (0, Util.copyCSSStyles)(style, wrapper);
 
-      if (text) {
-        container.childNodes.push(
-          _TextContainer2.default.fromTextNode(text, container)
+        wrapper.style.position = "absolute";
+        wrapper.style.bottom = "auto";
+        wrapper.style.display = "block";
+        wrapper.style.letterSpacing = "normal";
+
+        switch (listStyle$$1.listStylePosition) {
+          case listStyle.LIST_STYLE_POSITION.OUTSIDE:
+            wrapper.style.left = "auto";
+            wrapper.style.right =
+              node.ownerDocument.defaultView.innerWidth -
+              container.bounds.left -
+              container.style.margin[1].getAbsoluteValue(
+                container.bounds.width,
+              ) +
+              MARGIN_RIGHT +
+              "px";
+            wrapper.style.textAlign = "right";
+            break;
+          case listStyle.LIST_STYLE_POSITION.INSIDE:
+            wrapper.style.left =
+              container.bounds.left -
+              container.style.margin[3].getAbsoluteValue(
+                container.bounds.width,
+              ) +
+              "px";
+            wrapper.style.right = "auto";
+            wrapper.style.textAlign = "left";
+            break;
+        }
+
+        var text = void 0;
+        var MARGIN_TOP = container.style.margin[0].getAbsoluteValue(
+          container.bounds.width,
         );
-        body.removeChild(wrapper);
-      } else {
+        var styleImage = listStyle$$1.listStyleImage;
+        if (styleImage) {
+          if (styleImage.method === "url") {
+            var image = node.ownerDocument.createElement("img");
+            image.src = styleImage.args[0];
+            wrapper.style.top = container.bounds.top - MARGIN_TOP + "px";
+            wrapper.style.width = "auto";
+            wrapper.style.height = "auto";
+            wrapper.appendChild(image);
+          } else {
+            var size = parseFloat(container.style.font.fontSize) * 0.5;
+            wrapper.style.top =
+              container.bounds.top -
+              MARGIN_TOP +
+              container.bounds.height -
+              1.5 * size +
+              "px";
+            wrapper.style.width = size + "px";
+            wrapper.style.height = size + "px";
+            wrapper.style.backgroundImage = style.listStyleImage;
+          }
+        } else if (typeof container.listIndex === "number") {
+          text = node.ownerDocument.createTextNode(
+            createCounterText(
+              container.listIndex,
+              listStyle$$1.listStyleType,
+              true,
+            ),
+          );
+          wrapper.appendChild(text);
+          wrapper.style.top = container.bounds.top - MARGIN_TOP + "px";
+        }
+
         // $FlowFixMe
-        container.childNodes.push(
-          new _NodeContainer2.default(wrapper, container, resourceLoader, 0)
-        );
-      }
-    });
+        var body = node.ownerDocument.body;
+        body.appendChild(wrapper);
+
+        if (text) {
+          container.childNodes.push(
+            _TextContainer2.default.fromTextNode(text, container),
+          );
+          body.removeChild(wrapper);
+        } else {
+          // $FlowFixMe
+          container.childNodes.push(
+            new _NodeContainer2.default(wrapper, container, resourceLoader, 0),
+          );
+        }
+      });
 
     var ROMAN_UPPER = {
       integers: [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1],
@@ -25175,42 +22808,9 @@
 
     var ARMENIAN = {
       integers: [
-        9000,
-        8000,
-        7000,
-        6000,
-        5000,
-        4000,
-        3000,
-        2000,
-        1000,
-        900,
-        800,
-        700,
-        600,
-        500,
-        400,
-        300,
-        200,
-        100,
-        90,
-        80,
-        70,
-        60,
-        50,
-        40,
-        30,
-        20,
-        10,
-        9,
-        8,
-        7,
-        6,
-        5,
-        4,
-        3,
-        2,
-        1,
+        9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000, 900, 800, 700,
+        600, 500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 9, 8,
+        7, 6, 5, 4, 3, 2, 1,
       ],
       values: [
         "Ք",
@@ -25254,43 +22854,9 @@
 
     var HEBREW = {
       integers: [
-        10000,
-        9000,
-        8000,
-        7000,
-        6000,
-        5000,
-        4000,
-        3000,
-        2000,
-        1000,
-        400,
-        300,
-        200,
-        100,
-        90,
-        80,
-        70,
-        60,
-        50,
-        40,
-        30,
-        20,
-        19,
-        18,
-        17,
-        16,
-        15,
-        10,
-        9,
-        8,
-        7,
-        6,
-        5,
-        4,
-        3,
-        2,
-        1,
+        10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000, 400, 300,
+        200, 100, 90, 80, 70, 60, 50, 40, 30, 20, 19, 18, 17, 16, 15, 10, 9, 8,
+        7, 6, 5, 4, 3, 2, 1,
       ],
       values: [
         "י׳",
@@ -25335,43 +22901,9 @@
 
     var GEORGIAN = {
       integers: [
-        10000,
-        9000,
-        8000,
-        7000,
-        6000,
-        5000,
-        4000,
-        3000,
-        2000,
-        1000,
-        900,
-        800,
-        700,
-        600,
-        500,
-        400,
-        300,
-        200,
-        100,
-        90,
-        80,
-        70,
-        60,
-        50,
-        40,
-        30,
-        20,
-        10,
-        9,
-        8,
-        7,
-        6,
-        5,
-        4,
-        3,
-        2,
-        1,
+        10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000, 900, 800,
+        700, 600, 500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10,
+        9, 8, 7, 6, 5, 4, 3, 2, 1,
       ],
       values: [
         "ჵ",
@@ -25420,7 +22952,7 @@
       max,
       symbols,
       fallback,
-      suffix
+      suffix,
     ) {
       if (value < min || value > max) {
         return createCounterText(value, fallback, suffix.length > 0);
@@ -25437,31 +22969,32 @@
       );
     };
 
-    var createCounterStyleWithSymbolResolver = function createCounterStyleWithSymbolResolver(
-      value,
-      codePointRangeLength,
-      isNumeric,
-      resolver
-    ) {
-      var string = "";
+    var createCounterStyleWithSymbolResolver =
+      function createCounterStyleWithSymbolResolver(
+        value,
+        codePointRangeLength,
+        isNumeric,
+        resolver,
+      ) {
+        var string = "";
 
-      do {
-        if (!isNumeric) {
-          value--;
-        }
-        string = resolver(value) + string;
-        value /= codePointRangeLength;
-      } while (value * codePointRangeLength >= codePointRangeLength);
+        do {
+          if (!isNumeric) {
+            value--;
+          }
+          string = resolver(value) + string;
+          value /= codePointRangeLength;
+        } while (value * codePointRangeLength >= codePointRangeLength);
 
-      return string;
-    };
+        return string;
+      };
 
     var createCounterStyleFromRange = function createCounterStyleFromRange(
       value,
       codePointRangeStart,
       codePointRangeEnd,
       isNumeric,
-      suffix
+      suffix,
     ) {
       var codePointRangeLength = codePointRangeEnd - codePointRangeStart + 1;
 
@@ -25473,9 +23006,10 @@
           isNumeric,
           function (codePoint) {
             return (0, Unicode.fromCodePoint)(
-              Math.floor(codePoint % codePointRangeLength) + codePointRangeStart
+              Math.floor(codePoint % codePointRangeLength) +
+                codePointRangeStart,
             );
-          }
+          },
         ) +
           suffix)
       );
@@ -25483,7 +23017,7 @@
 
     var createCounterStyleFromSymbols = function createCounterStyleFromSymbols(
       value,
-      symbols
+      symbols,
     ) {
       var suffix =
         arguments.length > 2 && arguments[2] !== undefined
@@ -25498,7 +23032,7 @@
           false,
           function (codePoint) {
             return symbols[Math.floor(codePoint % codePointRangeLength)];
-          }
+          },
         ) + suffix
       );
     };
@@ -25514,13 +23048,13 @@
       multipliers,
       negativeSign,
       suffix,
-      flags
+      flags,
     ) {
       if (value < -9999 || value > 9999) {
         return createCounterText(
           value,
           listStyle.LIST_STYLE_TYPE.CJK_DECIMAL,
-          suffix.length > 0
+          suffix.length > 0,
         );
       }
       var tmp = Math.abs(value);
@@ -25571,381 +23105,378 @@
     var JAPANESE_NEGATIVE = "マイナス";
     var KOREAN_NEGATIVE = "마이너스 ";
 
-    var createCounterText = (exports.createCounterText = function createCounterText(
-      value,
-      type,
-      appendSuffix
-    ) {
-      var defaultSuffix = appendSuffix ? ". " : "";
-      var cjkSuffix = appendSuffix ? "、" : "";
-      var koreanSuffix = appendSuffix ? ", " : "";
-      switch (type) {
-        case listStyle.LIST_STYLE_TYPE.DISC:
-          return "•";
-        case listStyle.LIST_STYLE_TYPE.CIRCLE:
-          return "◦";
-        case listStyle.LIST_STYLE_TYPE.SQUARE:
-          return "◾";
-        case listStyle.LIST_STYLE_TYPE.DECIMAL_LEADING_ZERO:
-          var string = createCounterStyleFromRange(
-            value,
-            48,
-            57,
-            true,
-            defaultSuffix
-          );
-          return string.length < 4 ? "0" + string : string;
-        case listStyle.LIST_STYLE_TYPE.CJK_DECIMAL:
-          return createCounterStyleFromSymbols(
-            value,
-            "〇一二三四五六七八九",
-            cjkSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.LOWER_ROMAN:
-          return createAdditiveCounter(
-            value,
-            1,
-            3999,
-            ROMAN_UPPER,
-            listStyle.LIST_STYLE_TYPE.DECIMAL,
-            defaultSuffix
-          ).toLowerCase();
-        case listStyle.LIST_STYLE_TYPE.UPPER_ROMAN:
-          return createAdditiveCounter(
-            value,
-            1,
-            3999,
-            ROMAN_UPPER,
-            listStyle.LIST_STYLE_TYPE.DECIMAL,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.LOWER_GREEK:
-          return createCounterStyleFromRange(
-            value,
-            945,
-            969,
-            false,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.LOWER_ALPHA:
-          return createCounterStyleFromRange(
-            value,
-            97,
-            122,
-            false,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.UPPER_ALPHA:
-          return createCounterStyleFromRange(
-            value,
-            65,
-            90,
-            false,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.ARABIC_INDIC:
-          return createCounterStyleFromRange(
-            value,
-            1632,
-            1641,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.ARMENIAN:
-        case listStyle.LIST_STYLE_TYPE.UPPER_ARMENIAN:
-          return createAdditiveCounter(
-            value,
-            1,
-            9999,
-            ARMENIAN,
-            listStyle.LIST_STYLE_TYPE.DECIMAL,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.LOWER_ARMENIAN:
-          return createAdditiveCounter(
-            value,
-            1,
-            9999,
-            ARMENIAN,
-            listStyle.LIST_STYLE_TYPE.DECIMAL,
-            defaultSuffix
-          ).toLowerCase();
-        case listStyle.LIST_STYLE_TYPE.BENGALI:
-          return createCounterStyleFromRange(
-            value,
-            2534,
-            2543,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.CAMBODIAN:
-        case listStyle.LIST_STYLE_TYPE.KHMER:
-          return createCounterStyleFromRange(
-            value,
-            6112,
-            6121,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.CJK_EARTHLY_BRANCH:
-          return createCounterStyleFromSymbols(
-            value,
-            "子丑寅卯辰巳午未申酉戌亥",
-            cjkSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.CJK_HEAVENLY_STEM:
-          return createCounterStyleFromSymbols(
-            value,
-            "甲乙丙丁戊己庚辛壬癸",
-            cjkSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.CJK_IDEOGRAPHIC:
-        case listStyle.LIST_STYLE_TYPE.TRAD_CHINESE_INFORMAL:
-          return createCJKCounter(
-            value,
-            "零一二三四五六七八九",
-            CHINESE_INFORMAL_MULTIPLIERS,
-            "負",
-            cjkSuffix,
-            CJK_TEN_COEFFICIENTS |
-              CJK_TEN_HIGH_COEFFICIENTS |
-              CJK_HUNDRED_COEFFICIENTS
-          );
-        case listStyle.LIST_STYLE_TYPE.TRAD_CHINESE_FORMAL:
-          return createCJKCounter(
-            value,
-            "零壹貳參肆伍陸柒捌玖",
-            CHINESE_FORMAL_MULTIPLIERS,
-            "負",
-            cjkSuffix,
-            CJK_ZEROS |
+    var createCounterText = (exports.createCounterText =
+      function createCounterText(value, type, appendSuffix) {
+        var defaultSuffix = appendSuffix ? ". " : "";
+        var cjkSuffix = appendSuffix ? "、" : "";
+        var koreanSuffix = appendSuffix ? ", " : "";
+        switch (type) {
+          case listStyle.LIST_STYLE_TYPE.DISC:
+            return "•";
+          case listStyle.LIST_STYLE_TYPE.CIRCLE:
+            return "◦";
+          case listStyle.LIST_STYLE_TYPE.SQUARE:
+            return "◾";
+          case listStyle.LIST_STYLE_TYPE.DECIMAL_LEADING_ZERO:
+            var string = createCounterStyleFromRange(
+              value,
+              48,
+              57,
+              true,
+              defaultSuffix,
+            );
+            return string.length < 4 ? "0" + string : string;
+          case listStyle.LIST_STYLE_TYPE.CJK_DECIMAL:
+            return createCounterStyleFromSymbols(
+              value,
+              "〇一二三四五六七八九",
+              cjkSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.LOWER_ROMAN:
+            return createAdditiveCounter(
+              value,
+              1,
+              3999,
+              ROMAN_UPPER,
+              listStyle.LIST_STYLE_TYPE.DECIMAL,
+              defaultSuffix,
+            ).toLowerCase();
+          case listStyle.LIST_STYLE_TYPE.UPPER_ROMAN:
+            return createAdditiveCounter(
+              value,
+              1,
+              3999,
+              ROMAN_UPPER,
+              listStyle.LIST_STYLE_TYPE.DECIMAL,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.LOWER_GREEK:
+            return createCounterStyleFromRange(
+              value,
+              945,
+              969,
+              false,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.LOWER_ALPHA:
+            return createCounterStyleFromRange(
+              value,
+              97,
+              122,
+              false,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.UPPER_ALPHA:
+            return createCounterStyleFromRange(
+              value,
+              65,
+              90,
+              false,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.ARABIC_INDIC:
+            return createCounterStyleFromRange(
+              value,
+              1632,
+              1641,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.ARMENIAN:
+          case listStyle.LIST_STYLE_TYPE.UPPER_ARMENIAN:
+            return createAdditiveCounter(
+              value,
+              1,
+              9999,
+              ARMENIAN,
+              listStyle.LIST_STYLE_TYPE.DECIMAL,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.LOWER_ARMENIAN:
+            return createAdditiveCounter(
+              value,
+              1,
+              9999,
+              ARMENIAN,
+              listStyle.LIST_STYLE_TYPE.DECIMAL,
+              defaultSuffix,
+            ).toLowerCase();
+          case listStyle.LIST_STYLE_TYPE.BENGALI:
+            return createCounterStyleFromRange(
+              value,
+              2534,
+              2543,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.CAMBODIAN:
+          case listStyle.LIST_STYLE_TYPE.KHMER:
+            return createCounterStyleFromRange(
+              value,
+              6112,
+              6121,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.CJK_EARTHLY_BRANCH:
+            return createCounterStyleFromSymbols(
+              value,
+              "子丑寅卯辰巳午未申酉戌亥",
+              cjkSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.CJK_HEAVENLY_STEM:
+            return createCounterStyleFromSymbols(
+              value,
+              "甲乙丙丁戊己庚辛壬癸",
+              cjkSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.CJK_IDEOGRAPHIC:
+          case listStyle.LIST_STYLE_TYPE.TRAD_CHINESE_INFORMAL:
+            return createCJKCounter(
+              value,
+              "零一二三四五六七八九",
+              CHINESE_INFORMAL_MULTIPLIERS,
+              "負",
+              cjkSuffix,
               CJK_TEN_COEFFICIENTS |
-              CJK_TEN_HIGH_COEFFICIENTS |
-              CJK_HUNDRED_COEFFICIENTS
-          );
-        case listStyle.LIST_STYLE_TYPE.SIMP_CHINESE_INFORMAL:
-          return createCJKCounter(
-            value,
-            "零一二三四五六七八九",
-            CHINESE_INFORMAL_MULTIPLIERS,
-            "负",
-            cjkSuffix,
-            CJK_TEN_COEFFICIENTS |
-              CJK_TEN_HIGH_COEFFICIENTS |
-              CJK_HUNDRED_COEFFICIENTS
-          );
-        case listStyle.LIST_STYLE_TYPE.SIMP_CHINESE_FORMAL:
-          return createCJKCounter(
-            value,
-            "零壹贰叁肆伍陆柒捌玖",
-            CHINESE_FORMAL_MULTIPLIERS,
-            "负",
-            cjkSuffix,
-            CJK_ZEROS |
+                CJK_TEN_HIGH_COEFFICIENTS |
+                CJK_HUNDRED_COEFFICIENTS,
+            );
+          case listStyle.LIST_STYLE_TYPE.TRAD_CHINESE_FORMAL:
+            return createCJKCounter(
+              value,
+              "零壹貳參肆伍陸柒捌玖",
+              CHINESE_FORMAL_MULTIPLIERS,
+              "負",
+              cjkSuffix,
+              CJK_ZEROS |
+                CJK_TEN_COEFFICIENTS |
+                CJK_TEN_HIGH_COEFFICIENTS |
+                CJK_HUNDRED_COEFFICIENTS,
+            );
+          case listStyle.LIST_STYLE_TYPE.SIMP_CHINESE_INFORMAL:
+            return createCJKCounter(
+              value,
+              "零一二三四五六七八九",
+              CHINESE_INFORMAL_MULTIPLIERS,
+              "负",
+              cjkSuffix,
               CJK_TEN_COEFFICIENTS |
-              CJK_TEN_HIGH_COEFFICIENTS |
-              CJK_HUNDRED_COEFFICIENTS
-          );
-        case listStyle.LIST_STYLE_TYPE.JAPANESE_INFORMAL:
-          return createCJKCounter(
-            value,
-            "〇一二三四五六七八九",
-            "十百千万",
-            JAPANESE_NEGATIVE,
-            cjkSuffix,
-            0
-          );
-        case listStyle.LIST_STYLE_TYPE.JAPANESE_FORMAL:
-          return createCJKCounter(
-            value,
-            "零壱弐参四伍六七八九",
-            "拾百千万",
-            JAPANESE_NEGATIVE,
-            cjkSuffix,
-            CJK_ZEROS | CJK_TEN_COEFFICIENTS | CJK_TEN_HIGH_COEFFICIENTS
-          );
-        case listStyle.LIST_STYLE_TYPE.KOREAN_HANGUL_FORMAL:
-          return createCJKCounter(
-            value,
-            "영일이삼사오육칠팔구",
-            "십백천만",
-            KOREAN_NEGATIVE,
-            koreanSuffix,
-            CJK_ZEROS | CJK_TEN_COEFFICIENTS | CJK_TEN_HIGH_COEFFICIENTS
-          );
-        case listStyle.LIST_STYLE_TYPE.KOREAN_HANJA_INFORMAL:
-          return createCJKCounter(
-            value,
-            "零一二三四五六七八九",
-            "十百千萬",
-            KOREAN_NEGATIVE,
-            koreanSuffix,
-            0
-          );
-        case listStyle.LIST_STYLE_TYPE.KOREAN_HANJA_FORMAL:
-          return createCJKCounter(
-            value,
-            "零壹貳參四五六七八九",
-            "拾百千",
-            KOREAN_NEGATIVE,
-            koreanSuffix,
-            CJK_ZEROS | CJK_TEN_COEFFICIENTS | CJK_TEN_HIGH_COEFFICIENTS
-          );
-        case listStyle.LIST_STYLE_TYPE.DEVANAGARI:
-          return createCounterStyleFromRange(
-            value,
-            0x966,
-            0x96f,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.GEORGIAN:
-          return createAdditiveCounter(
-            value,
-            1,
-            19999,
-            GEORGIAN,
-            listStyle.LIST_STYLE_TYPE.DECIMAL,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.GUJARATI:
-          return createCounterStyleFromRange(
-            value,
-            0xae6,
-            0xaef,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.GURMUKHI:
-          return createCounterStyleFromRange(
-            value,
-            0xa66,
-            0xa6f,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.HEBREW:
-          return createAdditiveCounter(
-            value,
-            1,
-            10999,
-            HEBREW,
-            listStyle.LIST_STYLE_TYPE.DECIMAL,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.HIRAGANA:
-          return createCounterStyleFromSymbols(
-            value,
-            "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわゐゑをん"
-          );
-        case listStyle.LIST_STYLE_TYPE.HIRAGANA_IROHA:
-          return createCounterStyleFromSymbols(
-            value,
-            "いろはにほへとちりぬるをわかよたれそつねならむうゐのおくやまけふこえてあさきゆめみしゑひもせす"
-          );
-        case listStyle.LIST_STYLE_TYPE.KANNADA:
-          return createCounterStyleFromRange(
-            value,
-            0xce6,
-            0xcef,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.KATAKANA:
-          return createCounterStyleFromSymbols(
-            value,
-            "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヰヱヲン",
-            cjkSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.KATAKANA_IROHA:
-          return createCounterStyleFromSymbols(
-            value,
-            "イロハニホヘトチリヌルヲワカヨタレソツネナラムウヰノオクヤマケフコエテアサキユメミシヱヒモセス",
-            cjkSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.LAO:
-          return createCounterStyleFromRange(
-            value,
-            0xed0,
-            0xed9,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.MONGOLIAN:
-          return createCounterStyleFromRange(
-            value,
-            0x1810,
-            0x1819,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.MYANMAR:
-          return createCounterStyleFromRange(
-            value,
-            0x1040,
-            0x1049,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.ORIYA:
-          return createCounterStyleFromRange(
-            value,
-            0xb66,
-            0xb6f,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.PERSIAN:
-          return createCounterStyleFromRange(
-            value,
-            0x6f0,
-            0x6f9,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.TAMIL:
-          return createCounterStyleFromRange(
-            value,
-            0xbe6,
-            0xbef,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.TELUGU:
-          return createCounterStyleFromRange(
-            value,
-            0xc66,
-            0xc6f,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.THAI:
-          return createCounterStyleFromRange(
-            value,
-            0xe50,
-            0xe59,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.TIBETAN:
-          return createCounterStyleFromRange(
-            value,
-            0xf20,
-            0xf29,
-            true,
-            defaultSuffix
-          );
-        case listStyle.LIST_STYLE_TYPE.DECIMAL:
-        default:
-          return createCounterStyleFromRange(
-            value,
-            48,
-            57,
-            true,
-            defaultSuffix
-          );
-      }
-    });
+                CJK_TEN_HIGH_COEFFICIENTS |
+                CJK_HUNDRED_COEFFICIENTS,
+            );
+          case listStyle.LIST_STYLE_TYPE.SIMP_CHINESE_FORMAL:
+            return createCJKCounter(
+              value,
+              "零壹贰叁肆伍陆柒捌玖",
+              CHINESE_FORMAL_MULTIPLIERS,
+              "负",
+              cjkSuffix,
+              CJK_ZEROS |
+                CJK_TEN_COEFFICIENTS |
+                CJK_TEN_HIGH_COEFFICIENTS |
+                CJK_HUNDRED_COEFFICIENTS,
+            );
+          case listStyle.LIST_STYLE_TYPE.JAPANESE_INFORMAL:
+            return createCJKCounter(
+              value,
+              "〇一二三四五六七八九",
+              "十百千万",
+              JAPANESE_NEGATIVE,
+              cjkSuffix,
+              0,
+            );
+          case listStyle.LIST_STYLE_TYPE.JAPANESE_FORMAL:
+            return createCJKCounter(
+              value,
+              "零壱弐参四伍六七八九",
+              "拾百千万",
+              JAPANESE_NEGATIVE,
+              cjkSuffix,
+              CJK_ZEROS | CJK_TEN_COEFFICIENTS | CJK_TEN_HIGH_COEFFICIENTS,
+            );
+          case listStyle.LIST_STYLE_TYPE.KOREAN_HANGUL_FORMAL:
+            return createCJKCounter(
+              value,
+              "영일이삼사오육칠팔구",
+              "십백천만",
+              KOREAN_NEGATIVE,
+              koreanSuffix,
+              CJK_ZEROS | CJK_TEN_COEFFICIENTS | CJK_TEN_HIGH_COEFFICIENTS,
+            );
+          case listStyle.LIST_STYLE_TYPE.KOREAN_HANJA_INFORMAL:
+            return createCJKCounter(
+              value,
+              "零一二三四五六七八九",
+              "十百千萬",
+              KOREAN_NEGATIVE,
+              koreanSuffix,
+              0,
+            );
+          case listStyle.LIST_STYLE_TYPE.KOREAN_HANJA_FORMAL:
+            return createCJKCounter(
+              value,
+              "零壹貳參四五六七八九",
+              "拾百千",
+              KOREAN_NEGATIVE,
+              koreanSuffix,
+              CJK_ZEROS | CJK_TEN_COEFFICIENTS | CJK_TEN_HIGH_COEFFICIENTS,
+            );
+          case listStyle.LIST_STYLE_TYPE.DEVANAGARI:
+            return createCounterStyleFromRange(
+              value,
+              0x966,
+              0x96f,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.GEORGIAN:
+            return createAdditiveCounter(
+              value,
+              1,
+              19999,
+              GEORGIAN,
+              listStyle.LIST_STYLE_TYPE.DECIMAL,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.GUJARATI:
+            return createCounterStyleFromRange(
+              value,
+              0xae6,
+              0xaef,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.GURMUKHI:
+            return createCounterStyleFromRange(
+              value,
+              0xa66,
+              0xa6f,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.HEBREW:
+            return createAdditiveCounter(
+              value,
+              1,
+              10999,
+              HEBREW,
+              listStyle.LIST_STYLE_TYPE.DECIMAL,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.HIRAGANA:
+            return createCounterStyleFromSymbols(
+              value,
+              "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわゐゑをん",
+            );
+          case listStyle.LIST_STYLE_TYPE.HIRAGANA_IROHA:
+            return createCounterStyleFromSymbols(
+              value,
+              "いろはにほへとちりぬるをわかよたれそつねならむうゐのおくやまけふこえてあさきゆめみしゑひもせす",
+            );
+          case listStyle.LIST_STYLE_TYPE.KANNADA:
+            return createCounterStyleFromRange(
+              value,
+              0xce6,
+              0xcef,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.KATAKANA:
+            return createCounterStyleFromSymbols(
+              value,
+              "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヰヱヲン",
+              cjkSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.KATAKANA_IROHA:
+            return createCounterStyleFromSymbols(
+              value,
+              "イロハニホヘトチリヌルヲワカヨタレソツネナラムウヰノオクヤマケフコエテアサキユメミシヱヒモセス",
+              cjkSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.LAO:
+            return createCounterStyleFromRange(
+              value,
+              0xed0,
+              0xed9,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.MONGOLIAN:
+            return createCounterStyleFromRange(
+              value,
+              0x1810,
+              0x1819,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.MYANMAR:
+            return createCounterStyleFromRange(
+              value,
+              0x1040,
+              0x1049,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.ORIYA:
+            return createCounterStyleFromRange(
+              value,
+              0xb66,
+              0xb6f,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.PERSIAN:
+            return createCounterStyleFromRange(
+              value,
+              0x6f0,
+              0x6f9,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.TAMIL:
+            return createCounterStyleFromRange(
+              value,
+              0xbe6,
+              0xbef,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.TELUGU:
+            return createCounterStyleFromRange(
+              value,
+              0xc66,
+              0xc6f,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.THAI:
+            return createCounterStyleFromRange(
+              value,
+              0xe50,
+              0xe59,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.TIBETAN:
+            return createCounterStyleFromRange(
+              value,
+              0xf20,
+              0xf29,
+              true,
+              defaultSuffix,
+            );
+          case listStyle.LIST_STYLE_TYPE.DECIMAL:
+          default:
+            return createCounterStyleFromRange(
+              value,
+              48,
+              57,
+              true,
+              defaultSuffix,
+            );
+        }
+      });
   });
 
   unwrapExports(ListItem);
@@ -26033,7 +23564,7 @@
           float: (0, float_1.parseCSSFloat)(style.float),
           font: (0, font.parseFont)(style),
           letterSpacing: (0, letterSpacing.parseLetterSpacing)(
-            style.letterSpacing
+            style.letterSpacing,
           ),
           listStyle:
             display$$1 === display.DISPLAY.LIST_ITEM
@@ -26047,20 +23578,20 @@
               ? (0, overflow.parseOverflow)(style.overflow)
               : overflow.OVERFLOW.HIDDEN,
           overflowWrap: (0, overflowWrap.parseOverflowWrap)(
-            style.overflowWrap ? style.overflowWrap : style.wordWrap
+            style.overflowWrap ? style.overflowWrap : style.wordWrap,
           ),
           padding: (0, padding.parsePadding)(style),
           position: position$$1,
           textDecoration: (0, textDecoration.parseTextDecoration)(style),
           textShadow: (0, textShadow.parseTextShadow)(style.textShadow),
           textTransform: (0, textTransform.parseTextTransform)(
-            style.textTransform
+            style.textTransform,
           ),
           transform: (0, transform.parseTransform)(style),
           visibility: (0, visibility.parseVisibility)(style.visibility),
           wordBreak: (0, wordBreak.parseWordBreak)(style.wordBreak),
           zIndex: (0, zIndex.parseZIndex)(
-            position$$1 !== position.POSITION.STATIC ? style.zIndex : "auto"
+            position$$1 !== position.POSITION.STATIC ? style.zIndex : "auto",
           ),
         };
 
@@ -26078,10 +23609,10 @@
               node.hasAttribute("value") && typeof node.value === "number"
                 ? node.value
                 : listIndex === 0
-                ? typeof listOwner.listStart === "number"
-                  ? listOwner.listStart
-                  : 1
-                : listOwner.listItems[listIndex - 1].listIndex + 1;
+                  ? typeof listOwner.listStart === "number"
+                    ? listOwner.listStart
+                    : 1
+                  : listOwner.listItems[listIndex - 1].listIndex + 1;
           }
         }
 
@@ -26092,20 +23623,20 @@
             _this.curvedBounds = (0, Bounds_1.parseBoundCurves)(
               _this.bounds,
               _this.style.border,
-              _this.style.borderRadius
+              _this.style.borderRadius,
             );
           });
         }
         this.image = getImage(node, resourceLoader);
         this.bounds = IS_INPUT
           ? (0, Input.reformatInputBounds)(
-              (0, Bounds_1.parseBounds)(node, scrollX, scrollY)
+              (0, Bounds_1.parseBounds)(node, scrollX, scrollY),
             )
           : (0, Bounds_1.parseBounds)(node, scrollX, scrollY);
         this.curvedBounds = (0, Bounds_1.parseBoundCurves)(
           this.bounds,
           this.style.border,
-          this.style.borderRadius
+          this.style.borderRadius,
         );
       }
 
@@ -26189,23 +23720,23 @@
               (0, Util.contains)(this.style.display, display.DISPLAY.INLINE) ||
               (0, Util.contains)(
                 this.style.display,
-                display.DISPLAY.INLINE_BLOCK
+                display.DISPLAY.INLINE_BLOCK,
               ) ||
               (0, Util.contains)(
                 this.style.display,
-                display.DISPLAY.INLINE_FLEX
+                display.DISPLAY.INLINE_FLEX,
               ) ||
               (0, Util.contains)(
                 this.style.display,
-                display.DISPLAY.INLINE_GRID
+                display.DISPLAY.INLINE_GRID,
               ) ||
               (0, Util.contains)(
                 this.style.display,
-                display.DISPLAY.INLINE_LIST_ITEM
+                display.DISPLAY.INLINE_LIST_ITEM,
               ) ||
               (0, Util.contains)(
                 this.style.display,
-                display.DISPLAY.INLINE_TABLE
+                display.DISPLAY.INLINE_TABLE,
               )
             );
           },
@@ -26216,11 +23747,11 @@
             return (
               (0, Util.contains)(
                 this.style.display,
-                display.DISPLAY.INLINE_BLOCK
+                display.DISPLAY.INLINE_BLOCK,
               ) ||
               (0, Util.contains)(
                 this.style.display,
-                display.DISPLAY.INLINE_TABLE
+                display.DISPLAY.INLINE_TABLE,
               )
             );
           },
@@ -26239,7 +23770,7 @@
       ) {
         var s = new XMLSerializer();
         return resourceLoader.loadImage(
-          "data:image/svg+xml," + encodeURIComponent(s.serializeToString(node))
+          "data:image/svg+xml," + encodeURIComponent(s.serializeToString(node)),
         );
       }
       switch (node.tagName) {
@@ -26253,7 +23784,7 @@
           return resourceLoader.loadCanvas(canvas);
         case "IFRAME":
           var iframeKey = node.getAttribute(
-            "data-html2canvas-internal-iframe-key"
+            "data-html2canvas-internal-iframe-key",
           );
           if (iframeKey) {
             return iframeKey;
@@ -26358,7 +23889,7 @@
     var NodeParser = (exports.NodeParser = function NodeParser(
       node,
       resourceLoader,
-      logger
+      logger,
     ) {
       var index = 0;
 
@@ -26366,7 +23897,7 @@
         node,
         null,
         resourceLoader,
-        index++
+        index++,
       );
       var stack = new _StackingContext2.default(container, null, true);
 
@@ -26389,7 +23920,7 @@
       parent,
       stack,
       resourceLoader,
-      index
+      index,
     ) {
       for (
         var childNode = node.firstChild, nextNode;
@@ -26405,7 +23936,7 @@
         ) {
           if (childNode.data.trim().length > 0) {
             parent.childNodes.push(
-              _TextContainer2.default.fromTextNode(childNode, parent)
+              _TextContainer2.default.fromTextNode(childNode, parent),
             );
           }
         } else if (
@@ -26419,7 +23950,7 @@
               childNode,
               parent,
               resourceLoader,
-              index++
+              index++,
             );
             if (container.isVisible()) {
               if (childNode.tagName === "INPUT") {
@@ -26439,14 +23970,14 @@
                 (0, ListItem.inlineListItemElement)(
                   childNode,
                   container,
-                  resourceLoader
+                  resourceLoader,
                 );
               }
 
               var SHOULD_TRAVERSE_CHILDREN = childNode.tagName !== "TEXTAREA";
               var treatAsRealStackingContext = createsRealStackingContext(
                 container,
-                childNode
+                childNode,
               );
               if (
                 treatAsRealStackingContext ||
@@ -26461,7 +23992,7 @@
                 var childStack = new _StackingContext2.default(
                   container,
                   parentStack,
-                  treatAsRealStackingContext
+                  treatAsRealStackingContext,
                 );
                 parentStack.contexts.push(childStack);
                 if (SHOULD_TRAVERSE_CHILDREN) {
@@ -26470,7 +24001,7 @@
                     container,
                     childStack,
                     resourceLoader,
-                    index
+                    index,
                   );
                 }
               } else {
@@ -26481,7 +24012,7 @@
                     container,
                     stack,
                     resourceLoader,
-                    index
+                    index,
                   );
                 }
               }
@@ -26497,11 +24028,11 @@
             childNode,
             parent,
             resourceLoader,
-            index++
+            index++,
           );
           var _treatAsRealStackingContext = createsRealStackingContext(
             _container,
-            childNode
+            childNode,
           );
           if (
             _treatAsRealStackingContext ||
@@ -26516,7 +24047,7 @@
             var _childStack = new _StackingContext2.default(
               _container,
               _parentStack,
-              _treatAsRealStackingContext
+              _treatAsRealStackingContext,
             );
             _parentStack.contexts.push(_childStack);
           } else {
@@ -26528,7 +24059,7 @@
 
     var createsRealStackingContext = function createsRealStackingContext(
       container,
-      node
+      node,
     ) {
       return (
         container.isRootElement() ||
@@ -26545,7 +24076,7 @@
 
     var isBodyWithTransparentRoot = function isBodyWithTransparentRoot(
       container,
-      node
+      node,
     ) {
       return (
         node.nodeName === "BODY" &&
@@ -26703,7 +24234,13 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    exports.transformWebkitRadialGradientArgs = exports.parseGradient = exports.RadialGradient = exports.LinearGradient = exports.RADIAL_GRADIENT_SHAPE = exports.GRADIENT_TYPE = undefined;
+    exports.transformWebkitRadialGradientArgs =
+      exports.parseGradient =
+      exports.RadialGradient =
+      exports.LinearGradient =
+      exports.RADIAL_GRADIENT_SHAPE =
+      exports.GRADIENT_TYPE =
+        undefined;
 
     var _slicedToArray = (function () {
       function sliceIterator(arr, i) {
@@ -26739,7 +24276,7 @@
           return sliceIterator(arr, i);
         } else {
           throw new TypeError(
-            "Invalid attempt to destructure non-iterable instance"
+            "Invalid attempt to destructure non-iterable instance",
           );
         }
       };
@@ -26761,11 +24298,14 @@
       }
     }
 
-    var SIDE_OR_CORNER = /^(to )?(left|top|right|bottom)( (left|top|right|bottom))?$/i;
+    var SIDE_OR_CORNER =
+      /^(to )?(left|top|right|bottom)( (left|top|right|bottom))?$/i;
     var PERCENTAGE_ANGLES = /^([+-]?\d*\.?\d+)% ([+-]?\d*\.?\d+)%$/i;
     var ENDS_WITH_LENGTH = /(px)|%|( 0)$/i;
-    var FROM_TO_COLORSTOP = /^(from|to|color-stop)\((?:([\d.]+)(%)?,\s*)?(.+?)\)$/i;
-    var RADIAL_SHAPE_DEFINITION = /^\s*(circle|ellipse)?\s*((?:([\d.]+)(px|r?em|%)\s*(?:([\d.]+)(px|r?em|%))?)|closest-side|closest-corner|farthest-side|farthest-corner)?\s*(?:at\s*(?:(left|center|right)|([\d.]+)(px|r?em|%))\s+(?:(top|center|bottom)|([\d.]+)(px|r?em|%)))?(?:\s|$)/i;
+    var FROM_TO_COLORSTOP =
+      /^(from|to|color-stop)\((?:([\d.]+)(%)?,\s*)?(.+?)\)$/i;
+    var RADIAL_SHAPE_DEFINITION =
+      /^\s*(circle|ellipse)?\s*((?:([\d.]+)(px|r?em|%)\s*(?:([\d.]+)(px|r?em|%))?)|closest-side|closest-corner|farthest-side|farthest-corner)?\s*(?:at\s*(?:(left|center|right)|([\d.]+)(px|r?em|%))\s+(?:(top|center|bottom)|([\d.]+)(px|r?em|%)))?(?:\s|$)/i;
 
     var GRADIENT_TYPE = (exports.GRADIENT_TYPE = {
       LINEAR_GRADIENT: 0,
@@ -26787,7 +24327,7 @@
 
     var LinearGradient = (exports.LinearGradient = function LinearGradient(
       colorStops,
-      direction
+      direction,
     ) {
       _classCallCheck(this, LinearGradient);
 
@@ -26800,7 +24340,7 @@
       colorStops,
       shape,
       center,
-      radius
+      radius,
     ) {
       _classCallCheck(this, RadialGradient);
 
@@ -26814,7 +24354,7 @@
     var parseGradient = (exports.parseGradient = function parseGradient(
       container,
       _ref,
-      bounds
+      bounds,
     ) {
       var args = _ref.args,
         method = _ref.method,
@@ -26827,7 +24367,7 @@
         return parseLinearGradient(
           ["to bottom"].concat(transformObsoleteColorStops(args.slice(3))),
           bounds,
-          !!prefix
+          !!prefix,
         );
       } else if (method === "radial-gradient") {
         return parseRadialGradient(
@@ -26835,15 +24375,15 @@
           prefix === "-webkit-"
             ? transformWebkitRadialGradientArgs(args)
             : args,
-          bounds
+          bounds,
         );
       } else if (method === "gradient" && args[0] === "radial") {
         return parseRadialGradient(
           container,
           transformObsoleteColorStops(
-            transformWebkitRadialGradientArgs(args.slice(1))
+            transformWebkitRadialGradientArgs(args.slice(1)),
           ),
-          bounds
+          bounds,
         );
       }
     });
@@ -26851,7 +24391,7 @@
     var parseColorStops = function parseColorStops(
       args,
       firstColorStopIndex,
-      lineLength
+      lineLength,
     ) {
       var colorStops = [];
 
@@ -26860,15 +24400,15 @@
         var HAS_LENGTH = ENDS_WITH_LENGTH.test(value);
         var lastSpaceIndex = value.lastIndexOf(" ");
         var _color = new _Color2.default(
-          HAS_LENGTH ? value.substring(0, lastSpaceIndex) : value
+          HAS_LENGTH ? value.substring(0, lastSpaceIndex) : value,
         );
         var _stop = HAS_LENGTH
           ? new _Length2.default(value.substring(lastSpaceIndex + 1))
           : i === firstColorStopIndex
-          ? new _Length2.default("0%")
-          : i === args.length - 1
-          ? new _Length2.default("100%")
-          : null;
+            ? new _Length2.default("0%")
+            : i === args.length - 1
+              ? new _Length2.default("100%")
+              : null;
         colorStops.push({ color: _color, stop: _stop });
       }
 
@@ -26880,8 +24420,8 @@
           lineLength === 0
             ? 0
             : stop
-            ? stop.getAbsoluteValue(lineLength) / lineLength
-            : null;
+              ? stop.getAbsoluteValue(lineLength) / lineLength
+              : null;
 
         return {
           color: color,
@@ -26918,7 +24458,7 @@
     var parseLinearGradient = function parseLinearGradient(
       args,
       bounds,
-      hasPrefix
+      hasPrefix,
     ) {
       var angle = (0, Angle.parseAngle)(args[0]);
       var HAS_SIDE_OR_CORNER = SIDE_OR_CORNER.test(args[0]);
@@ -26929,11 +24469,11 @@
           ? calculateGradientDirection(
               // if there is a prefix, the 0° angle points due East (instead of North per W3C)
               hasPrefix ? angle - Math.PI * 0.5 : angle,
-              bounds
+              bounds,
             )
           : HAS_SIDE_OR_CORNER
-          ? parseSideOrCorner(args[0], bounds)
-          : parsePercentageAngle(args[0], bounds)
+            ? parseSideOrCorner(args[0], bounds)
+            : parsePercentageAngle(args[0], bounds)
         : calculateGradientDirection(Math.PI, bounds);
       var firstColorStopIndex = HAS_DIRECTION ? 1 : 0;
 
@@ -26941,22 +24481,22 @@
       var lineLength = Math.min(
         (0, Util.distance)(
           Math.abs(direction.x0) + Math.abs(direction.x1),
-          Math.abs(direction.y0) + Math.abs(direction.y1)
+          Math.abs(direction.y0) + Math.abs(direction.y1),
         ),
         bounds.width * 2,
-        bounds.height * 2
+        bounds.height * 2,
       );
 
       return new LinearGradient(
         parseColorStops(args, firstColorStopIndex, lineLength),
-        direction
+        direction,
       );
     };
 
     var parseRadialGradient = function parseRadialGradient(
       container,
       args,
-      bounds
+      bounds,
     ) {
       var m = args[0].match(RADIAL_SHAPE_DEFINITION);
       var shape =
@@ -26974,7 +24514,7 @@
           radius.x = (0, Length_1.calculateLengthFromValueWithUnit)(
             container,
             m[3],
-            m[4]
+            m[4],
           ).getAbsoluteValue(bounds.width);
         }
 
@@ -26982,7 +24522,7 @@
           radius.y = (0, Length_1.calculateLengthFromValueWithUnit)(
             container,
             m[5],
-            m[6]
+            m[6],
           ).getAbsoluteValue(bounds.height);
         }
 
@@ -26993,7 +24533,7 @@
           center.x = (0, Length_1.calculateLengthFromValueWithUnit)(
             container,
             m[8],
-            m[9]
+            m[9],
           );
         }
 
@@ -27003,7 +24543,7 @@
           center.y = (0, Length_1.calculateLengthFromValueWithUnit)(
             container,
             m[11],
-            m[12]
+            m[12],
           );
         }
       }
@@ -27023,24 +24563,24 @@
         shape,
         gradientCenter,
         radius,
-        bounds
+        bounds,
       );
 
       return new RadialGradient(
         parseColorStops(
           args,
           m ? 1 : 0,
-          Math.min(gradientRadius.x, gradientRadius.y)
+          Math.min(gradientRadius.x, gradientRadius.y),
         ),
         shape,
         gradientCenter,
-        gradientRadius
+        gradientRadius,
       );
     };
 
     var calculateGradientDirection = function calculateGradientDirection(
       radian,
-      bounds
+      bounds,
     ) {
       var width = bounds.width;
       var height = bounds.height;
@@ -27061,7 +24601,9 @@
 
     var parseTopRight = function parseTopRight(bounds) {
       return Math.acos(
-        bounds.width / 2 / ((0, Util.distance)(bounds.width, bounds.height) / 2)
+        bounds.width /
+          2 /
+          ((0, Util.distance)(bounds.width, bounds.height) / 2),
       );
     };
 
@@ -27082,7 +24624,7 @@
         case "to left bottom":
           return calculateGradientDirection(
             Math.PI + parseTopRight(bounds),
-            bounds
+            bounds,
           );
         case "top left":
         case "left top":
@@ -27090,7 +24632,7 @@
         case "to right bottom":
           return calculateGradientDirection(
             Math.PI - parseTopRight(bounds),
-            bounds
+            bounds,
           );
         case "bottom left":
         case "left bottom":
@@ -27103,7 +24645,7 @@
         case "to left top":
           return calculateGradientDirection(
             2 * Math.PI - parseTopRight(bounds),
-            bounds
+            bounds,
           );
         case "top":
         case "to bottom":
@@ -27122,7 +24664,7 @@
 
       return calculateGradientDirection(
         Math.atan(isNaN(ratio) ? 1 : ratio) + Math.PI / 2,
-        bounds
+        bounds,
       );
     };
 
@@ -27150,7 +24692,7 @@
         {
           optimumDistance: closest ? Infinity : -Infinity,
           optimumCorner: null,
-        }
+        },
       ).optimumCorner;
     };
 
@@ -27159,7 +24701,7 @@
       shape,
       center,
       radius,
-      bounds
+      bounds,
     ) {
       var x = center.x;
       var y = center.y;
@@ -27175,7 +24717,7 @@
               Math.abs(x),
               Math.abs(x - bounds.width),
               Math.abs(y),
-              Math.abs(y - bounds.height)
+              Math.abs(y - bounds.height),
             );
           } else if (shape === RADIAL_GRADIENT_SHAPE.ELLIPSE) {
             rx = Math.min(Math.abs(x), Math.abs(x - bounds.width));
@@ -27191,7 +24733,7 @@
               (0, Util.distance)(x, y),
               (0, Util.distance)(x, y - bounds.height),
               (0, Util.distance)(x - bounds.width, y),
-              (0, Util.distance)(x - bounds.width, y - bounds.height)
+              (0, Util.distance)(x - bounds.width, y - bounds.height),
             );
           } else if (shape === RADIAL_GRADIENT_SHAPE.ELLIPSE) {
             // Compute the ratio ry/rx (which is to be the same as for "closest-side")
@@ -27211,7 +24753,7 @@
               Math.abs(x),
               Math.abs(x - bounds.width),
               Math.abs(y),
-              Math.abs(y - bounds.height)
+              Math.abs(y - bounds.height),
             );
           } else if (shape === RADIAL_GRADIENT_SHAPE.ELLIPSE) {
             rx = Math.max(Math.abs(x), Math.abs(x - bounds.width));
@@ -27227,7 +24769,7 @@
               (0, Util.distance)(x, y),
               (0, Util.distance)(x, y - bounds.height),
               (0, Util.distance)(x - bounds.width, y),
-              (0, Util.distance)(x - bounds.width, y - bounds.height)
+              (0, Util.distance)(x - bounds.width, y - bounds.height),
             );
           } else if (shape === RADIAL_GRADIENT_SHAPE.ELLIPSE) {
             // Compute the ratio ry/rx (which is to be the same as for "farthest-side")
@@ -27253,91 +24795,93 @@
       };
     };
 
-    var transformWebkitRadialGradientArgs = (exports.transformWebkitRadialGradientArgs = function transformWebkitRadialGradientArgs(
-      args
-    ) {
-      var shape = "";
-      var radius = "";
-      var extent = "";
-      var position = "";
-      var idx = 0;
+    var transformWebkitRadialGradientArgs =
+      (exports.transformWebkitRadialGradientArgs =
+        function transformWebkitRadialGradientArgs(args) {
+          var shape = "";
+          var radius = "";
+          var extent = "";
+          var position = "";
+          var idx = 0;
 
-      var POSITION = /^(left|center|right|\d+(?:px|r?em|%)?)(?:\s+(top|center|bottom|\d+(?:px|r?em|%)?))?$/i;
-      var SHAPE_AND_EXTENT = /^(circle|ellipse)?\s*(closest-side|closest-corner|farthest-side|farthest-corner|contain|cover)?$/i;
-      var RADIUS = /^\d+(px|r?em|%)?(?:\s+\d+(px|r?em|%)?)?$/i;
+          var POSITION =
+            /^(left|center|right|\d+(?:px|r?em|%)?)(?:\s+(top|center|bottom|\d+(?:px|r?em|%)?))?$/i;
+          var SHAPE_AND_EXTENT =
+            /^(circle|ellipse)?\s*(closest-side|closest-corner|farthest-side|farthest-corner|contain|cover)?$/i;
+          var RADIUS = /^\d+(px|r?em|%)?(?:\s+\d+(px|r?em|%)?)?$/i;
 
-      var matchStartPosition = args[idx].match(POSITION);
-      if (matchStartPosition) {
-        idx++;
-      }
+          var matchStartPosition = args[idx].match(POSITION);
+          if (matchStartPosition) {
+            idx++;
+          }
 
-      var matchShapeExtent = args[idx].match(SHAPE_AND_EXTENT);
-      if (matchShapeExtent) {
-        shape = matchShapeExtent[1] || "";
-        extent = matchShapeExtent[2] || "";
-        if (extent === "contain") {
-          extent = "closest-side";
-        } else if (extent === "cover") {
-          extent = "farthest-corner";
-        }
-        idx++;
-      }
+          var matchShapeExtent = args[idx].match(SHAPE_AND_EXTENT);
+          if (matchShapeExtent) {
+            shape = matchShapeExtent[1] || "";
+            extent = matchShapeExtent[2] || "";
+            if (extent === "contain") {
+              extent = "closest-side";
+            } else if (extent === "cover") {
+              extent = "farthest-corner";
+            }
+            idx++;
+          }
 
-      var matchStartRadius = args[idx].match(RADIUS);
-      if (matchStartRadius) {
-        idx++;
-      }
+          var matchStartRadius = args[idx].match(RADIUS);
+          if (matchStartRadius) {
+            idx++;
+          }
 
-      var matchEndPosition = args[idx].match(POSITION);
-      if (matchEndPosition) {
-        idx++;
-      }
+          var matchEndPosition = args[idx].match(POSITION);
+          if (matchEndPosition) {
+            idx++;
+          }
 
-      var matchEndRadius = args[idx].match(RADIUS);
-      if (matchEndRadius) {
-        idx++;
-      }
+          var matchEndRadius = args[idx].match(RADIUS);
+          if (matchEndRadius) {
+            idx++;
+          }
 
-      var matchPosition = matchEndPosition || matchStartPosition;
-      if (matchPosition && matchPosition[1]) {
-        position =
-          matchPosition[1] + (/^\d+$/.test(matchPosition[1]) ? "px" : "");
-        if (matchPosition[2]) {
-          position +=
-            " " +
-            matchPosition[2] +
-            (/^\d+$/.test(matchPosition[2]) ? "px" : "");
-        }
-      }
+          var matchPosition = matchEndPosition || matchStartPosition;
+          if (matchPosition && matchPosition[1]) {
+            position =
+              matchPosition[1] + (/^\d+$/.test(matchPosition[1]) ? "px" : "");
+            if (matchPosition[2]) {
+              position +=
+                " " +
+                matchPosition[2] +
+                (/^\d+$/.test(matchPosition[2]) ? "px" : "");
+            }
+          }
 
-      var matchRadius = matchEndRadius || matchStartRadius;
-      if (matchRadius) {
-        radius = matchRadius[0];
-        if (!matchRadius[1]) {
-          radius += "px";
-        }
-      }
+          var matchRadius = matchEndRadius || matchStartRadius;
+          if (matchRadius) {
+            radius = matchRadius[0];
+            if (!matchRadius[1]) {
+              radius += "px";
+            }
+          }
 
-      if (position && !shape && !radius && !extent) {
-        radius = position;
-        position = "";
-      }
+          if (position && !shape && !radius && !extent) {
+            radius = position;
+            position = "";
+          }
 
-      if (position) {
-        position = "at " + position;
-      }
+          if (position) {
+            position = "at " + position;
+          }
 
-      return [
-        [shape, extent, radius, position]
-          .filter(function (s) {
-            return !!s;
-          })
-          .join(" "),
-      ].concat(args.slice(idx));
-    });
+          return [
+            [shape, extent, radius, position]
+              .filter(function (s) {
+                return !!s;
+              })
+              .join(" "),
+          ].concat(args.slice(idx));
+        });
 
     var transformObsoleteColorStops = function transformObsoleteColorStops(
-      args
+      args,
     ) {
       return (
         args
@@ -27413,7 +24957,7 @@
           return sliceIterator(arr, i);
         } else {
           throw new TypeError(
-            "Invalid attempt to destructure non-iterable instance"
+            "Invalid attempt to destructure non-iterable instance",
           );
         }
       };
@@ -27482,7 +25026,7 @@
                       style.color,
                       style.font,
                       style.textDecoration,
-                      style.textShadow
+                      style.textShadow,
                     );
                   } else {
                     _this.target.drawShape(child, container.style.color);
@@ -27496,7 +25040,7 @@
                   var contentBox = (0, Bounds_1.calculateContentBox)(
                     container.bounds,
                     container.style.padding,
-                    container.style.border
+                    container.style.border,
                   );
                   var _width =
                     typeof _image.width === "number" && _image.width > 0
@@ -27510,16 +25054,16 @@
                     _this.target.clip(
                       [
                         (0, Bounds_1.calculatePaddingBoxPath)(
-                          container.curvedBounds
+                          container.curvedBounds,
                         ),
                       ],
                       function () {
                         _this.target.drawImage(
                           _image,
                           new Bounds_1.Bounds(0, 0, _width, _height),
-                          contentBox
+                          contentBox,
                         );
-                      }
+                      },
                     );
                   }
                 }
@@ -27542,20 +25086,20 @@
               !container.style.background.backgroundColor.isTransparent() ||
               container.style.background.backgroundImage.length;
 
-            var hasRenderableBorders = container.style.border.some(function (
-              border$$2
-            ) {
-              return (
-                border$$2.borderStyle !== border.BORDER_STYLE.NONE &&
-                !border$$2.borderColor.isTransparent()
-              );
-            });
+            var hasRenderableBorders = container.style.border.some(
+              function (border$$2) {
+                return (
+                  border$$2.borderStyle !== border.BORDER_STYLE.NONE &&
+                  !border$$2.borderColor.isTransparent()
+                );
+              },
+            );
 
             var callback = function callback() {
               var backgroundPaintingArea = (0,
               background.calculateBackgroungPaintingArea)(
                 container.curvedBounds,
-                container.style.background.backgroundClip
+                container.style.background.backgroundClip,
               );
 
               if (HAS_BACKGROUND) {
@@ -27564,7 +25108,7 @@
                     !container.style.background.backgroundColor.isTransparent()
                   ) {
                     _this2.target.fill(
-                      container.style.background.backgroundColor
+                      container.style.background.backgroundColor,
                     );
                   }
 
@@ -27618,7 +25162,7 @@
           key: "renderBackgroundRepeat",
           value: function renderBackgroundRepeat(container, background$$2) {
             var image = this.options.imageStore.get(
-              background$$2.source.args[0]
+              background$$2.source.args[0],
             );
             if (image) {
               var backgroundPositioningArea = (0,
@@ -27626,38 +25170,38 @@
                 container.style.background.backgroundOrigin,
                 container.bounds,
                 container.style.padding,
-                container.style.border
+                container.style.border,
               );
               var backgroundImageSize = (0, background.calculateBackgroundSize)(
                 background$$2,
                 image,
-                backgroundPositioningArea
+                backgroundPositioningArea,
               );
               var position = (0, background.calculateBackgroundPosition)(
                 background$$2.position,
                 backgroundImageSize,
-                backgroundPositioningArea
+                backgroundPositioningArea,
               );
               var _path = (0, background.calculateBackgroundRepeatPath)(
                 background$$2,
                 position,
                 backgroundImageSize,
                 backgroundPositioningArea,
-                container.bounds
+                container.bounds,
               );
 
               var _offsetX = Math.round(
-                backgroundPositioningArea.left + position.x
+                backgroundPositioningArea.left + position.x,
               );
               var _offsetY = Math.round(
-                backgroundPositioningArea.top + position.y
+                backgroundPositioningArea.top + position.y,
               );
               this.target.renderRepeat(
                 _path,
                 image,
                 backgroundImageSize,
                 _offsetX,
-                _offsetY
+                _offsetY,
               );
             }
           },
@@ -27670,29 +25214,29 @@
               container.style.background.backgroundOrigin,
               container.bounds,
               container.style.padding,
-              container.style.border
+              container.style.border,
             );
             var backgroundImageSize = (0,
             background.calculateGradientBackgroundSize)(
               background$$2,
-              backgroundPositioningArea
+              backgroundPositioningArea,
             );
             var position = (0, background.calculateBackgroundPosition)(
               background$$2.position,
               backgroundImageSize,
-              backgroundPositioningArea
+              backgroundPositioningArea,
             );
             var gradientBounds = new Bounds_1.Bounds(
               Math.round(backgroundPositioningArea.left + position.x),
               Math.round(backgroundPositioningArea.top + position.y),
               backgroundImageSize.width,
-              backgroundImageSize.height
+              backgroundImageSize.height,
             );
 
             var gradient = (0, Gradient.parseGradient)(
               container,
               background$$2.source,
-              gradientBounds
+              gradientBounds,
             );
             if (gradient) {
               switch (gradient.type) {
@@ -27713,7 +25257,7 @@
           value: function renderBorder(border$$2, side, curvePoints) {
             this.target.drawShape(
               (0, Bounds_1.parsePathForBorder)(curvePoints, side),
-              border$$2.borderColor
+              border$$2.borderColor,
             );
           },
         },
@@ -27739,7 +25283,7 @@
                   _transform.transform,
                   function () {
                     return _this4.renderStackContent(stack);
-                  }
+                  },
                 );
               } else {
                 this.renderStackContent(stack);
@@ -27793,7 +25337,7 @@
             //  All transform descendants with transform other than none
             zeroOrAutoZIndexOrTransformedOrOpacity.forEach(
               this.renderStack,
-              this
+              this,
             );
             // 7. Stacking contexts formed by positioned descendants with z-indices greater than or equal to 1 in z-index
             // order (smallest first) then tree order.
@@ -27809,7 +25353,7 @@
                 this.options.y,
                 this.options.width,
                 this.options.height,
-                this.options.backgroundColor
+                this.options.backgroundColor,
               );
             }
             this.renderStack(stack);
@@ -27933,7 +25477,7 @@
                   function () {
                     return resolve(reader.result);
                   },
-                  false
+                  false,
                 );
                 // $FlowFixMe
                 reader.addEventListener(
@@ -27941,7 +25485,7 @@
                   function (e) {
                     return reject(e);
                   },
-                  false
+                  false,
                 );
                 reader.readAsDataURL(xhr.response);
               }
@@ -27960,7 +25504,7 @@
             "?url=" +
             encodeURIComponent(src) +
             "&responseType=" +
-            responseType
+            responseType,
         );
 
         if (responseType !== "text" && xhr instanceof XMLHttpRequest) {
@@ -28056,7 +25600,7 @@
                   this.cache[src] = (0, _Proxy.Proxy)(src, this.options).then(
                     function (src) {
                       return _loadImage(src, _this.options.imageTimeout || 0);
-                    }
+                    },
                   );
                   return src;
                 } else if (
@@ -28086,7 +25630,7 @@
             ) {
               return (this.cache[src] = (0, _Proxy.Proxy)(
                 src,
-                this.options
+                this.options,
               ).then(function (src) {
                 return _loadImage(src, _this2.options.imageTimeout || 0);
               }));
@@ -28109,7 +25653,7 @@
                       "Failed to fetch image " +
                         src.substring(0, 256) +
                         " with status code " +
-                        xhr.status
+                        xhr.status,
                     );
                   } else {
                     var reader = new FileReader();
@@ -28120,14 +25664,14 @@
                         var result = reader.result;
                         resolve(result);
                       },
-                      false
+                      false,
                     );
                     reader.addEventListener(
                       "error",
                       function (e) {
                         return reject(e);
                       },
-                      false
+                      false,
                     );
                     reader.readAsDataURL(xhr.response);
                   }
@@ -28170,7 +25714,7 @@
             var _this4 = this;
 
             var imageLoadHandler = function imageLoadHandler(
-              supportsDataImages
+              supportsDataImages,
             ) {
               return new Promise(function (resolve, reject) {
                 var img = new Image();
@@ -28317,7 +25861,13 @@
     Object.defineProperty(exports, "__esModule", {
       value: true,
     });
-    exports.parseContent = exports.resolvePseudoContent = exports.popCounters = exports.parseCounterReset = exports.TOKEN_TYPE = exports.PSEUDO_CONTENT_ITEM_TYPE = undefined;
+    exports.parseContent =
+      exports.resolvePseudoContent =
+      exports.popCounters =
+      exports.parseCounterReset =
+      exports.TOKEN_TYPE =
+      exports.PSEUDO_CONTENT_ITEM_TYPE =
+        undefined;
 
     var _slicedToArray = (function () {
       function sliceIterator(arr, i) {
@@ -28353,7 +25903,7 @@
           return sliceIterator(arr, i);
         } else {
           throw new TypeError(
-            "Invalid attempt to destructure non-iterable instance"
+            "Invalid attempt to destructure non-iterable instance",
           );
         }
       };
@@ -28374,38 +25924,36 @@
       CLOSEQUOTE: 6,
     });
 
-    var parseCounterReset = (exports.parseCounterReset = function parseCounterReset(
-      style,
-      data
-    ) {
-      if (!style || !style.counterReset || style.counterReset === "none") {
-        return [];
-      }
-
-      var counterNames = [];
-      var counterResets = style.counterReset.split(/\s*,\s*/);
-      var lenCounterResets = counterResets.length;
-
-      for (var i = 0; i < lenCounterResets; i++) {
-        var _counterResets$i$spli = counterResets[i].split(/\s+/),
-          _counterResets$i$spli2 = _slicedToArray(_counterResets$i$spli, 2),
-          counterName = _counterResets$i$spli2[0],
-          initialValue = _counterResets$i$spli2[1];
-
-        counterNames.push(counterName);
-        var counter = data.counters[counterName];
-        if (!counter) {
-          counter = data.counters[counterName] = [];
+    var parseCounterReset = (exports.parseCounterReset =
+      function parseCounterReset(style, data) {
+        if (!style || !style.counterReset || style.counterReset === "none") {
+          return [];
         }
-        counter.push(parseInt(initialValue || 0, 10));
-      }
 
-      return counterNames;
-    });
+        var counterNames = [];
+        var counterResets = style.counterReset.split(/\s*,\s*/);
+        var lenCounterResets = counterResets.length;
+
+        for (var i = 0; i < lenCounterResets; i++) {
+          var _counterResets$i$spli = counterResets[i].split(/\s+/),
+            _counterResets$i$spli2 = _slicedToArray(_counterResets$i$spli, 2),
+            counterName = _counterResets$i$spli2[0],
+            initialValue = _counterResets$i$spli2[1];
+
+          counterNames.push(counterName);
+          var counter = data.counters[counterName];
+          if (!counter) {
+            counter = data.counters[counterName] = [];
+          }
+          counter.push(parseInt(initialValue || 0, 10));
+        }
+
+        return counterNames;
+      });
 
     var popCounters = (exports.popCounters = function popCounters(
       counterNames,
-      data
+      data,
     ) {
       var lenCounters = counterNames.length;
       for (var i = 0; i < lenCounters; i++) {
@@ -28413,110 +25961,107 @@
       }
     });
 
-    var resolvePseudoContent = (exports.resolvePseudoContent = function resolvePseudoContent(
-      node,
-      style,
-      data
-    ) {
-      if (
-        !style ||
-        !style.content ||
-        style.content === "none" ||
-        style.content === "-moz-alt-content" ||
-        style.display === "none"
-      ) {
-        return null;
-      }
-
-      var tokens = parseContent(style.content);
-
-      var len = tokens.length;
-      var contentItems = [];
-      var s = "";
-
-      // increment the counter (if there is a "counter-increment" declaration)
-      var counterIncrement = style.counterIncrement;
-      if (counterIncrement && counterIncrement !== "none") {
-        var _counterIncrement$spl = counterIncrement.split(/\s+/),
-          _counterIncrement$spl2 = _slicedToArray(_counterIncrement$spl, 2),
-          counterName = _counterIncrement$spl2[0],
-          incrementValue = _counterIncrement$spl2[1];
-
-        var counter = data.counters[counterName];
-        if (counter) {
-          counter[counter.length - 1] +=
-            incrementValue === undefined ? 1 : parseInt(incrementValue, 10);
+    var resolvePseudoContent = (exports.resolvePseudoContent =
+      function resolvePseudoContent(node, style, data) {
+        if (
+          !style ||
+          !style.content ||
+          style.content === "none" ||
+          style.content === "-moz-alt-content" ||
+          style.display === "none"
+        ) {
+          return null;
         }
-      }
 
-      // build the content string
-      for (var i = 0; i < len; i++) {
-        var token = tokens[i];
-        switch (token.type) {
-          case TOKEN_TYPE.STRING:
-            s += token.value || "";
-            break;
+        var tokens = parseContent(style.content);
 
-          case TOKEN_TYPE.ATTRIBUTE:
-            if (node instanceof HTMLElement && token.value) {
-              s += node.getAttribute(token.value) || "";
-            }
-            break;
+        var len = tokens.length;
+        var contentItems = [];
+        var s = "";
 
-          case TOKEN_TYPE.COUNTER:
-            var _counter = data.counters[token.name || ""];
-            if (_counter) {
-              s += formatCounterValue(
-                [_counter[_counter.length - 1]],
-                "",
-                token.format
-              );
-            }
-            break;
+        // increment the counter (if there is a "counter-increment" declaration)
+        var counterIncrement = style.counterIncrement;
+        if (counterIncrement && counterIncrement !== "none") {
+          var _counterIncrement$spl = counterIncrement.split(/\s+/),
+            _counterIncrement$spl2 = _slicedToArray(_counterIncrement$spl, 2),
+            counterName = _counterIncrement$spl2[0],
+            incrementValue = _counterIncrement$spl2[1];
 
-          case TOKEN_TYPE.COUNTERS:
-            var _counters = data.counters[token.name || ""];
-            if (_counters) {
-              s += formatCounterValue(_counters, token.glue, token.format);
-            }
-            break;
+          var counter = data.counters[counterName];
+          if (counter) {
+            counter[counter.length - 1] +=
+              incrementValue === undefined ? 1 : parseInt(incrementValue, 10);
+          }
+        }
 
-          case TOKEN_TYPE.OPENQUOTE:
-            s += getQuote(style, true, data.quoteDepth);
-            data.quoteDepth++;
-            break;
+        // build the content string
+        for (var i = 0; i < len; i++) {
+          var token = tokens[i];
+          switch (token.type) {
+            case TOKEN_TYPE.STRING:
+              s += token.value || "";
+              break;
 
-          case TOKEN_TYPE.CLOSEQUOTE:
-            data.quoteDepth--;
-            s += getQuote(style, false, data.quoteDepth);
-            break;
+            case TOKEN_TYPE.ATTRIBUTE:
+              if (node instanceof HTMLElement && token.value) {
+                s += node.getAttribute(token.value) || "";
+              }
+              break;
 
-          case TOKEN_TYPE.URL:
-            if (s) {
+            case TOKEN_TYPE.COUNTER:
+              var _counter = data.counters[token.name || ""];
+              if (_counter) {
+                s += formatCounterValue(
+                  [_counter[_counter.length - 1]],
+                  "",
+                  token.format,
+                );
+              }
+              break;
+
+            case TOKEN_TYPE.COUNTERS:
+              var _counters = data.counters[token.name || ""];
+              if (_counters) {
+                s += formatCounterValue(_counters, token.glue, token.format);
+              }
+              break;
+
+            case TOKEN_TYPE.OPENQUOTE:
+              s += getQuote(style, true, data.quoteDepth);
+              data.quoteDepth++;
+              break;
+
+            case TOKEN_TYPE.CLOSEQUOTE:
+              data.quoteDepth--;
+              s += getQuote(style, false, data.quoteDepth);
+              break;
+
+            case TOKEN_TYPE.URL:
+              if (s) {
+                contentItems.push({
+                  type: PSEUDO_CONTENT_ITEM_TYPE.TEXT,
+                  value: s,
+                });
+                s = "";
+              }
               contentItems.push({
-                type: PSEUDO_CONTENT_ITEM_TYPE.TEXT,
-                value: s,
+                type: PSEUDO_CONTENT_ITEM_TYPE.IMAGE,
+                value: token.value || "",
               });
-              s = "";
-            }
-            contentItems.push({
-              type: PSEUDO_CONTENT_ITEM_TYPE.IMAGE,
-              value: token.value || "",
-            });
-            break;
+              break;
+          }
         }
-      }
 
-      if (s) {
-        contentItems.push({ type: PSEUDO_CONTENT_ITEM_TYPE.TEXT, value: s });
-      }
+        if (s) {
+          contentItems.push({ type: PSEUDO_CONTENT_ITEM_TYPE.TEXT, value: s });
+        }
 
-      return contentItems;
-    });
+        return contentItems;
+      });
 
     var parseContent = (exports.parseContent = function parseContent(
       content,
-      cache
+      cache,
     ) {
       if (cache && cache[content]) {
         return cache[content];
@@ -28690,7 +26235,7 @@
     var formatCounterValue = function formatCounterValue(
       counter,
       glue,
-      format
+      format,
     ) {
       var len = counter.length;
       var result = "";
@@ -28702,7 +26247,7 @@
         result += (0, ListItem.createCounterText)(
           counter[i],
           (0, listStyle.parseListStyleType)(format || "decimal"),
-          false
+          false,
         );
       }
 
@@ -28758,7 +26303,7 @@
           return sliceIterator(arr, i);
         } else {
           throw new TypeError(
-            "Invalid attempt to destructure non-iterable instance"
+            "Invalid attempt to destructure non-iterable instance",
           );
         }
       };
@@ -28811,7 +26356,7 @@
         this.resourceLoader = new _ResourceLoader2.default(
           options,
           logger,
-          window
+          window,
         );
         this.pseudoContentData = {
           counters: {},
@@ -28819,7 +26364,7 @@
         };
         // $FlowFixMe
         this.documentElement = this.cloneNode(
-          element.ownerDocument.documentElement
+          element.ownerDocument.documentElement,
         );
       }
 
@@ -28850,10 +26395,10 @@
                         backgroundImage.method +
                         "(" +
                         backgroundImage.args.join(",") +
-                        ")"
+                        ")",
                     );
-                  }
-                )
+                  },
+                ),
               ).then(function (backgroundImages) {
                 if (backgroundImages.length > 1) {
                   // TODO Multiple backgrounds somehow broken in Chrome
@@ -28874,7 +26419,7 @@
                       var parentNode = node.parentNode;
                       var clonedChild = (0, Util.copyCSSStyles)(
                         node.style,
-                        img.cloneNode(false)
+                        img.cloneNode(false),
                       );
                       parentNode.replaceChild(clonedChild, node);
                     }
@@ -28904,7 +26449,7 @@
                     });
                 }
                 return getSheetFonts(sheet, document);
-              })
+              }),
             )
               .then(function (fonts) {
                 return fonts.reduce(function (acc, font) {
@@ -28933,11 +26478,11 @@
                       .then(function (dataUri) {
                         font.fontFace.setProperty(
                           "src",
-                          'url("' + dataUri + '")'
+                          'url("' + dataUri + '")',
                         );
                         return "@font-face {" + font.fontFace.cssText + " ";
                       });
-                  })
+                  }),
                 );
               })
               .then(function (fontCss) {
@@ -28965,7 +26510,7 @@
               var iframeKey = generateIframeKey();
               tempIframe.setAttribute(
                 "data-html2canvas-internal-iframe-key",
-                iframeKey
+                iframeKey,
               );
 
               var _parseBounds = (0, Bounds_1.parseBounds)(node, 0, 0),
@@ -28974,7 +26519,7 @@
 
               this.resourceLoader.cache[iframeKey] = getIframeDocumentElement(
                 node,
-                this.options
+                this.options,
               )
                 .then(function (documentElement) {
                   return _this3.renderer(
@@ -29006,7 +26551,7 @@
                       scrollY:
                         documentElement.ownerDocument.defaultView.pageYOffset,
                     },
-                    _this3.logger.child(iframeKey)
+                    _this3.logger.child(iframeKey),
                   );
                 })
                 .then(function (canvas) {
@@ -29021,9 +26566,9 @@
                       tempIframe.parentNode.replaceChild(
                         (0, Util.copyCSSStyles)(
                           node.ownerDocument.defaultView.getComputedStyle(node),
-                          iframeCanvas
+                          iframeCanvas,
                         ),
-                        tempIframe
+                        tempIframe,
                       );
                     }
                   });
@@ -29036,22 +26581,23 @@
               node.sheet &&
               node.sheet.cssRules
             ) {
-              var css = [].slice
-                .call(node.sheet.cssRules, 0)
-                .reduce(function (css, rule) {
-                  try {
-                    if (rule && rule.cssText) {
-                      return css + rule.cssText;
-                    }
-                    return css;
-                  } catch (err) {
-                    _this3.logger.log(
-                      "Unable to access cssText property",
-                      rule.name
-                    );
-                    return css;
+              var css = [].slice.call(node.sheet.cssRules, 0).reduce(function (
+                css,
+                rule,
+              ) {
+                try {
+                  if (rule && rule.cssText) {
+                    return css + rule.cssText;
                   }
-                }, "");
+                  return css;
+                } catch (err) {
+                  _this3.logger.log(
+                    "Unable to access cssText property",
+                    rule.name,
+                  );
+                  return css;
+                }
+              }, "");
               var style = node.cloneNode(false);
               style.textContent = css;
               return style;
@@ -29095,12 +26641,12 @@
 
             var counters = (0, PseudoNodeContent.parseCounterReset)(
               style,
-              this.pseudoContentData
+              this.pseudoContentData,
             );
             var contentBefore = (0, PseudoNodeContent.resolvePseudoContent)(
               node,
               styleBefore,
-              this.pseudoContentData
+              this.pseudoContentData,
             );
 
             for (
@@ -29126,11 +26672,11 @@
             var contentAfter = (0, PseudoNodeContent.resolvePseudoContent)(
               node,
               styleAfter,
-              this.pseudoContentData
+              this.pseudoContentData,
             );
             (0, PseudoNodeContent.popCounters)(
               counters,
-              this.pseudoContentData
+              this.pseudoContentData,
             );
 
             if (
@@ -29144,8 +26690,8 @@
                     clone,
                     styleBefore,
                     contentBefore,
-                    PSEUDO_BEFORE
-                  )
+                    PSEUDO_BEFORE,
+                  ),
                 );
               }
               if (styleAfter) {
@@ -29155,8 +26701,8 @@
                     clone,
                     styleAfter,
                     contentAfter,
-                    PSEUDO_AFTER
-                  )
+                    PSEUDO_AFTER,
+                  ),
                 );
               }
               if (
@@ -29202,7 +26748,7 @@
         })
         .map(function (rule) {
           var src = (0, background.parseBackgroundImage)(
-            rule.style.getPropertyValue("src")
+            rule.style.getPropertyValue("src"),
           );
           var formats = [];
           for (var i = 0; i < src.length; i++) {
@@ -29241,7 +26787,7 @@
 
     var createStyleSheetFontsFromText = function createStyleSheetFontsFromText(
       text,
-      baseHref
+      baseHref,
     ) {
       var doc = document.implementation.createHTMLDocument("");
       var base = document.createElement("base");
@@ -29272,7 +26818,7 @@
 
     var cloneCanvasContents = function cloneCanvasContents(
       canvas,
-      clonedCanvas
+      clonedCanvas,
     ) {
       try {
         if (clonedCanvas) {
@@ -29284,7 +26830,7 @@
             clonedCtx.putImageData(
               ctx.getImageData(0, 0, canvas.width, canvas.height),
               0,
-              0
+              0,
             );
           } else {
             clonedCtx.drawImage(canvas, 0, 0);
@@ -29298,7 +26844,7 @@
       clone,
       style,
       contentItems,
-      pseudoElt
+      pseudoElt,
     ) {
       if (
         !style ||
@@ -29311,7 +26857,7 @@
       }
 
       var anonymousReplacedElement = clone.ownerDocument.createElement(
-        "html2canvaspseudoelement"
+        "html2canvaspseudoelement",
       );
       (0, Util.copyCSSStyles)(style, anonymousReplacedElement);
 
@@ -29323,14 +26869,14 @@
             case PseudoNodeContent.PSEUDO_CONTENT_ITEM_TYPE.IMAGE:
               var img = clone.ownerDocument.createElement("img");
               img.src = (0, background.parseBackgroundImage)(
-                "url(" + item.value + ")"
+                "url(" + item.value + ")",
               )[0].args[0];
               img.style.opacity = "1";
               anonymousReplacedElement.appendChild(img);
               break;
             case PseudoNodeContent.PSEUDO_CONTENT_ITEM_TYPE.TEXT:
               anonymousReplacedElement.appendChild(
-                clone.ownerDocument.createTextNode(item.value)
+                clone.ownerDocument.createTextNode(item.value),
               );
               break;
           }
@@ -29374,7 +26920,7 @@
           "\n         ." +
           PSEUDO_HIDE_ELEMENT_CLASS_AFTER +
           PSEUDO_AFTER +
-          PSEUDO_HIDE_ELEMENT_STYLE
+          PSEUDO_HIDE_ELEMENT_STYLE,
       );
     };
 
@@ -29402,7 +26948,7 @@
 
     var getIframeDocumentElement = function getIframeDocumentElement(
       node,
-      options
+      options,
     ) {
       try {
         return Promise.resolve(node.contentWindow.document.documentElement);
@@ -29422,7 +26968,7 @@
               .then(function (html) {
                 return createIframeContainer(
                   node.ownerDocument,
-                  (0, Bounds_1.parseBounds)(node, 0, 0)
+                  (0, Bounds_1.parseBounds)(node, 0, 0),
                 ).then(function (cloneIframeContainer) {
                   var cloneWindow = cloneIframeContainer.contentWindow;
                   var documentClone = cloneWindow.document;
@@ -29432,7 +26978,7 @@
                   var iframeLoad = iframeLoader(cloneIframeContainer).then(
                     function () {
                       return documentClone.documentElement;
-                    }
+                    },
                   );
 
                   documentClone.close();
@@ -29445,7 +26991,7 @@
 
     var createIframeContainer = function createIframeContainer(
       ownerDocument,
-      bounds
+      bounds,
     ) {
       var cloneIframeContainer = ownerDocument.createElement("iframe");
 
@@ -29473,17 +27019,20 @@
       var documentClone = cloneWindow.document;
 
       return new Promise(function (resolve, reject) {
-        cloneWindow.onload = cloneIframeContainer.onload = documentClone.onreadystatechange = function () {
-          var interval = setInterval(function () {
-            if (
-              documentClone.body.childNodes.length > 0 &&
-              documentClone.readyState === "complete"
-            ) {
-              clearInterval(interval);
-              resolve(cloneIframeContainer);
-            }
-          }, 50);
-        };
+        cloneWindow.onload =
+          cloneIframeContainer.onload =
+          documentClone.onreadystatechange =
+            function () {
+              var interval = setInterval(function () {
+                if (
+                  documentClone.body.childNodes.length > 0 &&
+                  documentClone.readyState === "complete"
+                ) {
+                  clearInterval(interval);
+                  resolve(cloneIframeContainer);
+                }
+              }, 50);
+            };
       });
     };
 
@@ -29493,80 +27042,80 @@
       referenceElement,
       options,
       logger,
-      renderer
+      renderer,
     ) {
       var cloner = new DocumentCloner(
         referenceElement,
         options,
         logger,
         false,
-        renderer
+        renderer,
       );
       var scrollX = ownerDocument.defaultView.pageXOffset;
       var scrollY = ownerDocument.defaultView.pageYOffset;
 
-      return createIframeContainer(ownerDocument, bounds).then(function (
-        cloneIframeContainer
-      ) {
-        var cloneWindow = cloneIframeContainer.contentWindow;
-        var documentClone = cloneWindow.document;
+      return createIframeContainer(ownerDocument, bounds).then(
+        function (cloneIframeContainer) {
+          var cloneWindow = cloneIframeContainer.contentWindow;
+          var documentClone = cloneWindow.document;
 
-        /* Chrome doesn't detect relative background-images assigned in inline <style> sheets when fetched through getComputedStyle
+          /* Chrome doesn't detect relative background-images assigned in inline <style> sheets when fetched through getComputedStyle
              if window url is about:blank, we can assign the url to current by writing onto the document
              */
 
-        var iframeLoad = iframeLoader(cloneIframeContainer).then(function () {
-          cloner.scrolledElements.forEach(initNode);
-          cloneWindow.scrollTo(bounds.left, bounds.top);
-          if (
-            /(iPad|iPhone|iPod)/g.test(navigator.userAgent) &&
-            (cloneWindow.scrollY !== bounds.top ||
-              cloneWindow.scrollX !== bounds.left)
-          ) {
-            documentClone.documentElement.style.top = -bounds.top + "px";
-            documentClone.documentElement.style.left = -bounds.left + "px";
-            documentClone.documentElement.style.position = "absolute";
-          }
+          var iframeLoad = iframeLoader(cloneIframeContainer).then(function () {
+            cloner.scrolledElements.forEach(initNode);
+            cloneWindow.scrollTo(bounds.left, bounds.top);
+            if (
+              /(iPad|iPhone|iPod)/g.test(navigator.userAgent) &&
+              (cloneWindow.scrollY !== bounds.top ||
+                cloneWindow.scrollX !== bounds.left)
+            ) {
+              documentClone.documentElement.style.top = -bounds.top + "px";
+              documentClone.documentElement.style.left = -bounds.left + "px";
+              documentClone.documentElement.style.position = "absolute";
+            }
 
-          var result = Promise.resolve([
-            cloneIframeContainer,
-            cloner.clonedReferenceElement,
-            cloner.resourceLoader,
-          ]);
+            var result = Promise.resolve([
+              cloneIframeContainer,
+              cloner.clonedReferenceElement,
+              cloner.resourceLoader,
+            ]);
 
-          var onclone = options.onclone;
+            var onclone = options.onclone;
 
-          return cloner.clonedReferenceElement instanceof
-            cloneWindow.HTMLElement ||
-            cloner.clonedReferenceElement instanceof
-              ownerDocument.defaultView.HTMLElement ||
-            cloner.clonedReferenceElement instanceof HTMLElement
-            ? typeof onclone === "function"
-              ? Promise.resolve()
-                  .then(function () {
-                    return onclone(documentClone);
-                  })
-                  .then(function () {
-                    return result;
-                  })
-              : result
-            : Promise.reject("");
-        });
+            return cloner.clonedReferenceElement instanceof
+              cloneWindow.HTMLElement ||
+              cloner.clonedReferenceElement instanceof
+                ownerDocument.defaultView.HTMLElement ||
+              cloner.clonedReferenceElement instanceof HTMLElement
+              ? typeof onclone === "function"
+                ? Promise.resolve()
+                    .then(function () {
+                      return onclone(documentClone);
+                    })
+                    .then(function () {
+                      return result;
+                    })
+                : result
+              : Promise.reject("");
+          });
 
-        documentClone.open();
-        documentClone.write(
-          serializeDoctype(document.doctype) + "<html></html>"
-        );
-        // Chrome scrolls the parent document for some reason after the write to the cloned window???
-        restoreOwnerScroll(referenceElement.ownerDocument, scrollX, scrollY);
-        documentClone.replaceChild(
-          documentClone.adoptNode(cloner.documentElement),
-          documentClone.documentElement
-        );
-        documentClone.close();
+          documentClone.open();
+          documentClone.write(
+            serializeDoctype(document.doctype) + "<html></html>",
+          );
+          // Chrome scrolls the parent document for some reason after the write to the cloned window???
+          restoreOwnerScroll(referenceElement.ownerDocument, scrollX, scrollY);
+          documentClone.replaceChild(
+            documentClone.adoptNode(cloner.documentElement),
+            documentClone.documentElement,
+          );
+          documentClone.close();
 
-        return iframeLoad;
-      });
+          return iframeLoad;
+        },
+      );
     });
 
     var serializeDoctype = function serializeDoctype(doctype) {
@@ -29640,7 +27189,7 @@
           return sliceIterator(arr, i);
         } else {
           throw new TypeError(
-            "Invalid attempt to destructure non-iterable instance"
+            "Invalid attempt to destructure non-iterable instance",
           );
         }
       };
@@ -29651,7 +27200,7 @@
     var _Renderer2 = _interopRequireDefault(Renderer_1);
 
     var _ForeignObjectRenderer2 = _interopRequireDefault(
-      ForeignObjectRenderer_1
+      ForeignObjectRenderer_1,
     );
 
     var _Feature2 = _interopRequireDefault(Feature);
@@ -29665,7 +27214,7 @@
     var renderElement = (exports.renderElement = function renderElement(
       element,
       options,
-      logger
+      logger,
     ) {
       var ownerDocument = element.ownerDocument;
 
@@ -29673,18 +27222,18 @@
         options.scrollX,
         options.scrollY,
         options.windowWidth,
-        options.windowHeight
+        options.windowHeight,
       );
 
       // http://www.w3.org/TR/css3-background/#special-backgrounds
       var documentBackgroundColor = ownerDocument.documentElement
         ? new _Color2.default(
-            getComputedStyle(ownerDocument.documentElement).backgroundColor
+            getComputedStyle(ownerDocument.documentElement).backgroundColor,
           )
         : Color_1.TRANSPARENT;
       var bodyBackgroundColor = ownerDocument.body
         ? new _Color2.default(
-            getComputedStyle(ownerDocument.body).backgroundColor
+            getComputedStyle(ownerDocument.body).backgroundColor,
           )
         : Color_1.TRANSPARENT;
 
@@ -29698,12 +27247,13 @@
               : bodyBackgroundColor
             : documentBackgroundColor
           : options.backgroundColor
-          ? new _Color2.default(options.backgroundColor)
-          : null;
+            ? new _Color2.default(options.backgroundColor)
+            : null;
 
-      return (options.foreignObjectRendering // $FlowFixMe
-        ? _Feature2.default.SUPPORT_FOREIGNOBJECT_DRAWING
-        : Promise.resolve(false)
+      return (
+        options.foreignObjectRendering // $FlowFixMe
+          ? _Feature2.default.SUPPORT_FOREIGNOBJECT_DRAWING
+          : Promise.resolve(false)
       ).then(function (supportForeignObject) {
         return supportForeignObject
           ? (function (cloner) {
@@ -29714,7 +27264,7 @@
                 })
                 .then(function () {
                   var renderer = new _ForeignObjectRenderer2.default(
-                    cloner.documentElement
+                    cloner.documentElement,
                   );
 
                   var defaultView = ownerDocument.defaultView;
@@ -29758,8 +27308,8 @@
                 options,
                 logger,
                 true,
-                renderElement
-              )
+                renderElement,
+              ),
             )
           : (0, Clone.cloneWindow)(
               ownerDocument,
@@ -29767,7 +27317,7 @@
               element,
               options,
               logger,
-              renderElement
+              renderElement,
             ).then(function (_ref2) {
               var _ref3 = _slicedToArray(_ref2, 3),
                 container = _ref3[0],
@@ -29777,7 +27327,7 @@
               var stack = (0, NodeParser_1.NodeParser)(
                 clonedElement,
                 resourceLoader,
-                logger
+                logger,
               );
               var clonedDocument = clonedElement.ownerDocument;
 
@@ -29804,7 +27354,7 @@
                     : (0, Bounds_1.parseBounds)(
                         clonedElement,
                         scrollX,
-                        scrollY
+                        scrollY,
                       ),
                   width = _ref4.width,
                   height = _ref4.height,
@@ -29834,15 +27384,15 @@
                     options.target.map(function (target) {
                       var renderer = new _Renderer2.default(
                         target,
-                        renderOptions
+                        renderOptions,
                       );
                       return renderer.render(stack);
-                    })
+                    }),
                   );
                 } else {
                   var renderer = new _Renderer2.default(
                     options.target,
-                    renderOptions
+                    renderOptions,
                   );
                   var canvas = renderer.render(stack);
                   if (options.removeContainer === true) {
@@ -29889,7 +27439,7 @@
     var html2canvas = function html2canvas(element, conf) {
       var config = conf || {};
       var logger = new _Logger2.default(
-        typeof config.logging === "boolean" ? config.logging : true
+        typeof config.logging === "boolean" ? config.logging : true,
       );
       logger.log("html2canvas " + "$npm_package_version");
 
@@ -29920,7 +27470,7 @@
       var result = (0, Window.renderElement)(
         element,
         _extends({}, defaultOptions, config),
-        logger
+        logger,
       );
 
       return result;
@@ -30027,7 +27577,7 @@
           clone.scrollTop = node.scrollTop;
           clone.scrollLeft = node.scrollLeft;
         },
-        true
+        true,
       );
     }
 
@@ -30306,7 +27856,7 @@
 
       function cannotReturnOwn() {
         return new TypeError(
-          "A promises callback cannot return that same promise."
+          "A promises callback cannot return that same promise.",
         );
       }
 
@@ -30352,7 +27902,7 @@
 
               reject(promise, reason);
             },
-            "Settle: " + (promise._label || " unknown promise")
+            "Settle: " + (promise._label || " unknown promise"),
           );
 
           if (!sealed && error) {
@@ -30376,7 +27926,7 @@
             },
             function (reason) {
               return reject(promise, reason);
-            }
+            },
           );
         }
       }
@@ -30541,7 +28091,7 @@
             },
             function rejectPromise(reason) {
               reject(promise, reason);
-            }
+            },
           );
         } catch (e) {
           reject(promise, e);
@@ -30620,7 +28170,7 @@
                 new c(function (resolve$$1) {
                   return resolve$$1(entry);
                 }),
-                i
+                i,
               );
             }
           } else {
@@ -30648,7 +28198,7 @@
 
         Enumerator.prototype._willSettleAt = function _willSettleAt(
           promise,
-          i
+          i,
         ) {
           var enumerator = this;
 
@@ -30660,7 +28210,7 @@
             },
             function (reason) {
               return enumerator._settledAt(REJECTED, i, reason);
-            }
+            },
           );
         };
 
@@ -30845,13 +28395,13 @@
 
       function needsResolver() {
         throw new TypeError(
-          "You must pass a resolver function as the first argument to the promise constructor"
+          "You must pass a resolver function as the first argument to the promise constructor",
         );
       }
 
       function needsNew() {
         throw new TypeError(
-          "Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function."
+          "Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.",
         );
       }
 
@@ -31216,7 +28766,7 @@
                 return constructor.resolve(callback()).then(function () {
                   throw reason;
                 });
-              }
+              },
             );
           }
 
@@ -31248,7 +28798,7 @@
             local = Function("return this")();
           } catch (e) {
             throw new Error(
-              "polyfill failed because global object is unavailable in this environment"
+              "polyfill failed because global object is unavailable in this environment",
             );
           }
         }
@@ -31287,7 +28837,7 @@
     // Create the root parent for the proto chain, and the starting Worker.
     var root = _extends(
       Worker.convert(Promise$1.resolve()),
-      JSON.parse(JSON.stringify(Worker.template))
+      JSON.parse(JSON.stringify(Worker.template)),
     );
     var self = Worker.convert(Promise$1.resolve(), root);
 
@@ -31423,7 +28973,7 @@
       // Create and attach the elements.
       var source = cloneNode(
         this.prop.src,
-        this.opt.html2canvas.javascriptEnabled
+        this.opt.html2canvas.javascriptEnabled,
       );
       this.prop.overlay = createElement("div", {
         className: "html2pdf__overlay",
@@ -31480,7 +29030,7 @@
     return this.thenList(prereqs).then(function toImg_main() {
       var imgData = this.prop.canvas.toDataURL(
         "image/" + this.opt.image.type,
-        this.opt.image.quality
+        this.opt.image.quality,
       );
       this.prop.img = document.createElement("img");
       this.prop.img.src = imgData;
@@ -31504,7 +29054,7 @@
       // Calculate the number of pages.
       var pxFullHeight = canvas.height;
       var pxPageHeight = Math.floor(
-        canvas.width * this.prop.pageSize.inner.ratio
+        canvas.width * this.prop.pageSize.inner.ratio,
       );
       var nPages = Math.ceil(pxFullHeight / pxPageHeight);
 
@@ -31540,7 +29090,7 @@
         if (page) this.prop.pdf.addPage();
         var imgData = pageCanvas.toDataURL(
           "image/" + opt.image.type,
-          opt.image.quality
+          opt.image.quality,
         );
         this.prop.pdf.addImage(
           imgData,
@@ -31548,7 +29098,7 @@
           opt.margin[1],
           opt.margin[0],
           this.prop.pageSize.inner.width,
-          pageHeight
+          pageHeight,
         );
       }
     });
@@ -31739,14 +29289,14 @@
     val,
     state,
     n,
-    stack
+    stack,
   ) {
     // Immediately update all progress values, using setProgress.
     return this.setProgress(
       val ? this.progress.val + val : null,
       state ? state : null,
       n ? this.progress.n + n : null,
-      stack ? this.progress.stack.concat(stack) : null
+      stack ? this.progress.stack.concat(stack) : null,
     );
   };
 
@@ -31772,14 +29322,14 @@
             self.updateProgress(1);
             return val;
           });
-      }
+      },
     );
   };
 
   Worker.prototype.thenCore = function thenCore(
     onFulfilled,
     onRejected,
-    thenBase
+    thenBase,
   ) {
     // Handle optional thenBase parameter.
     thenBase = thenBase || Promise$1.prototype.then;
@@ -31808,7 +29358,7 @@
 
   Worker.prototype.thenExternal = function thenExternal(
     onFulfilled,
-    onRejected
+    onRejected,
   ) {
     // Call `then` and return a standard promise (exits the Worker chain).
     return Promise$1.prototype.then.call(this, onFulfilled, onRejected);
@@ -32041,7 +29591,7 @@
         select[key] = all ? [] : [].concat(self.opt.pagebreak[key] || []);
         if (select[key].length > 0) {
           select[key] = Array.prototype.slice.call(
-            root.querySelectorAll(select[key].join(", "))
+            root.querySelectorAll(select[key].join(", ")),
           );
         }
       });
@@ -32148,7 +29698,7 @@
         var links = container.querySelectorAll("a");
         var containerRect = unitConvert(
           container.getBoundingClientRect(),
-          this.prop.pageSize.k
+          this.prop.pageSize.k,
         );
         linkInfo = [];
 
@@ -32161,7 +29711,7 @@
             for (var i = 0; i < clientRects.length; i++) {
               var clientRect = unitConvert(
                 clientRects[i],
-                this.prop.pageSize.k
+                this.prop.pageSize.k,
               );
               clientRect.left -= containerRect.left;
               clientRect.top -= containerRect.top;
@@ -32183,7 +29733,7 @@
               });
             }
           },
-          this
+          this,
         );
       }
     });
@@ -32201,7 +29751,7 @@
             l.top,
             l.clientRect.width,
             l.clientRect.height,
-            { url: l.link.href }
+            { url: l.link.href },
           );
         }, this);
 
