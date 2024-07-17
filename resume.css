@@ -1,0 +1,148 @@
+@import url(./reset.css);
+@import url(./dark-mode.css);
+#volunteer-service {
+  display: none;
+}
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  padding: 0 2rem;
+}
+.active-area {
+  max-width: 965px;
+  margin: auto;
+  padding: 2rem 0;
+  background-color: #eee;
+}
+header#contact-details {
+  margin: 20px auto;
+  display: grid;
+  width: 80%;
+  grid-template-columns: 300px auto;
+  align-items: end;
+  gap: 0 1rem;
+  text-align: center;
+  grid-template-areas:
+    "avatar name"
+    "avatar title"
+    "avatar address"
+    "avatar email"
+    "avatar phone";
+}
+
+header#contact-details > img[data-itemprop="avatar"] {
+  grid-area: avatar;
+  width: 300px;
+}
+header#contact-details > h1[data-itemprop="fullName"] {
+  grid-area: name;
+}
+header#contact-details > address[data-itemprop="address"] {
+  grid-area: address;
+}
+header#contact-details > h3[data-itemprop="jobTitle"] {
+  grid-area: title;
+}
+header#contact-details > h4[data-itemprop="emailAddress"] {
+  grid-area: email;
+}
+header#contact-details > h4[data-itemprop="mobileNumber"] {
+  grid-area: phone;
+}
+section.resume-main-section {
+  display: flex;
+  margin: 4rem 0;
+  width: 90%;
+}
+
+section.resume-main-section > h3 {
+  margin: 0 2rem;
+}
+span[data-itemprop="addressLocality"]::after,
+span[data-itemprop="addressRegion"]::after {
+  content: ",";
+}
+time[data-itemprop="dateStarted"]::after {
+  content: " - ";
+}
+ul[data-itemprop="jobDuties"] {
+  list-style-type: "\1F44D\0020\0020\0020\0020";
+}
+article.employment-record > span[data-itemprop="employmentDates"],
+article.employment-record > ul[data-itemprop="jobDuties"],
+article.employment-record > ul[data-itemprop="jobDuties"] > li,
+article.employment-record > p {
+  margin: 10px 0;
+}
+
+article.employment-record {
+  margin: 2rem 0;
+}
+img.company-logo {
+  height: 4rem;
+}
+article.education-entry {
+  margin: 20px 0;
+}
+article.education-entry > header {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  text-transform: capitalize;
+}
+article.education-entry > header > img {
+  margin: 0 20px 0 0;
+}
+article.education-entry > p {
+  margin: 5px 0;
+}
+
+article.education-entry > p.link {
+  font-weight: bold;
+}
+
+#skills > ul {
+  columns: 3;
+  column-gap: 4rem;
+  list-style-type: none;
+}
+
+#skills > ul > li[data-itemprop="itemListElement"] {
+  margin: 1rem;
+}
+#skills > ul > li[data-itemprop="itemListElement"][aria-hidden="false"] {
+  display: flex;
+  align-items: center;
+}
+#skills > ul > li[data-itemprop="itemListElement"][aria-hidden="true"] {
+  display: none;
+}
+#skills > ul > li[data-itemprop="itemListElement"] > img {
+  margin-right: 1.5rem;
+}
+aside#footer-content {
+  width: 700px;
+  border: #fff solid 2px;
+  background-color: #dcdcdc;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+aside#footer-content > ul.profile-links {
+  width: 525px;
+  margin: 15px 10px;
+  list-style-type: none;
+  display: flex;
+}
+
+aside#footer-content > ul.profile-links > li {
+  margin: 0 1rem;
+}
+ul.credits,
+ul.additional-links {
+  list-style-type: none;
+}
+footer,
+ul.additional-links,
+ul.credits {
+  display: none;
+}
